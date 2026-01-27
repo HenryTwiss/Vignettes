@@ -7,14 +7,14 @@
 %=================%
 \title{The Gamma Function}
 \author{Henry Twiss}
-\date{2025}
 \makeindex
 
 \begin{document}
   \date{}
   \maketitle
+  Throughout \(s = \s+it\) and \(u = \tau+ir\) will stand for complex variables with \(\s,\tau,t,r\) real. 
   \section{Analytic Properties}
-    Throughout \(s = \s+it\) and \(u = \tau+ir\) will stand for complex variables with \(\s,\tau,t,r\) real. The \textit{gamma function} \(\G(s)\) is defined by the integral
+    The \textit{gamma function} \(\G(s)\) is defined by the integral
     \[
       \G(s) = \int_{0}^{\infty}e^{-x}x^{s-1}\,dx.
     \]
@@ -39,7 +39,7 @@
       \]
     \end{proposition}
     \begin{proof}
-      The first two identities follow by direct computation with the second requiring an application of integration by parts. The following statment is obtained by repeated application of the latter identity. The last statement follows from the identity theorem and that \(\G(s)\) is real for \(\s > 1\).
+      The first identity follow by direct evaluation. The second is a direct computation requiring an application of integration by parts. The following statement is obtained by repeated application of the latter identity. The last statement follows from the identity theorem and that \(\G(s)\) is real for \(\s > 1\).
     \end{proof}
 
     In light of \(\G(n) = (n-1)!\), we can view \(\G(s)\) as a holomorphic extension of the factorial function. An interesting observation is the value that this extension takes at \(s = \frac{1}{2}\). The change of variables \(x \mapsto \pi x^{2}\) transforms the integral defining \(\G\left(\frac{1}{2}\right)\) into a Gaussian integral giving
@@ -50,7 +50,7 @@
     \[
       \G(s+1) = s\G(s),
     \]
-    is referred to as the \textit{functional equation} for the gamma function. The functional equation will allow for the meromorphic conduction of the Gamam function to all of \(\C\).
+    is referred to as the \textit{functional equation} for the gamma function. The functional equation will allow for the meromorphic conduction of the Gamma function to all of \(\C\).
 
     \begin{theorem}\label{thm:continuation_of_gamma_function}
       For any nonnegative integer \(n\), \(\G(s)\) admits meromorphic continuation to the region \(\s > -(n+1)\) given by
@@ -71,11 +71,11 @@
       As \(n\) was arbitrary, this completes the proof.
     \end{proof}
 
-    Importat resisdues are
+    Important residues are
     \[
       \Res_{s = 0}\G(s) = 1 \quad \text{and} \quad \Res_{s = 1}\G(s) = -1.
     \]
-    In order to deduce more analytic properties of the gamma function, we will introduce an auxillary function that will be more amenable to study. The \textit{beta function} \(B(s,u)\) is defined by
+    In order to deduce more analytic properties of the gamma function, we will introduce an auxiliary function that will be more amenable to study. The \textit{beta function} \(B(s,u)\) is defined by
     \[
         B(s,u) = \int_{0}^{1}x^{s-1}(1-x)^{u-1}\,dx.
     \]
@@ -83,7 +83,7 @@
     \[
         B(s,u) = B(u,s),
     \]
-    as it seen by performing the change of varibles \(x \mapsto 1-x\) to the integral. The following result establishes the relationship between the beta function and the gamma function:
+    as it seen by performing the change of variables \(x \mapsto 1-x\) to the integral. The following result establishes the relationship between the beta function and the gamma function:
     
     \begin{proposition}\label{prop:integral_reprepsentation_for_beta_function}
       For \(\s > 0\) and \(\tau > 0\), we have
@@ -115,11 +115,11 @@
       as claimed.
     \end{proof}
 
-    It it not yet possible to meromorphically continue the beta function to \(\C^{2}\) because we cannot divide by the gamma function as we do not yet know where it possess zeros. It turns out that the gamma function has no zeros and we will prove this shortly. The essential result is to prove Euler's reflection formula which relates the gamma function to a periodic function of which we know its zeros explicitly. To acomplish this we will make use of \cref{prop:integral_reprepsentation_for_beta_function} and a formula for the beta function wich will allow us to compute it by means of the residue theorem. To deduce this formula, apply the change of variables \(x \mapsto \frac{x}{x+1}\) to the beta function to obtain
+    It it not yet possible to meromorphically continue the beta function to \(\C^{2}\) because we cannot divide by the gamma function as we do not yet know where it possess zeros. It turns out that the gamma function has no zeros and we will prove this shortly. The essential result is to prove Euler's reflection formula which relates the gamma function to a periodic function of which we know its zeros explicitly. To accomplish this we will make use of \cref{prop:integral_reprepsentation_for_beta_function} and a formula for the beta function which will allow us to compute it by means of the residue theorem. To deduce this formula, apply the change of variables \(x \mapsto \frac{x}{x+1}\) to the beta function to obtain
     \begin{equation}\label{equ:residue_form_beta_function}
       B(s,u) = \int_{0}^{\infty}\frac{x^{s-1}}{(x+1)^{s+u}}\,dx.
     \end{equation}
-    This shows that beta function is the Mellin transform of \(\frac{1}{(s+1)^{s+u}}\). This formula is immensely useful when \(s+u = 1\) because we may then evaulate \(B(s,u)\) by means of the residue theorem. We will make use of this fact to prove \textit{Euler's reflection formula}:
+    This shows that beta function is the Mellin transform of \(\frac{1}{(s+1)^{s+u}}\). This formula is immensely useful when \(s+u = 1\) because we may then evaluate \(B(s,u)\) by means of the residue theorem. We will make use of this fact to prove \textit{Euler's reflection formula}:
 
     \begin{theorem*}[Euler's reflection formula]
       For any \(s \in \C-\Z\), we have
@@ -173,7 +173,7 @@
       \[
         \int_{\eta}\frac{z^{s+1}}{z+1}\,dz.
       \]
-      We will evaulate this integral in the limit as \(R \to \infty\) and then as \(\e \to 0\). The contour encloses the only pole of the integrand which is simple at \(z = -1\) and of residue \(e^{\pi i(s-1)}\) (after taking the branch cut \(\log_{0}\) of the logarithm along the positive real axis). So, on the one hand, the residue theorem gives
+      We will evaluate this integral in the limit as \(R \to \infty\) and then as \(\e \to 0\). The contour encloses the only pole of the integrand which is simple at \(z = -1\) and of residue \(e^{\pi i(s-1)}\) (after taking the branch cut \(\log_{0}\) of the logarithm along the positive real axis). So, on the one hand, the residue theorem gives
       \[
         \int_{\eta}\frac{z^{s-1}}{z+1}\,dz = 2\pi ie^{\pi i(s-1)},
       \]
@@ -181,7 +181,7 @@
       \[
         \lim_{\e \to 0}\lim_{R \to \infty}\int_{\eta_{1}}\frac{z^{s+1}}{z+1}\,dz = \int_{0}^{\infty}\frac{x^{s-1}}{x+1}\,dx.
       \]
-      The arugment of \(s\) along \(\eta_{3}\) is \(2\pi\) that of it along \(\eta_{1}\). Therefore
+      The argument of \(s\) along \(\eta_{3}\) is \(2\pi\) that of it along \(\eta_{1}\). Therefore
       \[
         \lim_{\e \to 0}\lim_{R \to \infty}\int_{\eta_{3}}\frac{z^{s+1}}{z+1}\,dz = e^{2\pi i(s-1)}\int_{0}^{\infty}\frac{x^{s-1}}{x+1}\,dx.
       \]
@@ -189,7 +189,7 @@
       \[
         \lim_{\e \to 0}\lim_{R \to \infty}\int_{\eta_{2}}\frac{z^{s+1}}{z+1}\,dz = 0.
       \]
-      Similarily, the parameterization \(z \mapsto \e e^{i\t}\) for \(\eta_{4}\) shows that the integral along this contour tends to zero as \(\e \to 0\) and is independent of \(R\). Hence 
+      Similarly, the parameterization \(z \mapsto \e e^{i\t}\) for \(\eta_{4}\) shows that the integral along this contour tends to zero as \(\e \to 0\) and is independent of \(R\). Hence 
       \[
         \lim_{\e \to 0}\lim_{R \to \infty}\int_{\eta_{4}}\frac{z^{s+1}}{z+1}\,dz = 0.
       \]
@@ -345,8 +345,8 @@
       \]
       as desired.
     \end{proof}   
-  \section{Aymptotics}
-    Upon inspection of the Hamard factorization, we find that the reciprocal of the gamma function is of order \(1\). We now turn to analyzing the growth rate of the gamma function itself. In fact, we can obtain a well-known asymptotic formula for the gamma function known as \textit{Stirling's formula}:
+  \section{Asymptotics}
+    Upon inspection of the Hadamard factorization, we find that the reciprocal of the gamma function is of order \(1\). We now turn to analyzing the growth rate of the gamma function itself. In fact, we can obtain a well-known asymptotic formula for the gamma function known as \textit{Stirling's formula}:
 
     \begin{theorem*}[Stirling's formula]
       Let \(|\arg(s)| < \pi-\e\) and \(|s| > \d\) for some \(\e,\d > 0\). Then
@@ -363,7 +363,7 @@
       \[
         \G(s+1) = \int_{0}^{\infty}e^{-z}e^{s\log(z)}\,dz.
       \]
-      The change of variablex \(z \to s(1+z)\) gives
+      The change of variables \(z \to s(1+z)\) gives
       \[
         \G(s+1) = s^{s+1}e^{-s}\int_{-1}^{\infty}e^{s(\log(1+z)-z)}\,dz,
       \]
@@ -407,7 +407,7 @@
       \[
         \log(1+z)-z = -\frac{1}{2}z^{2}+\frac{1}{3}z^{3}+O(z^{4}).
       \]
-      Use this estimat in \(I_{1}(s)\) to write
+      Use this estimate in \(I_{1}(s)\) to write
       \[
         I_{1}(s) = \int_{-1}^{1}e^{-\frac{s}{2}z^{2}}e^{\frac{1}{3}sz^{3}+O_{\e,\d}(sz^{4})}\,dz.
       \]
@@ -431,7 +431,7 @@
       \[
         \int_{0}^{\frac{|s|}{2}}e^{-z}z^{-\frac{1}{2}}\,dz = \G\left(\frac{1}{2}\right)-\int_{\frac{|s|}{2}}^{\infty}e^{-z}z^{-\frac{1}{2}}\,dz = \sqrt{\pi}-\int_{\frac{|s|}{2}}^{\infty}e^{-z}z^{-\frac{1}{2}}\,dz,
       \]
-      where we have used \cref{equ:gamma_function_at_1/2} to evaulate the gamma function. By the exponential decay of the integrand, we have say
+      where we have used \cref{equ:gamma_function_at_1/2} to evaluate the gamma function. By the exponential decay of the integrand, we have say
       \[
         \int_{\frac{|s|}{2}}^{\infty}e^{-z}z^{-\frac{1}{2}}\,dz = O_{\e,\d}\left(\int_{\frac{|s|}{2}}^{\infty}\frac{1}{z^{3}}\,dz\right) = O_{\e,\d}\left(\frac{1}{s^{2}}\right),
       \]
@@ -462,7 +462,7 @@
       Since \(n\) was arbitrary, this proves the asymptotic formula when \(\s \le 0\) as well. The asymptotic equivalence follows immediately since it is a strictly weaker asymptotic.
     \end{proof}
 
-    We now turn to bounds for the gamam function in vertical strips. That is, when \(\s\) is bounded. The first of which is useful asymptotic equivalence showing that the gamam function decays exponentially in \(t\).
+    We now turn to bounds for the gamma function in vertical strips. That is, when \(\s\) is bounded. The first of which is useful asymptotic equivalence showing that the gamma function decays exponentially in \(t\).
     
     \begin{corollary}\label{equ:weaker_Stirling_formula_1}
       Let \(|\arg(s)| < \pi-\e\) and \(|s| > \d\) for some \(\e,\d > 0\) and suppose \(\s\) is bounded. Then
@@ -490,7 +490,7 @@
       This is equivalent to the desired asymptotic.
     \end{proof}
 
-    Notice that \cref{equ:weaker_Stirling_formula_1} is not valid on the negative real axis away from the poles of the gamma function. We can remedy this provided we weaken the asymptotic slighly.
+    Notice that \cref{equ:weaker_Stirling_formula_1} is not valid on the negative real axis away from the poles of the gamma function. We can remedy this provided we weaken the asymptotic slightly.
 
     \begin{corollary}\label{equ:weaker_Stirling_formula_2}
       Suppose \(\s_{1} \le \s \le \s_{2}\) and \(|t| > \e\). Then
@@ -511,7 +511,7 @@
       which are strictly weaker estimates. The third estimate is obtained by taking the ratio of these two. Since the gamma function is holomorphic and bounded on the compact set defined by \(\s_{1} \le \s \le \s_{2}\) and \(|t| \le \e\) with \(s\) distance \(\e\) away from the poles, it is absolutely bounded. The second statement follows.
     \end{proof}
 
-    Having discussed the major properties of the gamma function, we now introduce a related function. We call \(\frac{\G'}{\G}(s)\) the \textit{digamma function}. In other words, the digamma function is the logarithmic derivative of the gamma function. From \cref{thm:continuation_of_gamma_function}, it is meromorphic on \(\C\) with simple poles at the nonpositive integers whose residues are all \(-1\). Taking the logarithmic derivative of the functional equation of the gamam function shows that
+    Having discussed the major properties of the gamma function, we now introduce a related function. We call \(\frac{\G'}{\G}(s)\) the \textit{digamma function}. In other words, the digamma function is the logarithmic derivative of the gamma function. From \cref{thm:continuation_of_gamma_function}, it is meromorphic on \(\C\) with simple poles at the nonpositive integers whose residues are all \(-1\). Taking the logarithmic derivative of the functional equation of the gamma function shows that
     \[
       \frac{\G'}{\G}(s+1) = \frac{\G'}{\G}(s)+\frac{1}{s}.
     \]
@@ -525,7 +525,7 @@
       where \(\g\) is the Euler-Mascheroni constant.
     \end{corollary}
     \begin{proof}
-      As the gamam function has no zeros, we may use its functional equation to write
+      As the gamma function has no zeros, we may use its functional equation to write
       \[
         \frac{1}{\G(s+1)} = \frac{1}{s\G(s)}.
       \]
@@ -565,7 +565,7 @@
       \[
         \frac{1}{2\pi i}\int_{\eta}\frac{\log\G(u)-g(u)}{(u-s)^{2}}\,du = O_{\e,\d}\left(\frac{1}{s}\right),
       \]
-      in view of our estimate for $\log\G(s)-g(s)$. Whence
+      in view of our estimate for \(\log\G(s)-g(s)\). Whence
       \[
         \frac{\G'}{\G}(s) = \log(s)+O_{\e,\d}\left(\frac{1}{s}\right),
       \]
