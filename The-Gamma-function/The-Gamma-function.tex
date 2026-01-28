@@ -499,16 +499,16 @@
       \]
       In particular,
       \[
-        \frac{\G(1-s)}{\G(s)} \ll_{\s_{1},\s_{2}\e} |t|^{1-2\s}.
+        \frac{\G(1-s)}{\G(s)} \ll_{\s_{1},\s_{2},\e} |t|^{1-2\s}.
       \]
-      All of these estimates hold with \(|t|+1\) replacing \(|t|\) if we merely assume \(s\) is distance \(\e\) away from the poles of the gamma function in this vertical strip.
+      All of these estimates hold with \(|t|+1\) replacing \(|t|\) if we merely assume \(s\) is at least distance \(\e\) away from the poles of the gamma function in this vertical strip.
     \end{corollary}
     \begin{proof}
       \cref{equ:weaker_Stirling_formula_1} implies
       \[
         \G(s) \ll_{\s_{1},\s_{2},\e} |t|^{\s-\frac{1}{2}}e^{-\frac{\pi}{2}|t|} \quad \text{and} \quad \frac{1}{\G(s)} \ll_{\s_{1},\s_{2},\e} |t|^{\frac{1}{2}-\s}e^{\frac{\pi}{2}|t|},
       \]
-      which are strictly weaker estimates. The third estimate is obtained by taking the ratio of these two. Since the gamma function is holomorphic and bounded on the compact set defined by \(\s_{1} \le \s \le \s_{2}\) and \(|t| \le \e\) with \(s\) distance \(\e\) away from the poles, it is absolutely bounded. The second statement follows.
+      which are strictly weaker estimates. The third estimate is obtained by taking the ratio of these two. Since the gamma function is holomorphic and bounded on the compact set defined by \(\s_{1} \le \s \le \s_{2}\) and \(|t| \le \e\) with \(s\) at least distance \(\e\) away from the poles, it is absolutely bounded. The second statement follows.
     \end{proof}
 
     Having discussed the major properties of the gamma function, we now introduce a related function. We call \(\frac{\G'}{\G}(s)\) the \textit{digamma function}. In other words, the digamma function is the logarithmic derivative of the gamma function. From \cref{thm:continuation_of_gamma_function}, it is meromorphic on \(\C\) with simple poles at the nonpositive integers whose residues are all \(-1\). Taking the logarithmic derivative of the functional equation of the gamma function shows that

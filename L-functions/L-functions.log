@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.4.27)  28 JAN 2026 09:40
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.4.27)  28 JAN 2026 10:52
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/Users/henrytwiss/Documents/Documents/LaTeX/Vignettes/The-Gamma-function/The-Gamma-function.tex
-(/Users/henrytwiss/Documents/Documents/LaTeX/Vignettes/The-Gamma-function/The-Gamma-function.tex
+**/Users/henrytwiss/Documents/Documents/LaTeX/Vignettes/L-functions/L-functions.tex
+(/Users/henrytwiss/Documents/Documents/LaTeX/Vignettes/L-functions/L-functions.tex
 LaTeX2e <2021-11-15> patch level 1
 L3 programming layer <2022-02-24> (/usr/local/texlive/2022/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2021/10/04 v1.4n Standard LaTeX document class
@@ -583,12 +583,12 @@ File: tikzlibrarycalc.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 \pgf@layerboxsaved@background=\box67
 )
 \@indexfile=\write4
-\openout4 = `The-Gamma-function.idx'.
+\openout4 = `L-functions.idx'.
 
 
-Writing index file The-Gamma-function.idx
-(./The-Gamma-function.aux)
-\openout1 = `The-Gamma-function.aux'.
+Writing index file L-functions.idx
+(./L-functions.aux)
+\openout1 = `L-functions.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 12.
 LaTeX Font Info:    ... okay on input line 12.
@@ -656,9 +656,9 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 12.
 LaTeX Info: Redefining \pageref on input line 12.
 LaTeX Info: Redefining \nameref on input line 12.
- (./The-Gamma-function.out) (./The-Gamma-function.out)
+ (./L-functions.out) (./L-functions.out)
 \@outlinefile=\write5
-\openout5 = `The-Gamma-function.out'.
+\openout5 = `L-functions.out'.
 
  (/usr/local/texlive/2022/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -686,40 +686,29 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 LaTeX Font Info:    Trying to load font information for U+msb on input line 15.
  (/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-Package hyperref Info: bookmark level for unknown proposition defaults to 0 on input line 27.
-Package hyperref Info: bookmark level for unknown proof defaults to 0 on input line 42.
- [1
+) [1
 
 {/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Package hyperref Info: bookmark level for unknown theorem defaults to 0 on input line 55.
- [2]
-Package hyperref Info: bookmark level for unknown theorem* defaults to 0 on input line 124.
- [3] [4] [5] [6]
-Package hyperref Info: bookmark level for unknown lemma defaults to 0 on input line 278.
- [7] [8] [9] [10]
-Package hyperref Info: bookmark level for unknown corollary defaults to 0 on input line 467.
- [11] [12]
 \tf@thm=\write6
-\openout6 = `The-Gamma-function.thm'.
+\openout6 = `L-functions.thm'.
 
- [13] (./The-Gamma-function.aux)
-Package rerunfilecheck Info: File `The-Gamma-function.out' has not changed.
-(rerunfilecheck)             Checksum: EC93F82E5B2AE5AD38C14F4CC17279EE;239.
+ [2] (./L-functions.aux)
+Package rerunfilecheck Info: File `L-functions.out' has not changed.
+(rerunfilecheck)             Checksum: 723429E54D66F30279B26A23D7D9E9F0;111.
  ) 
 Here is how much of TeX's memory you used:
- 25510 strings out of 478268
- 507281 string characters out of 5846347
- 755727 words of memory out of 5000000
- 43266 multiletter control sequences out of 15000+600000
- 479408 words of font info for 67 fonts, out of 8000000 for 9000
+ 25176 strings out of 478268
+ 499121 string characters out of 5846347
+ 753131 words of memory out of 5000000
+ 42984 multiletter control sequences out of 15000+600000
+ 479309 words of font info for 67 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 105i,8n,107p,879b,1222s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on The-Gamma-function.pdf (13 pages, 210438 bytes).
+ 105i,6n,107p,1121b,547s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on L-functions.pdf (2 pages, 147100 bytes).
 PDF statistics:
- 219 PDF objects out of 1000 (max. 8388607)
- 172 compressed objects within 2 object streams
- 52 named destinations out of 1000 (max. 500000)
- 29 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 95 PDF objects out of 1000 (max. 8388607)
+ 62 compressed objects within 1 object stream
+ 4 named destinations out of 1000 (max. 500000)
+ 21 words of extra memory for PDF output out of 10000 (max. 10000000)
 
