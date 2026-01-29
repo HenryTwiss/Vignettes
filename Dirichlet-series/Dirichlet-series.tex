@@ -241,11 +241,11 @@
         \]
         for \(\s > \s_{a}\), where the product is locally absolutely uniformly convergent. If the prime power coefficients satisfy
         \[
-          a(p^{m}) = \sum_{1 \le j_{1} \le \cdots \le j_{m} \le d}\a_{j_{1}}(p) \cdots \a_{j_{m}}(p),
+          a(p^{k}) = \sum_{1 \le j_{1} \le \cdots \le j_{k} \le d}\a_{j_{1}}(p) \cdots \a_{j_{k}}(p),
         \]
         for some \(\a_{1}(p),\ldots,\a_{d}(p) \in \C\) and positive integer \(d\), then the product takes the form
         \[
-          D(s) = \prod_{p}\prod_{1 \le j \le d}(1-\a_{j}(p)p^{-s})^{-1},
+          D(s) = \prod_{p}(1-\a_{1}(p)p^{-s})^{-1} \cdots (1-\a_{d}(p)p^{-s})^{-1},
         \]
     \end{proposition}
     \begin{proof}
@@ -259,11 +259,11 @@
         \]
         where the \(\ast\) indicates that we are summing over only those additional terms \(\frac{a(n)}{n^{s}}\) that appear in the expanded product. As \(N \to \infty\), the first sum on the right-hand side tends to \(D(s)\) and the second sum tends to zero because it is part of the tail of \(D(s)\). This proves that the product converges, and is equal to \(D(s)\). Local absolute uniform convergence of the product follows from that of the Dirichlet series. If the prime power coefficients are of the form
         \[
-          a(p^{m}) = \sum_{1 \le j_{1} \le \cdots \le j_{m} \le d}\a_{j_{1}}(p) \cdots \a_{j_{m}}(p),
+          a(p^{k}) = \sum_{1 \le j_{1} \le \cdots \le j_{k} \le d}\a_{j_{1}}(p) \cdots \a_{j_{k}}(p),
         \]
         then
         \[
-          \sum_{k \ge 0}\frac{a(p^{k})}{p^{ks}} = \prod_{1 \le j \le d}(1-\a_{j}(p)p^{-s})^{-1},
+          \sum_{k \ge 0}\frac{a(p^{k})}{p^{ks}} = (1-\a_{1}(p)p^{-s})^{-1} \cdots (1-\a_{d}(p)p^{-s})^{-1},
         \]
         from which the product formula follows.
     \end{proof}
@@ -274,19 +274,19 @@
     \]
     More generally, suppose \(D(s)\) can be expressed as the product
     \[
-      D(s) = \prod_{p}\prod_{1 \le i \le d}(1-\a_{i}(p)p^{-s})^{-1}.
+      D(s) = \prod_{p}(1-\a_{1}(p)p^{-s})^{-1} \cdots (1-\a_{d}(p)p^{-s})^{-1}.
     \]
     We call this product the \textit{Euler product} of \(D(s)\) and it is said to be of \textit{degree} \(d\). As in \cref{prop:Dirichlet_series_Euler_product}, the condition
     \[
-      a(p^{m}) = \sum_{1 \le j_{1} \le \cdots \le j_{m} \le d}\a_{j_{1}}(p) \cdots \a_{j_{m}}(p),
+      a(p^{k}) = \sum_{1 \le j_{1} \le \cdots \le j_{k} \le d}\a_{j_{1}}(p) \cdots \a_{j_{k}}(p),
     \]
     guarantees that the Dirichlet series has an Euler product of degree \(d\). In this case, we let \(D^{(N)}(s)\) denote the Dirichlet series with the factors \(p \mid N\) in the Euler product removed. This means
     \[
-      D^{(N)}(s) = D(s)\prod_{p \mid N}\prod_{1 \le i \le d}(1-\a_{i}(p)p^{-s}).
+      D^{(N)}(s) = D(s)\prod_{p \mid N}(1-\a_{1}(p)p^{-s}) \cdots (1-\a_{d}(p)p^{-s}).
     \]
     Dually, we let \(D_{(N)}(s)\) denote the Dirichlet series consisting only of the factors \(p \mid N\) in the Euler product. This means
     \[
-      D_{(N)}(s) = \prod_{p \mid N}\prod_{1 \le i \le d}(1-\a_{i}(p)p^{-s})^{-1}.
+      D_{(N)}(s) = \prod_{p \mid N}(1-\a_{1}(p)p^{-s})^{-1} \cdots (1-\a_{\ell}(p)p^{-s})^{-1}.
     \]
     With this notation, we have the relationship
     \[

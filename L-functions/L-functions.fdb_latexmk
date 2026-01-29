@@ -1,11 +1,11 @@
 # Fdb version 3
-["makeindex L-functions.idx"] 1769615521 "L-functions.idx" "L-functions.ind" "L-functions" 1769615521
+["makeindex L-functions.idx"] 1769641614 "L-functions.idx" "L-functions.ind" "L-functions" 1769701118
   "L-functions.idx" 0 -1 0 "pdflatex"
   (generated)
   "L-functions.ilg"
   "L-functions.ind"
-["pdflatex"] 1769615521 "/Users/henrytwiss/Documents/Documents/LaTeX/Vignettes/L-functions/L-functions.tex" "L-functions.pdf" "L-functions" 1769615521
-  "/Users/henrytwiss/Documents/Documents/LaTeX/Vignettes/L-functions/L-functions.tex" 1769615520 88158 1a6571a16063ac96b74ef6d767ec2473 ""
+["pdflatex"] 1769701118 "/Users/henrytwiss/Documents/Documents/LaTeX/Vignettes/L-functions/L-functions.tex" "L-functions.pdf" "L-functions" 1769701118
+  "/Users/henrytwiss/Documents/Documents/LaTeX/Vignettes/L-functions/L-functions.tex" 1769701118 83529 86db96c47b9ecdc6b4bf20f90598684d ""
   "/Users/henrytwiss/Documents/Documents/LaTeX/Vignettes/preamble.tex" 1769363703 5405 a09c92403f06ce9a0bf05bb0ba5a732b ""
   "/usr/local/texlive/2022/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
@@ -39,7 +39,6 @@
   "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1248133631 32569 5e5ddc8df908dea60932f3c484a54c0d ""
   "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb" 1248133631 32626 4f5c1b83753b1dd3a97d1b399a005b4b ""
   "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb" 1248133631 36118 fad905eba93cff5bce1e185fe980a177 ""
-  "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb" 1248133631 30273 87a352d78b6810ae5cfdc68d2fb827b2 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb" 1248133631 34694 ad62b13721ee8eda1dcc8993c8bd7041 ""
   "/usr/local/texlive/2022/texmf-dist/tex/context/base/mkii/supp-pdf.mkii" 1461363279 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "/usr/local/texlive/2022/texmf-dist/tex/generic/atbegshi/atbegshi.sty" 1575674566 24708 5584a51a7101caf7e6bbf1fc27d8f7b1 ""
@@ -181,10 +180,10 @@
   "/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1647878959 4410336 7d30a02e9fa9a16d7d1f8d037ba69641 ""
   "/usr/local/texlive/2022/texmf-var/web2c/pdftex/pdflatex.fmt" 1651053080 2826447 333659af56a38286fbbf3f5177a8ca36 ""
   "/usr/local/texlive/2022/texmf.cnf" 1647878952 577 209b46be99c9075fd74d4c0369380e8c ""
-  "L-functions.aux" 1769615521 796 b426ff0539ba08bc85bfc3148844409d "pdflatex"
+  "L-functions.aux" 1769701118 937 0c4118762e771ad44abecb8499de71f8 "pdflatex"
   "L-functions.ind" 0 -1 0 "makeindex L-functions.idx"
-  "L-functions.out" 1769615521 111 723429e54d66f30279b26a23d7d9e9f0 "pdflatex"
-  "L-functions.tex" 1769615520 88158 1a6571a16063ac96b74ef6d767ec2473 ""
+  "L-functions.out" 1769701118 111 723429e54d66f30279b26a23d7d9e9f0 "pdflatex"
+  "L-functions.tex" 1769701118 83529 86db96c47b9ecdc6b4bf20f90598684d ""
   (generated)
   "L-functions.aux"
   "L-functions.idx"

@@ -5,138 +5,65 @@
 %=================%
 %  Title & Index  %
 %=================%
-\title{\(L\)-functions}
+\title{Analytic \(L\)-functions}
 \author{Henry Twiss}
 \makeindex
 
 \begin{document}
   \date{}
   \maketitle
-  Throughout, \(s = \s+it\) and \(u = \tau+ir\) will stand for complex variables with \(\s\), \(\tau\), \(t\), and \(r\) real. We also set
-  \[
-    \G_{\R}(s) = \pi^{-\frac{s}{2}}\G\left(\frac{s}{2}\right) \quad \text{and} \quad \G_{\C}(s) = (2\pi)^{-s}\G(s).
-  \]
-  In this notation, Legendre's duplication formula takes the form
-  \[
-    \G_{\C}(s) = \G_{\R}(s)\G_{\R}(s+1).
-  \]
+  Throughout, \(s = \s+it\) and \(u = \tau+ir\) will stand for complex variables with \(\s\), \(\tau\), \(t\), and \(r\) real.
   \section{Analytic Data}
     An \textit{analytic \(L\)-function} \(L(s)\) is a Dirichlet series
     \[
       L(s) = \sum_{n \ge 1}\frac{a(n)}{n^{s}},
     \]
-    with coefficients \(a(n) \in \C\) satisfying the following properties:
+    with coefficients \(a(n) \in \C\) such that \(a(1) = 1\) and satisfying the following properties:
     \begin{enumerate}[align=left]
-      \item[\textbf{Analyticity:}] There is an nonnegative integer \(r\) such that \(L(s)\) is absolutely convergent for \(\s > 1\) and admits meromorphic continuation to \(\C\) with at most a pole at \(s = 1\) of order \(r\) such that \((s-1)^{r}L(s)\) is of order \(1\).
-      \item[\textbf{Functional Equation:}] There exists a positive integer \(Q\), called the \textit{conductor} of \(L\), a positive integer \(d\) called the \textit{degree} of \(L\), a pair of nonnegative integers \((d_{1},d_{2})\) called the \textit{signature} of \(L\) with \(d = d_{1}+d_{2}\), and complex numbers \((\mu_{j})_{1 \le j \le d_{1}}\) and \((\nu_{k})_{1 \le k \le d_{2}}\) called the \textit{spectral parameters} of \(L\) whose imaginary parts are all larger than \(-1\), all of which determine functions
+      \item[\textbf{Analyticity:}] There exists a nonnegative integer \(r\) such that the Dirichlet series of \(L(s)\) is absolutely convergent for \(\s > 1\) and admits meromorphic continuation to \(\C\) with at most a pole at \(s = 1\) of order \(r\). Moreover, \((s-1)^{r}L(s)\) is order \(1\).
+      \item[\textbf{Functional Equation:}] There is a positive integer \(Q\), called the \textit{conductor} of \(L(s)\), a positive integer \(d\) called the \textit{degree} of \(L(s)\), complex numbers \((\mu_{j})_{1 \le j \le d}\) called the \textit{local parameters} of \(L(s)\) at infinity that are either real or occur in conjugate pairs and satisfy \(\Re(\mu_{j}) \ge 0\), and a complex number \(\e\) called the \textit{root number} of \(L(s)\) with \(|\e| = 1\), all of which determine functions
       \[
-        \L(s) = Q^{\frac{s}{2}}L_{\infty}(s)L(s) \quad \text{and} \quad L_{\infty}(s) = \prod_{j}\G_{\R}(s+\mu_{j})\prod_{k}\G_{\C}(s+\nu_{k}),
+        \L(s) = Q^{\frac{s}{2}}L_{\infty}(s)L(s) \quad \text{and} \quad L_{\infty}(s) = \pi^{-\frac{ds}{2}}\prod_{j}\G\left(\frac{s+\mu_{j}}{2}\right),
       \]
-      called the \textit{completion} of \(L\) and the \textit{archimedean factor} of \(L\) respectively, such that the completion has the following properties:
-      \begin{enumerate}[align=left]
-        \item[\textbf{Bounded in vertical strips:}] \(\L(s)\) is polynomially bounded in vertical strips away from its poles. That is, for \(\s_{1} \le \s \le \s_{2}\) there is a positive constant \(A(\s_{1},\s_{2})\) such that
-        \[
-          \L(s) \ll_{s_{1},\s_{2},\e} \ll (|t|+1)^{A(\s_{1},\s_{2})},
-        \]
-        provided \(s\) is at least distance \(\e\) away from the poles of \(\L(s)\) in this vertical strip.
-        \item[\textbf{Functional equation:}] There exists a \(\e \in \C\), called the \textit{sign} of \(L\), such that
-        \[
-          \L(s) = \e\conj{\L(1-\conj{s})}.
-        \]
-      \end{enumerate}
-      \item[\textbf{Euler product:}] For every prime \(p\), there exist a polynomial \(L_{p} \in \C(T)\) called the \textit{local factor} of \(L\) at \(p\) of degree \(d_{p} \le d\) with roots \((\a_{\ell,p})_{1 \le \ell \le d_{p}}\) called the \textit{Satake parameters} of \(L\) at \(p\), such that \(L\) admits the Euler product
+      called the \textit{completion} of \(L(s)\) and the \textit{local factor} of \(L(s)\) at infinity respectively, satisfying
       \[
-        L(s) = \prod_{p}L_{p}(p^{-s})^{-1}.
+        \L(s) = \e\conj{\L(1-\conj{s})}.
       \]
-      Moreover, if \(p \nmid Q\) then \(d_{p} = d\) and if \(p \mid Q\) then \(d_{p} < d\). In the former case \(p\) is said to be \textit{ramified} and in the latter case \(p\) is said to be \textit{unramified}.
-      \item[\textbf{Central character:}] There exists a Dirichlet character \(\chi\) of conductor dividing \(Q\) called the \textit{central character} of \(L\) such that has the following properties:
-      \begin{enumerate}[align=left]
-        \item[\textbf{Leading term:}] For every prime \(p\), the local factor at \(p\) is of the form
-        \[
-          L_{p}(T) = 1-a_{p}T+\cdots+(-1)^{d}\chi(p)T^{d}.
-        \]
-        \item[\textbf{Balanced:}] We have
-        \[
-          \Im\left(\sum_{j}\mu_{j}+\sum_{k}(2\nu_{k}+1)\right) = 0.
-        \]
-        That is, the spectral parameters are either real or occur in conjugate pairs.
-        \item[\textbf{Parity:}] The spectral parameters determine the parity of the central character via
-        \[
-          \chi(-1) = (-1)^{\sum_{j}\mu_{j}+\sum_{k}(2\nu_{k}+1)}.
-        \]
-      \end{enumerate}
+      This is called the \textit{functional equation} of \(L(s)\).
+      \item[\textbf{Euler product:}] For every prime \(p\), there exist complex numbers \((\a_{j}(p))_{1 \le j \le d}\) called the \textit{local parameters} of \(L(s)\) at \(p\) satisfying \(|\a_{j}(p)| < p\) and are such that \(L(s)\) admits the Euler product
+      \[
+        L(s) = \prod_{p}(1-\a_{1}(p)p^{-s})^{-1} \cdots (1-\a_{d}(p)p^{-s})^{-1},
+      \]
+      which is absolutely convergent for \(\s > 1\).
     \end{enumerate}
-      
+
+    An analytic \(L\)-function is said to be \textit{unitary} if it satisfies the following two additional properties:
+
+    \begin{enumerate}[align=left]
+      \item[\textbf{Selberg bound:}] The local parameters at infinity satisfy \(\Re(\mu_{j}) \in \frac{1}{2}\Z_{\ge 0}\).
+      \item[\textbf{Ramanujan bound:}] The local parameters at \(p\) satisfy \(|\a_{j}(p)| = 1\) for \(p \nmid Q\) and \(|\a_{j}(p)| \le 1\) for \(p \mid Q\).
+    \end{enumerate}
+
+    Some comments on the definition of analytic \(L\)-functions are in order. The bound \(\Re(\mu_{j}) \ge 0\) ensures that the local factor at infinity is holomorphic in the region \(\s > 0\). As this factor is then guaranteed to be finite and nonzero at \(s = 1\), the completion possesses a pole at \(s = 1\) of order \(r\). By the functional equation, the completion also has a pole at \(s = 0\) of the same order. Somewhat less obvious is the fact that we may merely assume \((s-1)^{r}L(s)\) is finite order as the functional equation forces the order to be \(1\). This can be deduced by considering the entire function
+    \[
+      s^{r}(s-1)^{r}\L(s),
+    \]
+    and applying the Phragm\'en-Lindel\"of convexity principle in vertical strips. Also, the condition that the root number satisfies \(|\e| = 1\) isn't strictly necessary. For applying the functional equation twice shows \(|\e|^{2} = 1\). The Selberg and Ramanujan bounds are conjectural for most analytic \(L\)-functions, but the latter is the more important bound. The Euler product implies that the coefficients \(a(n)\) are multiplicative and are determined on prime powers by
+    \[
+      a(p^{k}) = \sum_{1 \le j_{1} \le \cdots \le j_{k} \le d}\a_{j_{1}}(p) \cdots \a_{j_{k}}(p).
+    \]
+    In other words, \(a(p^{k})\) is the complete symmetric polynomial of degree \(k\) in the local parameters at \(p\). There are \(\binom{k+d-1}{d-1} \ll \s_{d}(p^{k})\) many terms and the coefficients are bounded by \(a(n) \ll \s_{d}(n)\). This implies the slightly weaker, but more practical, estimate \(a(n) \ll_{\e} n^{\e}\).
+
+    It it clear from the definition that analytic \(L\)-functions are closed under multiplication and that the degree is additive. Moreover, this closure respects unitary \(L\)-functions as well. This makes the set of analytic \(L\)-functions into an well-founded commutative semigroup where the partial order induced by degree. Then there exist irreducible elements with respect to the partial order and we say that an analytic \(L\)-function is \textit{primitive} if it such an irreducible. Clearly any analytic \(L\)-function of degree \(1\) is primitive. Moreover, every analytic \(L\)-function factors into a product of primitive \(L\)-functions. Such a factorization is only conjectured to be unique for unitary \(L\)-functions. A sufficient condition would be \textit{Selberg's orthogonality conjecture}:
+
+    \begin{conjecture*}[Selberg's orthogonality conjecture]
+      For any two primitive unitary \(L\)-functions \(L_{1}\) and \(L_{2}\) with coefficients \(a_{1}(n)\) and \(a_{2}(n)\), we have
+      \[
+        \sum_{p \le x}\frac{a_{1}(p)\conj{a_{2}(p)}}{p} = \d_{L_{1},L_{2}}\log\log(x)+O(1).
+      \]
+    \end{conjecture*}
+
     \iffalse
-      The \textit\{analytic conductor\} \(\mf{q}(s)\) is defined to be
-      \[
-        \mf{q}(s) = q(f)\mf{q}_{\infty}(s),
-      \]
-      where we set
-      \[
-        \mf{q}_{\infty}(s) = \prod_{1 \le j \le d_{f}}(|s+\k_{j}|+3).
-      \]
-      For simplicity, we will also suppress the dependence upon \(s\) if \(s = 0\). That is, we write
-      \[
-        \mf{q}(f) = \mf{q}(0,f) \quad \text{and} \quad \mf{q}_{\infty}(f) = \mf{q}_{\infty}(0,f).
-      \]
-      \item The \textit\{completed \(L\)-function\}
-      \[
-        \L(s) = q(f)^{\frac{s}{2}}\g(s)L(s),
-      \]
-      must admit meromorphic continuation to \(\C\) with at most poles at \(s = 0\) and \(s = 1\). Moreover, it must satisfy the \textit\{functional equation\} given by
-      \[
-        \L(s) = \e(f)\L(1-s,\conj{f}),
-      \]
-      where \(\e(f)\) is a complex number with \(|\e(f)| = 1\) called the \textit\{root number\} of \(L(s)\), and \(\conj{f}\) is an object associated to \(f\) called the \textit\{dual\} of \(f\) such that \(L(s,\conj{f})\) satisfies \(a_{\conj{f}}(n) = \conj{a(n)}\), \(\g(s,\conj{f}) = \g(s)\), \(q(\conj{f}) = q(f)\), and \(\e(\conj{f}) = \conj{\e(f)}\). We call \(L(s,\conj{f})\) the \textit\{dual\} of \(L(s)\). If \(\conj{f} = f\), we say \(L(s)\) is \textit\{self-dual\}.
-      \item \(L(s)\) admits meromorphic continuation to \(\C\) with at most a pole at \(s = 1\) of order \(r_{f} \in \Z\), and must be of order \(1\) (see \cref{append:Factorizations_and_Finite_Order}) after clearing the possible polar divisor.
-    \end{enumerate}
-    Property (ii) ensures that \(\g(s)\) is holomorphic and nonzero for \(\s \ge 1\). Then as \(\g(1,f)\) is nonzero, \(r_{f}\) is also the order of possible poles of \(\L(s)\) at \(s = 0\) and \(s = 1\) which are equal by the functional equation. It follows that \(r_{\conj{f}} = -r_{f}\). As \(L(s)\) admits meromorphic continuation by property (v), we denote the continuation by \(L(s)\) as well. Also note that the product of \(L\)-functions is an \(L\)-function but the sum of \(L\)-functions need not be.
-
-    \begin{remark}\label{rem:degree_0_L-function}
-      The only \(L\)-function of degree \(0\) is \(L(s,\mathbf{1})\) defined by setting \(a_{\mathbf{1}}(1) = 1\) and \(a_{\mathbf{1}}(n) = 0\) for all \(n > 1\) so that \(L(s,\mathbf{1}) \equiv 1\). Moreover, \(\g(s,\mathbf{1}) \equiv 1\), \(q(\mathbf{1}) = 1\), \(\e(\mathbf{1}) = 1\), and \(L(s,\mathbf{1})\) is self-dual.
-    \end{remark}
-
-    We say that an \(L\)-function \(L(s)\) belongs to the \textit\{Selberg class\} if the additional adjustments to (i), (ii), and (v) hold:
-    \begin{itemize}
-      \item[(i)] The local roots at \(p\) satisfy \(|\a_{j}(p)| = 1\) if \(p \nmid q(f)\) and \(|\a_{j}(p)| \le 1\) if \(p \mid q(f)\).
-      \item[(ii)] The local roots at infinity satisfy \(\Re(\k_{j}) \ge 0\).
-      \item[(v)] \(L(s)\) has at most a simple pole at \(s = 1\). That is, \(r_{f} \le 1\).
-    \end{itemize}
-    The adjustment for (i) is called the \textit\{generalized Ramanujan-Petersson conjecture\} and it forces \(a(n) \ll \s_{0}(n) \ll_{\e} n^{\e}\) (recall \cref{prop:sum_of_divisors_growth_rate}). The adjustment for (ii) is called the \textit\{generalized Selberg conjecture\} and it ensures that \(\g(s)\) is holomorphic and nonzero for \(\s > 0\). As for the adjustment for (v), it is expected that \(L(s)\) is entire unless \(\a_{i}(p) \ge 0\). The Selberg class constitutes a very special class of \(L\)-functions. Note that the product of two Selberg class \(L\)-functions is also Selberg class. Accordingly, we say that a Selberg class \(L\)-function is \textit\{primitive\} if it cannot be factored into a product of two Selberg class \(L\)-functions of strictly smaller positive degree (positive degree is necessary so that one of the factors cannot be \(L(s,\mathbf{1})\)). Clearly, any Selberg class \(L\)-function of degree \(1\) is primitive.
-
-    \begin{remark}
-      In general, it is a difficult problem to determine when an \(L\)-function \(L(s)\) of degree \(d_{f} \ge 2\) is primitive.
-    \end{remark}
-
-    Let \(L(s)\) be an \(L\)-function with local roots \(\a_{j}(p)\) at \(p\) and let \(k \ge 1\). We say that an \(L\)-function \(L(s,\sym^{k}f)\) of degree \(\binom{d_{f}+k-1}{k}\) is the \(k\)-th \textit\{symmetric power\} of \(L(s)\) if it satisfies the following adjustment:
-    \begin{itemize}
-      \item[(i)] The Euler product of \(L(s,\sym^{k}f)\) takes the form
-      \[
-        L(s,\sym^{k}f) = \prod_{p}\prod_{1 \le j_{1} \le \cdots \le j_{k} \le d_{f}}(1-\a_{j_{1}}(p) \cdots \a_{j_{k}}(p)p^{-s})^{-1}.
-      \]
-    \end{itemize}
-    When \(k\) is \(2\), \(3\), etc.\ we simply refer to \(L(s,\sym^{k}f)\) as the \textit\{symmetric square\}, \textit\{symmetric cube\}, etc. When \(k \le d_{f}\), we say that an \(L\)-function \(L(s,\ext^{k}f)\) of degree \(\binom{d_{f}}{k}\) is the \(k\)-th \textit\{exterior power\} of \(L(s)\) if it satisfies the following adjustment:
-    \begin{itemize}
-      \item[(i)] The Euler product of \(L(s,\ext^{k}f)\) takes the form
-      \[
-        L(s,\ext^{k}f) = \prod_{p}\prod_{1 \le j_{1} < \cdots < j_{k} \le d_{f}}(1-\a_{j_{1}}(p) \cdots \a_{j_{k}}(p)p^{-s})^{-1}.
-      \]
-    \end{itemize}
-    When \(k\) is \(2\), \(3\), etc.\ we simply refer to \(L(s,\ext^{k}f)\) as the \textit\{exterior square\}, \textit\{exterior cube\}, etc.
-
-    \begin{remark}
-      It is not an easy matter to determine if the \(k\)-th symmetric power and \(k\)-th exterior power \(L\)-functions of \(L(s)\) exist.
-    \end{remark}
-
-    Now suppose we are given two \(L\)-functions \(L(s)\) and \(L(s,g)\) with local roots \(\a_{j}(p)\) and \(\b_{\ell}(p)\) at \(p\). We say that an \(L\)-function \(L(s,f \ox g)\) of degree \(d_{f \ox g} = d_{f}d_{g}\) is the \textit\{Rankin-Selberg convolution\} of \(L(s)\) and \(L(s,g)\) (or \textit\{Rankin-Selberg square\} if \(f = g\)) if it satisfies the following adjustment:
-    \begin{itemize}
-      \item[(i)] The Euler product of \(L(s,f \ox g)\) takes the form
-      \[
-        L(s,f \ox g) = \prod_{p \nmid q(f)q(g)}\prod_{\substack{1 \le j \le d_{f} \\ 1 \le \ell \le d_{g}}}\left(1-\a_{j}(p)\conj{\b_{\ell}(p)}p^{-s}\right)^{-1}\prod_{p \mid q(f)q(g)}\prod_{1 \le i \le d_{f}d_{g}}\left(1-\g_{i}(p)p^{-s}\right)^{-1},
-      \]
-      with \(\g_{j}(p) \in \C\), \(\g_{j}(1) = 1\), and \(|\g_{j}(p)| \le p\) for all \(i\) and primes \(p \mid q(f)q(g)\). 
-    \end{itemize}
     We now introduce some important concepts associated to \(L\)-functions. The \textit\{critical strip\} is the vertical strip left invariant by the transformation \(s \mapsto 1-s\), that is, the region defined by
     \[
       \left\{s \in \C:\left|\s-\frac{1}{2}\right| \le \frac{1}{2}\right\}.
@@ -169,7 +96,24 @@
       \label{fig:critical_strip}
     \end{figure}
 
-    Lastly, we provide some bounds about gamma functions, gamma factors, and their logarithmic derivatives that will be extremely useful in the study of \(L\)-functions. Suppose \(\s\) is bounded and \(|t| > 1\). Then \(s\) is bounded away from zero and by \cref{equ:weaker_Stirling_formula} we have the asymptotic
+    Lastly, we provide some bounds about gamma functions, gamma factors, and their logarithmic derivatives that will be extremely useful in the study of \(L\)-functions. 
+
+
+    To each analytic \(L\)-function, we also associate its \textit{analytic conductor} \(\mf{q}(s)\) defined by
+    \[
+      \mf{q}(s) = Q\mf{q}_{\infty}(s),
+    \]
+    where
+    \[
+      \mf{q}_{\infty}(s) = \prod_{j}(|s+\k_{j}|+3)\prod_{k}(|s+\mu_{k}|+3).
+    \]
+    For legibility, we write
+    \[
+      \mf{q} = \mf{q}(0) \quad \text{and} \quad \mf{q}_{\infty} = \mf{q}_{\infty}(0).
+    \]
+    
+    
+    Suppose \(\s\) is bounded and \(|t| > 1\). Then \(s\) is bounded away from zero and by \cref{equ:weaker_Stirling_formula} we have the asymptotic
     \[
       \G(s) \sim \sqrt{2\pi}|t|^{\s-\frac{1}{2}}e^{-\frac{\pi}{2}|t|}.
     \]
@@ -362,7 +306,7 @@
     \begin{equation}\label{equ:fun_eq_for_zeros}
       L(s) = \e(f)q(f)^{\frac{1}{2}-s}\frac{\g(1-s,f)}{\g(s)}L(1-s,\conj{f}).
     \end{equation}
-    If \(\s < 0\) then \(L(1-s,\conj{f})\) is nonzero by our previous comments. Moreover, \(\g(1-s,f)\) is holomorphic and nonzero in this region because \(\Re(\k_{j}) > -1\). We conclude that poles of \(\g(s)\) are zeros of \(L(s)\) for \(\s < 0\). Such a zero is called a \textit\{trivial zero\}. From the definition of \(\g(s)\), they are all simple and of the form \(s = -(\k_{j}+2n)\) for some local root at infinity \(\k_{j}\) and some integer \(n \ge 0\). Any other zero of \(L(s)\) is called a \textit\{nontrivial zero\} and it lies inside of the critical strip (it may also be a pole of \(\g(s)\)). Now let \(\rho\) be a nontrivial zero of \(L(s)\). Note that \(L(\conj{s},\conj{f}) = \conj{L(s)}\) for \(\s > 1\) where \(L(s)\) is defined by a Dirichlet series and thus for all \(s\) by the identity theorem. It follows that \(\conj{\rho}\) is a nontrivial zero of \(L(s,\conj{f})\) and hence, from the functional equation, \(1-\conj{\rho}\) is a nontrivial zero of \(L(s)\) too. In short, the nontrivial zeros occur in pairs:
+    If \(\s < 0\) then \(L(1-s,\conj{f})\) is nonzero by our previous comments. Moreover, \(\g(1-s,f)\) is holomorphic and nonzero in this region because \(\Re(\k_{j}) > -1\). We conclude that poles of \(\g(s)\) are zeros of \(L(s)\) for \(\s < 0\). Such a zero is called a \textit\{trivial zero\}. From the definition of \(\g(s)\), they are all simple and of the form \(s = -(\k_{j}+2n)\) for some local parameter at infinity \(\k_{j}\) and some integer \(n \ge 0\). Any other zero of \(L(s)\) is called a \textit\{nontrivial zero\} and it lies inside of the critical strip (it may also be a pole of \(\g(s)\)). Now let \(\rho\) be a nontrivial zero of \(L(s)\). Note that \(L(\conj{s},\conj{f}) = \conj{L(s)}\) for \(\s > 1\) where \(L(s)\) is defined by a Dirichlet series and thus for all \(s\) by the identity theorem. It follows that \(\conj{\rho}\) is a nontrivial zero of \(L(s,\conj{f})\) and hence, from the functional equation, \(1-\conj{\rho}\) is a nontrivial zero of \(L(s)\) too. In short, the nontrivial zeros occur in pairs:
     \[
       \rho \quad \text{and} \quad 1-\conj{\rho}.
     \]
@@ -974,7 +918,7 @@
       \[
         \mf{q}(g) \le \mf{q}(f)^{6}\mf{q}(it,f)^{8}\mf{q}(2it,f)^{2} \le \mf{q}(f)^{16d_{f}}(|t|+3)^{10d_{f}} < (\mf{q}(f)(|t|+3))^{16d_{f}}.
       \]
-      We claim that \(\Re(\L_{g}(n)) \ge 0\) for \((n,q(f)) = 1\). To see this, let \(p\) be an unramified prime. The local roots of \(L(s,g)\) at \(p\) are \(\a_{j}(p)\) and \(\conj{\a_{j}(p)}\) both with multiplicity three, \(\a_{j}(p)p^{-it}\) and \(\conj{\a_{j}(p)}p^{-it}\) both with multiplicity four, and \(\a_{j}(p)p^{-2it}\) and \(\conj{\a_{j}(p)}p^{-2it}\) both with multiplicity one. So for any \(k \ge 1\), the sum of \(k\)-th powers of these local roots is
+      We claim that \(\Re(\L_{g}(n)) \ge 0\) for \((n,q(f)) = 1\). To see this, let \(p\) be an unramified prime. The local parameters of \(L(s,g)\) at \(p\) are \(\a_{j}(p)\) and \(\conj{\a_{j}(p)}\) both with multiplicity three, \(\a_{j}(p)p^{-it}\) and \(\conj{\a_{j}(p)}p^{-it}\) both with multiplicity four, and \(\a_{j}(p)p^{-2it}\) and \(\conj{\a_{j}(p)}p^{-2it}\) both with multiplicity one. So for any \(k \ge 1\), the sum of \(k\)-th powers of these local parameters is
       \[
        \sum_{1 \le j \le d_{f}}\left(6\Re(\a_{j}(p)^{k})+8\Re(\a_{j}(p)^{k})p^{-kit}+2\Re(\a_{j}(p)^{k})p^{-2kit}\right).
       \]

@@ -1,11 +1,11 @@
 # Fdb version 3
-["makeindex Dirichlet-series.idx"] 1769468676 "Dirichlet-series.idx" "Dirichlet-series.ind" "Dirichlet-series" 1769547875
+["makeindex Dirichlet-series.idx"] 1769468676 "Dirichlet-series.idx" "Dirichlet-series.ind" "Dirichlet-series" 1769694715
   "Dirichlet-series.idx" 0 -1 0 "pdflatex"
   (generated)
   "Dirichlet-series.ilg"
   "Dirichlet-series.ind"
-["pdflatex"] 1769547875 "/Users/henrytwiss/Documents/Documents/LaTeX/Vignettes/Dirichlet-series/Dirichlet-series.tex" "Dirichlet-series.pdf" "Dirichlet-series" 1769547875
-  "/Users/henrytwiss/Documents/Documents/LaTeX/Vignettes/Dirichlet-series/Dirichlet-series.tex" 1769547875 40077 6fc96d8dcdcfb103f6a99604254c3a4d ""
+["pdflatex"] 1769694715 "/Users/henrytwiss/Documents/Documents/LaTeX/Vignettes/Dirichlet-series/Dirichlet-series.tex" "Dirichlet-series.pdf" "Dirichlet-series" 1769694715
+  "/Users/henrytwiss/Documents/Documents/LaTeX/Vignettes/Dirichlet-series/Dirichlet-series.tex" 1769694715 40130 acf5860a8636ddefc5abac1e033d2a43 ""
   "/Users/henrytwiss/Documents/Documents/LaTeX/Vignettes/preamble.tex" 1769363703 5405 a09c92403f06ce9a0bf05bb0ba5a732b ""
   "/usr/local/texlive/2022/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
@@ -190,10 +190,10 @@
   "/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1647878959 4410336 7d30a02e9fa9a16d7d1f8d037ba69641 ""
   "/usr/local/texlive/2022/texmf-var/web2c/pdftex/pdflatex.fmt" 1651053080 2826447 333659af56a38286fbbf3f5177a8ca36 ""
   "/usr/local/texlive/2022/texmf.cnf" 1647878952 577 209b46be99c9075fd74d4c0369380e8c ""
-  "Dirichlet-series.aux" 1769547875 8620 1aa1b6a68f54afcb4f16e5cb36b1e53b "pdflatex"
+  "Dirichlet-series.aux" 1769694715 8620 1aa1b6a68f54afcb4f16e5cb36b1e53b "pdflatex"
   "Dirichlet-series.ind" 0 -1 0 "makeindex Dirichlet-series.idx"
-  "Dirichlet-series.out" 1769547875 544 1ef79cce5221831073228f6efe542c07 "pdflatex"
-  "Dirichlet-series.tex" 1769547875 40077 6fc96d8dcdcfb103f6a99604254c3a4d ""
+  "Dirichlet-series.out" 1769694715 544 1ef79cce5221831073228f6efe542c07 "pdflatex"
+  "Dirichlet-series.tex" 1769694715 40130 acf5860a8636ddefc5abac1e033d2a43 ""
   (generated)
   "Dirichlet-series.aux"
   "Dirichlet-series.idx"
