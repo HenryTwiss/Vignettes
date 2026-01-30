@@ -20,48 +20,52 @@
     \]
     with coefficients \(a_{L}(n) \in \C\) such that \(a_{L}(1) = 1\) and satisfying the following properties:
     \begin{enumerate}[align=left]
-      \item[\textbf{Analyticity:}] There exists a nonnegative integer \(r\) such that the Dirichlet series of \(L(s)\) is absolutely convergent for \(\s > 1\) and admits meromorphic continuation to \(\C\) with at most a pole at \(s = 1\) of order \(r\). Moreover, \((s-1)^{r}L(s)\) is order \(1\).
-      \item[\textbf{Functional Equation:}] There is a positive integer \(Q\), called the \textit{conductor} of \(L(s)\), a positive integer \(d\) called the \textit{degree} of \(L(s)\), complex numbers \((\mu_{j})_{1 \le j \le d}\) called the \textit{local parameters} of \(L(s)\) at infinity that are either real or occur in conjugate pairs and satisfy \(\Re(\mu_{j}) \ge 0\), and a complex number \(\e\) called the \textit{root number} of \(L(s)\) with \(|\e| = 1\), all of which determine functions
+      \item[\textbf{Analyticity:}] There exists a nonnegative integer \(r_{L}\) such that the Dirichlet series of \(L(s)\) is absolutely convergent for \(\s > 1\) and admits meromorphic continuation to \(\C\) with at most a pole at \(s = 1\) of order \(r_{L}\). Moreover, \((s-1)^{r_{L}}L(s)\) is order \(1\).
+      \item[\textbf{Functional Equation:}] There is a positive integer \(q_{L}\), called the \textit{conductor} of \(L(s)\), a positive integer \(d_{L}\) called the \textit{degree} of \(L(s)\), complex numbers \((\mu_{j})_{1 \le j \le d_{L}}\) called the \textit{local parameters} of \(L(s)\) at infinity that are either real or occur in conjugate pairs and satisfy \(\Re(\mu_{j}) \ge 0\), and a complex number \(\e_{L}\) called the \textit{root number} of \(L(s)\) with \(|\e_{L}| = 1\), all of which determine functions
       \[
-        \L(s) = Q^{\frac{s}{2}}L_{\infty}(s)L(s) \quad \text{and} \quad L_{\infty}(s) = \pi^{-\frac{ds}{2}}\prod_{j}\G\left(\frac{s+\mu_{j}}{2}\right),
+        \L(s) = q_{L}^{\frac{s}{2}}L_{\infty}(s)L(s) \quad \text{and} \quad L_{\infty}(s) = \pi^{-\frac{d_{L}s}{2}}\prod_{j}\G\left(\frac{s+\mu_{j}}{2}\right),
       \]
       called the \textit{completion} of \(L(s)\) and the \textit{local factor} of \(L(s)\) at infinity respectively, satisfying
       \[
-        \L(s) = \e\conj{\L(1-\conj{s})}.
+        \L(s) = \e_{L}\conj{\L(1-\conj{s})}.
       \]
-      This is called the \textit{functional equation} of \(L(s)\). The tuple \((\e,Q,\mu_{1},\ldots,\mu_{d})\) is called the \textit{functional equation data} of \(L(s)\). If \(p \mid Q\) we say \(p\) is \textit{ramified} while if \(p \nmid Q\) we say \(p\) is \textit{unramified}.
-      \item[\textbf{Euler product:}] For every prime \(p\), there exist complex numbers \((\a_{j}(p))_{1 \le j \le d}\) called the \textit{local parameters} of \(L(s)\) at \(p\) satisfying \(|\a_{j}(p)| < p\) and are such that \(L(s)\) admits the Euler product
+      This is called the \textit{functional equation} of \(L(s)\). The tuple \((\e_{L},q_{L},\mu_{1},\ldots,\mu_{d_{L}})\) is called the \textit{functional equation data} of \(L(s)\). If \(p \mid q_{L}\) we say \(p\) is \textit{ramified} while if \(p \nmid q_{L}\) we say \(p\) is \textit{unramified}.
+      \item[\textbf{Euler product:}] For every prime \(p\), there exist complex numbers \((\a_{j}(p))_{1 \le j \le d_{L}}\) called the \textit{local parameters} of \(L(s)\) at \(p\) satisfying \(|\a_{j}(p)| < p\) and are such that \(L(s)\) admits the Euler product
       \[
-        L(s) = \prod_{p}(1-\a_{1}(p)p^{-s})^{-1} \cdots (1-\a_{d}(p)p^{-s})^{-1},
+        L(s) = \prod_{p}(1-\a_{1}(p)p^{-s})^{-1} \cdots (1-\a_{d_{L}}(p)p^{-s})^{-1},
       \]
       which is absolutely convergent for \(\s > 1\). The polynomial \(L_{p}\) defined by
       \[
-        L_{p}(T) = (1-\a_{1}(p)T) \cdots (1-\a_{d}(p)T),
+        L_{p}(T) = (1-\a_{1}(p)T) \cdots (1-\a_{d_{L}}(p)T),
       \]
-      is called the \textit{local factor} of \(L(s)\) at \(p\). If \(p\) is unramified then \(L_{p}\) is of degree \(d\) while if \(p\) is ramified then \(L_{p}\) is of degree less than \(d\).
+      is called the \textit{local factor} of \(L(s)\) at \(p\). If \(p\) is unramified then \(L_{p}\) is of degree \(d_{L}\) while if \(p\) is ramified then \(L_{p}\) is of degree less than \(d_{L}\).
     \end{enumerate}
 
     An analytic \(L\)-function is said to be \textit{unitary} if it satisfies the following two additional properties:
 
     \begin{enumerate}[align=left]
       \item[\textbf{Selberg bound:}] The local parameters at infinity satisfy \(\Re(\mu_{j}) \in \frac{1}{2}\Z_{\ge 0}\).
-      \item[\textbf{Ramanujan bound:}] The local parameters at \(p\) satisfy \(|\a_{j}(p)| = 1\) for \(p \nmid Q\) and \(|\a_{j}(p)| \le 1\) for \(p \mid Q\).
+      \item[\textbf{Ramanujan bound:}] The local parameters at \(p\) satisfy \(|\a_{j}(p)| = 1\) for unramified \(p\) and \(|\a_{j}(p)| \le 1\) for ramified \(p\).
     \end{enumerate}
 
     Some comments on the definition of analytic \(L\)-functions are in order.
     \begin{enumerate}[label*=(\roman*)]
       \item The bound \(\Re(\mu_{j}) \ge 0\) ensures that the local factor at infinity is holomorphic in the region \(\s > 0\). As this factor is then guaranteed to be finite and nonzero at \(s = 1\), the completion possesses a pole at \(s = 1\) of order \(r\). By the functional equation, the completion also has a pole at \(s = 0\) of the same order.
-      \item If we merely assume \((s-1)^{r}L(s)\) is finite order then the functional equation forces the order to be \(1\). This can be deduced by considering the entire function
+      \item If we merely assume \((s-1)^{r_{L}}L(s)\) is finite order then the functional equation forces the order to be \(1\). This can be deduced by considering the entire function
     \[
-      s^{r}(s-1)^{r}\L(s),
+      s^{r_{L}}(s-1)^{r_{L}}\L(s),
     \]
     and applying the Phragm\'en-Lindel\"of convexity principle in vertical strips.
-    \item The condition that the root number satisfies \(|\e| = 1\) isn't strictly necessary. For applying the functional equation twice shows \(|\e|^{2} = 1\).
+    \item The condition that the root number satisfies \(|\e_{L}| = 1\) isn't strictly necessary. For applying the functional equation twice shows \(|\e_{L}|^{2} = 1\).
+    \item As the gamma function is conjugation-equivariant and the local parameters at infinity are real or occur in conjugate pairs, the local factor at infinity is also conjugation-equivariant. This means that we can write the functional equation in the form
+    \[
+      q_{L}^{\frac{s}{2}}L_{\infty}(s)L(s) = \e_{L}q_{L}^{\frac{1-s}{2}}L_{\infty}(1-s)\conj{L(1-\conj{s})}.
+    \]
     \item Most analytic \(L\)-functions are only conjectured to be unitary. In any case, the Ramanujan bound is the more important of the two. The Euler product implies that the coefficients \(a_{L}(n)\) are multiplicative and are determined on prime powers by
     \[
-      a_{L}(p^{k}) = \sum_{1 \le j_{1} \le \cdots \le j_{k} \le d}\a_{j_{1}}(p) \cdots \a_{j_{k}}(p).
+      a_{L}(p^{k}) = \sum_{1 \le j_{1} \le \cdots \le j_{k} \le d_{L}}\a_{j_{1}}(p) \cdots \a_{j_{k}}(p).
     \]
-    In other words, \(a_{L}(p^{k})\) is the complete symmetric polynomial of degree \(k\) in the local parameters at \(p\) and there are \(\binom{k+d-1}{d-1} \ll \s_{d}(p^{k})\) many terms. If the Ramanujan bound holds, then it follows that \(a_{L}(n) \ll \s_{d}(n)\). This implies the slightly weaker, but more practical, estimate \(a_{L}(n) \ll_{\e} n^{\e}\).
+    In other words, \(a_{L}(p^{k})\) is the complete symmetric polynomial of degree \(k\) in the local parameters at \(p\) and there are \(\binom{k+d_{L}-1}{d_{L}-1} \ll \s_{d_{L}}(p^{k})\) many terms. If the Ramanujan bound holds, then it follows that \(a_{L}(n) \ll \s_{d_{L}}(n)\). This implies the slightly weaker, but more practical, estimate \(a_{L}(n) \ll_{\e} n^{\e}\).
     \end{enumerate}
 
     As \(L(s)\) is absolute convergent for \(\s > 1\) and admits an Euler product there, we can take the logarithm of the Euler product and differentiate termwise to compute the logarithmic derivative. A short computation shows
@@ -110,13 +114,13 @@
 
     To an analytic \(L\)-function, we also associate its \textit{analytic conductor} \(\mf{q}(s)\) defined by
     \[
-      \mf{q}(s) = Q\mf{q}_{\infty}(s),
+      \mf{q}(s) = q_{L}\mf{q}_{\infty}(s),
     \]
     where
     \[
       \mf{q}_{\infty}(s) = \prod_{j}(|s+\mu_{j}|+3).
     \]
-    The choice of \(3\) in \(|s+\mu_{j}|+3\) is a matter of convenience as could use any positive constant. In particular, it is useful when taking logarithms as \(\ln(|s+\mu_{j}|+3) \ge 1\). For legibility, we write also write
+    The choice of \(3\) in \(|s+\mu_{j}|+3\) is a matter of convenience as could use any positive constant. In particular, it is useful when taking logarithms as \(\log(|s+\mu_{j}|+3) \ge 1\). For legibility, we write also write
     \[
       \mf{q} = \mf{q}(0) \quad \text{and} \quad \mf{q}_{\infty} = \mf{q}_{\infty}(0).
     \]
@@ -126,7 +130,7 @@
     \]
     provided \(\s_{1} \le \s \le \s_{2}\) and \(s\) is at least distance \(\e\) away from the poles of the gamma function. Then the estimates
      \begin{equation}\label{equ:gamma_factor_analytic_conductor_estimate}
-      \frac{L_{\infty}(1-s)}{L_{\infty}(s)} \ll_{\e} \mf{q}_{\infty}(s)^{\frac{1}{2}-\s} \quad \text{and} \quad Q^{\frac{1}{2}-s}\frac{L_{\infty}(1-s)}{L_{\infty}(s)} \ll_{\e} \mf{q}(s)^{\frac{1}{2}-\s},
+      \frac{L_{\infty}(1-s)}{L_{\infty}(s)} \ll_{\e} \mf{q}_{\infty}(s)^{\frac{1}{2}-\s} \quad \text{and} \quad q_{L}^{\frac{1}{2}-s}\frac{L_{\infty}(1-s)}{L_{\infty}(s)} \ll_{\e} \mf{q}(s)^{\frac{1}{2}-\s},
     \end{equation}
     in the same region. An associated estimate can be obtain for the logarithmic derivative of the analytic conductor. Recall from the logarithm of Stirling's formula that
     \[
@@ -134,7 +138,7 @@
     \]
     provided \(\s_{1} \le \s \le \s_{2}\) and \(s\) is at least distance \(\e\) away from the poles of the gamma function. Then the estimates
     \begin{equation}\label{equ:digamma_gamma_factor_analytic_conductor_estimate}
-      \frac{L_{\infty}'}{L_{\infty}}(s) \ll_{\e} \log\mf{q}_{\infty}(s) \quad \text{and} \quad \log{Q}+\frac{L_{\infty}'}{L_{\infty}}(s) \ll_{\e} \log\mf{q}(s),
+      \frac{L_{\infty}'}{L_{\infty}}(s) \ll_{\e} \log\mf{q}_{\infty}(s) \quad \text{and} \quad \log{q_{L}}+\frac{L_{\infty}'}{L_{\infty}}(s) \ll_{\e} \log\mf{q}(s),
     \end{equation}
     are valid in the same region.
 
@@ -142,7 +146,6 @@
     \[
       \left\{s \in \C:\left|\s-\frac{1}{2}\right| \le \frac{1}{2}\right\}.
     \]
-    The \textit{critical line} is the line left invariant by the transformation \(s \mapsto 1-s\) which is also given by \(\s = \frac{1}{2}\). The critical line bisects the critical strip vertically. The \textit{central point} is the fixed point of the transformation \(s \mapsto 1-s\), in other words, the point \(s = \frac{1}{2}\). Clearly the central point is also the center of the critical line. The critical strip, critical line, and central point are all displayed in \cref{fig:critical_strip}.
 
     \begin{figure}[ht]
       \centering
@@ -169,75 +172,89 @@
       \caption{The critical strip.}
       \label{fig:critical_strip}
     \end{figure}
-  \iffalse
+
+    The \textit{critical line} is the line left invariant by the transformation \(s \mapsto 1-s\) which is also given by \(\s = \frac{1}{2}\). The critical line bisects the critical strip vertically. The \textit{central point} is the fixed point of the transformation \(s \mapsto 1-s\), in other words, the point \(s = \frac{1}{2}\). Clearly the central point is also the center of the critical line. The critical strip, critical line, and central point are all displayed in \cref{fig:critical_strip}.
+
+    In the region \(\s > 1\) we may study the analytic properties of \(L(s)\) via its Dirichlet series. Using the functional equation, we may write
+    \[
+      L(s) = \e_{L}q_{L}^{\frac{1}{2}-s}\frac{L_{\infty}(1-s)}{L_{\infty}(s)}\conj{L(1-\conj{s})}.
+    \]
+    This permits the study of \(L(s)\) in the region \(\s < 0\) by using the Dirichlet series of \(\conj{L(1-\conj{s})}\) and the the functional equation data. The critical strip is exactly the region where we cannot use either of these methods for \(L(s)\) nor \(\conj{L(1-\conj{s})}\) possess absolutely convergent Dirichlet series.
   \section{The Approximate Functional Equation}
-    If \(L(s)\) is an \(L\)-function then there is a formula which acts as a compromise between the functional equation for \(L(s)\) and expressing \(L(s)\) as a Dirichlet series. This formula is known as the approximate functional equation and it is important because it is valid inside of the critical strip and therefore can be used to obtain data about \(L(s)\) in that region. First we use \cref{equ:gamma_factor_analytic_conductor_estimate} to show that \(L(s)\) has polynomial growth in the \(t\)-aspect in vertical strips:
+    Despite not being able to study an analytic \(L\)-function \(L(s)\) in the critical strip by means of Dirichlet series, there is formula which acts as a compromise between the functional equation and the Dirichlet series. This formula is known as the approximate functional equation. The usefulness comes from the fact that the approximate functional equation is valid inside of the critical strip and therefore can be used to obtain analytic properties about \(L(s)\) in that region. We will first derive a preliminary result showing that \(L(s)\) has polynomial growth in the \(t\)-aspect in vertical strips:
 
     \begin{proposition}\label{prop:L_function_bounded_in_vertical_strips}
-      For any \(L\)-function \(L(s)\) and \(a < b\), \(L(s)\) is of polynomial growth in the \(t\)-aspect in the vertical half-strip \(a \le \s \le b\) with \(|t| \ge 1\).
+      Let \(L(s)\) be an analytic \(L\)-function and let \(\s_{1} \le \s \le \s_{2}\) with \(\s\) at least distance \(\e\) away from the possible pole at \(1\). Then there is a positive constant \(A\) such that
+      \[
+        L(s) \ll_{\e} (|t|+3)^{A}.
+      \]
     \end{proposition}
     \begin{proof}
-      Observe that \(L(s) \ll 1\) on the half-line \(\s = \max(1,b)+\e\) with \(t \ge 1\). Now the functional equation and \cref{equ:gamma_factor_analytic_conductor_estimate} together imply
+      Observe that \((s-1)^{r_{L}}L(s) \ll_{\e} (|t|+3)^{r_{L}}\) on the vertical line \(\s = \max(1+\e,\s_{2})\). Now the functional equation and \cref{equ:gamma_factor_analytic_conductor_estimate} together give
       \[
-        L(s) \ll \mf{q}(s)^{\frac{1}{2}-\s}L(1-s,f).
+        L(s) \ll_{\e} \mf{q}(s)^{\frac{1}{2}-\s}\conj{L(1-\conj{s})}.
       \]
-      Then \(L(s)\) is also of polynomial growth in the \(t\)-aspect on the half-line \(\s \le \min(0,a)-\e\) with \(t \ge 1\) since \(\mf{q}(s)^{\frac{1}{2}-\s}\) does and \(L(1-s,f) \ll 1\). Moreover, the estimate above also implies that \(L(s)\) is bounded on the line \(t = 1\) for \(\min(0,a)-\e \le \s \le \max(1,b)+\e\). As \(L(s)\) is holomorphic for \(|t| \ge 1\) and of order \(1\), we can apply the Phragm\'en-Lindel\"of convexity principle in this region (see \cref{append:The_Phragmen_Lindelof_Convexity_principle}) so that \(L(s)\) is of polynomial growth in the \(t\)-aspect in the vertical half-strip \(a \le \s \le b\) with \(|t| \ge 1\).
+      This shows that there exists a positive constant \(A''\) such that
+      \[
+        (s-1)^{r_{L}}L(s) \ll_{\e} (|t|+3)^{A''},
+      \]
+      on the vertical line \(\s \le \min(-\e,\s_{1})\). As \((s-1)^{r_{L}}L(s)\) is entire and of order \(1\), we can apply the Phragm\'en-Lindel\"of convexity principle in this vertical strip to \((s-1)^{r_{L}}L(s)\). Whence there is a positive constant \(A'\) such that
+      \[
+        (s-1)^{r_{L}}L(s) \ll_{\e} (|t|+3)^{A'},
+      \]
+      provided \(\s_{1} \le \s \le \s_{2}\). Assuming \(s\) is at least distance \(\e\) away from the possible pole at \(s = 1\), diving by \((s-1)^{r_{L}}\) completes the proof.
     \end{proof}
 
     We now prove the \textit{approximate function equation}:
 
     \begin{theorem*}[Approximate functional equation]
-      Let \(L(s)\) be an \(L\)-function, \(\Phi(u)\) be an even holomorphic function bounded in the vertical strip \(|\tau| < a+1\) for any \(a > 1\) such that \(\Phi(0) = 1\), and let \(X > 0\). Then for \(s\) in the critical strip, we have
+      Suppose \(L(s)\) is an analytic \(L\)-function, \(\Phi(u)\) be an even holomorphic function bounded in the vertical strip \(|\tau| < a+1\) with \(a > 1\) such that \(\Phi(0) = 1\), and let \(X > 0\). Then for \(s\) in the critical strip, we have
       \[
-        L(s) = \sum_{n \ge 1}\frac{a(n)}{n^{s}}V_{s}\left(\frac{n}{\sqrt{Q}X}\right)+\e(s)\sum_{n \ge 1}\frac{\conj{a(n)}}{n^{1-s}}V_{1-s}\left(\frac{nX}{\sqrt{Q}}\right)+\frac{R(s,X,f)}{Q^{\frac{s}{2}}L_{\infty}(s)},
+        L(s) = \sum_{n \ge 1}\frac{a_{L}(n)}{n^{s}}V_{s}\left(\frac{n}{\sqrt{q_{L}}X}\right)+\e_{L}(s)\sum_{n \ge 1}\frac{\conj{a_{L}(n)}}{n^{1-s}}V_{1-s}\left(\frac{nX}{\sqrt{q_{L}}}\right)+\frac{R(s,X)}{q_{L}^{\frac{s}{2}}L_{\infty}(s)},
       \]
       where \(V_{s}(y)\) is the inverse Mellin transform defined by
       \[
-        V_{s}(y) = \frac{1}{2\pi i}\int_{(a)}\frac{\g(s+u,f)}{L_{\infty}(s)}\Phi(u)y^{-u}\frac{du}{u},
+        V_{s}(y) = \frac{1}{2\pi i}\int_{(a)}\frac{L_{\infty}(s+u)}{L_{\infty}(s)}\Phi(u)y^{-u}\frac{du}{u},
       \]
       and
       \[
-        \e(s) = \e(f)Q^{\frac{1}{2}-s}\frac{L_{\infty}(1-s)}{L_{\infty}(s)}.
+        \e_{L}(s) = \e_{L}q_{L}^{\frac{1}{2}-s}\frac{L_{\infty}(1-s)}{L_{\infty}(s)}.
       \]
-      Moreover, \(R(s,X,f)\) is zero if \(\L(s)\) is entire, and otherwise
+      Moreover, \(R(s,X)\) is zero if \(\L(s)\) is entire, and otherwise
       \[
-        R(s,X,f) = \Res_{u = 1-s}\frac{\L(s+u,f)\Phi(u)X^{u}}{u}+\Res_{u = -s}\frac{\L(s+u,f)\Phi(u)X^{u}}{u}.
+        R(s,X) = \Res_{u = 1-s}\frac{\L(s+u)\Phi(u)X^{u}}{u}+\Res_{u = -s}\frac{\L(s+u)\Phi(u)X^{u}}{u}.
       \]
     \end{theorem*}
     \begin{proof}
-      Let
+      Consider the integral
       \[
-        I(X,s,f) = \frac{1}{2\pi i}\int_{(a)}\L(s+u,f)\Phi(u)X^{u}\,\frac{du}{u}.
-      \]
-      \(L(s)\) has polynomial growth in the \(t\)-aspect by \cref{prop:L_function_bounded_in_vertical_strips}. From \cref{equ:modified_gamma_estimates} we see that \(\g(s+u,f)\) exhibits exponential decay. Since \(\Phi(u)\) is bounded, it follows that the integrand exhibits exponential decay in a vertical strip containing \(|\tau| \le a\). Therefore the integral is locally absolutely uniformly convergent. Moreover, we may shift the line of integration to \((-a)\). In doing so, we pass by a simple pole at \(u = 0\) and possible poles at \(u = 1-s\) and \(u = -s\), giving
+        \frac{1}{2\pi i}\int_{(a)}\L(s+u)\Phi(u)X^{u}\,\frac{du}{u}.
+      \]    
+      Stirling's formula shows that \(L_{\infty}(s+u)\) exhibits exponential decay in the \(t\)-aspect while \(L(s)\) has polynomial growth in the \(t\)-aspect by \cref{prop:L_function_bounded_in_vertical_strips}. Since \(\Phi(u)\) is bounded in the vertical strip \(|\tau| < a+1\), it follows that the integrand exhibits exponential decay. Therefore the integral is locally absolutely uniformly bounded. We will evaluate the integral in two ways. On the one hand, we can expand \(L(s+u)\) inside the integrand as a Dirichlet series and by absolute boundedness of the integral we may interchange the sum and integral. A short computation shows that this is
       \[
-        I(X,s,f) = \frac{1}{2\pi i}\int_{(-a)}\L(s+u,f)\Phi(u)X^{u}\,\frac{du}{u}+\L(s)+R(s,X,f).
+        q_{L}^{\frac{s}{2}}L_{\infty}(s)\sum_{n \ge 1}\frac{a_{L}(n)}{n^{s}}V_{s}\left(\frac{n}{\sqrt{q_{L}}X}\right).
       \]
-      Applying the functional equation to \(\L(s+u,f)\) and performing the change of variables \(u \mapsto -u\), we obtain
+      On the other hand, we can shift the line of integration to \((-a)\). In doing so we pass by a simple pole at \(u = 0\) and possible poles at \(u = 1-s\) and \(u = -s\) giving
       \[
-        I(X,s,f) = -\e(f)I(X^{-1},1-s,\conj{f})+\L(s)-R(s,X,f),
+        \frac{1}{2\pi i}\int_{(-a)}\L(s+u)\Phi(u)X^{u}\,\frac{du}{u}+\L(s)+R(s,X).
       \]
-      since \(\Phi(u)\) is even. This equation is equivalent to
+      Apply the functional equation and perform the change of variables \(u \mapsto -u\) to rewrite this as
       \[
-        \L(s) = I(X,s,f)+\e(f)I(X^{-1},1-s,\conj{f})+R(s,X,f).
+        -\e_{L}\frac{1}{2\pi i}\int_{(a)}\conj{\L(1-\conj{s+u})}\Phi(u)X^{-u}\,\frac{du}{u}+\L(s)+R(s,X).
       \]
-      Since \(\Re(s+u) > 1\), we can expand the \(L\)-function \(L(s)\) inside of \(I(X,s,f)\) as a Dirichlet series:
+      Analogous to the above, we can now expand \(\conj{L(1-\conj{s+u})}\) inside the integrand as a Dirichlet series and by absolute boundedness of the integral we may interchange the sum and integral. A short computation shows that our previous expression becomes
+      \[
+        -\e_{L}q_{L}^{\frac{1-s}{2}}L_{\infty}(1-s)\sum_{n \ge 1}\frac{\conj{a_{L}(n)}}{n^{1-s}}V_{s}\left(\frac{nX}{\sqrt{q_{L}}}\right)+\L(s)+R(s,X).
+      \]
+      Equating these two evaluations and isolating the completion gives
       \begin{align*}
-        I(X,s,f) &= \frac{1}{2\pi i}\int_{(a)}\L(s+u,f)\Phi(u)X^{u}\,\frac{du}{u} \\
-        &= \frac{1}{2\pi i}\int_{(a)}Q^{\frac{s+u}{2}}\g(s+u,f)L(s+u,f)\Phi(u)X^{u}\,\frac{du}{u} \\
-        &= \frac{1}{2\pi i}\int_{(a)}\sum_{n \ge 1}\frac{a(n)}{n^{s+u}}Q^{\frac{s+u}{2}}\g(s+u,f)\Phi(u)X^{u}\,\frac{du}{u} \\
-        &= \sum_{n \ge 1}\frac{1}{2\pi i}\int_{(a)}\frac{a(n)}{n^{s+u}}Q^{\frac{s+u}{2}}\g(s+u,f)\Phi(u)X^{u}\,\frac{du}{u} && \text{FTT} \\
-        &= Q^{\frac{s}{2}}L_{\infty}(s)\sum_{n \ge 1}\frac{a(n)}{n^{s}}\frac{1}{2\pi i}\int_{(a)}\frac{\g(s+u,f)}{L_{\infty}(s)}\Phi(u)\left(\frac{\sqrt{Q}X}{n}\right)^{u}\,\frac{du}{u} \\
-        &= Q^{\frac{s}{2}}L_{\infty}(s)\sum_{n \ge 1}\frac{a(n)}{n^{s}}V_{s}\left(\frac{n}{\sqrt{Q}X}\right).
+        \L(s) &= q_{L}^{\frac{s}{2}}L_{\infty}(s)\sum_{n \ge 1}\frac{a_{L}(n)}{n^{s}}V_{s}\left(\frac{n}{\sqrt{q_{L}}X}\right) \\
+        &+ \e_{L}q_{L}^{\frac{1-s}{2}}L_{\infty}(1-s)\sum_{n \ge 1}\frac{\conj{a_{L}(n)}}{n^{1-s}}V_{1-s}\left(\frac{nX}{\sqrt{q_{L}}}\right)+R(s,X).
       \end{align*}
-      Performing the same computation for \(I(X^{-1},1-s,\conj{f})\) and substituting in the results, we arrive at
-      \begin{align*}
-        \L(s) &= Q^{\frac{s}{2}}L_{\infty}(s)\sum_{n \ge 1}\frac{a(n)}{n^{s}}V_{s}\left(\frac{n}{\sqrt{Q}X}\right) \\
-        &+ \e(f)Q^{\frac{1-s}{2}}L_{\infty}(1-s)\sum_{n \ge 1}\frac{\conj{a(n)}}{n^{1-s}}V_{1-s}\left(\frac{nX}{\sqrt{Q}}\right)+R(s,X,f).
-      \end{align*}
-      Diving by \(Q^{\frac{s}{2}}L_{\infty}(s)\) completes the proof.
+      Diving by \(q_{L}^{\frac{s}{2}}L_{\infty}(s)\) completes the proof.
     \end{proof}
 
+    \iffalse
     The approximate functional equation was first developed by Hardy and Littlewood in the series \cite{hardyzeros1921,hardyapproximate1923,hardyapproximate1929}. The function \(V_{s}(y)\) has the effect of smoothing out the two sums on the right-hand side of the approximate functional equation. In most cases, we will take
     \[
       \Phi(u) = \cos^{-4d_{f}M}\left(\frac{\pi u}{4M}\right),
@@ -251,7 +268,7 @@
     \begin{proposition}\label{prop:V_function_decay}
       Let \(L(s)\) be an \(L\)-function, set \(\Phi(u) = \cos^{-4d_{f}M}\left(\frac{\pi u}{4M}\right)\) for some integer \(M \ge 1\), and let \(V_{s}(y)\) be the inverse Mellin transform defined by
       \[
-        V_{s}(y) = \frac{1}{2\pi i}\int_{(2M-2)}\frac{\g(s+u,f)}{L_{\infty}(s)}\Phi(u)y^{-u}\frac{du}{u}.
+        V_{s}(y) = \frac{1}{2\pi i}\int_{(2M-2)}\frac{L_{\infty}(s+u)}{L_{\infty}(s)}\Phi(u)y^{-u}\frac{du}{u}.
       \]
       Then for \(s\) in the critical strip, \(V_{s}(y)\) satisfies the estimate
       \[
@@ -265,15 +282,15 @@
       \]
       From the definition of \(\mf{q}(s)\), the above estimate implies
       \[
-        \frac{\g(s+u,f)}{L_{\infty}(s)} \ll \mf{q}_{\infty}(s)^{\frac{\tau}{2}}e^{d_{f}\frac{\pi}{2}|r|},
+        \frac{L_{\infty}(s+u)}{L_{\infty}(s)} \ll \mf{q}_{\infty}(s)^{\frac{\tau}{2}}e^{d_{f}\frac{\pi}{2}|r|},
       \]
       for \(s\) in the critical strip. By \cref{equ:choice_for_V_decay_estimate}, the integral defining \(V_{s}(y)\) is locally absolutely uniformly convergent and we may shift the line of integration to \((M)\). In doing so, we do not pass by any poles and obtain
       \[
-        V_{s}(y) = \frac{1}{2\pi i}\int_{(M)}\frac{\g(s+u,f)}{L_{\infty}(s)}\Phi(u)y^{-u}\frac{du}{u} \\
+        V_{s}(y) = \frac{1}{2\pi i}\int_{(M)}\frac{L_{\infty}(s+u)}{L_{\infty}(s)}\Phi(u)y^{-u}\frac{du}{u} \\
       \]
       The fact that \(u\) is bounded away from zero, \cref{equ:choice_for_V_decay_estimate}, and the estimate for the ratio of gamma factors, gives the first estimate in the following chain:
       \begin{align*}
-        V_{s}(y) &= \frac{1}{2\pi i}\int_{(M)}\frac{\g(s+u,f)}{L_{\infty}(s)}\Phi(u)y^{-u}\frac{du}{u} \\
+        V_{s}(y) &= \frac{1}{2\pi i}\int_{(M)}\frac{L_{\infty}(s+u)}{L_{\infty}(s)}\Phi(u)y^{-u}\frac{du}{u} \\
         &\ll \int_{-\infty}^{\infty}\mf{q}_{\infty}(s)^{\frac{M}{2}}e^{-d_{f}\frac{\pi}{2}|r|}y^{-M}\,dr \\
         &\ll \int_{-\infty}^{\infty}\mf{q}_{\infty}(s)^{\frac{M}{2}}e^{-d_{f}\frac{\pi}{2}|r|}(1+y)^{-M}\,dr \\
         &\ll \int_{-\infty}^{\infty}e^{-\frac{\pi}{2}d_{f}|r|}\left(1+\frac{y}{\sqrt{\mf{q}_{\infty}(s)}}\right)^{-M}\,dr \\
@@ -288,11 +305,11 @@
     \begin{theorem}
       Let \(\psi(y)\) be a bump function and let \(\Psi(s)\) denote its Mellin transform. Then for any \(L\)-function \(L(s)\), we have
       \[
-        \sum_{n \ge 1}a(n)\psi(n) = \frac{\e(f)}{\sqrt{Q}}\sum_{n \ge 1}\conj{a(n)}\phi(n)+R(f)\Psi(1),
+        \sum_{n \ge 1}a(n)\psi(n) = \frac{\e_{L}}{\sqrt{q_{L}}}\sum_{n \ge 1}\conj{a(n)}\phi(n)+R(f)\Psi(1),
       \]
       where \(\phi(y)\) is the inverse Mellin transform defined by
       \[
-        \phi(y) = \frac{1}{2\pi i}\int_{(a)}Q^{s}\frac{L_{\infty}(s)}{L_{\infty}(1-s)}y^{-s}\Psi(1-s)\,ds,
+        \phi(y) = \frac{1}{2\pi i}\int_{(a)}q_{L}^{s}\frac{L_{\infty}(s)}{L_{\infty}(1-s)}y^{-s}\Psi(1-s)\,ds,
       \]
       for any \(a > 1\). Moreover, \(R(f)\) is zero if \(L(s)\) is entire, and otherwise
       \[
@@ -310,13 +327,13 @@
       \]
       Applying the functional equation, we further have
       \[
-        \sum_{n \ge 1}a(n)\psi(n) = \frac{1}{2\pi i}\int_{(1-a)}\e(f)Q^{\frac{1}{2}-s}\frac{L_{\infty}(1-s)}{L_{\infty}(s)}L(1-s,\conj{f})\Psi(s)\,ds+R(f)\Psi(1).
+        \sum_{n \ge 1}a(n)\psi(n) = \frac{1}{2\pi i}\int_{(1-a)}\e_{L}q_{L}^{\frac{1}{2}-s}\frac{L_{\infty}(1-s)}{L_{\infty}(s)}L(1-s,\conj{f})\Psi(s)\,ds+R(f)\Psi(1).
       \]
       Performing the change of variables \(s \mapsto 1-s\) in this latter integral gives
       \[
-        \sum_{n \ge 1}a(n)\psi(n) = \frac{1}{2\pi i}\int_{(a)}\e(f)Q^{s-\frac{1}{2}}\frac{L_{\infty}(s)}{L_{\infty}(1-s)}L(s,\conj{f})\Psi(1-s)\,ds+R(f)\Psi(1).
+        \sum_{n \ge 1}a(n)\psi(n) = \frac{1}{2\pi i}\int_{(a)}\e_{L}q_{L}^{s-\frac{1}{2}}\frac{L_{\infty}(s)}{L_{\infty}(1-s)}L(s,\conj{f})\Psi(1-s)\,ds+R(f)\Psi(1).
       \]
-      The proof is complete upon interchanging the sum over the Dirichlet series and the integral by the Fubini–Tonelli theorem and factoring out \(\frac{\e(f)}{\sqrt{Q}}\).
+      The proof is complete upon interchanging the sum over the Dirichlet series and the integral by the Fubini–Tonelli theorem and factoring out \(\frac{\e_{L}}{\sqrt{q_{L}}}\).
     \end{proof}
   \section{The Riemann Hypothesis and Nontrivial Zeros}
     The zeros of an \(L\)-function \(L(s)\) have interesting behavior. Recall that
@@ -325,7 +342,7 @@
     \]
     for \(\s > 1\). This product vanishes if and only if one of its factors are zero. As \(\s > 1\), this is impossible so that \(L(s)\) has no zeros in this region. The functional equation will allow us to understand more about the zeros of \(L(s)\). Rewrite the functional equation for \(L(s)\) as
     \begin{equation}\label{equ:fun_eq_for_zeros}
-      L(s) = \e(f)Q^{\frac{1}{2}-s}\frac{L_{\infty}(1-s)}{L_{\infty}(s)}L(1-s,\conj{f}).
+      L(s) = \e_{L}Q^{\frac{1}{2}-s}\frac{L_{\infty}(1-s)}{L_{\infty}(s)}L(1-s,\conj{f}).
     \end{equation}
     If \(\s < 0\) then \(L(1-s,\conj{f})\) is nonzero by our previous comments. Moreover, \(L_{\infty}(1-s)\) is holomorphic and nonzero in this region because \(\Re(\k_{j}) > -1\). We conclude that poles of \(L_{\infty}(s)\) are zeros of \(L(s)\) for \(\s < 0\). Such a zero is called a \textit{trivial zero}. From the definition of \(L_{\infty}(s)\), they are all simple and of the form \(s = -(\k_{j}+2n)\) for some local parameter at infinity \(\k_{j}\) and some integer \(n \ge 0\). Any other zero of \(L(s)\) is called a \textit{nontrivial zero} and it lies inside of the critical strip (it may also be a pole of \(L_{\infty}(s)\)). Now let \(\rho\) be a nontrivial zero of \(L(s)\). Note that \(L(\conj{s},\conj{f}) = \conj{L(s)}\) for \(\s > 1\) where \(L(s)\) is defined by a Dirichlet series and thus for all \(s\) by the identity theorem. It follows that \(\conj{\rho}\) is a nontrivial zero of \(L(s,\conj{f})\) and hence, from the functional equation, \(1-\conj{\rho}\) is a nontrivial zero of \(L(s)\) too. In short, the nontrivial zeros occur in pairs:
     \[
@@ -395,17 +412,17 @@
     \]
     which holds since \(L(s)\) is defined by a locally absolutely uniformly convergent Dirichlet series for \(\s > 1\). The left edge is only slightly more difficult. Upon isolating \(L(s)\) in the functional equation, we have
     \[
-      L(s) = \e(f)Q^{\frac{1}{2}-s}\frac{L_{\infty}(1-s)}{L_{\infty}(s)}L(1-s,f).
+      L(s) = \e_{L}Q^{\frac{1}{2}-s}\frac{L_{\infty}(1-s)}{L_{\infty}(s)}L(1-s).
     \]
     Applying \cref{equ:gamma_factor_analytic_conductor_estimate} result in the bound
     \[
-      L(s) \ll_{\e} \mf{q}(s)^{\frac{1}{2}-\s}L(1-s,f),
+      L(s) \ll_{\e} \mf{q}(s)^{\frac{1}{2}-\s}L(1-s),
     \]
     for \(s\) in any vertical strip with distance \(\e\) away from the poles of \(L_{\infty}(1-s)\). Multiplying both sides by \(p_{r_{f}}(s)\) and taking \(\s = -\e\), it follows that
     \[
       p_{r_{f}}(-\e+it)L(-\e+it,f) \ll_{\e} \mf{q}(s)^{\frac{1}{2}+\e},
     \]
-    which holds since \(L(1-s,f)\) is defined by a locally absolutely uniformly convergent Dirichlet series for \(\s < 0\). As \(p_{r_{f}}(s)L(s)\) is holomorphic in a region containing the vertical strip \(-\e \le \s \le 1+\e\) and \(p_{r_{f}}(s) \sim 1\), the Phragm\'en-Lindel\"of convexity principle gives
+    which holds since \(L(1-s)\) is defined by a locally absolutely uniformly convergent Dirichlet series for \(\s < 0\). As \(p_{r_{f}}(s)L(s)\) is holomorphic in a region containing the vertical strip \(-\e \le \s \le 1+\e\) and \(p_{r_{f}}(s) \sim 1\), the Phragm\'en-Lindel\"of convexity principle gives
     \begin{equation}\label{equ:convexity_bound_for_L_function_in_critial_strip}
       L(s) \ll_{\e} \mf{q}(s)^{\frac{1-\s}{2}+\e},
     \end{equation}
@@ -548,7 +565,7 @@
     \]
     Note that \(\xi(s)\) is essentially just \(\L(s)\) with the potential poles at \(s = 0\) and \(s = 1\) removed. From the functional equation, we also have
     \[
-      \xi(s) = \e(f)\xi(1-s,\conj{f}).
+      \xi(s) = \e_{L}\xi(1-s,\conj{f}).
     \]
     We now state our desired result:
 
@@ -783,11 +800,11 @@
       \]
       where the last equality holds by noting that \(\eta\) is closed so that the first integral vanishes. For convenience, set \(\eta_{L} = \eta_{1}+\eta_{2}+\eta_{3}\) and \(\eta_{R} = \eta_{4}+\eta_{5}+\eta_{6}\). Recall that we have already shown \(\xi(\conj{s},\conj{f}) = \conj{(\xi(s))}\). Using this fact along with the functional equation and that \(-\arg(s) = \arg(\conj{s})\), we compute
       \begin{align*}
-        \D_{\eta_{L}}\arg(\xi(s)) &= \D_{\eta_{L}}\arg\left(\e(f)\xi(1-s,\conj{f})\right) \\
-        &= -\D_{\conj{\eta_{R}}}\arg\left(\e(f)\xi(s,\conj{f})\right) \\
-        &= \D_{\conj{\eta_{R}}}\arg\left(\conj{\e(f)}\xi(\conj{s},f)\right) \\
-        &= \D_{\eta_{R}}\arg\left(\conj{\e(f)}\xi(s)\right) \\
-        &= \D_{\eta_{R}}\arg\left(\conj{\e(f)}\right)+\D_{\eta_{R}}\arg(\xi(s)) \\
+        \D_{\eta_{L}}\arg(\xi(s)) &= \D_{\eta_{L}}\arg\left(\e_{L}\xi(1-s,\conj{f})\right) \\
+        &= -\D_{\conj{\eta_{R}}}\arg\left(\e_{L}\xi(s,\conj{f})\right) \\
+        &= \D_{\conj{\eta_{R}}}\arg\left(\conj{\e_{L}}\xi(\conj{s},f)\right) \\
+        &= \D_{\eta_{R}}\arg\left(\conj{\e_{L}}\xi(s)\right) \\
+        &= \D_{\eta_{R}}\arg\left(\conj{\e_{L}}\right)+\D_{\eta_{R}}\arg(\xi(s)) \\
         &= \D_{\eta_{R}}\arg(\xi(s)).
       \end{align*}
       In other words, the change in argument along \(\eta_{L}\) is equal to the change in argument along \(\eta_{R}\) and so

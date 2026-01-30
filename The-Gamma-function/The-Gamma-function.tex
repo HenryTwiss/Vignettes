@@ -50,7 +50,7 @@
     \[
       \G(s+1) = s\G(s),
     \]
-    is referred to as the \textit{functional equation} for the gamma function. The functional equation will allow for the meromorphic conduction of the Gamma function to all of \(\C\).
+    is referred to as the \textit{functional equation} of the gamma function. The functional equation will allow for the meromorphic conduction of the Gamma function to all of \(\C\).
 
     \begin{theorem}\label{thm:continuation_of_gamma_function}
       For any nonnegative integer \(n\), \(\G(s)\) admits meromorphic continuation to the region \(\s > -(n+1)\) given by
@@ -60,7 +60,7 @@
       In particular, \(\G(s)\) admits meromorphic continuation to \(\C\) with simple poles at \(s = -n\) of residues \(\frac{(-1)^{n}}{n!}\).
     \end{theorem}
     \begin{proof}
-      Using the functional equation for the gamma function repeatedly gives
+      Applying the functional equation repeatedly gives
       \[
         \G(s) = \frac{\G(s+n+1)}{s(s+1) \cdots (s+n)},
       \]
@@ -282,7 +282,7 @@
       \]
     \end{lemma}
     \begin{proof}
-      Use the functional equation for the gamma function to write
+      Apply the functional equation to write
       \[
         \frac{n^{-s}\G(s+n)}{\G(n)} = \left(\frac{s+n-1}{n}\right)\frac{n^{1-s}\G(s-1+n)}{\G(n)},
       \]
@@ -323,7 +323,7 @@
       where \(\g\) is the Euler-Mascheroni constant.
     \end{theorem}
     \begin{proof}
-      Let \(k\) be a positive integer. Applying the functional equation for the gamma function repeatedly we may write 
+      Let \(k\) be a positive integer. Apply the functional equation repeatedly to write
       \[
         \frac{1}{\G(s)} = \frac{s(s+1) \cdots (s+k-1)}{\G(s+k)},
       \]
@@ -447,7 +447,7 @@
       \[
         \G(s+1) = \sqrt{2\pi}s^{s+\frac{1}{2}}e^{-s}\left(1+O_{\e,\d}\left(\frac{1}{s}\right)\right).
       \]
-      Using the functional equation for the gamma function gives
+      Using the functional equation gives
       \[
         \G(s) = \sqrt{2\pi}s^{s-\frac{1}{2}}e^{-s}\left(1+O_{\e,\d}\left(\frac{1}{s}\right)\right).
       \]
@@ -493,27 +493,26 @@
     We can use \cref{equ:weaker_Stirling_formula_1} to obtain weaker estimates valid on the negative real axis away from the poles of the gamma function.
 
     \begin{corollary}\label{equ:weaker_Stirling_formula_2}
-      Suppose \(\s_{1} \le \s \le \s_{2}\) and \(|t| > \e\). Then
+      Suppose \(\s_{1} \le \s \le \s_{2}\) and that \(s\) is at least distance \(\e\) away from the poles of the gamma function in this vertical strip. Then
       \[
-        \G(s) \ll_{\e} |t|^{\s-\frac{1}{2}}e^{-\frac{\pi}{2}|t|} \quad \text{and} \quad \frac{1}{\G(s)} \ll_{\e} |t|^{\frac{1}{2}-\s}e^{\frac{\pi}{2}|t|}.
+        \G(s) \ll_{\e} (|t|+3)^{\s-\frac{1}{2}}e^{-\frac{\pi}{2}|t|} \quad \text{and} \quad \frac{1}{\G(s)} \ll_{\e} (|t|+3)^{\frac{1}{2}-\s}e^{\frac{\pi}{2}|t|}.
       \]
       In particular,
       \[
-        \frac{\G(1-s)}{\G(s)} \ll_{\e} |t|^{1-2\s}.
+        \frac{\G(1-s)}{\G(s)} \ll_{\e} (|t|+3)^{1-2\s}.
       \]
-      All of these estimates hold with \(|t|+3\) replacing \(|t|\) if we merely assume \(s\) is at least distance \(\e\) away from the poles of the gamma function in this vertical strip.
     \end{corollary}
     \begin{proof}
-      \cref{equ:weaker_Stirling_formula_1} implies
+      Let \(s\) be in the given region and assume \(|t| > \e\). \cref{equ:weaker_Stirling_formula_1} implies the strictly weaker estimates
       \[
-        \G(s) \ll_{\e} |t|^{\s-\frac{1}{2}}e^{-\frac{\pi}{2}|t|} \quad \text{and} \quad \frac{1}{\G(s)} \ll_{\e} |t|^{\frac{1}{2}-\s}e^{\frac{\pi}{2}|t|},
+        \G(s) \ll_{\e} |t|^{\s-\frac{1}{2}}e^{-\frac{\pi}{2}|t|} \quad \text{and} \quad \frac{1}{\G(s)} \ll_{\e} |t|^{\frac{1}{2}-\s}e^{\frac{\pi}{2}|t|}.
       \]
-      which are strictly weaker estimates. The third estimate is obtained by taking the ratio of these two. Since the gamma function is holomorphic and bounded on the compact set defined by \(\s_{1} \le \s \le \s_{2}\) and \(|t| \le \e\) with \(s\) at least distance \(\e\) away from the poles, it is absolutely bounded. The second statement follows.
+      Since the gamma function is holomorphic and bounded on the compact set defined by \(\s_{1} \le \s \le \s_{2}\) and \(|t| \le \e\) with \(s\) at least distance \(\e\) away from its poles, we may relax the condition \(|t| \ge 1\) provided we replace \(|t|\) with \(|t|+3\). This proves the first two estimates. The third estimate is obtained by taking the ratio of these two.
     \end{proof}
 
-    The choice of \(3\) in \(|t|+3\) at the end of \cref{equ:weaker_Stirling_formula_2} is a matter of convenience as could use any positive constant. In particular, it is useful when taking logarithms as \(\ln(|t|+3) \ge 1\).
+    The choice of \(3\) in \(|t|+3\) in \cref{equ:weaker_Stirling_formula_2} is a matter of convenience as we could use any large positive constant. In particular, it is useful when taking logarithms as \(\log(|t|+3) \ge 1\).
 
-    Having discussed the major properties of the gamma function, we now introduce a related function. We call \(\frac{\G'}{\G}(s)\) the \textit{digamma function}. In other words, the digamma function is the logarithmic derivative of the gamma function. From \cref{thm:continuation_of_gamma_function}, it is meromorphic on \(\C\) with simple poles at the nonpositive integers whose residues are all \(-1\). Taking the logarithmic derivative of the functional equation of the gamma function shows that
+    Having discussed the major properties of the gamma function, we now introduce a related function. We call \(\frac{\G'}{\G}(s)\) the \textit{digamma function}. In other words, the digamma function is the logarithmic derivative of the gamma function. From \cref{thm:continuation_of_gamma_function}, it is meromorphic on \(\C\) with simple poles at the nonpositive integers whose residues are all \(-1\). Taking the logarithmic derivative of the functional equation shows
     \[
       \frac{\G'}{\G}(s+1) = \frac{\G'}{\G}(s)+\frac{1}{s}.
     \]
@@ -527,7 +526,7 @@
       where \(\g\) is the Euler-Mascheroni constant.
     \end{corollary}
     \begin{proof}
-      As the gamma function has no zeros, we may use its functional equation to write
+      As the gamma function has no zeros, we may use the functional equation to write
       \[
         \frac{1}{\G(s+1)} = \frac{1}{s\G(s)}.
       \]
@@ -601,17 +600,18 @@
     We can use \cref{equ:weaker_approximtion_for_digamma_1} to obtain a weaker estimate valid on the negative real axis away from the poles of the gamma function.
 
     \begin{corollary}\label{equ:weaker_approximtion_for_digamma_2}
-      Suppose \(\s_{1} \le \s \le \s_{2}\) and \(|t| > \e\). Then
+      Suppose \(\s_{1} \le \s \le \s_{2}\) and \(s\) is at least distance \(\e\) away from the poles of the digamma function in this vertical strip. Then
       \[
-        \frac{\G'}{\G}(s) = \log|s|.
+        \frac{\G'}{\G}(s) \ll_{\e} \log(|s|+3).
       \]
-      This estimate holds with \(|t|+3\) replacing \(|t|\) if we merely assume \(s\) is at least distance \(\e\) away from the poles of the gamma function in this vertical strip.
     \end{corollary}
     \begin{proof}
-      \cref{equ:weaker_approximtion_for_digamma_1} implies
+      Let \(s\) be in the given region and assume \(|t| > \e\). \cref{equ:weaker_approximtion_for_digamma_1} implies the strictly weaker estimate
       \[
         \frac{\G'}{\G}(s) \ll_{\e} \log|s|.
       \]
-      which is a strictly weaker estimate. Since the gamma function is holomorphic and bounded on the compact set defined by \(\s_{1} \le \s \le \s_{2}\) and \(|t| \le \e\) with \(s\) at least distance \(\e\) away from the poles, it is absolutely bounded. The second statement follows.
+      Since the digamma function is holomorphic and bounded on the compact set defined by \(\s_{1} \le \s \le \s_{2}\) and \(|t| \le \e\) with \(s\) at least distance \(\e\) away from its poles, we may relax the condition \(|t| \ge 1\) provided we replace \(|s|\) with \(|s|+3\). The estimate follows.
     \end{proof}
+
+    The choice of \(3\) in \(|s|+3\) at the end of \cref{equ:weaker_approximtion_for_digamma_2} is a matter of convenience as could use any large positive constant. In particular, it is useful when taking logarithms as \(\log(|s|+3) \ge 1\).
 \end{document}
