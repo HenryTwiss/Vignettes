@@ -462,10 +462,10 @@
       Since \(n\) was arbitrary, this proves the asymptotic formula when \(\s \le 0\) as well. The asymptotic equivalence follows immediately since it is a strictly weaker asymptotic.
     \end{proof}
 
-    We now turn to bounds for the gamma function in vertical strips. That is, when \(\s\) is bounded. The first of which is useful asymptotic equivalence showing that the gamma function decays exponentially in \(t\).
+    We now turn to estimates for the gamma function in vertical strips. That is, when \(\s\) is bounded. The first of which is useful asymptotic equivalence showing that the gamma function decays exponentially in \(t\).
     
     \begin{corollary}\label{equ:weaker_Stirling_formula_1}
-      Let \(|\arg(s)| < \pi-\e\) and \(|s| > \d\) for some \(\e,\d > 0\) and suppose \(\s\) is bounded. Then
+      Let \(|\arg(s)| < \pi-\e\) and \(|s| > \d\) for some \(\e,\d > 0\) and suppose \(\s_{1} \le \s \le \s_{2}\). Then
       \[
         \G(s) \sim \sqrt{2\pi}|t|^{\s-\frac{1}{2}}e^{-\frac{\pi}{2}|t|}.
       \]
@@ -490,26 +490,28 @@
       This is equivalent to the desired asymptotic.
     \end{proof}
 
-    Notice that \cref{equ:weaker_Stirling_formula_1} is not valid on the negative real axis away from the poles of the gamma function. We can remedy this provided we weaken the asymptotic slightly.
+    We can use \cref{equ:weaker_Stirling_formula_1} to obtain weaker estimates valid on the negative real axis away from the poles of the gamma function.
 
     \begin{corollary}\label{equ:weaker_Stirling_formula_2}
       Suppose \(\s_{1} \le \s \le \s_{2}\) and \(|t| > \e\). Then
       \[
-        \G(s) \ll_{\s_{1},\s_{2},\e} |t|^{\s-\frac{1}{2}}e^{-\frac{\pi}{2}|t|} \quad \text{and} \quad \frac{1}{\G(s)} \ll_{\s_{1},\s_{2},\e} |t|^{\frac{1}{2}-\s}e^{\frac{\pi}{2}|t|}.
+        \G(s) \ll_{\e} |t|^{\s-\frac{1}{2}}e^{-\frac{\pi}{2}|t|} \quad \text{and} \quad \frac{1}{\G(s)} \ll_{\e} |t|^{\frac{1}{2}-\s}e^{\frac{\pi}{2}|t|}.
       \]
       In particular,
       \[
-        \frac{\G(1-s)}{\G(s)} \ll_{\s_{1},\s_{2},\e} |t|^{1-2\s}.
+        \frac{\G(1-s)}{\G(s)} \ll_{\e} |t|^{1-2\s}.
       \]
-      All of these estimates hold with \(|t|+1\) replacing \(|t|\) if we merely assume \(s\) is at least distance \(\e\) away from the poles of the gamma function in this vertical strip.
+      All of these estimates hold with \(|t|+3\) replacing \(|t|\) if we merely assume \(s\) is at least distance \(\e\) away from the poles of the gamma function in this vertical strip.
     \end{corollary}
     \begin{proof}
       \cref{equ:weaker_Stirling_formula_1} implies
       \[
-        \G(s) \ll_{\s_{1},\s_{2},\e} |t|^{\s-\frac{1}{2}}e^{-\frac{\pi}{2}|t|} \quad \text{and} \quad \frac{1}{\G(s)} \ll_{\s_{1},\s_{2},\e} |t|^{\frac{1}{2}-\s}e^{\frac{\pi}{2}|t|},
+        \G(s) \ll_{\e} |t|^{\s-\frac{1}{2}}e^{-\frac{\pi}{2}|t|} \quad \text{and} \quad \frac{1}{\G(s)} \ll_{\e} |t|^{\frac{1}{2}-\s}e^{\frac{\pi}{2}|t|},
       \]
       which are strictly weaker estimates. The third estimate is obtained by taking the ratio of these two. Since the gamma function is holomorphic and bounded on the compact set defined by \(\s_{1} \le \s \le \s_{2}\) and \(|t| \le \e\) with \(s\) at least distance \(\e\) away from the poles, it is absolutely bounded. The second statement follows.
     \end{proof}
+
+    The choice of \(3\) in \(|t|+3\) at the end of \cref{equ:weaker_Stirling_formula_2} is a matter of convenience as could use any positive constant. In particular, it is useful when taking logarithms as \(\ln(|t|+3) \ge 1\).
 
     Having discussed the major properties of the gamma function, we now introduce a related function. We call \(\frac{\G'}{\G}(s)\) the \textit{digamma function}. In other words, the digamma function is the logarithmic derivative of the gamma function. From \cref{thm:continuation_of_gamma_function}, it is meromorphic on \(\C\) with simple poles at the nonpositive integers whose residues are all \(-1\). Taking the logarithmic derivative of the functional equation of the gamma function shows that
     \[
@@ -536,12 +538,16 @@
       This is equivalent to the desired formula.
     \end{proof}
     
-    As for estimates involving the digamma function, we can appeal to Stirling's formula.
+    As for estimates involving the digamma function, we can appeal to Stirling's formula to obtain as asymptotic formula.
 
     \begin{proposition}\label{equ:approximtion_for_digamma}
       Let \(|\arg(s)| < \pi-\e\) and \(|s| > \d\) for some \(\e,\d > 0\). Then
       \[
         \frac{\G'}{\G}(s) = \log(s)+O_{\e,\d}\left(\frac{1}{s}\right).
+      \]
+      In particular,
+      \[
+        \frac{\G'}{\G}(s) \sim \log(s).
       \]
     \end{proposition}
     \begin{proof}
@@ -567,8 +573,45 @@
       \]
       in view of our estimate for \(\log\G(s)-g(s)\). Whence
       \[
-        \frac{\G'}{\G}(s) = \log(s)+O_{\e,\d}\left(\frac{1}{s}\right),
+        \frac{\G'}{\G}(s) = \log(s)+O_{\e,\d}\left(\frac{1}{s}\right).
+      \]
+      This proves the asymptotic formula. The asymptotic equivalence is immediate as it is a strictly weaker asymptotic.
+    \end{proof}
+
+    Just as for the gamma function, it is possible to obtain estimates for the digamma function in vertical strips.
+
+    \begin{corollary}\label{equ:weaker_approximtion_for_digamma_1}
+      Let \(|\arg(s)| < \pi-\e\) and \(|s| > \d\) for some \(\e,\d > 0\) and suppose \(\s_{1} \le \s \le \s_{2}\). Then
+      \[
+        \frac{\G'}{\G}(s) \sim \log|s|.
+      \]
+    \end{corollary}
+    \begin{proof}
+      Writing \(\log(s) = \log|s|+i\arg(s)\), \cref{equ:approximtion_for_digamma} gives
+      \[
+        \frac{\G'}{\G}(s) \sim (\log|s|+i\arg(s)).
+      \]
+      As \(\s\) is bounded, we have \(\arg(s) = O(1)\). This asymptotic implies
+      \[
+        \frac{\G'}{\G}(s) \sim \log|s|,
       \]
       as desired.
+    \end{proof}
+
+    We can use \cref{equ:weaker_approximtion_for_digamma_1} to obtain a weaker estimate valid on the negative real axis away from the poles of the gamma function.
+
+    \begin{corollary}\label{equ:weaker_approximtion_for_digamma_2}
+      Suppose \(\s_{1} \le \s \le \s_{2}\) and \(|t| > \e\). Then
+      \[
+        \frac{\G'}{\G}(s) = \log|s|.
+      \]
+      This estimate holds with \(|t|+3\) replacing \(|t|\) if we merely assume \(s\) is at least distance \(\e\) away from the poles of the gamma function in this vertical strip.
+    \end{corollary}
+    \begin{proof}
+      \cref{equ:weaker_approximtion_for_digamma_1} implies
+      \[
+        \frac{\G'}{\G}(s) \ll_{\e} \log|s|.
+      \]
+      which is a strictly weaker estimate. Since the gamma function is holomorphic and bounded on the compact set defined by \(\s_{1} \le \s \le \s_{2}\) and \(|t| \le \e\) with \(s\) at least distance \(\e\) away from the poles, it is absolutely bounded. The second statement follows.
     \end{proof}
 \end{document}
