@@ -917,6 +917,10 @@ INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/euler/eufm10.
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/euler/eufm10.tfm
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/euler/eufm7.tfm
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/euler/eufm5.tfm
+INPUT ./L-functions.bbl
+INPUT L-functions.bbl
+INPUT ./L-functions.bbl
+INPUT L-functions.bbl
 OUTPUT L-functions.thm
 INPUT L-functions.aux
 INPUT ./L-functions.out

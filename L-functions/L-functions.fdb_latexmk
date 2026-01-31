@@ -1,11 +1,18 @@
 # Fdb version 3
-["makeindex L-functions.idx"] 1769810217 "L-functions.idx" "L-functions.ind" "L-functions" 1769810312
+["bibtex L-functions"] 1769875219 "L-functions.aux" "L-functions.bbl" "L-functions" 1769875220
+  "/usr/local/texlive/2022/texmf-dist/bibtex/bst/base/alpha.bst" 1292289607 23907 a5f93555796fb564b924339521f10a7c ""
+  "L-functions.aux" 1769875220 3277 5cca84341058d24bc559c8cb5d288225 "pdflatex"
+  "L-functions.bib" 1769871556 1646 f0f821fe5c3dbe7962d161a84d319c7f ""
+  (generated)
+  "L-functions.bbl"
+  "L-functions.blg"
+["makeindex L-functions.idx"] 1769810217 "L-functions.idx" "L-functions.ind" "L-functions" 1769875220
   "L-functions.idx" 0 -1 0 "pdflatex"
   (generated)
   "L-functions.ilg"
   "L-functions.ind"
-["pdflatex"] 1769810312 "/Users/henrytwiss/Documents/Documents/LaTeX/Vignettes/L-functions/L-functions.tex" "L-functions.pdf" "L-functions" 1769810312
-  "/Users/henrytwiss/Documents/Documents/LaTeX/Vignettes/L-functions/L-functions.tex" 1769810311 83984 a72a52fdefbb3f1fb71adff36e77bef7 ""
+["pdflatex"] 1769875219 "/Users/henrytwiss/Documents/Documents/LaTeX/Vignettes/L-functions/L-functions.tex" "L-functions.pdf" "L-functions" 1769875220
+  "/Users/henrytwiss/Documents/Documents/LaTeX/Vignettes/L-functions/L-functions.tex" 1769875219 83957 a9b1d50a9ce7228861a9600263cd3b9f ""
   "/Users/henrytwiss/Documents/Documents/LaTeX/Vignettes/preamble.tex" 1769363703 5405 a09c92403f06ce9a0bf05bb0ba5a732b ""
   "/usr/local/texlive/2022/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
@@ -189,10 +196,11 @@
   "/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1647878959 4410336 7d30a02e9fa9a16d7d1f8d037ba69641 ""
   "/usr/local/texlive/2022/texmf-var/web2c/pdftex/pdflatex.fmt" 1651053080 2826447 333659af56a38286fbbf3f5177a8ca36 ""
   "/usr/local/texlive/2022/texmf.cnf" 1647878952 577 209b46be99c9075fd74d4c0369380e8c ""
-  "L-functions.aux" 1769810312 2576 2ba73249d1eb32bdd8e71dfbb3ec3a65 "pdflatex"
+  "L-functions.aux" 1769875220 3277 5cca84341058d24bc559c8cb5d288225 "pdflatex"
+  "L-functions.bbl" 1769875219 929 0b745d32eb14ab0520cec1ddc85dba75 "bibtex L-functions"
   "L-functions.ind" 0 -1 0 "makeindex L-functions.idx"
-  "L-functions.out" 1769810312 338 056a765eec482db8b6ffd834a02594b3 "pdflatex"
-  "L-functions.tex" 1769810311 83984 a72a52fdefbb3f1fb71adff36e77bef7 ""
+  "L-functions.out" 1769875220 338 056a765eec482db8b6ffd834a02594b3 "pdflatex"
+  "L-functions.tex" 1769875219 83957 a9b1d50a9ce7228861a9600263cd3b9f ""
   (generated)
   "L-functions.aux"
   "L-functions.idx"

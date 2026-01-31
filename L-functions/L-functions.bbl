@@ -1,0 +1,26 @@
+\begin{thebibliography}{HL29}
+
+\bibitem[HL21]{hardyzeros1921}
+G.~Hardy and J.~E. Littlewood.
+\newblock The zeros of riemann's zeta-function on the critical line.
+\newblock {\em Mathematische Zeitschrift}, 10:283--317, 1921.
+\newblock Citation: Hardy1921zeros.
+
+\bibitem[HL23]{hardyapproximate1923}
+G.~H. Hardy and J.~E. Littlewood.
+\newblock The approximate functional equation in the theory of the
+  zeta-function, with applications to the divisor-problems of dirichlet and
+  piltz.
+\newblock {\em Proceedings of the London Mathematical Society},
+  s2-21(1):39--74, 1923.
+\newblock Citation: Hardy1923approximate.
+
+\bibitem[HL29]{hardyapproximate1929}
+G.~H. Hardy and J.~E. Littlewood.
+\newblock The approximate functional equations for {$\zeta(s)$} and
+  {$\zeta^{2}(s)$}.
+\newblock {\em Proceedings of the London Mathematical Society},
+  s2-29(1):81--97, 1929.
+\newblock Citation: Hardy1929approximate.
+
+\end{thebibliography}
