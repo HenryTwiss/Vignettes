@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.4.27)  31 JAN 2026 16:47
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.4.27)  31 JAN 2026 16:46
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -587,7 +587,7 @@ File: tikzlibrarycalc.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 
 
 Writing index file L-functions.idx
-(./L-functions.aux)
+No file L-functions.aux.
 \openout1 = `L-functions.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 12.
@@ -608,7 +608,6 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 12.
 LaTeX Font Info:    ... okay on input line 12.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 12.
 LaTeX Font Info:    ... okay on input line 12.
-
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -656,7 +655,6 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 12.
 LaTeX Info: Redefining \pageref on input line 12.
 LaTeX Info: Redefining \nameref on input line 12.
- (./L-functions.out) (./L-functions.out)
 \@outlinefile=\write5
 \openout5 = `L-functions.out'.
 
@@ -696,29 +694,371 @@ Package hyperref Info: bookmark level for unknown proof defaults to 0 on input l
 LaTeX Font Info:    Trying to load font information for U+euf on input line 119.
  (/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/ueuf.fd
 File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
-) [4] [5]
+) [4]
+
+LaTeX Warning: Reference `fig:critical_strip' on page 1 undefined on input line 184.
+
+[5]
+
+LaTeX Warning: Reference `equ:gamma_factor_analytic_conductor_estimate' on page 1 undefined on input line 201.
+
 Package hyperref Info: bookmark level for unknown theorem* defaults to 0 on input line 218.
- [6] [7] [8] (./L-functions.bbl [9])
+[6]
+
+LaTeX Warning: Reference `prop:L_function_bounded_in_vertical_strips' on page 1 undefined on input line 241.
+
+
+LaTeX Warning: Citation `hardyzeros1921' on page 7 undefined on input line 265.
+
+
+LaTeX Warning: Citation `hardyapproximate1923' on page 7 undefined on input line 265.
+
+
+LaTeX Warning: Citation `hardyapproximate1929' on page 7 undefined on input line 265.
+
+[7]
+
+LaTeX Warning: Reference `equ:choice_for_V_decay_estimate' on page 1 undefined on input line 298.
+
+[8]
+
+LaTeX Warning: Reference `equ:V_function_decay_1' on page 1 undefined on input line 306.
+
+
+LaTeX Warning: Reference `equ:choice_for_V_decay_estimate' on page 1 undefined on input line 306.
+
+Package hyperref Info: bookmark level for unknown theorem defaults to 0 on input line 331.
+[9]
+
+LaTeX Warning: Reference `prop:L_function_bounded_in_vertical_strips' on page 1 undefined on input line 349.
+
+
+LaTeX Warning: Reference `prop:smoothing_function_Mellin_inverse_vertical_strips' on page 1 undefined on input line 349.
+
+[10]
+
+LaTeX Warning: Reference `fig:symmetric_nontrivial_zeros' on page 1 undefined on input line 376.
+
+
+Overfull \hbox (1.72226pt too wide) in paragraph at lines 419--420
+[]\OT1/cmr/m/it/12 For the $\OML/cmm/m/it/12 L$\OT1/cmr/m/it/12 -function $\OML/cmm/m/it/12 L\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 s\OT1/cmr/m/n/12 )$\OT1/cmr/m/it/12 , all of the non-
+ []
+
+
+Overfull \hbox (7.802pt too wide) in paragraph at lines 425--426
+[]\OT1/cmr/m/it/12 For any Sel-berg class $\OML/cmm/m/it/12 L$\OT1/cmr/m/it/12 -function $\OML/cmm/m/it/12 L\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 s\OT1/cmr/m/n/12 )$\OT1/cmr/m/it/12 ,
+ []
+
+
+LaTeX Warning: Reference `prop:L_function_bounded_in_vertical_strips' on page 1 undefined on input line 430.
+
+[11]
+
+LaTeX Warning: Reference `append:The_Phragmen_Lindelof_Convexity_principle' on page 1 undefined on input line 434.
+
+
+LaTeX Warning: Reference `equ:gamma_factor_analytic_conductor_estimate' on page 1 undefined on input line 442.
+
+
+LaTeX Warning: Reference `equ:convexity_bound_for_L_function_in_critial_strip' on page 1 undefined on input line 454.
+
+[12]
+Overfull \hbox (2.66728pt too wide) in paragraph at lines 470--471
+[]\OT1/cmr/m/it/12 Any Sel-berg class $\OML/cmm/m/it/12 L$\OT1/cmr/m/it/12 -function $\OML/cmm/m/it/12 L\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 s\OT1/cmr/m/n/12 )$ \OT1/cmr/m/it/12 sat-
+ []
+
+Package hyperref Info: bookmark level for unknown remark defaults to 0 on input line 483.
+
+LaTeX Warning: Reference `equ:convexity_bound_for_L_function_in_critial_strip' on page 1 undefined on input line 486.
+
+[13]
+
+LaTeX Warning: Reference `equ:gamma_factor_analytic_conductor_estimate' on page 1 undefined on input line 521.
+
+
+Overfull \hbox (39.71588pt too wide) detected at line 524
+\OML/cmm/m/it/12 L [] \OMS/cmsy/m/n/12 ^^\ [] \OT1/cmr/m/n/12 + [] + [] \OML/cmm/m/it/12 :
+ []
+
+
+LaTeX Warning: Reference `equ:choice_for_V_decay_estimate' on page 1 undefined on input line 525.
+
+
+LaTeX Warning: Reference `equ:modified_gamma_estimates' on page 1 undefined on input line 525.
+
+[14]
+Overfull \hbox (9.53436pt too wide) detected at line 544
+[]
+ []
+
+
+LaTeX Warning: Reference `prop:V_function_decay' on page 1 undefined on input line 545.
+
+
+Overfull \hbox (3.95572pt too wide) in paragraph at lines 544--546
+\OT1/cmr/m/n/12 where in the third line we have used that $\OML/cmm/m/it/12 V[] []$ \OT1/cmr/m/n/12 is bounded for $\OML/cmm/m/it/12 n \OMS/cmsy/m/n/12 ^^\ []$
+ []
+
+
+Overfull \hbox (36.03192pt too wide) detected at line 560
+[] \OT1/cmr/m/n/12 + [] \OMS/cmsy/m/n/12 ^^\ [] [] \OML/cmm/m/it/12 ;
+ []
+
+[15]
+
+LaTeX Warning: Reference `thm:central_value_estimate' on page 1 undefined on input line 564.
+
+
+LaTeX Warning: Reference `thm:central_value_estimate' on page 1 undefined on input line 564.
+
+
+LaTeX Warning: Reference `equ:coefficient_sum_trivial_bound' on page 1 undefined on input line 570.
+
+
+LaTeX Warning: Reference `thm:critical_line_estimate' on page 1 undefined on input line 573.
+
+
+LaTeX Warning: Reference `thm:critical_line_estimate' on page 1 undefined on input line 582.
+
+
+LaTeX Warning: Reference `thm:central_value_estimate' on page 1 undefined on input line 585.
+
+[16]
+
+LaTeX Warning: Reference `equ:modified_gamma_estimates' on page 1 undefined on input line 612.
+
+
+LaTeX Warning: Reference `append:Factorizations_and_Finite_Order' on page 1 undefined on input line 612.
+
+[17]
+
+LaTeX Warning: Reference `equ:log_derivative_2' on page 1 undefined on input line 624.
+
+
+LaTeX Warning: Reference `equ:log_derivative_1' on page 1 undefined on input line 624.
+
+
+LaTeX Warning: Reference `prop:explicit_formula_log_derivative' on page 1 undefined on input line 631.
+
+Package hyperref Info: bookmark level for unknown lemma defaults to 0 on input line 651.
+[18]
+Overfull \hbox (82.96738pt too wide) detected at line 671
+[] [] \OMS/cmsy/m/n/12 ^^T [] [] \OT1/cmr/m/n/12 + [] [] \OMS/cmsy/m/n/12 ^^@ [] [] [] ^^@ [] [] [] \OT1/cmr/m/n/12 + \OML/cmm/m/it/12 O\OT1/cmr/m/n/12 ([] [])\OML/cmm/m/it/12 ;
+ []
+
+
+LaTeX Warning: Reference `equ:log_derivative_2' on page 1 undefined on input line 678.
+
+[19]
+
+LaTeX Warning: Reference `prop:explicit_formula_log_derivative' on page 1 undefined on input line 686.
+
+
+LaTeX Warning: Reference `equ:digamma_gamma_factor_analytic_conductor_estimate' on page 1 undefined on input line 695.
+
+
+LaTeX Warning: Reference `prop:explicit_formula_log_derivative' on page 1 undefined on input line 699.
+
+
+LaTeX Warning: Reference `equ:log_conductor_gamma_factor_bound_analytic_conductor' on page 1 undefined on input line 699.
+
+
+LaTeX Warning: Reference `equ:log_derivative_bound_conductor' on page 1 undefined on input line 699.
+
+
+Overfull \hbox (97.86113pt too wide) detected at line 716
+[] [] \OT1/cmr/m/n/12 = [] \OML/cmm/m/it/12 > \OT1/cmr/m/n/12 0 [] [] [] = [] \OML/cmm/m/it/12 > \OT1/cmr/m/n/12 0\OML/cmm/m/it/12 ;
+ []
+
+
+LaTeX Warning: Reference `equ:log_derivative_bound_conductor' on page 1 undefined on input line 718.
+
+[20]
+
+LaTeX Warning: Reference `prop:explicit_formula_log_derivative' on page 1 undefined on input line 722.
+
+
+LaTeX Warning: Reference `equ:digamma_gamma_factor_analytic_conductor_estimate' on page 1 undefined on input line 722.
+
+
+LaTeX Warning: Reference `equ_sum_of_nontrivial_zeros_log_analytic_conductor_bound' on page 1 undefined on input line 730.
+
+
+LaTeX Warning: Reference `equ:digamma_gamma_factor_analytic_conductor_estimate' on page 1 undefined on input line 734.
+
+
+Overfull \hbox (82.57825pt too wide) detected at line 745
+[] [] [] \OT1/cmr/m/n/12 + [] [] [] \OMS/cmsy/m/n/12 ^^T [] [] \OT1/cmr/m/n/12 + [] [] + [] [] + \OML/cmm/m/it/12 O\OT1/cmr/m/n/12 ([] [])\OML/cmm/m/it/12 :
+ []
+
+
+LaTeX Warning: Reference `lem:powerful_L-function_approximation_lemma' on page 1 undefined on input line 750.
+
+[21]
+
+LaTeX Warning: Reference `lem:powerful_L-function_approximation_lemma' on page 1 undefined on input line 775.
+
+
+LaTeX Warning: Reference `fig:zero_counting_contour' on page 1 undefined on input line 822.
+
+[22] [23]
+
+LaTeX Warning: Reference `equ:log_gamma_estimate' on page 1 undefined on input line 863.
+
+
+LaTeX Warning: Reference `equ:log_derivative_bound_conductor' on page 1 undefined on input line 877.
+
+
+LaTeX Warning: Reference `lem:powerful_L-function_approximation_lemma' on page 1 undefined on input line 877.
+
+
+LaTeX Warning: Reference `equ:zero_counting_5' on page 1 undefined on input line 881.
+
+
+LaTeX Warning: Reference `equ:zero_counting_4' on page 1 undefined on input line 881.
+
+
+LaTeX Warning: Reference `equ:zero_counting_3' on page 1 undefined on input line 881.
+
+
+LaTeX Warning: Reference `equ:zero_counting_2' on page 1 undefined on input line 881.
+
+
+LaTeX Warning: Reference `equ:zero_counting_1' on page 1 undefined on input line 881.
+
+
+LaTeX Warning: Reference `thm:zero_counting' on page 1 undefined on input line 892.
+
+
+LaTeX Warning: Reference `thm:zero_counting' on page 1 undefined on input line 892.
+
+
+LaTeX Warning: Reference `thm:zero_counting' on page 1 undefined on input line 892.
+
+[24]
+
+LaTeX Warning: Reference `thm:zero_counting' on page 1 undefined on input line 913.
+
+
+LaTeX Warning: Reference `prop:unfolded_zeros_are_evenly_spaced' on page 1 undefined on input line 920.
+
+
+LaTeX Warning: Reference `thm:zero_counting' on page 1 undefined on input line 920.
+
+[25]
+
+LaTeX Warning: Reference `lem:powerful_L-function_approximation_lemma' on page 1 undefined on input line 931.
+
+
+LaTeX Warning: Reference `equ:log_derivaive_direct_computation' on page 1 undefined on input line 939.
+
+
+Overfull \hbox (6.1594pt too wide) detected at line 942
+[] [] \OMS/cmsy/m/n/12 ^^T [] \OT1/cmr/m/n/12 = [] \OMS/cmsy/m/n/12 ^^T \OML/cmm/m/it/12 d[] [] []\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 p\OT1/cmr/m/n/12 ) \OMS/cmsy/m/n/12 ^^T \OML/cmm/m/it/12 d[] [] Q;
+ []
+
+[26]
+
+LaTeX Warning: Reference `lem:non-vanshing_at_1_lemma' on page 1 undefined on input line 992.
+
+
+LaTeX Warning: Reference `lem:non-vanshing_at_1_lemma' on page 1 undefined on input line 992.
+
+
+LaTeX Warning: Reference `lem:non-vanshing_at_1_lemma' on page 1 undefined on input line 992.
+
+
+LaTeX Warning: Reference `lem:non-vanshing_at_1_lemma' on page 1 undefined on input line 997.
+
+[27]
+
+LaTeX Warning: Reference `thm:zero_free_region_generic' on page 1 undefined on input line 1000.
+
+
+LaTeX Warning: Reference `thm:zero_free_region_generic' on page 1 undefined on input line 1000.
+
+
+LaTeX Warning: Reference `fig:symmetric_zero_free_region' on page 1 undefined on input line 1000.
+
+
+LaTeX Warning: Reference `thm:zero_free_region_generic' on page 1 undefined on input line 1036.
+
+
+LaTeX Warning: Reference `thm:zero_free_region_generic' on page 1 undefined on input line 1040.
+
+
+LaTeX Warning: Reference `thm:zero_free_region_generic' on page 1 undefined on input line 1040.
+
+
+LaTeX Warning: Reference `thm:zero_free_region_generic' on page 1 undefined on input line 1040.
+
+
+LaTeX Warning: Reference `thm:zero_free_region_generic' on page 1 undefined on input line 1044.
+
+
+LaTeX Warning: Reference `thm:zero_free_region_generic' on page 1 undefined on input line 1044.
+
+[28]
+
+LaTeX Warning: Reference `prop:L_function_bounded_in_vertical_strips' on page 1 undefined on input line 1061.
+
+
+LaTeX Warning: Reference `prop:smoothing_function_Mellin_inverse_vertical_strips' on page 1 undefined on input line 1061.
+
+
+Overfull \hbox (29.01523pt too wide) detected at line 1072
+[] [][] \OMS/cmsy/m/n/12 ^^@[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 s\OT1/cmr/m/n/12 )^^H(\OML/cmm/m/it/12 s\OT1/cmr/m/n/12 ) \OML/cmm/m/it/12 ds \OT1/cmr/m/n/12 = [] [][] [] 	(\OML/cmm/m/it/12 s\OT1/cmr/m/n/12 ) \OML/cmm/m/it/12 ds:
+ []
+
+[29]
+Overfull \hbox (0.50165pt too wide) detected at line 1081
+[]
+ []
+
+
+LaTeX Warning: Reference `prop:smoothing_function_Mellin_inverse_vertical_strips' on page 1 undefined on input line 1082.
+
+
+LaTeX Warning: Reference `equ:approximtion_for_digamma' on page 1 undefined on input line 1082.
+
+/Users/henrytwiss/Documents/Documents/LaTeX/Vignettes/L-functions/L-functions.tex:1086: Extra \fi.
+l.1086 \fi
+          
+I'm ignoring this; it doesn't match any \if.
+
+(./L-functions.bbl)
 \tf@thm=\write6
 \openout6 = `L-functions.thm'.
 
- [10] (./L-functions.aux)
-Package rerunfilecheck Info: File `L-functions.out' has not changed.
-(rerunfilecheck)             Checksum: 056A765EEC482DB8B6FFD834A02594B3;338.
+ [30] (./L-functions.aux)
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+
+Package rerunfilecheck Warning: File `L-functions.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `L-functions.out':
+(rerunfilecheck)             Before: <no file>
+(rerunfilecheck)             After:  747901BDA74CCC4828236728E3CA0424;1652.
  ) 
 Here is how much of TeX's memory you used:
- 25328 strings out of 478268
- 502043 string characters out of 5846347
- 754873 words of memory out of 5000000
- 43091 multiletter control sequences out of 15000+600000
+ 25626 strings out of 478268
+ 508961 string characters out of 5846347
+ 768027 words of memory out of 5000000
+ 43317 multiletter control sequences out of 15000+600000
  481599 words of font info for 76 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 105i,12n,107p,1151b,696s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on L-functions.pdf (10 pages, 209205 bytes).
+ 105i,12n,107p,1169b,1153s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on L-functions.pdf (30 pages, 339563 bytes).
 PDF statistics:
- 182 PDF objects out of 1000 (max. 8388607)
- 136 compressed objects within 2 object streams
- 36 named destinations out of 1000 (max. 500000)
- 29 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 340 PDF objects out of 1000 (max. 8388607)
+ 267 compressed objects within 3 object streams
+ 114 named destinations out of 1000 (max. 500000)
+ 13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -12,7 +12,11 @@
 \begin{document}
   \date{}
   \maketitle
-  Throughout, \(s = \s+it\) and \(u = \tau+ir\) will stand for complex variables with \(\s\), \(\tau\), \(t\), and \(r\) real.
+  Throughout, \(s = \s+it\) and \(u = \tau+ir\) will stand for complex variables with \(\s\), \(\tau\), \(t\), and \(r\) real. We also write
+  \[
+    (u)_{n} = u(u+1) \cdots (u+(n-1)),
+  \]
+  for the Pochhammer symbol.
   \section{Analytic Data}
     An \textit{analytic \(L\)-function} \(L(s)\) is a Dirichlet series
     \[
@@ -185,7 +189,7 @@
     \]
     This permits the study of \(L(s)\) in the region \(\s < 0\) by using the Dirichlet series of \(\conj{L(1-\conj{s})}\) and the the functional equation data. The interior of the critical strip is exactly the region where we cannot use either of these methods to study the analytic properties of \(L(s)\). Of course, anything may be possible on the boundary lines \(\s = 0\) and \(\s = 1\) (for example Landau's theorem).
   \section{The Approximate Functional Equation}
-    Despite not being able to study an analytic \(L\)-function \(L(s)\) in the critical strip by means of Dirichlet series, there is formula which acts as a compromise between the functional equation and the Dirichlet series. This formula is known as the approximate functional equation. The usefulness comes from the fact that the approximate functional equation is valid inside of the critical strip and therefore can be used to obtain analytic properties about \(L(s)\) in that region. We will first derive a preliminary result showing that \(L(s)\) has polynomial growth in the \(t\)-aspect in vertical strips.
+    Despite not being able to study an analytic \(L\)-function \(L(s)\) in the critical strip by means of Dirichlet series, there is formula which acts as a compromise between the functional equation and the Dirichlet series. This formula is known as the approximate functional equation. The usefulness comes from the fact that the approximate functional equation is valid inside of the critical strip and therefore can be used to obtain analytic properties about \(L(s)\) in that region. We will first derive a preliminary result showing that \(L(s)\) has polynomial growth in vertical strips.
 
     \begin{proposition}\label{prop:L_function_bounded_in_vertical_strips}
       Let \(L(s)\) be an analytic \(L\)-function and let \(\s_{1} \le \s \le \s_{2}\) with \(\s\) at least distance \(\e\) away from the possible pole at \(1\). Then there is a positive constant \(A\) such that
@@ -234,7 +238,7 @@
       \[
         \frac{1}{2\pi i}\int_{(a)}\L(s+u)\Phi(u)X^{u}\,\frac{du}{u}.
       \]    
-      Stirling's formula shows that \(L_{\infty}(s+u)\) exhibits exponential decay in the \(t\)-aspect while \(L(s)\) has polynomial growth in the \(t\)-aspect by \cref{prop:L_function_bounded_in_vertical_strips}. Since \(\Phi(u)\) is bounded in the vertical strip \(|\tau| < a+1\), it follows that the integrand exhibits exponential decay. Therefore the integral is locally absolutely uniformly bounded. We will evaluate the integral in two ways. On the one hand, we can expand \(L(s+u)\) inside the integrand as a Dirichlet series and by absolute boundedness of the integral we may interchange the sum and integral. A short computation shows that this is
+      Stirling's formula shows that \(L_{\infty}(s+u)\) exhibits exponential decay while \(L(s+u)\) has polynomial growth by \cref{prop:L_function_bounded_in_vertical_strips}. Since \(\Phi(u)\) is bounded in the vertical strip \(|\tau| < a+1\), it follows that the integrand exhibits exponential decay. Therefore the integral is locally absolutely uniformly bounded. We will evaluate the integral in two ways. On the one hand, we can expand \(L(s+u)\) inside the integrand as a Dirichlet series and by absolute boundedness of the integral we may interchange the sum and integral. A short computation shows that this is
       \[
         q_{L}^{\frac{s}{2}}L_{\infty}(s)\sum_{n \ge 1}\frac{a_{L}(n)}{n^{s}}V_{s}\left(\frac{n}{\sqrt{q_{L}}X}\right).
       \]
@@ -258,54 +262,74 @@
       Diving by \(q_{L}^{\frac{s}{2}}L_{\infty}(s)\) completes the proof.
     \end{proof}
 
-    The approximate functional equation was first developed by Hardy and Littlewood in the series \cite{hardyzeros1921,hardyapproximate1923,hardyapproximate1929}. The inverse Mellin transform \(V_{s}(y)\) has the effect of smoothing the two dual sums appearing on the right-hand side of the approximate functional equation. In practice, it is common to take
+    The approximate functional equation was first developed by Hardy and Littlewood in the series \cite{hardyzeros1921,hardyapproximate1923,hardyapproximate1929}. The inverse Mellin transform \(V_{s}(y)\) has the effect of dampening the two dual sums appearing on the right-hand side of the approximate functional equation. In practice, it is common to choose \(\Phi(u)\) such that \(V_{s}(y)\) is smooth with polynomial decay of arbitrarily large order. To achieve this we may take
     \[
       \Phi(u) = \cos^{-4d_{L}M}\left(\frac{\pi u}{4M}\right),
     \]
-    for some positive integer \(M\). Clearly \(\Phi(u)\) is an even holomorphic function in the vertical strip \(|\tau| < (2M-2)+1\) and satisfies \(\Phi(0) = 1\). To see that it is bounded in this vertical strip, simply observe that it admits exponential decay
+    for some positive integer \(M\). Clearly \(\Phi(u)\) is an even holomorphic function in the vertical strip \(|\tau| < (2M-1)+1\) and satisfies \(\Phi(0) = 1\). It also admits exponential decay via
     \begin{equation}\label{equ:choice_for_V_decay_estimate}
      \cos^{-4d_{L}M}\left(\frac{\pi u}{4M}\right) = \left(\frac{e^{i\frac{\pi u}{4M}}+e^{-i\frac{\pi u}{4M}}}{2}\right)^{-4d_{L}M} \ll e^{-d_{L}\pi|r|},
     \end{equation}
-    which is more than sufficient. With this choice of \( \Phi(u)\), it is possible to derive a useful bound for the inverse Mellin transform \(V_{s}(y)\).
+    which is more than sufficient. With this choice of \(\Phi(u)\), \(V_{s}(y)\) becomes smooth and satisfies useful bounds for its derivatives.
 
     \begin{proposition}\label{prop:V_function_decay}
       Let \(L(s)\) be an analytic \(L\)-function, set \(\Phi(u) = \cos^{-4d_{L}M}\left(\frac{\pi u}{4M}\right)\) for some positive integer \(M\), and let \(V_{s}(y)\) be the inverse Mellin transform defined by
       \[
-        V_{s}(y) = \frac{1}{2\pi i}\int_{(2M-2)}\frac{L_{\infty}(s+u)}{L_{\infty}(s)}\Phi(u)y^{-u}\frac{du}{u}.
+        V_{s}(y) = \frac{1}{2\pi i}\int_{(2M-1)}\frac{L_{\infty}(s+u)}{L_{\infty}(s)}\Phi(u)y^{-u}\frac{du}{u}.
       \]
-      Then for \(\e < \s < 1-\e\), \(V_{s}(y)\) satisfies the estimate
+      Then \(V_{s}(y)\) is smooth for \(\e < \s < 1-\e\). Moreover, for any nonnegative integer \(n\) and positive integer \(N\), \(V_{s}(y)\) satisfies the estimates
       \[
-        V_{s}(y) \ll_{\e} \left(1+\frac{y}{\sqrt{\mf{q}_{\infty}(s)}}\right)^{-M}.
+        (-y)^{n}V_{s}^{(n)}(y) = \begin{cases} O_{\e}\left(\left(\frac{y}{\sqrt{\mf{q}_{\infty}(s)}}\right)^{-N}\right) & \text{if \(y \gg \sqrt{\mf{q}_{\infty}(s)}\)}, \\ \d_{n,0}+O_{\e}\left(\left(\frac{y}{\sqrt{\mf{q}_{\infty}(s)}}\right)^{N}\right) & \text{if \(y \ll \sqrt{\mf{q}_{\infty}(s)}\)}. \end{cases}
+      \]
+      In particular,
+      \[
+        (-y)^{n}V_{s}^{(n)}(y) \ll_{\e} \left(1+\frac{y}{\sqrt{\mf{q}_{\infty}(s)}}\right)^{-N}.
       \]
     \end{proposition}
-    \iffalse\begin{proof}
+    \begin{proof}
       Stirling's formula implies
       \[
         \frac{\G(s+u)}{\G(s)} \ll_{\e} (|t+r|+3)^{\tau}e^{\frac{\pi}{2}|r|}.
       \]
       Whence
+      \begin{equation}\label{equ:V_function_decay_1}
+        \frac{L_{\infty}(s+u)}{L_{\infty}(s)} \ll_{\e} \mf{q}_{\infty}(s+u)^{\frac{\tau}{2}}e^{d_{L}\frac{\pi}{2}|r|}.
+      \end{equation}
+      By \cref{equ:choice_for_V_decay_estimate}, the integrand defining \(V_{s}(y)\) admits exponential decay. This forces \(V_{s}(y)\) to be locally absolutely uniformly bounded and therefore smooth. In particular, we may differentiate under the integral sign. Then
       \[
-        \frac{L_{\infty}(s+u)}{L_{\infty}(s)} \ll_{\e} \mf{q}_{\infty}(s+u)^{\tau}e^{d_{L}\frac{\pi}{2}|r|}.
+        (-y)^{n}V_{s}^{(n)}(y) = \frac{1}{2\pi i}\int_{(2M-1)}\frac{L_{\infty}(s+u)}{L_{\infty}(s)}\Phi(u)(u)_{n}y^{-u}\frac{du}{u}.
       \]
-      By \cref{equ:choice_for_V_decay_estimate}, the integral defining \(V_{s}(y)\) is locally absolutely uniformly convergent and we may shift the line of integration to \((M)\). In doing so, we do not pass by any poles and obtain
+      The exponential decay also permits us to shift the line of integration. Shifting to \((N)\), we do not pass by any poles and obtain
       \[
-        V_{s}(y) = \frac{1}{2\pi i}\int_{(M)}\frac{L_{\infty}(s+u)}{L_{\infty}(s)}\Phi(u)y^{-u}\frac{du}{u} \\
+        (-y)^{n}V_{s}^{(n)}(y) = \frac{1}{2\pi i}\int_{(N)}\frac{L_{\infty}(s+u)}{L_{\infty}(s)}\Phi(u)(u)_{n}y^{-u}\frac{du}{u}.
       \]
-      The fact that \(u\) is bounded away from zero, \cref{equ:choice_for_V_decay_estimate}, and the estimate for the ratio of gamma factors, gives the first estimate in the following chain:
-      \begin{align*}
-        V_{s}(y) &= \frac{1}{2\pi i}\int_{(M)}\frac{L_{\infty}(s+u)}{L_{\infty}(s)}\Phi(u)y^{-u}\frac{du}{u} \\
-        &\ll \int_{-\infty}^{\infty}\mf{q}_{\infty}(s)^{\frac{M}{2}}e^{-d_{L}\frac{\pi}{2}|r|}y^{-M}\,dr \\
-        &\ll \int_{-\infty}^{\infty}\mf{q}_{\infty}(s)^{\frac{M}{2}}e^{-d_{L}\frac{\pi}{2}|r|}(1+y)^{-M}\,dr \\
-        &\ll \int_{-\infty}^{\infty}e^{-\frac{\pi}{2}d_{L}|r|}\left(1+\frac{y}{\sqrt{\mf{q}_{\infty}(s)}}\right)^{-M}\,dr \\
-        &\ll \left(1+\frac{y}{\sqrt{\mf{q}_{\infty}(s)}}\right)^{-M}\int_{-\infty}^{\infty}e^{-\frac{\pi}{2}d_{L}|r|}\,dr \\
-        &\ll \left(1+\frac{y}{\sqrt{\mf{q}_{\infty}(s)}}\right)^{-M},
-      \end{align*}
-      where in the third and fourth lines we have used that \(cy \ll (1+cy)\) and the last line holds since the integrand exhibits exponential decay. This completes the proof.
-    \end{proof}\fi
+      Apply \cref{equ:choice_for_V_decay_estimate,equ:V_function_decay_1} to deduce
+      \[
+        (-y)^{n}V_{s}^{(n)}(y) \ll_{\e} \int_{(N)}\mf{q}_{\infty}(s+u)^{\frac{\tau}{2}}e^{-d_{L}\frac{\pi}{2}|r|}u^{n}y^{-u}\,\frac{du}{u}.
+      \]
+      By the exponential decay, we may assume \(r \ll 1\) in estimating the integral. The bound
+      \[
+        (-y)^{n}V_{s}^{(n)}(y) = O_{\e}\left(\left(\frac{y}{\sqrt{\mf{q}_{\infty}(s)}}\right)^{-N}\right),
+      \]
+      follows at once. If we instead shift to \((-N)\), we pass by a simple pole at \(u = 0\) of residue \(1\) if and only if \(n = 0\). This gives
+      \[
+        (-y)^{n}V_{s}^{(n)}(y) = \d_{n,0}+\frac{1}{2\pi i}\int_{(-N)}\frac{L_{\infty}(s+u)}{L_{\infty}(s)}\Phi(u)(u)_{n}y^{-u}\frac{du}{u}.
+      \]
+      An analogous argument to estimate the remaining integral shows
+      \[
+        (-y)^{n}V_{s}^{(n)}(y) = \d_{n,0}+O_{\e}\left(\left(\frac{y}{\sqrt{\mf{q}_{\infty}(s)}}\right)^{N}\right).
+      \]
+      These \(O\)-estimates give nontrivial bounds for \(y \gg \sqrt{\mf{q}_{\infty}(s)}\) and \(y \ll \sqrt{\mf{q}_{\infty}(s)}\) respectively. Upon combining both, we obtain
+      \[
+        (-y)^{n}V_{s}^{(n)}(y) \ll_{\e} \left(1+\frac{y}{\sqrt{\mf{q}_{\infty}(s)}}\right)^{-N}.
+      \]
+    \end{proof}
+
+    With our choice of \(\Phi(u)\), these estimates show \(V_{s}(y)\) is bounded for \(y \ll \sqrt{\mf{q}_{\infty}(s)}\) and exhibits polynomial decay of arbitrarily large order thereafter.
+    
+    In a similar spirit to the approximate functional equation, a useful summation formula can be derived from the functional equation.
 
     \iffalse
-    From \cref{prop:V_function_decay} we see that \(V_{s}(y)\) is bounded for \(y \ll \sqrt{\mf{q}_{\infty}(s)}\) and then exhibits polynomial decay of arbitrarily large order thereafter (by taking \(M\) arbitrarily large). More simply, this holds for \(y \ll \sqrt{\mf{q}(s)}\) as well. In a similar spirit to the approximate functional equation, a useful summation formula can be derived from the functional equation of each \(L\)-function:
-
     \begin{theorem}
       Let \(\psi(y)\) be a bump function and let \(\Psi(s)\) denote its Mellin transform. Then for any \(L\)-function \(L(s)\), we have
       \[
