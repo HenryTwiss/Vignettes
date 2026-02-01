@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.4.27)  31 JAN 2026 16:47
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.4.27)  31 JAN 2026 23:17
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -698,7 +698,9 @@ LaTeX Font Info:    Trying to load font information for U+euf on input line 119.
 File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
 ) [4] [5]
 Package hyperref Info: bookmark level for unknown theorem* defaults to 0 on input line 218.
- [6] [7] [8] (./L-functions.bbl [9])
+ [6] [7] [8]
+Package hyperref Info: bookmark level for unknown theorem defaults to 0 on input line 333.
+ [9] (./L-functions.bbl)
 \tf@thm=\write6
 \openout6 = `L-functions.thm'.
 
@@ -707,18 +709,18 @@ Package rerunfilecheck Info: File `L-functions.out' has not changed.
 (rerunfilecheck)             Checksum: 056A765EEC482DB8B6FFD834A02594B3;338.
  ) 
 Here is how much of TeX's memory you used:
- 25328 strings out of 478268
- 502043 string characters out of 5846347
+ 25331 strings out of 478268
+ 502077 string characters out of 5846347
  754873 words of memory out of 5000000
- 43091 multiletter control sequences out of 15000+600000
+ 43092 multiletter control sequences out of 15000+600000
  481599 words of font info for 76 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  105i,12n,107p,1151b,696s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on L-functions.pdf (10 pages, 209205 bytes).
+Output written on L-functions.pdf (10 pages, 213638 bytes).
 PDF statistics:
- 182 PDF objects out of 1000 (max. 8388607)
- 136 compressed objects within 2 object streams
- 36 named destinations out of 1000 (max. 500000)
+ 188 PDF objects out of 1000 (max. 8388607)
+ 142 compressed objects within 2 object streams
+ 38 named destinations out of 1000 (max. 500000)
  29 words of extra memory for PDF output out of 10000 (max. 10000000)
 

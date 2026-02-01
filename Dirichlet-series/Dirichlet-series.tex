@@ -587,15 +587,15 @@
       Also, \cref{prop:Dirichlet_series_polynomial_bound_from_absolute_convergence} guarantees \(a(X) \ll X^{c}\). These estimates and that \(D(s)\) is absolutely convergent at \(s = c\) together imply that error term in truncated Perron's formula is \(O_{c}\left(\frac{X^{c}}{T}\right)\). The claim follows.
     \end{proof}
 
-    Having discussed truncated Perron's formula, we turn to the variant where we instead introduce a smoothing function. Let \(\psi\) be bump function whose compact support is bounded away from zero. For any \(X > 0\), we set
+    Having discussed truncated Perron's formula, we turn to the variant where we instead introduce a smoothing function. Let \(\psi(y)\) be bump function whose support is bounded away from zero. For any \(X > 0\), we set
     \[
       A_{\psi}(X) = \sum_{n \ge 1}a(n)\psi\left(\frac{n}{X}\right),
     \]
-    We distinguish between two cases. The first is when we choose \(\psi\) to assigns weight \(1\) or \(0\) to the coefficients and we obtain sums such as
+    We distinguish between two cases. The first is when we choose \(\psi(y)\) to assign weight \(1\) or \(0\) to the coefficients and we obtain sums such as
     \[
       \sum_{\frac{X}{2} \le n < X}a(n) \quad \text{or} \quad \sum_{X \le n < X+Y}a(n).
     \]
-    Sums of this type are called \textit{unweighted}. As an example of an unweighted sum, let \(\psi\) be a bump function that is identically \(1\) on \(\left[\frac{1}{2},1\right]\) and is supported in \(\left[\frac{1}{2},\frac{X+1}{X}\right]\). For example, take
+    Sums of this type are called \textit{unweighted}. As an example of an unweighted sum, let \(\psi(y)\) be a bump function that is identically \(1\) on \(\left[\frac{1}{2},1\right]\) and is supported in \(\left[\frac{1}{2},\frac{X+1}{X}\right]\). For example, take
     \[
       \psi(y) = \begin{cases} 1 & \text{if \(\frac{1}{2} \le y \le 1\)}, \\ e^{\frac{1-y}{\frac{X+1}{X}-y}} & \text{if \(1 \le y < \frac{X+1}{X}\)}, \\ 0 & \text{if \(0 \le y < \frac{1}{2}\) or \(y \ge \frac{X+1}{X}\)}. \end{cases}
     \]
@@ -603,14 +603,14 @@
     \[
       A_{\psi}(X) = \sum_{\frac{X}{2} \le n \le X}a(n).
     \]
-    In the second case, we want \(\psi\) to dampen the coefficients with a weight other than \(1\) or \(0\). Sums of this type are called \textit{weighted}. In either case, the Mellin transform \(\Psi\) of \(\psi\) is given by
+    In the second case, we want \(\psi(y)\) to dampen the coefficients with a weight other than \(1\) or \(0\). Sums of this type are called \textit{weighted}. In either case, the Mellin transform \(\Psi(s)\) of \(\psi(y)\) is given by
     \[
       \Psi(s) = \int_{0}^{\infty}\psi(y)y^{s}\,\frac{dy}{y}.
     \]
-    As \(\psi\) has compact support, \(\Psi\) defines a locally absolutely uniformly convergent function on \(\C\). In particular it is holomorphic, and the Mellin inversion formula implies that \(\psi\) is the Mellin inverse of \(\Psi\). As for nice properties, \(\Psi(s)\) exhibit polynomial decay of arbitrarily large order in vertical strips.
+    As \(\psi(y)\) has compact support, the integral defining \(\Psi(s)\) is a locally absolutely uniformly bounded on \(\C\). In particular, \(\Psi(s)\) is holomorphic and the Mellin inversion formula implies that \(\psi(y)\) is the Mellin inverse of \(\Psi(s)\). As for nice properties, \(\Psi(s)\) exhibit polynomial decay of arbitrarily large order in vertical strips.
 
     \begin{proposition}\label{prop:smoothing_function_Mellin_inverse_vertical_strips}
-      Suppose \(\psi\) is a bump function whose compact support is bounded away from zero and denote its Mellin transform by \(\Psi\). Then for \(\s_{1} < \s < \s_{2}\), we have
+      Suppose \(\psi(y)\) is a bump function whose support is bounded away from zero and let \(\Psi(s)\) be its Mellin transform. Then for \(\s_{1} < \s < \s_{2}\), we have
       \[
         \Psi(s) \ll (|s|+1)^{-N},
       \]
@@ -621,7 +621,7 @@
       \[
         \Psi(s) = \int_{0}^{\infty}\psi(y)y^{s}\,\frac{dy}{y}.
       \]
-      Since \(\psi\) is compactly supported, integration by parts yields
+      Since \(\psi(y)\) is compactly supported, integration by parts yields
       \[
         \Psi(s) = \frac{1}{s}\int_{0}^{\infty}\psi'(y)y^{s+1}\,\frac{dy}{y}.
       \]
@@ -633,7 +633,7 @@
       \[
         \Psi(s) \ll (|s|+1)^{-N}\int_{0}^{\infty}\psi^{(N)}(y)y^{\s+N}\,\frac{dy}{y}.
       \]
-      Now \(\psi^{N}\) is compactly supported in the same region as \(\psi\). In particular, \(\psi^{(N)}(y)\) has compact support away from zero. Therefore
+      Now \(\psi^{(N)}(y)\) is compactly supported in the same region as \(\psi(y)\). In particular, \(\psi^{(N)}(y)\) has compact support away from zero. Therefore
       \[
         \int_{0}^{\infty}\psi^{(N)}(y)y^{\s+N}\,\frac{dy}{y} \ll 1,
       \]
@@ -643,7 +643,7 @@
     The following result is (smoothed) \textit{Perron's formula}:
 
     \begin{theorem*}[Perron's formula, smoothed]
-      Let \(D(s)\) be a Dirichlet series with coefficient \(a(n)\) and finite and nonnegative abscissa of absolute convergence \(\s_{a}\). Let \(\psi\) be a bump function whose compact support is bounded away from zero and denote its Mellin transform by \(\Psi\). Then for any \(c > \s_{a}\), we have
+      Let \(D(s)\) be a Dirichlet series with coefficient \(a(n)\) and finite and nonnegative abscissa of absolute convergence \(\s_{a}\). Let \(\psi(y)\) be a bump function whose support is bounded away from zero and let \(\Psi(s)\) be its Mellin transform. Then for any \(c > \s_{a}\), we have
       \[
         A_{\psi}(X) = \frac{1}{2\pi i}\int_{(c)}D(s)\Psi(s)X^{s}\,ds.
       \]

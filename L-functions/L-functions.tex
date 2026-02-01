@@ -216,7 +216,7 @@
     We now prove the \textit{approximate function equation}:
 
     \begin{theorem*}[Approximate functional equation]
-      Suppose \(L(s)\) is an analytic \(L\)-function, \(\Phi(u)\) be an even holomorphic function bounded in the vertical strip \(|\tau| < a+1\) with \(a > 1\) such that \(\Phi(0) = 1\), and let \(X > 0\). Then for \(\e < \s < 1-\e\), we have
+      Suppose \(L(s)\) is an analytic \(L\)-function, \(\Phi(u)\) is an even holomorphic function bounded in the vertical strip \(|\tau| < a+1\) with \(a > 1\) such that \(\Phi(0) = 1\), and let \(X > 0\). Then for \(\e < \s < 1-\e\), we have
       \[
         L(s) = \sum_{n \ge 1}\frac{a_{L}(n)}{n^{s}}V_{s}\left(\frac{n}{\sqrt{q_{L}}X}\right)+\e_{L}(s)\sum_{n \ge 1}\frac{\conj{a_{L}(n)}}{n^{1-s}}V_{1-s}\left(\frac{nX}{\sqrt{q_{L}}}\right)+\frac{R(s,X)}{q_{L}^{\frac{s}{2}}L_{\infty}(s)},
       \]
@@ -329,9 +329,8 @@
     
     In a similar spirit to the approximate functional equation, a useful summation formula can be derived from the functional equation.
 
-    \iffalse
     \begin{theorem}
-      Let \(\psi(y)\) be a bump function and let \(\Psi(s)\) denote its Mellin transform. Then for any \(L\)-function \(L(s)\), we have
+      Let \(L(s)\) be an analytic \(L\)-function and let \(\psi(y)\) be a bump function whose support is bounded away from zero where \(\Psi(s)\) is its Mellin transform. Then
       \[
         \sum_{n \ge 1}a(n)\psi(n) = \frac{\e_{L}}{\sqrt{q_{L}}}\sum_{n \ge 1}\conj{a(n)}\phi(n)+R(f)\Psi(1),
       \]
@@ -345,24 +344,25 @@
       \]
     \end{theorem}
     \begin{proof}
-      By smoothed Perron's formula,
+      Smoothed Perron's formula implies
       \[
         \sum_{n \ge 1}a(n)\psi(n) = \frac{1}{2\pi i}\int_{(a)}L(s)\Psi(s)\,ds.
       \]
-      By \cref{prop:smoothing_function_Mellin_inverse_vertical_strips,prop:L_function_bounded_in_vertical_strips}, the integrand has polynomial decay of arbitrarily larger order and therefore is locally absolutely uniformly convergent. Shifting the line of integration to \((1-a)\), we pass by a potential pole at \(s = 1\) from \(L(s)\) and obtain
+      By our choice of \(\psi(y)\), its inverse Mellin transform \(\Psi(s)\) has arbitrarily large polynomial decay. Since \(L(s)\) has polynomial growth by \cref{prop:L_function_bounded_in_vertical_strips}, the integrand has polynomial decay of arbitrarily larger order. Therefore is locally absolutely uniformly bounded which permits us to shift the line of integration. Shifting to \((1-a)\), we pass by a potential pole at \(s = 1\) and obtain
       \[
         \sum_{n \ge 1}a(n)\psi(n) = \frac{1}{2\pi i}\int_{(1-a)}L(s)\Psi(s)\,ds+R(f)\Psi(1).
       \]
-      Applying the functional equation, we further have
+      Apply the functional equation to rewrite this equality in the form
       \[
-        \sum_{n \ge 1}a(n)\psi(n) = \frac{1}{2\pi i}\int_{(1-a)}\e_{L}q_{L}^{\frac{1}{2}-s}\frac{L_{\infty}(1-s)}{L_{\infty}(s)}L(1-s,\conj{f})\Psi(s)\,ds+R(f)\Psi(1).
+        \sum_{n \ge 1}a(n)\psi(n) = \frac{1}{2\pi i}\int_{(1-a)}\e_{L}q_{L}^{\frac{1}{2}-s}\frac{L_{\infty}(1-s)}{L_{\infty}(s)}\conj{L(1-\conj{s})}\Psi(s)\,ds+R(f)\Psi(1).
       \]
       Performing the change of variables \(s \mapsto 1-s\) in this latter integral gives
       \[
-        \sum_{n \ge 1}a(n)\psi(n) = \frac{1}{2\pi i}\int_{(a)}\e_{L}q_{L}^{s-\frac{1}{2}}\frac{L_{\infty}(s)}{L_{\infty}(1-s)}L(s,\conj{f})\Psi(1-s)\,ds+R(f)\Psi(1).
+        \sum_{n \ge 1}a(n)\psi(n) = \frac{1}{2\pi i}\int_{(a)}\e_{L}q_{L}^{s-\frac{1}{2}}\frac{L_{\infty}(s)}{L_{\infty}(1-s)}\conj{L(\conj{s})}\Psi(1-s)\,ds+R(f)\Psi(1).
       \]
-      The proof is complete upon interchanging the sum over the Dirichlet series and the integral by the Fubini–Tonelli theorem and factoring out \(\frac{\e_{L}}{\sqrt{q_{L}}}\).
+      The proof is complete upon expanding \(\conj{L(\conj{s})}\) as a Dirichlet series, interchanging the sum and integral by absolute boundedness of the integral, and factoring out \(\frac{\e_{L}}{\sqrt{q_{L}}}\).
     \end{proof}
+    \iffalse
   \section{The Riemann Hypothesis and Nontrivial Zeros}
     The zeros of an \(L\)-function \(L(s)\) have interesting behavior. Recall that
     \[
