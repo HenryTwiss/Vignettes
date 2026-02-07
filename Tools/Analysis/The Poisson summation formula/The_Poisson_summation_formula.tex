@@ -37,7 +37,7 @@
       \end{enumerate}
     \end{proposition}
     \begin{proof}
-      Property (i) is immediate from linearity of the integral while (ii) follows by applying the change of variables \(\mathbf{x} \mapsto \mathbf{x}-\boldsymbol{\a}\). Property (iii) is proved by performing the change of variables \(\mathbf{x} \mapsto A^{-1}\mathbf{x}\) to since the Jacobian matrix is \(A\).
+      Property (i) is immediate from linearity of the integral while (ii) follows by applying the change of variables \(\mathbf{x} \mapsto \mathbf{x}-\boldsymbol{\a}\). Property (iii) is proved by performing the change of variables \(\mathbf{x} \mapsto A^{-1}\mathbf{x}\) which has Jacobian matrix \(A^{-1}\) and Jacobian determinant \(\frac{1}{|\det(A)|}\).
     \end{proof}
   \section{Fourier Series}
     The Fourier transform is intimately related to periodic functions. Let \(\L\) be a complete integral lattice in \(\R^{n}\) with fundamental domain \(\mc{M}\) and denote the dual lattice by \(\L^{\vee}\). Suppose \(f(\mathbf{x})\) is \(\L\)-periodic and integrable on \(\mc{M}\). Then we define the \(\l^{\vee}\)-th \textit{Fourier coefficient} \(\hat{f}(\l^{\vee})\) of \(f(\mathbf{x})\) by
@@ -105,7 +105,7 @@
       \[
         \frac{1}{V_{\L}}\sum_{\mathbf{n} \in \Z^{n}}\int_{P[0,1]^{n}}f(\mathbf{x}+P\mathbf{n})e^{-2\pi i\<(P^{-1})^{t}\mathbf{t},\mathbf{x}\>},
       \]
-      because the Jacobian matrix is \(P\) whose absolute determinant is \(V_{\L}\). This expression is simply
+      because the Jacobian matrix is \(P^{-1}\) with Jacobian determinant \(\frac{1}{V_{\L}}\). This expression is simply
       \[
         \frac{1}{V_{\L}}\int_{\R^{n}}f(\mathbf{x})e^{-2\pi i\left\<(P^{-1})^{t}\mathbf{t},\mathbf{x}\right\>}\,d\mathbf{x} = \frac{1}{V_{\L}}(\mc{F}f)\left((P^{-1})^{t}\mathbf{t}\right).
       \]

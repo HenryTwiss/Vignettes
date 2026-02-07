@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.4.27)  7 FEB 2026 17:36
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.4.27)  7 FEB 2026 18:13
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"/Users/henrytwiss/Documents/Documents/LaTeX/Vignettes/Tools/Analysis/The Poisson summation formula/The_Poisson_summation_formula.tex"
-(/Users/henrytwiss/Documents/Documents/LaTeX/Vignettes/Tools/Analysis/The Poisson summation formula/The_Poisson_summation_formula.tex
+**"/Users/henrytwiss/Documents/Documents/LaTeX/Vignettes/Tools/Geometry/Integral lattices/Integral_lattices.tex"
+(/Users/henrytwiss/Documents/Documents/LaTeX/Vignettes/Tools/Geometry/Integral lattices/Integral_lattices.tex
 LaTeX2e <2021-11-15> patch level 1
 L3 programming layer <2022-02-24> (/usr/local/texlive/2022/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2021/10/04 v1.4n Standard LaTeX document class
@@ -583,12 +583,12 @@ File: tikzlibrarycalc.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 \pgf@layerboxsaved@background=\box67
 )
 \@indexfile=\write4
-\openout4 = `The_Poisson_summation_formula.idx'.
+\openout4 = `Integral_lattices.idx'.
 
 
-Writing index file The_Poisson_summation_formula.idx
-(./The_Poisson_summation_formula.aux)
-\openout1 = `The_Poisson_summation_formula.aux'.
+Writing index file Integral_lattices.idx
+(./Integral_lattices.aux)
+\openout1 = `Integral_lattices.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 12.
 LaTeX Font Info:    ... okay on input line 12.
@@ -656,9 +656,9 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 12.
 LaTeX Info: Redefining \pageref on input line 12.
 LaTeX Info: Redefining \nameref on input line 12.
- (./The_Poisson_summation_formula.out) (./The_Poisson_summation_formula.out)
+ (./Integral_lattices.out) (./Integral_lattices.out)
 \@outlinefile=\write5
-\openout5 = `The_Poisson_summation_formula.out'.
+\openout5 = `Integral_lattices.out'.
 
  (/usr/local/texlive/2022/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -687,36 +687,33 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 15.
  (/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Package hyperref Info: bookmark level for unknown proposition defaults to 0 on input line 23.
-Package hyperref Info: bookmark level for unknown proof defaults to 0 on input line 40.
+Package hyperref Info: bookmark level for unknown proposition defaults to 0 on input line 40.
+Package hyperref Info: bookmark level for unknown proof defaults to 0 on input line 44.
  [1
 
-{/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Package hyperref Info: bookmark level for unknown theorem defaults to 0 on input line 62.
-Package hyperref Info: bookmark level for unknown theorem* defaults to 0 on input line 67.
- [2] [3]
-Package hyperref Info: bookmark level for unknown corollary defaults to 0 on input line 126.
- [4] [5]
+{/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2] [3]
+Package hyperref Info: bookmark level for unknown theorem* defaults to 0 on input line 132.
+ [4]
 \tf@thm=\write6
-\openout6 = `The_Poisson_summation_formula.thm'.
+\openout6 = `Integral_lattices.thm'.
 
- [6] (./The_Poisson_summation_formula.aux)
-Package rerunfilecheck Info: File `The_Poisson_summation_formula.out' has not changed.
-(rerunfilecheck)             Checksum: 635C140C189CC69BA9F12D03FDA8D109;401.
+ [5] (./Integral_lattices.aux)
+Package rerunfilecheck Info: File `Integral_lattices.out' has not changed.
+(rerunfilecheck)             Checksum: 32710FBC2A98F023E22DC1BD9A41739B;131.
  ) 
 Here is how much of TeX's memory you used:
- 25224 strings out of 478268
- 500063 string characters out of 5846347
- 755340 words of memory out of 5000000
- 43001 multiletter control sequences out of 15000+600000
- 480524 words of font info for 70 fonts, out of 8000000 for 9000
+ 25205 strings out of 478268
+ 499866 string characters out of 5846347
+ 754599 words of memory out of 5000000
+ 42996 multiletter control sequences out of 15000+600000
+ 478683 words of font info for 64 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 105i,8n,107p,1219b,444s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on The_Poisson_summation_formula.pdf (6 pages, 215395 bytes).
+ 105i,8n,107p,778b,448s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on Integral_lattices.pdf (5 pages, 165526 bytes).
 PDF statistics:
- 168 PDF objects out of 1000 (max. 8388607)
- 120 compressed objects within 2 object streams
- 27 named destinations out of 1000 (max. 500000)
- 37 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 124 PDF objects out of 1000 (max. 8388607)
+ 88 compressed objects within 1 object stream
+ 19 named destinations out of 1000 (max. 500000)
+ 21 words of extra memory for PDF output out of 10000 (max. 10000000)
 
