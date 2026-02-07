@@ -1,0 +1,241 @@
+\documentclass[12pt]{article}
+\usepackage{import}
+\input{/Users/henrytwiss/Documents/Documents/LaTeX/Vignettes/preamble.tex}
+
+%=================%
+%  Title & Index  %
+%=================%
+\title{Cyclotomic number fields}
+\author{Henry Twiss}
+\makeindex
+
+\begin{document}
+  \date{}
+  \maketitle
+  \section{Cyclotomic Number Fields}
+    Let \(\w\) be a primitive \(n\)-th root of unity. We call \(\Q(\w)\) the \(n\)-th \textbf{cyclotomic field}\index{cyclotomic field}. Note that \(\Q(\w)\) is independent of the choice of primitive root \(\w\) since \(\Q(\w)\) contains all \(n\)-th roots of unity. As \(\w\) is a root of \(x^{n}-1\), we see that \(\Q(\w)/\Q\) is a finite extension of degree at most \(n\). In particular, \(\Q(\w)\) is a number field. More generally, we say that a number field \(K\) is \textbf{cyclotomic}\index{cyclotomic} if \(K\) is the \(n\)-th cyclotomic field for some \(n \ge 1\). That is, \(K = \Q(\w)\) for some primitive \(n\)-th root of unity \(\w\). In any case, our aim is to study the structure of cyclotomic number fields \(\Q(\w)\). Our first step is to compute the degree of \(\Q(\w)\) which is the degree of the minimal polynomial of \(\w\) over \(\Q\). Accordingly, we define the \(n\)-th \textbf{cyclotomic polynomial}\index{cyclotomic polynomial} \(\Phi_{n}(x)\) by
+    \[
+      \Phi_{n}(x) = \prod_{k \in (\Z/n\Z)^{\ast}}(x-\w^{k}).
+    \]
+    That is, \(\Phi_{n}(x)\) is the polynomial whose roots are the primitive \(n\)-th roots of unity. It is clearly monic, of degree \(\vphi(n)\), and divides \(x^{n}-1\). As every \(n\)-th root of unity is a primitive \(d\)-th root of unity for some \(d \mid n\), we also find that
+    \begin{equation}\label{equ:cyclotomic_product_identity}
+      x^{n}-1 = \prod_{d \mid n}\Phi_{d}(x).
+    \end{equation}
+    Clearly \(\Phi_{1}(x) = x-1\) and \(\Phi_{2}(x) = x+1\). When \(n = p\) for a prime \(p\), \cref{equ:cyclotomic_product_identity} implies
+    \[
+      \Phi_{p}(x) = \frac{x^{p}-1}{x-1} = x^{p-1}+x^{p-2}+\cdots+1.
+    \]
+    More generally, writing \(n = p^{k}\) and inducting on \(k\) using \cref{equ:cyclotomic_product_identity} gives
+    \begin{equation}\label{equ:cyclotomic_for_prime_power}
+      \Phi_{p^{k}}(x) = \frac{x^{p^{k}}-1}{x^{p^{k-1}}-1} = \frac{x^{p^{k}}-1}{x^{p^{k-1}}-1} = x^{p^{k-1}(p-1)}+x^{p^{k-1}(p-2)}+\cdots+1.
+    \end{equation}
+    Observe from \cref{equ:cyclotomic_for_prime_power} that \(\Phi_{p^{k}}(x)\) has coefficients in \(\Z\). This is true for a general cyclotomic polynomial \(\Phi_{n}(x)\) in addition to irreducibility over \(\Z\) as the following proposition shows:
+
+    \begin{proposition}\label{prop:cyclotomic_is_irreducible}
+      \(\Phi_{n}(x)\) has coefficients in and is irreducible over \(\Z\).
+    \end{proposition}
+    \begin{proof}
+      We first show \(\Phi_{n}(x)\) has coefficients in \(\Z\) and we will argue by induction. The claim is true for \(n = 1\) since \(\Phi_{1}(x) = x-1\). So assume by induction that it is true for all \(1 \le d < n\). In view of \cref{equ:cyclotomic_product_identity}, we have
+      \[
+        x^{n}-1 = \Phi_{n}(x)\prod_{\substack{d \mid n \\ d < n}}\Phi_{d}(x),
+      \]
+      and \(\prod_{\substack{d \mid n \\ d < n}}\Phi_{d}(x)\) has coefficients in \(\Z\). Therefore \(\prod_{\substack{d \mid n \\ d < n}}\Phi_{d}(x)\) divides \(x^{n}-1\) in \(\Q[x]\) and hence in \(\Z[x]\) as well by Gauss's lemma. Thus \(\Phi_{n}(x)\) has coefficients in \(\Z\) as desired. We now show \(\Phi_{n}(x)\) is irreducible over \(\Z\). So suppose
+      \[
+        \Phi_{n}(x) = f(x)g(x),
+      \]
+      for monic polynomials \(f(x),g(x) \in \Z[x]\) (recall \(\Phi_{n}(x)\) is monic) with \(f(x)\) irreducible. Then it suffices to show \(f(x) = \Phi_{n}(x)\). Now let \(\w\) be a root of \(f(x)\). Then \(\w\) is also a root of \(\Phi_{n}(x)\) and necessarily a primitive \(n\)-th roots of unity. Since \(f(x)\) is monic and irreducible it is necessarily the minimal polynomial of \(\w\) over \(\Q\). Now let \(p\) be any prime not dividing \(n\). Then \(\w^{p}\) is also a primitive \(n\)-th root of unity and hence a root of either \(f(x)\) or \(g(x)\). Suppose \(\w^{p}\) is a root of \(g(x)\). Then \(\w\) is a root of \(g(x^{p})\), and since \(f(x)\) is the minimal polynomial of \(\w\) over \(\Q\), \(f(x)\) divides \(g(x^{p})\) in \(\Q[x]\). By Gauss's lemma, it follows that \(f(x)\) divides \(g(x^{p})\) in \(\Z[x]\) too. Therefore
+      \[
+        g(x^{p}) = f(x)h(x),
+      \]
+      for a monic polynomial \(h(x) \in \Z[x]\). Reducing this factorization modulo \(p\), we obtain
+      \[
+        \conj{g}(x^{p}) \equiv \conj{g}(x)^{p} \equiv \conj{f}(x)\conj{h}(x) \pmod{p},
+      \]
+      where the first congruence holds since \(\conj{g}(x^{p}) = \conj{g}(x)^{p}\) in \(\F_{p}[x]\) (recall Fermat's little theorem and that the characteristic of \(\F_{p}\) is \(p\)). As \(p \ge 2\), this equivalence shows that \(\conj{f}(x)\) and \(\conj{h}(x)\) must have a common factor. In other words, \(\conj{g}(x^{p})\) has a multiple root in \(\F_{p}\) and therefore \(\conj{g}(x)\) does as well. Reducing the factorization for \(\Phi_{n}(x)\) modulo \(p\) gives
+      \[
+        \conj{\Phi_{n}}(x) \equiv \conj{f}(x)\conj{g}(x) \pmod{p}.
+      \]
+      Then \(\conj{\Phi_{n}}(x)\) has a multiple root in \(\F_{p}\) since \(\conj{g}(x)\) does. As \(\conj{\Phi_{n}}(x)\) divides \(x^{n}-1\) (because \(\Phi_{n}(x)\) does and \(x^{n}-1\) is itself reduced modulo \(p\)), it follows that \(x^{n}-1\) has a multiple root in \(\F_{p}\). This is impossible since \(x^{n}-1\) has \(n\) distinct roots in \(\conj{\F_{p}}\) as \(p\) does not divide \(n\) (recall that the derivative of \(x^{n}-1\) is \(nx^{n-1}\) which is relatively prime to \(p\)). It follows that \(\w^{p}\) cannot be a root of \(g(x)\) and is therefore a root of \(f(x)\). Now let \(k \in (\Z/n\Z)^{\ast}\) and write \(k = p_{1}p_{2} \cdots p_{k}\) as a product of primes not dividing \(n\). Then \(\w^{k} = \w^{p_{1}p_{2} \cdots p_{k}}\) is a root of \(f(x)\) and hence every primitive \(n\)-th root of unity is a root of \(f(x)\). Thus \(f(x) = \Phi_{n}(x)\) which proves \(\Phi_{n}(x)\) is irreducible over \(\Z\).
+    \end{proof}
+
+    Since \(\Phi_{n}(x)\) is monic, \cref{prop:cyclotomic_is_irreducible} implies that \(\Phi_{n}(x)\) is the minimal polynomial of \(\w\) over \(\Q\) and hence of every primitive \(n\)-th root of unity over \(\Q\). It follows that the degree of \(\Q(\w)\) is \(\vphi(n)\) because this is the degree of \(\Phi_{n}(x)\). This implies \(\Q(\w)\) is the splitting field of \(\Phi_{n}(x)\) over \(\Q\) because if one primitive \(n\)-th root of unity belongs to a field then they all do (as they are powers of each other). In particular, \(\Q(\w)/\Q\) is normal and hence Galois. Moreover, every primitive \(n\)-root of unity is an algebraic integer since \(\Phi_{n}(x)\) also has coefficients in \(\Z\) by \cref{prop:cyclotomic_is_irreducible}. We now turn to the question of the ring of integers of \(\Q(\w)\). For convenience write \(\mc{O}_{\w} = \mc{O}_{\Q(\w)}\) and set
+    \[
+      \mf{p}_{\w} = (1-\w)\mc{O}_{\w}.
+    \]
+    We will first prove a useful lemma which shows that \(\mf{p}_{\w}\) is a prime of \(\Q(\w)\) and more in the case \(n\) is a prime power:
+
+    \begin{lemma}\label{lem:prime_power_cyclotomic_lemma}
+      Let \(\Q(\w)\) be the cyclotomic number field generated by a primitive \(p^{e}\)-th root of unity \(\w\) with for some prime \(p\) and \(e \ge 1\). Then
+      \[
+        p\mc{O}_{\w} = \mf{p}_{\w}^{\vphi(p^{e})}.
+      \]
+      In particular, \(\mf{p}_{\w}\) is a prime above \(p\) with \(f_{p}(\mf{p}_{\w}) = 1\). Moreover, \(1,\w,\ldots,\w^{\vphi(p^{e})-1}\) is a basis for \(\Q(\w)/\Q\) with
+      \[
+        d_{\Q(\w)/\Q}(1,\w,\ldots,\w^{\vphi(p^{e})-1}) = \pm p^{\vphi(p^{e})e-p^{e-1}}.
+      \]
+    \end{lemma}
+    \begin{proof}
+      In view of the definition of \(\Phi_{p^{e}}(x)\) and \cref{equ:cyclotomic_for_prime_power}, we have
+      \[
+        x^{p^{e-1}(p-1)}+x^{p^{e-1}(p-2)}+\cdots+1 = \prod_{k \in (\Z/p^{e}\Z)^{\ast}}(x-\w^{k}).
+      \]
+      Setting \(x = 1\) gives
+      \[
+        p = \prod_{k \in (\Z/p^{e}\Z)^{\ast}}(1-\w^{k}).
+      \]
+      In the case \(e = 1\), \(\w\) is a primitive \(p\)-th root of unity. Then \(\Norm_{\Q(\w)/\Q}(1-\w) = p\) by \cref{prop:formulas_for_trace_and_norm} since \(\Q(\w)/\Q\) is Galois. In any case, the factors \(1-\w^{k}\) are clearly algebraic integers because \(\w\) is (as a consequence of \cref{prop:cyclotomic_is_irreducible}). Then
+      \[
+        \e_{k} = \frac{1-\w^{k}}{1-\w} = \w^{k-1}+\w^{k-2}+\cdots+1,
+      \]
+      is also an algebraic integer and satisfies \(1-\w^{k} = \e_{k}(1-\w)\). Moreover,
+      \[
+        \e_{k}^{-1} = \frac{1-\w}{1-\w^{k}} = \frac{1-\w^{k\conj{k}}}{1-\w^{k}} = \w^{k(\conj{k}-1)}+\w^{k(\conj{k}-2)}+\cdots+1,
+      \]
+      is also an algebraic integer. This means \(\e_{k}\) is a unit in \(\mc{O}_{\w}\). So upon setting \(\e = \prod_{k \in (\Z/p^{e}\Z)^{\ast}}\e_{k}\), we conclude that
+      \[
+        p = \e(1-\w)^{\vphi(p^{e})},
+      \]
+      and therefore
+      \[
+        p\mc{O}_{\w} = \mf{p}_{\w}^{\vphi(p^{e})}.
+      \]
+      Since the degree of \(\Q(\w)\) is \(\vphi(p^{e})\), the fundamental equality implies that \(\mf{p}_{\w}\) is prime (otherwise any prime factor has ramification index at least \(\vphi(p^{e})\)) and that \(f_{p}(\mf{p}_{\w}) = 1\). This proves the first two statements. For the last two statements, \(1,\w,\ldots,\w^{\vphi(p^{e})-1}\) is a basis for \(\Q(\w)/\Q\) since \(\w\) is a primitive element for \(\Q(\w)/\Q\). Now let \(\w_{1},\ldots,\w_{\vphi(p^{e})}\) be the conjugates of \(\w\) with \(\w_{1} = \w\). Then
+      \[
+        \Phi_{p^{e}}(x) = \prod_{1 \le i \le \vphi(p^{e})}(x-\w_{i}).
+      \]
+      Now \cref{equ:Vandermonde_determinant_for_discriminant} and \cref{prop:formulas_for_trace_and_norm} (since \(\Q(\w)/\Q\) is Galois) give the first and last equalities in the following chain respectively:
+      \[
+        d(1,\l,\ldots,\l^{\vphi(p^{e})}) = \pm\prod_{\substack{1 \le i,j \le \vphi(p^{e}) \\ i \neq j}}(\w_{i}-\w_{j})^{2} = \pm\prod_{1 \le i \le \vphi(p^{e})}\Phi_{p^{e}}'(\w_{i}) = \pm\Norm_{\Q(\w)/\Q}(\Phi_{p^{e}}'(\w)).
+      \]
+      It remains to show \(\Norm_{\Q(\w)/\Q}(\Phi_{p^{e}}'(\w)) = \pm p^{p^{(e-1)(ep-e-1)}}\). To this end, \cref{equ:cyclotomic_for_prime_power} implies
+      \[
+        (x^{p^{e-1}}-1)\Phi_{p^{e}}(x) = x^{p^{e}}-1,
+      \]
+      and differentiating gives
+      \[
+        \left(p^{e-1}-1\right)x^{p^{e-1}-1}\Phi_{p^{e}}(x)+\left(x^{p^{e-1}}-1\right)\Phi_{p^{e}}'(x) = p^{e}x^{p^{e}-1}.
+      \]
+      Now set \(x = \w\) and let \(\xi = \w^{p^{e-1}}\) to obtain
+      \[
+        \left(\xi-1\right)\Phi_{p^{e}}'(\w) = p^{e}\w^{-1},
+      \]
+      where \(\xi\) is a primitive \(p\)-th root of unity. As \(\Norm_{\Q(\xi)/\Q}(1-\xi) = p\) from our previous work, we compute
+      \begin{align*}
+        \Norm_{\Q(\w)/\Q}(1-\xi) &= \prod_{k \in (\Z/p^{e}\Z)^{\ast}}(1-\xi^{k}) \\
+        &= \w^{p+2p+\cdots+(p^{e-1}-1)p}\left(\prod_{k \in (\Z/p\Z)^{\ast}}(1-\xi^{k})\right)^{p^{e-1}} \\
+        &= \w^{\frac{p^{n}(p^{n-1}-1)}{2}}\left(\prod_{k \in (\Z/p\Z)^{\ast}}(1-\xi^{k})\right)^{p^{e-1}} \\
+        &= \left(\prod_{k \in (\Z/p\Z)^{\ast}}(1-\xi^{k})\right)^{p^{e-1}} \\
+        &= \Norm_{\Q(\xi)/\Q}(1-\xi)^{p^{e-1}} \\
+        &= p^{p^{e-1}},
+      \end{align*}
+      where the first and second to last equalities follow by \cref{prop:formulas_for_trace_and_norm} since \(\Q(\w)/\Q\) and \(\Q(\xi)/\Q\) are Galois. Thus \(\Norm_{\Q(\w)/\Q}(\xi-1) = \pm p^{p^{e-1}}\). Our previous identity is equivalent to
+      \[
+        \Phi_{p^{e}}'(\w) = \frac{p^{e}\w^{-1}}{\left(\xi-1\right)},
+      \]
+      and multiplicativity of the norm together with \cref{prop:unit_if_and_only_if_AKBL} give
+      \[
+        \Norm_{\Q(\w)/\Q}(\Phi_{p^{e}}'(\w)) = \frac{p^{\vphi(p^{e})e}\Norm_{\Q(\w)/\Q}(\w^{-1})}{\Norm_{\Q(\w)/\Q}(\xi-1)} = \pm p^{\vphi(p^{e})e-p^{e-1}}.
+      \]
+      This completes the proof.
+    \end{proof}
+
+    Note that \cref{lem:prime_power_cyclotomic_lemma} says \(\mf{p}_{\w}\) is totally ramified. With \cref{lem:prime_power_cyclotomic_lemma} we can prove \(\mc{O}_{\w}\) is monogenic in full generality:
+
+    \begin{proposition}\label{prop:cyclotomic_is_monogenic}
+      Let \(\Q(\w)\) be the cyclotomic number field generated by a primitive \(n\)-th root of unity \(\w\). Then \(\Q(\w)\) is monogenic where
+      \[
+        \mc{O}_{\w} = \Z[\w].
+      \]
+    \end{proposition}
+    \begin{proof}
+      The claim is trivial when \(n = 1\) so assume \(n \ge 2\). We will now prove the claim when \(n = p^{e}\) for a prime \(p\) and \(e \ge 1\). By \cref{lem:prime_power_cyclotomic_lemma}, \(1,\w,\ldots,\w^{\vphi(p^{e})-1}\) is a basis for \(\Q(\w)/\Q\) and
+      \[
+        d_{\Q(\w)/\Q}(1,\w,\ldots,\w^{\vphi(p^{e})-1}) = \pm p^{\vphi(p^{e})e-p^{e-1}}.
+      \]
+      Then \cref{lem:lemma_for_integral_basis_AKBL} implies
+      \[
+        p^{\vphi(p^{e})e-p^{e-1}}\mc{O}_{\w} \subseteq \Z[\w] \subseteq \mc{O}_{\w}.
+      \]
+      Moreover, \(\F_{\mf{p}_{\w}} \cong \F_{p}\) since \(\mf{p}_{\w}\) is a prime above \(p\) with \(f_{p}(\mf{p}_{\w}) = 1\) by \cref{lem:prime_power_cyclotomic_lemma}. Therefore \(\mc{O}_{\w} = \Z+\mf{p}_{\w}\) which implies
+      \[
+        \mc{O}_{\w} = \Z[\w]+\mf{p}_{\w}.
+      \]
+      Multiplying by \(1-\w\) gives \(\mf{p}_{\w} = (1-\w)\Z[\w]+\mf{p}_{\w}^{2}\). Combining with the previous identity results in
+      \[
+        \mc{O}_{\w} = \Z[\w]+\mf{p}_{\w}^{2},
+      \]
+      because \((1-\w)\Z[\w] \subseteq \Z[\w]\). Iterating this procedure gives
+      \[
+        \mc{O}_{\w} = \Z[\w]+\mf{p}_{\w}^{t},
+      \]
+      for any \(t \ge 1\). Taking \(t = \vphi(p^{e})(\vphi(p^{e})e-p^{e-1})\) shows that
+      \[
+        \mc{O}_{\w} = \Z[\w]+p^{\vphi(p^{e})e-p^{e-1}}\mc{O}_{\w} = \Z[\w],
+      \]
+      because \(p\mc{O}_{\w} = \mf{p}_{\w}^{\vphi(p^{e})}\) by \cref{lem:prime_power_cyclotomic_lemma} and \(p^{\vphi(p^{e})e-p^{e-1}}\mc{O}_{\w} \subseteq \Z[\w]\). This proves the claim in the case \(n\) is a prime power. For the general case, let \(n = p_{1}^{e_{1}} \cdots p_{r}^{e_{r}}\) be the prime factorization of \(n\). Then \(\w_{i} = \w^{\frac{n}{ p_{i}^{e_{i}}}}\) is a primitive \(p_{i}^{e_{i}}\)-th root of unity for \(1 \le i \le r\) and \(\w = \w_{1} \cdots \w_{r}\). This factorization of \(\w\) implies
+      \[
+        \Q(\w) = \Q(\w_{1}) \cdots \Q(\w_{r}),
+      \]
+      and since \(p_{1}^{e_{1}},\ldots,p_{r}^{e_{r}}\) are pairwise relatively prime, we have
+      \[
+        \Q(\w_{1}) \cdots \Q(\w_{i-1}) \cap \Q(\w_{i}) = \Q,
+      \]
+      for all \(i\) (since the degree of \((\Q(\w_{1}) \cdots \Q(\w_{i-1}) \cap \Q(\w_{i}))/\Q\) must divide both \( p_{1}^{e_{1}} \cdots p_{i-1}^{e_{i-1}}\) and \(p_{i}^{e_{i}}\) and thus is \(1\)). This also implies \(\Q(\w_{1}) \cdots \Q(\w_{i-1})\) and \(\Q(\w_{i})\) are linearly disjoint over \(\Q\) in \(\conj{\Q}\) for all \(i\) by \cref{prop:Galois_linearly_disjoint} because \(\Q(\w_{1}) \cdots \Q(\w_{i-1})/\Q\) and \(\Q(\w_{i})/\Q\) are both Galois. As the discriminants of \(d_{\Q(\w_{1})/\Q}(1,\w_{1},\ldots,\w_{1}^{\vphi(p_{1}^{e_{1}})-1}),\ldots,d_{\Q(\w_{r})/\Q}(1,\w_{r},\ldots,\w_{r}^{\vphi(p_{r}^{e_{r}})-1})\) are pairwise relatively prime, successive applications of \cref{prop:linearly_disjoint_integral_basis} shows that \(1,\w,\ldots,\w^{\vphi(n)-1}\) is an integral basis for \(\Q(\w)\). This means
+      \[
+        \mc{O}_{\w} = \Z[\w],
+      \]
+      as desired.
+    \end{proof}
+
+    We can now leverage the Dedekind-Kummer theorem to prove how \(p\mc{O}_{\w}\) decomposes in \(\mc{O}_{\w}\) for any prime \(p\). We setup some notation to do this. For every prime \(p\), let \(e_{p} \ge 0\) satisfy \(p^{e_{p}} \mid\mid n\) and let \(f_{p} \ge 1\) be the smallest positive integer such that
+    \[
+      p^{f_{p}} \equiv 1 \bmod{\frac{n}{p^{e_{p}}}}.
+    \]
+    In other words, \(f_{p}\) is the order of \(p\) in \(\left(\Z/\frac{n}{p^{e_{p}}}\Z\right)^{\ast}\). By Lagrange's theorem, it must be the case that \(f_{p} \mid \vphi\left(\frac{n}{p^{e_{p}}}\right)\). With this notation in hand, we prove the following proposition:
+
+    \begin{proposition}\label{prop:factorization_of_primes_cyclotomic}
+      Let \(\Q(\w)\) be the cyclotomic number field generated by a primitive \(n\)-th root of unity \(\w\). If \(\mf{p}_{1},\ldots,\mf{p}_{r}\) are the prime factors of \(p\mc{O}_{\w}\) then
+      \[
+        p\mc{O}_{\w} = (\mf{p}_{1} \cdots \mf{p}_{r})^{\vphi(p^{e_{p}})},
+      \]
+      and
+      \[
+        f_{p}(\mf{p}_{1}) = \cdots = f_{p}(\mf{p}_{r}) = f_{p}.
+      \]
+    \end{proposition}
+    \begin{proof}
+      Since \(\Q(\w)\) is monogenic by \cref{prop:cyclotomic_is_monogenic}, the conductor of \(\Q(\w)\) relative to \(\w\) is \(\mc{O}_{\w}\). Therefore we may apply the Dedekind-Kummer theorem to every prime \(p\) and as \(\Phi_{n}(x)\) is the minimal polynomial for \(\w\) over \(\Q\), we simply have to show the prime factorization
+      \[
+        \conj{\Phi_{n}}(x) = (\conj{m_{1}}(x) \cdots \conj{m_{r}}(x))^{\vphi(p^{e_{p}})},
+      \]
+      in \(\F_{p}[x]\) for distinct irreducibles \(\conj{m_{1}}(x),\ldots,\conj{m_{r}}(x)\) of degree \(f_{p}\). To this end, let \(n = p^{e}m\) and let \(\xi\) and \(\eta\) be primitive \(p^{e}\)-th and \(m\)-th roots of unity respectively. Then \(\Phi_{n}(x)\) can be expressed as
+      \[
+        \Phi_{n}(x) = \prod_{\substack{k \in (\Z/p^{e}\Z)^{\ast} \\ \ell \in (\Z/m\Z)^{\ast}}}(x-\xi^{k}\eta^{\ell}).
+      \]
+      Recall that
+      \[
+        (x-1)^{p^{e_{p}}} \equiv x^{p^{e_{p}}}-1 \pmod{p}.
+      \]
+      Taking \(x = \xi\) gives \((\xi-1)^{p^{e_{p}}} \equiv 0 \tmod{p}\) and thus \(\xi \equiv 1 \tmod{p}\). Then from our expression of \(\Phi_{n}(x)\), we find that
+      \[
+        \Phi_{n}(x) \equiv \prod_{1 \le \ell \le (\Z/m\Z)^{\ast}}(1-\eta^{\ell})^{\vphi(p^{e})} \equiv \Phi_{m}(x)^{\vphi(p^{e_{p}})} \tmod{p}.
+      \]
+      This is to say
+      \[
+        \conj{\Phi_{n}}(x) = \conj{\Phi_{m}}(x)^{\vphi(p^{e_{p}})}.
+      \]
+      Therefore it suffices to show
+      \[
+        \conj{\Phi_{m}}(x) = \conj{m_{1}}(x) \cdots \conj{m_{r}}(x),
+      \]
+      and that \(\conj{m_{1}}(x),\ldots,\conj{m_{r}}(x)\) are all of degree \(f_{p}\). Now let \(\mf{p}\) be a prime above \(p\). Then \(\F_{\mf{p}}\) is an \(\F_{p}\)-vector space and therefore has characteristic \(p\). It follows that \(x^{m}-1\) has \(m\) distinct roots in in \(\conj{\F_{p}}\) since \(p\) does not divide \(m\) (recall that the derivative of \(x^{m}-1\) is \(mx^{m-1}\) which is relatively prime to \(p\)). Therefore \(x^{m}-1\) does not have a multiple root in \(\F_{\mf{p}}\). As \(\mc{O}_{\w}\) contains all the \(m\)-th roots of unity by \cref{prop:cyclotomic_is_monogenic} and that \(m\) divides \(n\), it follows that \(\F_{\mf{p}}\) does as well so the surjective homomorphism
+      \[
+        \pi:\mc{O}_{\w} \to \mc{O}_{\w}/\mf{p} \qquad \a \mapsto \a \tmod{\mf{p}},
+      \]
+      maps the primitive \(m\)-th roots of unity onto themselves bijectively. This implies that the roots of \(\conj{\Phi_{m}}(x)\) are exactly the primitive \(m\)-th roots of unity. Now the smallest extension of \(\F_{p}\) containing all the primitive \(m\)-th roots of unity is \(\F_{p^{f_{p}}}\) because its multiplicative group \(\F_{p^{f_{p}}}^{\ast}\) is cyclic (as the multiplicative group of any finite field is cyclic), of order \(p^{f_{p}}-1\) dividing \(m\) by assumption, and with \(f_{p}\) minimal. As \(\conj{\Phi_{m}}(x)\) divides \(x^{n}-1\) in \(\F_{p}[x]\) (because \(\Phi_{m}(x)\) divides \(x^{m}-1\) in \(\Z[x]\)), \(\conj{\Phi_{m}}(x)\) has no multiple roots in \(\F_{p}\). Therefore it factors as
+      \[
+        \conj{\Phi_{m}}(x) = \conj{m_{1}}(x) \cdots \conj{m_{r}}(x),
+      \]
+      in \(\F_{p}[x]\) for distinct irreducibles \(\conj{m_{1}}(x),\ldots,\conj{m_{r}}(x)\). These are also necessarily monic because \(\Phi_{m}(x)\), and hence \(\conj{\Phi_{m}}(x)\), is. Moreover, as the roots of \(\conj{\Phi_{m}}(x)\) are the primitive \(m\)-th roots of unity, each factor \(\conj{m_{i}}(x)\) is the minimal polynomial of a primitive \(m\)-th root of unity in \(\F_{p^{f_{p}}}\) for \(1 \le i \le r\). The degree of this minimal polynomial is necessarily the degree of \(\F_{p^{f_{p}}}/\F_{p}\) which is \(f_{p}\). Therefore \(\conj{m_{1}}(x),\ldots,\conj{m_{r}}(x)\) are all of degree \(f_{p}\) completing the proof.
+    \end{proof}
+\end{document}

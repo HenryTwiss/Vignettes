@@ -1,0 +1,433 @@
+\documentclass[12pt]{article}
+\usepackage{import}
+\input{/Users/henrytwiss/Documents/Documents/LaTeX/Vignettes/preamble.tex}
+
+%=================%
+%  Title & Index  %
+%=================%
+\title{Abelian number fields}
+\author{Henry Twiss}
+\makeindex
+
+\begin{document}
+  \date{}
+  \maketitle
+  \section{Quadratic Number Fields}
+    We will classify and discuss the structure of quadratic number fields. Note that since any degree \(2\) extension is normal, quadratic number fields are automatically Galois. We first show that quadratic number fields are exactly those where we adjoin the square-root of a square-free integer other than \(0\) or \(1\):
+
+    \begin{proposition}\label{prop:classification_of_quadratic_number_fields}
+      Every quadratic number field \(K\) is of the form \(K = \Q(\sqrt{d})\) for some square-free integer \(d\) other than \(0\) or \(1\).
+    \end{proposition}
+    \begin{proof}
+      Suppose \(K\) is a quadratic number field. In particular, \(K/\Q\) is separable so by the primitive element theorem there exists \(\t \in K\) such that \(K = \Q(\t)\). The minimal polynomial \(m_{\t}(x)\) of \(\t\) over \(\Q\) is of the form
+      \[
+        m_{\t}(x) = x^{2}+ax+b,
+      \]
+      for \(a,b \in \Q\). Then the quadratic formula gives
+      \[
+        \t = -\frac{a}{2}\pm\frac{\sqrt{q}}{2},
+      \]
+      where \(q = a^{2}-4b \in \Q\). Clearly \(q \neq 0\) and \(q \neq 1\) for otherwise \(\t \in \Q\). It follows that \(K = \Q(\sqrt{q})\). Write \(q = \frac{n}{m}\) for relatively prime \(n,m \in \Z\) and set \(d = m^{2}q = nm \in \Z\). Then \(d\) is square-free, \(d \neq 0\), and \(d \neq 1\). Moreover, \(\sqrt{d} = m\sqrt{q}\) so that \(K = \Q(\sqrt{d})\). 
+    \end{proof}
+
+    From \cref{prop:classification_of_quadratic_number_fields}, we see that the \(d\) for a quadratic number field \(\Q(\sqrt{d})\) satisfies \(d \equiv 1,2,3 \tmod{4}\) (otherwise \(d\) is not square-free). Moreover, any element of a quadratic number field is of the form \(a+b\sqrt{d}\) with \(a,b \in \Q\) and for some square-free \(d\) other than \(0\) or \(1\). We say that a quadratic number field \(\Q(\sqrt{d})\) is \textbf{real}\index{real} if \(d > 0\) and \textbf{imaginary}\index{imaginary} if \(d < 0\). Now \(\Q(\sqrt{d})\) is real or imaginary according to if \(\sqrt{d}\) is real or purely imaginary so that the two elements \(\s_{1}\) and \(\s_{2}\) of \(\Hom_{\Q}(\Q(\sqrt{d}),\conj{\Q})\) are
+    \[
+      \s_{1}(a+b\sqrt{d}) = a+b\sqrt{d} \quad \text{and} \quad \s_{2}(a+b\sqrt{d}) = a-b\sqrt{d},
+    \]
+    because the roots of the minimal polynomial for \(\sqrt{d}\) over \(\Q\) are \(\pm\sqrt{d}\). In particular, the signature is \((2,0)\) or \((0,1)\) according to if \(\Q(\sqrt{d})\) is real or imaginary. We write \(\Trace_{d} = \Trace_{\Q(\sqrt{d})}\) and \(\Norm_{d} = \Norm_{\Q(\sqrt{d})}\) for the field trace and field norm of \(\Q(\sqrt{d})\) respectively. Then \cref{prop:formulas_for_trace_and_norm} shows that the trace and norm of \(\k = a+b\sqrt{d} \in \Q(\sqrt{d})\) are given by
+    \[
+      \Trace_{d}(\k) = 2a \quad \text{and} \quad \Norm_{d}(\k) = a^{2}-b^{2}d.
+    \]
+    We will now begin describing the ring of integers, discriminant, and the factorization of primes in \(\Q(\sqrt{d})\). For simplicity, we will write \(\mc{O}_{d} = \mc{O}_{\Q(\sqrt{d})}\) and \(\D_{d} = \D_{\Q(\sqrt{d})}\). The ring of integers has a particularly simple description since quadratic number fields are monogenic as the following proposition shows:
+    
+    \begin{proposition}\label{prop:ring_of_integers_quadratic}
+      Let \(\Q(\sqrt{d})\) be a quadratic number field. Then \(\Q(\sqrt{d})\) is monogenic where
+      \[
+        \mc{O}_{d} = \begin{cases} \Z\left[\frac{1+\sqrt{d}}{2}\right] & \text{if \(d \equiv 1 \tmod{4}\)}, \\ \Z[\sqrt{d}] & \text{if \(d \equiv 2,3 \tmod{4}\)}. \end{cases}
+      \]
+    \end{proposition}
+    \begin{proof}
+      Let \(\a = a+b\sqrt{d} \in \Q(\sqrt{d})\) be an algebraic integer. If \(b = 0\) then \(\a \in \Q\) and since the only elements of \(\Q\) that are algebraic integers are the integers themselves we must have that \(\a\) is an integer. Now suppose \(b \neq 0\). Then the minimal polynomial of \(\a\) over \(\Q\) is
+      \[
+        m_{\a}(x) = x^{2}+2ax+(a^{2}-b^{2}d) = (x-(a+b\sqrt{d}))(x-(a-b\sqrt{d})).
+      \]
+      As \(\a\) is an algebraic integer, \(2a \in \Z\) and \(a^{2}-b^{2}d \in \Z\) (note that these are the trace and norm of \(\a\) respectively). In particular, \((2a)^{2}+(2b)^{2}d \in \Z\) and hence \((2b)^{2} \in \Z\) is as well. But as \(b \in \Q\), it must be the case that \(2b \in \Z\). If \(2a = n+1\) is odd then \(n\) is even. We compute
+      \[
+        a^{2}-b^{2}d = \left(\frac{n+1}{2}\right)^{2}-b^{2}d = \frac{n^{2}+2n+1+4b^{2}d}{4},
+      \]
+      and since the right-hand side must be an integer \(b \notin \Z\). For if \(b \in \Z\), the numerator of the right-hand side is equivalent to \(1\) modulo \(4\) because \(n\) is even. As \(2b \in \Z\) it follows that \(2b\) must be odd so set \(2b = m+1\) with \(m\) even. Again, we compute
+      \[
+        a^{2}-b^{2}d = \left(\frac{n+1}{2}\right)^{2}-\left(\frac{m+1}{2}\right)^{2}d = \frac{n^{2}+2n+1-d(m^{2}+2m+1)}{4},
+      \]
+      and since the right-hand side must be an integer the numerator must be divisible by \(4\). As \(n\) and \(m\) are even, this is equivalent to \(d \equiv 1 \tmod{4}\). So we have shown \(2a\) or \(2b\) is odd if and only if \(d \equiv 1 \tmod{4}\). Thus if \(d \equiv 1 \tmod{4}\), we have \(a = \frac{a'}{2}\) and \(b = \frac{b'}{2}\) for some \(a',b' \in \Z\) and hence \(\a \in \Z\left[\frac{1+\sqrt{d}}{2}\right]\). Otherwise, \(d \equiv 2,3 \tmod{4}\) (because \(d\) is square-free) so that \(2a\) and \(2b\) are both even, \(a,b \in \Z\), and therefore \(\a \in \Z[\sqrt{d}]\). We have now shown that \(\mc{O}_{d} \subseteq \Z\left[\frac{1+\sqrt{d}}{2}\right]\) and \(\mc{O}_{d} \subseteq \Z[\sqrt{d}]\) according to if \(d \equiv 1 \tmod{4}\) or \(d \equiv 2,3 \tmod{4}\) respectively. For the reverse containment, it suffices to show that \(\frac{1+\sqrt{d}}{2}\) and \(\sqrt{d}\) are algebraic integers according to if \(d \equiv 1 \tmod{4}\) or \(d \equiv 2,3 \tmod{4}\) respectively since \(\mc{O}_{K}\) is a ring. Indeed they are since their minimal polynomials over \(\Q\) are
+      \[
+        m_{\frac{1+\sqrt{d}}{2}}(x) = x^{2}-x+\frac{1-d}{4} \quad \text{and} \quad m_{\sqrt{d}}(x) = x^{2}-d,
+      \]
+      where \(\frac{1-d}{4} \in \Z\) because \(d \equiv 1 \tmod{4}\).
+    \end{proof}
+
+    It follows from \cref{prop:ring_of_integers_quadratic} that
+    \[
+      1,\frac{1+\sqrt{d}}{2} \quad \text{and} \quad 1,\sqrt{d},
+    \]
+    are integral bases for \(\mc{O}_{d}\) according to if \(d \equiv 1 \tmod{4}\) or \(d \equiv 2,3 \tmod{4}\) respectively. Let us now show that the discriminants quadratic number fields are exactly the fundamental discriminants other than \(1\):
+
+    \begin{proposition}\label{prop:discriminant_quadratic}
+      Let \(\Q(\sqrt{d})\) be a quadratic number field. Then
+      \[
+        \D_{d} = \begin{cases} d & \text{if \(d \equiv 1 \tmod{4}\)}, \\ 4d & \text{if \(d \equiv 2,3 \tmod{4}\)}. \end{cases}
+      \]
+      In particular, the discriminants quadratic number fields are exactly the fundamental discriminants other than \(1\).
+    \end{proposition}
+    \begin{proof}
+      Let \(\s_{1}\) and \(\s_{2}\) be the two elements of \(\Hom_{\Q}(\Q(\sqrt{d}),\conj{\Q})\) where \(\s_{1}\) is the identity and \(\s_{2}\) is given by sending \(\sqrt{d}\) to its conjugate. If \(d \equiv 1 \tmod{4}\), an integral basis for \(\mc{O}_{d}\) is \(1,\frac{1+\sqrt{d}}{2}\). In this case, the embedding matrix is
+      \[
+        M\left(1,\frac{1+\sqrt{d}}{2}\right) = \begin{pmatrix} 1 & \frac{1+\sqrt{d}}{2} \\ 1 & \frac{1-\sqrt{d}}{2} \end{pmatrix},
+      \]
+      and thus \(\D_{d} = d\). If \(d \equiv 2,3 \tmod{4}\), an integral basis for \(\mc{O}_{d}\) is \(1,\sqrt{d}\). In this case, the embedding matrix is
+      \[
+        M(1,\sqrt{d}) = \begin{pmatrix} 1 & \sqrt{d} \\ 1 & -\sqrt{d} \end{pmatrix},
+      \]
+      and hence \(\D_{d} = 4d\). This proves the first statement and the second statement is clear since \(d\) is square-free and not \(0\) or \(1\).
+    \end{proof}
+
+    From now on, we will write fundamental discriminants other than \(1\) as \(\D_{d}\) instead of \(D\) to clarify the connection to quadratic number fields. We will now discuss the factorization of \(p\mc{O}_{d}\) in the quadratic number field \(\Q(\sqrt{d})\) for a prime \(p\). Since \(\Q(\sqrt{d})\) is a degree \(2\) extension, the fundamental equality (or \cref{prop:Galois_action_on_primes_is_transitive} using that \(\Q(\sqrt{d})/\Q\) is Galois) implies that \(p\) is either inert, totally ramified, or totally split. In other words, there are three possible cases for how \(p\mc{O}_{d}\) factors:
+    \[
+      p\mc{O}_{d} = \mf{p}, \quad p\mc{O}_{d} = \mf{p}^{2}, \quad \text{and} \quad p\mc{O}_{d} = \mf{p}\mf{q},
+    \]
+    for some primes \(\mf{p}\) and \(\mf{q}\), according to if \(p\) is inert, totally ramified, or totally split. Since \(\Q(\sqrt{d})\) is monogenic by \cref{prop:ring_of_integers_quadratic}, the conductor is \(\mc{O}_{K}\) and so we can describe the factorization using the Dedekind-Kummer theorem for every prime \(p\). In particular, we will connect the prime factorization to the quadratic character \(\chi_{\D_{d}}\) associated to the fundamental discriminant \(\D_{d}\):
+
+    \begin{proposition}\label{prop:factorization_of_primes_quadratic}
+      Let \(\Q(\sqrt{d})\) be a quadratic number field and let \(\chi_{\D_{d}}\) be the quadratic character given by the fundamental discriminant \(\D_{d}\). Then for any prime \(p\), we have
+      \[
+        \chi_{\D_{d}}(p) = \begin{cases} 1 & \text{if \(p\) is totally split}, \\ -1 & \text{if \(p\) is inert}, \\ 0 & \text{if \(p\) is totally ramified}. \end{cases}
+      \]
+    \end{proposition}
+    \begin{proof}
+      Recall that \(p\) is ramified if and only if it divides \(|\D_{d}|\) and note that this is exactly when \(\chi_{\D_{d}}(p) = 0\). Therefore it suffices to prove the cases when \(p\) is totally split or inert. First suppose \(d \equiv 1 \tmod{4}\) so that \(\mc{O}_{d} = \Z\left[\frac{1+\sqrt{d}}{2}\right]\) and \(\D_{d} = d\) by \cref{prop:ring_of_integers_quadratic,prop:discriminant_quadratic}. The minimal polynomial \(m_{\frac{1+\sqrt{d}}{2}}(x)\) for \(\frac{1+\sqrt{d}}{2}\) over \(\Q\) is
+      \[
+        m_{\frac{1+\sqrt{d}}{2}}(x) = x^{2}-x+\frac{1-d}{4},
+      \]
+      where \(\frac{1-d}{4} \in \Z\) because \(d \equiv 1 \tmod{4}\). The reduction of \(m_{\frac{1+\sqrt{d}}{2}}(x)\) modulo \(p\) is either irreducible, factors into two distinct linear factors, or is a square, and Dedekind-Kummer theorem implies that this is equivalent to \(p\) being inert, totally split, or totally ramified accordingly because the prime factorization of fractional ideals is unique. First suppose \(p \neq 2\). Then from the quadratic formula, \(m_{\frac{1+\sqrt{d}}{2}}(x)\) reduces modulo \(p\) as
+      \[
+        m_{\frac{1+\sqrt{d}}{2}}(x) \equiv \left(x-\frac{1+\sqrt{d}}{2}\right)\left(x-\frac{1-\sqrt{d}}{2}\right) \pmod{p},
+      \]
+      if and only if the roots \(\frac{1\pm\sqrt{d}}{2}\) are elements of \(\F_{p}\) and is otherwise irreducible. As \(p \neq 2\), these factors are distinct. Moreover, \(\frac{1\pm\sqrt{d}}{2}\) is an element of \(\F_{p}\) if and only if \(d\) is a square modulo \(p\) and hence \(p\) is totally split or inert according to if \(\chi_{d}(p) = \pm1\). Now suppose \(p = 2\). Since \(m_{\frac{1+\sqrt{d}}{2}}(x)\) has a nonzero linear term with an odd coefficient, it reduces modulo \(2\) as
+      \[
+        m_{\frac{1+\sqrt{d}}{2}}(x) \equiv x(x-1) \tmod{2},
+      \]
+      if and only if \(\frac{1-d}{4} \equiv 0 \tmod{2}\) and is otherwise irreducible. Clearly these factors are distinct. Now observe \(\frac{1-d}{4} \equiv 0 \tmod{2}\) is equivalent to \(d \equiv 1 \tmod{8}\) provided \(d > 0\) and \(d \equiv 7 \tmod{8}\) provided \(d < 0\) and thus \(p\) is totally split or inert according to if \(\chi_{d}(2) = \pm1\). This completes the argument in the case \(d \equiv 1 \tmod{4}\). Now suppose \(d \equiv 2,3 \tmod{4}\) so that \(\mc{O}_{d} = \Z[\sqrt{d}]\) and \(\D_{d} = 4d\) by \cref{prop:ring_of_integers_quadratic,prop:discriminant_quadratic}. The minimal polynomial \(m_{\sqrt{d}}(x)\) for \(\sqrt{d}\) over \(\Q\) is
+      \[
+        m_{\sqrt{d}}(x) = x^{2}-d.
+      \]
+      As \(\D_{d} = 4d\), we see that \(2\) is ramified and therefore we may assume \(p \neq 2\). Similarly, the reduction of \(m_{\sqrt{d}}(x)\) modulo \(p\) is either irreducible, factors into two distinct linear factors, or is a square, and Dedekind-Kummer theorem implies that this is equivalent to \(p\) being inert, totally split, or totally ramified accordingly because the prime factorization of fractional ideals is unique. As \(p \neq 2\), the quadratic formula implies that \(m_{\sqrt{d}}(x)\) reduces modulo \(p\) as
+      \[
+        m_{\sqrt{d}}(x) \equiv (x-\sqrt{d})(x+\sqrt{d}) \pmod{p},
+      \]
+      if and only if the roots \(\pm\sqrt{d}\) are elements of \(\F_{p}\). As \(p \neq 2\), these factors are distinct. Moreover, \(\sqrt{d}\) is an element of \(\F_{p}\) if and only if \(d\) and hence \(4d\) are squares modulo \(p\) so that \(p\) is totally split or inert according to if \(\chi_{4d}(p) = \pm1\). This completes the verification in the case \(d \equiv 2,3 \tmod{4}\).
+    \end{proof}
+
+    From \cref{prop:factorization_of_primes_quadratic}, the factorization of primes in \(\Q(\sqrt{d})\) is controlled by the quadratic character \(\chi_{\D_{d}}\) associated to the fundamental discriminant \(\D_{d}\). In other words, the factorization of \(p\) depends completely upon if \(\D_{d}\) is a square modulo \(p\). While splitting of primes can be explicitly described for quadratic number fields, the class number is a significantly more difficult problem. We will write \(h_{d} = h_{\Q(\sqrt{d})}\). The \textbf{class number problem}\index{class number problem} was originally introduced by Gauss and aims to classify all quadratic number fields of a given class number:
+
+    \begin{problem*}[Class number problem]
+      For a fixed \(n \ge 1\), classify all quadratic number fields \(\Q(\sqrt{d})\) of class number \(n\).
+    \end{problem*}
+
+    Some progress has been made toward the class number problem. In 1801, Gauss found nine imaginary quadratic numbers fields of class number \(1\) (see \cite{gauss1801disquisitiones}). They are listed according to \(d\) as follows:
+    \[
+      d  \in \{-1,-2,-3,-7,-11,-19,-43,-67,-163\}.
+    \]
+    Gauss also conjectured that these are the only imaginary quadratic numbers fields of class number \(1\). An argument was presented by Heegner in 1952 (see \cite{heegner1952diophantische}) which was correct up to some minor flaws. Baker and Stark both gave independent proofs in the mid 1960's (see \cite{baker1967linear,stark1967complete}) resulting in the following theorem which solves the class number problem for imaginary quadratic number fields in the case \(n = 1\):
+
+    \begin{theorem}
+      If \(\Q(\sqrt{d})\) is an imaginary quadratic number field of class number \(1\) then
+      \[
+        d \in \{-1,-2,-3,-7,-11,-19,-43,-67,-163\}.
+      \]
+      Equivalently, an imaginary quadratic number field \(\Q(\sqrt{d})\) has class number \(1\) if and only if
+      \[
+        \D_{d} \in \{-3,-4,-7,-8,-11,-19,-43,-67,-163\}.
+      \]
+    \end{theorem}
+
+    As for real quadratic fields, we know much less. In the same 1801 paper of Gauss (see \cite{gauss1801disquisitiones}), he conjectured that there should be infinitely many real quadratic fields and that the class number should remain unbounded:
+
+    \begin{conjecture}
+      There are infinitely many real quadratic fields \(\Q(\sqrt{d})\) that have class number \(1\). Moreover,
+      \[
+        \lim_{d \to \infty}h_{d} = \infty.
+      \]
+    \end{conjecture}
+
+    While the class number problem remains quite out of reach, the structure of the unit group is much easier to classify. Write \(\mu(d) = \mu(\Q(\sqrt{d}))\) and \(w_{d} = w_{\Q(\sqrt{d})}\). In fact, by Dirichlet's unit theorem we only need to understand the roots of unity \(\mu(d)\) of \(\Q(\sqrt{d})\). In all but two cases, \(\mu(d) = \<-1\>\):
+
+    \begin{proposition}\label{prop:unit_group_quadratic}
+      Let \(\Q(\sqrt{d})\) be a quadratic number field. Then
+      \[
+        \mu(d) = \begin{cases} \<i\> & \text{if \(d = -1\)}, \\ \<\w\> & \text{if \(d = -3\)}, \\ \<-1\> & \text{otherwise}, \end{cases} \quad \text{and} \quad w_{d} = \begin{cases} 4 & \text{if \(d = -1\)}, \\ 6 & \text{if \(d = -3\)}, \\ 2 & \text{otherwise}, \end{cases}
+      \]
+      where \(\w = e^{\frac{\pi i}{3}}\). In particular,
+      \[
+        \mc{O}_{d}^{\ast} = \begin{cases} \mu(d) \x \<\e_{d}\> & \text{if \(d > 0\)}, \\ \mu(d) & \text{if \(d < 0\)}, \end{cases}
+      \]
+      where \(\e_{d}\) is a fundamental unit.
+    \end{proposition}
+    \begin{proof}
+        First suppose \(d > 0\). Then \(\Q(\sqrt{d}) \subset \R\) and thus \(\mu(d) = \<-1\>\) since these are the only roots of unity in \(\R\) and clearly they are in \(\Q(\sqrt{d})\). Now suppose \(d < 0\). Then \(\Q(\sqrt{d})\) is imaginary and its signature is \((0,1)\). Recall that \(\a \in \mc{O}_{d}\) is a unit if and only if the norm of \(\a\) is \(\pm 1\). Actually, since \(d < 0\) the definition of the norm shows that the norm is always nonnegative. Hence \(\a\) is a unit if and only if its norm is \(1\). First suppose \(d \equiv 2,3 \tmod{4}\). Then \cref{prop:ring_of_integers_quadratic} implies
+      \[
+        \a = a+b\sqrt{d},
+      \]
+      for some \(a,b \in \Z\), and \(\a\) is a unit if and only if
+      \[
+        \Norm_{d}(\a) = a^{2}-b^{2}d = a^{2}+b^{2}|d| = 1.
+      \]
+      Since \(|d| \equiv d \equiv 2,3 \tmod{4}\), this happens if and only if \(b = 0\) unless \(d = -1\). In the former case, \(d < 0\) and \(\a = a\) is a unit if and only if \(a^{2} = 1\) which is to say that \(\a = \pm 1\). In the latter case, \(d = -1\) and \(\a = a+bi\) with \(b \neq 0\) (for otherwise we are in the former case) is a unit if and only if \(a^{2}+b^{2} = 1\) which means \(a = \pm1\) and \(b = 0\) or \(a = 0\) and \(b = \pm 1\) so that \(\a\) runs over the \(4\)-th roots of unity. Altogether, we have shown that \(\mu(d) = \<-1\>\) provided \(d \equiv 2,3 \tmod{4}\) unless \(d = -1\) in which case \(\mu(-1) = \<i\>\). Now suppose \(d \equiv 1 \tmod{4}\). Then \cref{prop:ring_of_integers_quadratic} implies
+      \[
+        \a = a+b\frac{1+\sqrt{d}}{2} = \frac{2a+b}{2}+\frac{b}{2}\sqrt{d},
+      \]
+      for some \(a,b \in \Z\), and \(\a\) is a unit if and only if
+      \[
+        \Norm_{d}(\a) = \frac{4a^{2}+4ab+b^{2}}{4}-\frac{b^{2}}{4}d = a^{2}+ab+(1+|d|)\frac{b^{2}}{4} = 1.
+      \]
+      Since \(|d| \equiv d \equiv 1 \tmod{4}\), this happens if and only if \(b = 0\) or \(d = -3\) (if \(b \neq 0\) then \(a^{2}+ab+(1+|d|)\frac{b^{2}}{4} > 1\) for such \(d\) unless \(d = -3\)). In the former case, \(\a = a\) is a unit if and only if \(a^{2} = 1\) which means \(\a = \pm1\). In the latter case, \(\a = a+b\frac{1+\sqrt{-3}}{2}\) is a unit if and only if \(a^{2}+ab+b^{2} = 1\) which happens if \(a = \pm 1\) and \(b = 0\), \(a = 0\) and \(b = \pm 1\), \(a = 1\) and \(b = -1\), or \(a = -1\) and \(b = 1\). So \(\a\) runs over the \(6\)-th roots of unity. This shows \(\mu(d) = \<-1\>\) provided \(d \equiv 1 \tmod{4}\) unless \(d = -3\) in which case \(\mu(-3) = \<\w\>\). This proves the claim about \(\mu(d)\) in all cases and the statement about \(w_{d}\) follows immediately. To prove the last statement, the signature of \(\Q(\sqrt{d})\) is \((2,0)\) or \((0,1)\) according to if \(d > 0\) or \(d < 0\). Applying Dirichlet's unit theorem completes the proof.
+    \end{proof}
+
+    Lastly, we discuss the regulator. Set \(R_{d} = R_{\Q(\sqrt{d})}\). Then we have the following proposition:
+
+    \begin{proposition}\label{prop:regulator_quadratic}
+      Let \(\Q(\sqrt{d})\) be a quadratic number field. Then
+      \[
+        R_{d} = \begin{cases} \log|\e_{d}| & \text{if \(d > 0\)}, \\ 1 & \text{if \(d < 0\)}, \end{cases}
+      \]
+      where \(\e_{d}\) is a fundamental unit.
+    \end{proposition}
+    \begin{proof}
+      If \(d > 0\) then \cref{prop:unit_group_quadratic} implies that a system of fundamental units for \(\Q(\sqrt{d})\) is given by a single fundamental unit \(\e_{d}\). Since the signature of \(\Q(\sqrt{d})\) is \((2,0)\), we have \(\l(\e_{d}) = (\log|\e_{d}|,\log|\e_{d}|)\) and therefore \(R_{K} = \log|\e_{d}|\). If \(d < 0\) then \cref{prop:unit_group_quadratic} implies that there are no fundamental units and thus \(R_{K} = 1\).
+    \end{proof}
+  \section{Cyclotomic Number Fields}
+    Let \(\w\) be a primitive \(n\)-th root of unity. We call \(\Q(\w)\) the \(n\)-th \textbf{cyclotomic field}\index{cyclotomic field}. Note that \(\Q(\w)\) is independent of the choice of primitive root \(\w\) since \(\Q(\w)\) contains all \(n\)-th roots of unity. As \(\w\) is a root of \(x^{n}-1\), we see that \(\Q(\w)/\Q\) is a finite extension of degree at most \(n\). In particular, \(\Q(\w)\) is a number field. More generally, we say that a number field \(K\) is \textbf{cyclotomic}\index{cyclotomic} if \(K\) is the \(n\)-th cyclotomic field for some \(n \ge 1\). That is, \(K = \Q(\w)\) for some primitive \(n\)-th root of unity \(\w\). In any case, our aim is to study the structure of cyclotomic number fields \(\Q(\w)\). Our first step is to compute the degree of \(\Q(\w)\) which is the degree of the minimal polynomial of \(\w\) over \(\Q\). Accordingly, we define the \(n\)-th \textbf{cyclotomic polynomial}\index{cyclotomic polynomial} \(\Phi_{n}(x)\) by
+    \[
+      \Phi_{n}(x) = \prod_{k \in (\Z/n\Z)^{\ast}}(x-\w^{k}).
+    \]
+    That is, \(\Phi_{n}(x)\) is the polynomial whose roots are the primitive \(n\)-th roots of unity. It is clearly monic, of degree \(\vphi(n)\), and divides \(x^{n}-1\). As every \(n\)-th root of unity is a primitive \(d\)-th root of unity for some \(d \mid n\), we also find that
+    \begin{equation}\label{equ:cyclotomic_product_identity}
+      x^{n}-1 = \prod_{d \mid n}\Phi_{d}(x).
+    \end{equation}
+    Clearly \(\Phi_{1}(x) = x-1\) and \(\Phi_{2}(x) = x+1\). When \(n = p\) for a prime \(p\), \cref{equ:cyclotomic_product_identity} implies
+    \[
+      \Phi_{p}(x) = \frac{x^{p}-1}{x-1} = x^{p-1}+x^{p-2}+\cdots+1.
+    \]
+    More generally, writing \(n = p^{k}\) and inducting on \(k\) using \cref{equ:cyclotomic_product_identity} gives
+    \begin{equation}\label{equ:cyclotomic_for_prime_power}
+      \Phi_{p^{k}}(x) = \frac{x^{p^{k}}-1}{x^{p^{k-1}}-1} = \frac{x^{p^{k}}-1}{x^{p^{k-1}}-1} = x^{p^{k-1}(p-1)}+x^{p^{k-1}(p-2)}+\cdots+1.
+    \end{equation}
+    Observe from \cref{equ:cyclotomic_for_prime_power} that \(\Phi_{p^{k}}(x)\) has coefficients in \(\Z\). This is true for a general cyclotomic polynomial \(\Phi_{n}(x)\) in addition to irreducibility over \(\Z\) as the following proposition shows:
+
+    \begin{proposition}\label{prop:cyclotomic_is_irreducible}
+      \(\Phi_{n}(x)\) has coefficients in and is irreducible over \(\Z\).
+    \end{proposition}
+    \begin{proof}
+      We first show \(\Phi_{n}(x)\) has coefficients in \(\Z\) and we will argue by induction. The claim is true for \(n = 1\) since \(\Phi_{1}(x) = x-1\). So assume by induction that it is true for all \(1 \le d < n\). In view of \cref{equ:cyclotomic_product_identity}, we have
+      \[
+        x^{n}-1 = \Phi_{n}(x)\prod_{\substack{d \mid n \\ d < n}}\Phi_{d}(x),
+      \]
+      and \(\prod_{\substack{d \mid n \\ d < n}}\Phi_{d}(x)\) has coefficients in \(\Z\). Therefore \(\prod_{\substack{d \mid n \\ d < n}}\Phi_{d}(x)\) divides \(x^{n}-1\) in \(\Q[x]\) and hence in \(\Z[x]\) as well by Gauss's lemma. Thus \(\Phi_{n}(x)\) has coefficients in \(\Z\) as desired. We now show \(\Phi_{n}(x)\) is irreducible over \(\Z\). So suppose
+      \[
+        \Phi_{n}(x) = f(x)g(x),
+      \]
+      for monic polynomials \(f(x),g(x) \in \Z[x]\) (recall \(\Phi_{n}(x)\) is monic) with \(f(x)\) irreducible. Then it suffices to show \(f(x) = \Phi_{n}(x)\). Now let \(\w\) be a root of \(f(x)\). Then \(\w\) is also a root of \(\Phi_{n}(x)\) and necessarily a primitive \(n\)-th roots of unity. Since \(f(x)\) is monic and irreducible it is necessarily the minimal polynomial of \(\w\) over \(\Q\). Now let \(p\) be any prime not dividing \(n\). Then \(\w^{p}\) is also a primitive \(n\)-th root of unity and hence a root of either \(f(x)\) or \(g(x)\). Suppose \(\w^{p}\) is a root of \(g(x)\). Then \(\w\) is a root of \(g(x^{p})\), and since \(f(x)\) is the minimal polynomial of \(\w\) over \(\Q\), \(f(x)\) divides \(g(x^{p})\) in \(\Q[x]\). By Gauss's lemma, it follows that \(f(x)\) divides \(g(x^{p})\) in \(\Z[x]\) too. Therefore
+      \[
+        g(x^{p}) = f(x)h(x),
+      \]
+      for a monic polynomial \(h(x) \in \Z[x]\). Reducing this factorization modulo \(p\), we obtain
+      \[
+        \conj{g}(x^{p}) \equiv \conj{g}(x)^{p} \equiv \conj{f}(x)\conj{h}(x) \pmod{p},
+      \]
+      where the first congruence holds since \(\conj{g}(x^{p}) = \conj{g}(x)^{p}\) in \(\F_{p}[x]\) (recall Fermat's little theorem and that the characteristic of \(\F_{p}\) is \(p\)). As \(p \ge 2\), this equivalence shows that \(\conj{f}(x)\) and \(\conj{h}(x)\) must have a common factor. In other words, \(\conj{g}(x^{p})\) has a multiple root in \(\F_{p}\) and therefore \(\conj{g}(x)\) does as well. Reducing the factorization for \(\Phi_{n}(x)\) modulo \(p\) gives
+      \[
+        \conj{\Phi_{n}}(x) \equiv \conj{f}(x)\conj{g}(x) \pmod{p}.
+      \]
+      Then \(\conj{\Phi_{n}}(x)\) has a multiple root in \(\F_{p}\) since \(\conj{g}(x)\) does. As \(\conj{\Phi_{n}}(x)\) divides \(x^{n}-1\) (because \(\Phi_{n}(x)\) does and \(x^{n}-1\) is itself reduced modulo \(p\)), it follows that \(x^{n}-1\) has a multiple root in \(\F_{p}\). This is impossible since \(x^{n}-1\) has \(n\) distinct roots in \(\conj{\F_{p}}\) as \(p\) does not divide \(n\) (recall that the derivative of \(x^{n}-1\) is \(nx^{n-1}\) which is relatively prime to \(p\)). It follows that \(\w^{p}\) cannot be a root of \(g(x)\) and is therefore a root of \(f(x)\). Now let \(k \in (\Z/n\Z)^{\ast}\) and write \(k = p_{1}p_{2} \cdots p_{k}\) as a product of primes not dividing \(n\). Then \(\w^{k} = \w^{p_{1}p_{2} \cdots p_{k}}\) is a root of \(f(x)\) and hence every primitive \(n\)-th root of unity is a root of \(f(x)\). Thus \(f(x) = \Phi_{n}(x)\) which proves \(\Phi_{n}(x)\) is irreducible over \(\Z\).
+    \end{proof}
+
+    Since \(\Phi_{n}(x)\) is monic, \cref{prop:cyclotomic_is_irreducible} implies that \(\Phi_{n}(x)\) is the minimal polynomial of \(\w\) over \(\Q\) and hence of every primitive \(n\)-th root of unity over \(\Q\). It follows that the degree of \(\Q(\w)\) is \(\vphi(n)\) because this is the degree of \(\Phi_{n}(x)\). This implies \(\Q(\w)\) is the splitting field of \(\Phi_{n}(x)\) over \(\Q\) because if one primitive \(n\)-th root of unity belongs to a field then they all do (as they are powers of each other). In particular, \(\Q(\w)/\Q\) is normal and hence Galois. Moreover, every primitive \(n\)-root of unity is an algebraic integer since \(\Phi_{n}(x)\) also has coefficients in \(\Z\) by \cref{prop:cyclotomic_is_irreducible}. We now turn to the question of the ring of integers of \(\Q(\w)\). For convenience write \(\mc{O}_{\w} = \mc{O}_{\Q(\w)}\) and set
+    \[
+      \mf{p}_{\w} = (1-\w)\mc{O}_{\w}.
+    \]
+    We will first prove a useful lemma which shows that \(\mf{p}_{\w}\) is a prime of \(\Q(\w)\) and more in the case \(n\) is a prime power:
+
+    \begin{lemma}\label{lem:prime_power_cyclotomic_lemma}
+      Let \(\Q(\w)\) be the cyclotomic number field generated by a primitive \(p^{e}\)-th root of unity \(\w\) with for some prime \(p\) and \(e \ge 1\). Then
+      \[
+        p\mc{O}_{\w} = \mf{p}_{\w}^{\vphi(p^{e})}.
+      \]
+      In particular, \(\mf{p}_{\w}\) is a prime above \(p\) with \(f_{p}(\mf{p}_{\w}) = 1\). Moreover, \(1,\w,\ldots,\w^{\vphi(p^{e})-1}\) is a basis for \(\Q(\w)/\Q\) with
+      \[
+        d_{\Q(\w)/\Q}(1,\w,\ldots,\w^{\vphi(p^{e})-1}) = \pm p^{\vphi(p^{e})e-p^{e-1}}.
+      \]
+    \end{lemma}
+    \begin{proof}
+      In view of the definition of \(\Phi_{p^{e}}(x)\) and \cref{equ:cyclotomic_for_prime_power}, we have
+      \[
+        x^{p^{e-1}(p-1)}+x^{p^{e-1}(p-2)}+\cdots+1 = \prod_{k \in (\Z/p^{e}\Z)^{\ast}}(x-\w^{k}).
+      \]
+      Setting \(x = 1\) gives
+      \[
+        p = \prod_{k \in (\Z/p^{e}\Z)^{\ast}}(1-\w^{k}).
+      \]
+      In the case \(e = 1\), \(\w\) is a primitive \(p\)-th root of unity. Then \(\Norm_{\Q(\w)/\Q}(1-\w) = p\) by \cref{prop:formulas_for_trace_and_norm} since \(\Q(\w)/\Q\) is Galois. In any case, the factors \(1-\w^{k}\) are clearly algebraic integers because \(\w\) is (as a consequence of \cref{prop:cyclotomic_is_irreducible}). Then
+      \[
+        \e_{k} = \frac{1-\w^{k}}{1-\w} = \w^{k-1}+\w^{k-2}+\cdots+1,
+      \]
+      is also an algebraic integer and satisfies \(1-\w^{k} = \e_{k}(1-\w)\). Moreover,
+      \[
+        \e_{k}^{-1} = \frac{1-\w}{1-\w^{k}} = \frac{1-\w^{k\conj{k}}}{1-\w^{k}} = \w^{k(\conj{k}-1)}+\w^{k(\conj{k}-2)}+\cdots+1,
+      \]
+      is also an algebraic integer. This means \(\e_{k}\) is a unit in \(\mc{O}_{\w}\). So upon setting \(\e = \prod_{k \in (\Z/p^{e}\Z)^{\ast}}\e_{k}\), we conclude that
+      \[
+        p = \e(1-\w)^{\vphi(p^{e})},
+      \]
+      and therefore
+      \[
+        p\mc{O}_{\w} = \mf{p}_{\w}^{\vphi(p^{e})}.
+      \]
+      Since the degree of \(\Q(\w)\) is \(\vphi(p^{e})\), the fundamental equality implies that \(\mf{p}_{\w}\) is prime (otherwise any prime factor has ramification index at least \(\vphi(p^{e})\)) and that \(f_{p}(\mf{p}_{\w}) = 1\). This proves the first two statements. For the last two statements, \(1,\w,\ldots,\w^{\vphi(p^{e})-1}\) is a basis for \(\Q(\w)/\Q\) since \(\w\) is a primitive element for \(\Q(\w)/\Q\). Now let \(\w_{1},\ldots,\w_{\vphi(p^{e})}\) be the conjugates of \(\w\) with \(\w_{1} = \w\). Then
+      \[
+        \Phi_{p^{e}}(x) = \prod_{1 \le i \le \vphi(p^{e})}(x-\w_{i}).
+      \]
+      Now \cref{equ:Vandermonde_determinant_for_discriminant} and \cref{prop:formulas_for_trace_and_norm} (since \(\Q(\w)/\Q\) is Galois) give the first and last equalities in the following chain respectively:
+      \[
+        d(1,\l,\ldots,\l^{\vphi(p^{e})}) = \pm\prod_{\substack{1 \le i,j \le \vphi(p^{e}) \\ i \neq j}}(\w_{i}-\w_{j})^{2} = \pm\prod_{1 \le i \le \vphi(p^{e})}\Phi_{p^{e}}'(\w_{i}) = \pm\Norm_{\Q(\w)/\Q}(\Phi_{p^{e}}'(\w)).
+      \]
+      It remains to show \(\Norm_{\Q(\w)/\Q}(\Phi_{p^{e}}'(\w)) = \pm p^{p^{(e-1)(ep-e-1)}}\). To this end, \cref{equ:cyclotomic_for_prime_power} implies
+      \[
+        (x^{p^{e-1}}-1)\Phi_{p^{e}}(x) = x^{p^{e}}-1,
+      \]
+      and differentiating gives
+      \[
+        \left(p^{e-1}-1\right)x^{p^{e-1}-1}\Phi_{p^{e}}(x)+\left(x^{p^{e-1}}-1\right)\Phi_{p^{e}}'(x) = p^{e}x^{p^{e}-1}.
+      \]
+      Now set \(x = \w\) and let \(\xi = \w^{p^{e-1}}\) to obtain
+      \[
+        \left(\xi-1\right)\Phi_{p^{e}}'(\w) = p^{e}\w^{-1},
+      \]
+      where \(\xi\) is a primitive \(p\)-th root of unity. As \(\Norm_{\Q(\xi)/\Q}(1-\xi) = p\) from our previous work, we compute
+      \begin{align*}
+        \Norm_{\Q(\w)/\Q}(1-\xi) &= \prod_{k \in (\Z/p^{e}\Z)^{\ast}}(1-\xi^{k}) \\
+        &= \w^{p+2p+\cdots+(p^{e-1}-1)p}\left(\prod_{k \in (\Z/p\Z)^{\ast}}(1-\xi^{k})\right)^{p^{e-1}} \\
+        &= \w^{\frac{p^{n}(p^{n-1}-1)}{2}}\left(\prod_{k \in (\Z/p\Z)^{\ast}}(1-\xi^{k})\right)^{p^{e-1}} \\
+        &= \left(\prod_{k \in (\Z/p\Z)^{\ast}}(1-\xi^{k})\right)^{p^{e-1}} \\
+        &= \Norm_{\Q(\xi)/\Q}(1-\xi)^{p^{e-1}} \\
+        &= p^{p^{e-1}},
+      \end{align*}
+      where the first and second to last equalities follow by \cref{prop:formulas_for_trace_and_norm} since \(\Q(\w)/\Q\) and \(\Q(\xi)/\Q\) are Galois. Thus \(\Norm_{\Q(\w)/\Q}(\xi-1) = \pm p^{p^{e-1}}\). Our previous identity is equivalent to
+      \[
+        \Phi_{p^{e}}'(\w) = \frac{p^{e}\w^{-1}}{\left(\xi-1\right)},
+      \]
+      and multiplicativity of the norm together with \cref{prop:unit_if_and_only_if_AKBL} give
+      \[
+        \Norm_{\Q(\w)/\Q}(\Phi_{p^{e}}'(\w)) = \frac{p^{\vphi(p^{e})e}\Norm_{\Q(\w)/\Q}(\w^{-1})}{\Norm_{\Q(\w)/\Q}(\xi-1)} = \pm p^{\vphi(p^{e})e-p^{e-1}}.
+      \]
+      This completes the proof.
+    \end{proof}
+
+    Note that \cref{lem:prime_power_cyclotomic_lemma} says \(\mf{p}_{\w}\) is totally ramified. With \cref{lem:prime_power_cyclotomic_lemma} we can prove \(\mc{O}_{\w}\) is monogenic in full generality:
+
+    \begin{proposition}\label{prop:cyclotomic_is_monogenic}
+      Let \(\Q(\w)\) be the cyclotomic number field generated by a primitive \(n\)-th root of unity \(\w\). Then \(\Q(\w)\) is monogenic where
+      \[
+        \mc{O}_{\w} = \Z[\w].
+      \]
+    \end{proposition}
+    \begin{proof}
+      The claim is trivial when \(n = 1\) so assume \(n \ge 2\). We will now prove the claim when \(n = p^{e}\) for a prime \(p\) and \(e \ge 1\). By \cref{lem:prime_power_cyclotomic_lemma}, \(1,\w,\ldots,\w^{\vphi(p^{e})-1}\) is a basis for \(\Q(\w)/\Q\) and
+      \[
+        d_{\Q(\w)/\Q}(1,\w,\ldots,\w^{\vphi(p^{e})-1}) = \pm p^{\vphi(p^{e})e-p^{e-1}}.
+      \]
+      Then \cref{lem:lemma_for_integral_basis_AKBL} implies
+      \[
+        p^{\vphi(p^{e})e-p^{e-1}}\mc{O}_{\w} \subseteq \Z[\w] \subseteq \mc{O}_{\w}.
+      \]
+      Moreover, \(\F_{\mf{p}_{\w}} \cong \F_{p}\) since \(\mf{p}_{\w}\) is a prime above \(p\) with \(f_{p}(\mf{p}_{\w}) = 1\) by \cref{lem:prime_power_cyclotomic_lemma}. Therefore \(\mc{O}_{\w} = \Z+\mf{p}_{\w}\) which implies
+      \[
+        \mc{O}_{\w} = \Z[\w]+\mf{p}_{\w}.
+      \]
+      Multiplying by \(1-\w\) gives \(\mf{p}_{\w} = (1-\w)\Z[\w]+\mf{p}_{\w}^{2}\). Combining with the previous identity results in
+      \[
+        \mc{O}_{\w} = \Z[\w]+\mf{p}_{\w}^{2},
+      \]
+      because \((1-\w)\Z[\w] \subseteq \Z[\w]\). Iterating this procedure gives
+      \[
+        \mc{O}_{\w} = \Z[\w]+\mf{p}_{\w}^{t},
+      \]
+      for any \(t \ge 1\). Taking \(t = \vphi(p^{e})(\vphi(p^{e})e-p^{e-1})\) shows that
+      \[
+        \mc{O}_{\w} = \Z[\w]+p^{\vphi(p^{e})e-p^{e-1}}\mc{O}_{\w} = \Z[\w],
+      \]
+      because \(p\mc{O}_{\w} = \mf{p}_{\w}^{\vphi(p^{e})}\) by \cref{lem:prime_power_cyclotomic_lemma} and \(p^{\vphi(p^{e})e-p^{e-1}}\mc{O}_{\w} \subseteq \Z[\w]\). This proves the claim in the case \(n\) is a prime power. For the general case, let \(n = p_{1}^{e_{1}} \cdots p_{r}^{e_{r}}\) be the prime factorization of \(n\). Then \(\w_{i} = \w^{\frac{n}{ p_{i}^{e_{i}}}}\) is a primitive \(p_{i}^{e_{i}}\)-th root of unity for \(1 \le i \le r\) and \(\w = \w_{1} \cdots \w_{r}\). This factorization of \(\w\) implies
+      \[
+        \Q(\w) = \Q(\w_{1}) \cdots \Q(\w_{r}),
+      \]
+      and since \(p_{1}^{e_{1}},\ldots,p_{r}^{e_{r}}\) are pairwise relatively prime, we have
+      \[
+        \Q(\w_{1}) \cdots \Q(\w_{i-1}) \cap \Q(\w_{i}) = \Q,
+      \]
+      for all \(i\) (since the degree of \((\Q(\w_{1}) \cdots \Q(\w_{i-1}) \cap \Q(\w_{i}))/\Q\) must divide both \( p_{1}^{e_{1}} \cdots p_{i-1}^{e_{i-1}}\) and \(p_{i}^{e_{i}}\) and thus is \(1\)). This also implies \(\Q(\w_{1}) \cdots \Q(\w_{i-1})\) and \(\Q(\w_{i})\) are linearly disjoint over \(\Q\) in \(\conj{\Q}\) for all \(i\) by \cref{prop:Galois_linearly_disjoint} because \(\Q(\w_{1}) \cdots \Q(\w_{i-1})/\Q\) and \(\Q(\w_{i})/\Q\) are both Galois. As the discriminants of \(d_{\Q(\w_{1})/\Q}(1,\w_{1},\ldots,\w_{1}^{\vphi(p_{1}^{e_{1}})-1}),\ldots,d_{\Q(\w_{r})/\Q}(1,\w_{r},\ldots,\w_{r}^{\vphi(p_{r}^{e_{r}})-1})\) are pairwise relatively prime, successive applications of \cref{prop:linearly_disjoint_integral_basis} shows that \(1,\w,\ldots,\w^{\vphi(n)-1}\) is an integral basis for \(\Q(\w)\). This means
+      \[
+        \mc{O}_{\w} = \Z[\w],
+      \]
+      as desired.
+    \end{proof}
+
+    We can now leverage the Dedekind-Kummer theorem to prove how \(p\mc{O}_{\w}\) decomposes in \(\mc{O}_{\w}\) for any prime \(p\). We setup some notation to do this. For every prime \(p\), let \(e_{p} \ge 0\) satisfy \(p^{e_{p}} \mid\mid n\) and let \(f_{p} \ge 1\) be the smallest positive integer such that
+    \[
+      p^{f_{p}} \equiv 1 \bmod{\frac{n}{p^{e_{p}}}}.
+    \]
+    In other words, \(f_{p}\) is the order of \(p\) in \(\left(\Z/\frac{n}{p^{e_{p}}}\Z\right)^{\ast}\). By Lagrange's theorem, it must be the case that \(f_{p} \mid \vphi\left(\frac{n}{p^{e_{p}}}\right)\). With this notation in hand, we prove the following proposition:
+
+    \begin{proposition}\label{prop:factorization_of_primes_cyclotomic}
+      Let \(\Q(\w)\) be the cyclotomic number field generated by a primitive \(n\)-th root of unity \(\w\). If \(\mf{p}_{1},\ldots,\mf{p}_{r}\) are the prime factors of \(p\mc{O}_{\w}\) then
+      \[
+        p\mc{O}_{\w} = (\mf{p}_{1} \cdots \mf{p}_{r})^{\vphi(p^{e_{p}})},
+      \]
+      and
+      \[
+        f_{p}(\mf{p}_{1}) = \cdots = f_{p}(\mf{p}_{r}) = f_{p}.
+      \]
+    \end{proposition}
+    \begin{proof}
+      Since \(\Q(\w)\) is monogenic by \cref{prop:cyclotomic_is_monogenic}, the conductor of \(\Q(\w)\) relative to \(\w\) is \(\mc{O}_{\w}\). Therefore we may apply the Dedekind-Kummer theorem to every prime \(p\) and as \(\Phi_{n}(x)\) is the minimal polynomial for \(\w\) over \(\Q\), we simply have to show the prime factorization
+      \[
+        \conj{\Phi_{n}}(x) = (\conj{m_{1}}(x) \cdots \conj{m_{r}}(x))^{\vphi(p^{e_{p}})},
+      \]
+      in \(\F_{p}[x]\) for distinct irreducibles \(\conj{m_{1}}(x),\ldots,\conj{m_{r}}(x)\) of degree \(f_{p}\). To this end, let \(n = p^{e}m\) and let \(\xi\) and \(\eta\) be primitive \(p^{e}\)-th and \(m\)-th roots of unity respectively. Then \(\Phi_{n}(x)\) can be expressed as
+      \[
+        \Phi_{n}(x) = \prod_{\substack{k \in (\Z/p^{e}\Z)^{\ast} \\ \ell \in (\Z/m\Z)^{\ast}}}(x-\xi^{k}\eta^{\ell}).
+      \]
+      Recall that
+      \[
+        (x-1)^{p^{e_{p}}} \equiv x^{p^{e_{p}}}-1 \pmod{p}.
+      \]
+      Taking \(x = \xi\) gives \((\xi-1)^{p^{e_{p}}} \equiv 0 \tmod{p}\) and thus \(\xi \equiv 1 \tmod{p}\). Then from our expression of \(\Phi_{n}(x)\), we find that
+      \[
+        \Phi_{n}(x) \equiv \prod_{1 \le \ell \le (\Z/m\Z)^{\ast}}(1-\eta^{\ell})^{\vphi(p^{e})} \equiv \Phi_{m}(x)^{\vphi(p^{e_{p}})} \tmod{p}.
+      \]
+      This is to say
+      \[
+        \conj{\Phi_{n}}(x) = \conj{\Phi_{m}}(x)^{\vphi(p^{e_{p}})}.
+      \]
+      Therefore it suffices to show
+      \[
+        \conj{\Phi_{m}}(x) = \conj{m_{1}}(x) \cdots \conj{m_{r}}(x),
+      \]
+      and that \(\conj{m_{1}}(x),\ldots,\conj{m_{r}}(x)\) are all of degree \(f_{p}\). Now let \(\mf{p}\) be a prime above \(p\). Then \(\F_{\mf{p}}\) is an \(\F_{p}\)-vector space and therefore has characteristic \(p\). It follows that \(x^{m}-1\) has \(m\) distinct roots in in \(\conj{\F_{p}}\) since \(p\) does not divide \(m\) (recall that the derivative of \(x^{m}-1\) is \(mx^{m-1}\) which is relatively prime to \(p\)). Therefore \(x^{m}-1\) does not have a multiple root in \(\F_{\mf{p}}\). As \(\mc{O}_{\w}\) contains all the \(m\)-th roots of unity by \cref{prop:cyclotomic_is_monogenic} and that \(m\) divides \(n\), it follows that \(\F_{\mf{p}}\) does as well so the surjective homomorphism
+      \[
+        \pi:\mc{O}_{\w} \to \mc{O}_{\w}/\mf{p} \qquad \a \mapsto \a \tmod{\mf{p}},
+      \]
+      maps the primitive \(m\)-th roots of unity onto themselves bijectively. This implies that the roots of \(\conj{\Phi_{m}}(x)\) are exactly the primitive \(m\)-th roots of unity. Now the smallest extension of \(\F_{p}\) containing all the primitive \(m\)-th roots of unity is \(\F_{p^{f_{p}}}\) because its multiplicative group \(\F_{p^{f_{p}}}^{\ast}\) is cyclic (as the multiplicative group of any finite field is cyclic), of order \(p^{f_{p}}-1\) dividing \(m\) by assumption, and with \(f_{p}\) minimal. As \(\conj{\Phi_{m}}(x)\) divides \(x^{n}-1\) in \(\F_{p}[x]\) (because \(\Phi_{m}(x)\) divides \(x^{m}-1\) in \(\Z[x]\)), \(\conj{\Phi_{m}}(x)\) has no multiple roots in \(\F_{p}\). Therefore it factors as
+      \[
+        \conj{\Phi_{m}}(x) = \conj{m_{1}}(x) \cdots \conj{m_{r}}(x),
+      \]
+      in \(\F_{p}[x]\) for distinct irreducibles \(\conj{m_{1}}(x),\ldots,\conj{m_{r}}(x)\). These are also necessarily monic because \(\Phi_{m}(x)\), and hence \(\conj{\Phi_{m}}(x)\), is. Moreover, as the roots of \(\conj{\Phi_{m}}(x)\) are the primitive \(m\)-th roots of unity, each factor \(\conj{m_{i}}(x)\) is the minimal polynomial of a primitive \(m\)-th root of unity in \(\F_{p^{f_{p}}}\) for \(1 \le i \le r\). The degree of this minimal polynomial is necessarily the degree of \(\F_{p^{f_{p}}}/\F_{p}\) which is \(f_{p}\). Therefore \(\conj{m_{1}}(x),\ldots,\conj{m_{r}}(x)\) are all of degree \(f_{p}\) completing the proof.
+    \end{proof}
+\end{document}

@@ -1,0 +1,251 @@
+\documentclass[12pt]{article}
+\usepackage{import}
+\input{/Users/henrytwiss/Documents/Documents/LaTeX/Vignettes/preamble.tex}
+
+%=================%
+%  Title & Index  %
+%=================%
+\title{The Fourier transform}
+\author{Henry Twiss}
+\makeindex
+
+\begin{document}
+  \date{}
+  \maketitle
+  \section{The Fourier Transform}
+    The first type of integral transform we will need is the Fourier transform. Suppose \(f(\mathbf{x})\) is absolutely integrable on \(\R^{n}\). The \textbf{Fourier transform}\index{Fourier transform} \((\mc{F}f)(\boldsymbol{\xi})\) of \(f(\mathbf{x})\) is defined by
+    \[
+      (\mc{F}f)(\boldsymbol{\xi}) = \int_{\R^{n}}f(\mathbf{x})e^{-2\pi i\<\boldsymbol{\xi},\mathbf{x}\>}\,d\mathbf{x},
+    \]
+    for \(\boldsymbol{\xi} \in \R^{n}\). This integral is absolutely convergent precisely because \(f(\mathbf{x})\) is absolutely integrable on \(\R^{n}\). The Fourier transform is intimately related to periodic functions. Let \(\L\) be a complete integral lattice in \(\R^{n}\) with fundamental domain \(\mc{M}\). Suppose \(f(\mathbf{x})\) is \(\L\)-periodic and integrable on \(\mc{M}\). Then we define the \(\l^{\vee}\)-th \textbf{Fourier coefficient}\index{Fourier coefficient} \(\hat{f}(\l^{\vee})\) of \(f(\mathbf{x})\) by
+    \[
+      \hat{f}(\l^{\vee}) = \int_{\mc{M}}f(\mathbf{x})e^{-2\pi i\<\l^{\vee},\mathbf{x}\>}\,d\mathbf{x}.
+    \]
+    The \textbf{Fourier series}\index{Fourier series} of \(f(\mathbf{x})\) is defined by the series
+    \[
+      \frac{1}{V_{\L}}\sum_{\l^{\vee} \in \L^{\vee}}\hat{f}(\l^{\vee})e^{2\pi i\<\l^{\vee},\mathbf{x}\>}.
+    \]
+    Notice that the Fourier coefficients are only defined for elements of the dual \(\L^{\vee}\) and the Fourier series is a sum over elements of \(\L^{\vee}\). There is the question of whether the Fourier series of \(f(\mathbf{x})\) converges at all and if so does it even converge to \(f(\mathbf{x})\) itself. Under reasonable conditions this is possible, but we first make a reduction. Fix a basis \(\l_{1},\ldots,\l_{n}\) for \(\L\) and let \(P\) be the associated generator matrix. Then \(P\) is the base change matrix from the standard basis to \(\l_{1},\ldots,\l_{n}\). That is, \(P\) is an invertible linear transformation on \(\R^{n}\) satisfying \(\L = P\Z^{n}\) and \(\L^{\vee} = (P^{-1})^{t}\Z^{n}\). Letting \( f_{P}(\mathbf{x}) = f(P\mathbf{x})\), we see that \(f_{P}(\mathbf{x})\) is \(1\)-periodic in each component and integrable on \([0,1]^{n}\). As \(\Z^{n}\) is self-dual and its covolume is \(1\), the \(\mathbf{n}\)-th Fourier coefficient \(\hat{f}_{P}(\mathbf{n})\) of \(f_{P}(\mathbf{x})\) is given by
+    \[
+      \hat{f}_{P}(\mathbf{n}) = \int_{[0,1]^{n}}f(\mathbf{x})e^{-2\pi i\<\mathbf{n},\mathbf{x}\>}\,d\mathbf{x}.
+    \]
+    and the Fourier series is
+    \[
+      \sum_{\mathbf{n} \in \Z^{n}}\hat{f}_{P}(\mathbf{n})e^{2\pi i\<\mathbf{n},\mathbf{x}\>}.
+    \]
+    Since \(P\) is an invertible linear transformation, it suffices to study the convergence properties of the Fourier series for \(f_{P}(\mathbf{x})\). In effect, this means that we may assume our Fourier series are \(1\)-periodic in each component and in this case we have the following proposition (see \cite{grafakos2008classical} for a proof):
+
+    \begin{theorem}\label{thm:existance_of_Fourier_series}
+      Suppose \(f(\mathbf{x})\) is a smooth function on \(\R^{n}\) and is \(1\)-periodic in each component. Then the Fourier series of \(f(\mathbf{x})\) converges uniformly everywhere to \(f(\mathbf{x})\).
+    \end{theorem}
+
+    In the case of \(1\)-periodic functions of a single variable, we can do better. This is known as the \textbf{Dirichlet-Jordan test}\index{Dirichlet-Jordan test} (see \cite{zygmund2002trigonometric} for a proof):
+
+    \begin{theorem*}[Dirichlet-Jodan test]
+      Suppose \(f(x)\) is a function on \(\R\) that is \(1\)-periodic and of bounded variation. Then the Fourier series of \(f(x)\) converges locally uniformly to \(f(x)\) on every set where \(f(x)\) is continuous. Moreover, at any jump discontinuity, the Fourier series of \(f(x)\) converges to the average of the left-hand and right-hand limits of \(f(x)\). In particular, this holds for all continuously differentiable functions with at most a finite number of jump discontinuities.
+    \end{theorem*}
+  \section{Poisson Summation}
+    Returning to the general setting, suppose \(f(\mathbf{x})\) is an absolutely integrable function on \(\R^{n}\). There are two ways of building a function from \(f(\mathbf{x})\) that is \(\l\)-periodic. Namely, averaging \(f(\mathbf{x})\) over all translates by elements of \(\L\) or considering the Fourier series of \(f(\mathbf{x})\):
+    \[
+      \sum_{\l \in \L}f(\mathbf{x}+\l) \quad \text{or} \quad \frac{1}{V_{\L}}\sum_{\l^{\vee} \in \L^{\vee}}(\mc{F}f)(\l^{\vee})e^{2\pi i\<\l^{\vee},\mathbf{x}\>}.
+    \]
+    The link between the Fourier transform and Fourier series is given by the \textbf{Poisson summation formula}\index{Poisson summation formula} which says that these two expressions are the same under some mild assumptions:
+
+    \begin{theorem*}[Poisson summation formula]
+      Suppose \(\L\) is a complete integral lattice in \(\R^{n}\), \(f(\mathbf{x})\) is absolutely integrable on \(\R^{n}\), and the function
+      \[
+        F(\mathbf{x}) = \sum_{\l \in \L}f(\mathbf{x}+\l),
+      \]
+      is smooth. Then
+      \[
+        \sum_{\l \in \L}f(\mathbf{x}+\l) = \frac{1}{V_{\L}}\sum_{\l^{\vee} \in \L^{\vee}}(\mc{F}f)(\l^{\vee})e^{2\pi i\<\l^{\vee},\mathbf{x}\>},
+      \]
+      and
+      \[
+        \sum_{\l \in \L}f(\l) = \frac{1}{V_{\L}}\sum_{\l^{\vee} \in \L^{\vee}}(\mc{F}f)(\l^{\vee}).
+      \]
+    \end{theorem*}
+    \begin{proof}
+      Fix a basis \(\l_{1},\ldots,\l_{n}\) for \(\L\) and let \(P\) be the associated generator matrix. Then \(P\) is the base change matrix from the standard basis to \(\l_{1},\ldots,\l_{n}\). In particular, \(P\) is an invertible linear transformation on \(\R^{n}\) satisfying \(\L = P\Z^{n}\) and \(\L^{\vee} = (P^{-1})^{t}\Z^{n}\). Letting \( F_{P}(\mathbf{x}) = F(P\mathbf{x})\), we may write
+      \[
+        F_{P}(\mathbf{x}) = \sum_{\mathbf{n} \in \Z^{n}}f(P\mathbf{x}+P\mathbf{n}).
+      \]
+      Now \(F_{P}(\mathbf{x})\) is smooth and \(1\)-periodic in each component because \(F(\mathbf{x})\) is smooth and invariant under translation by \(\L\). Therefore \(F_{P}(\mathbf{x})\) admits a Fourier series converging uniformly everywhere to \(F_{P}(\mathbf{x})\) by \cref{thm:existance_of_Fourier_series}. Moreover, \(F_{P}(\mathbf{x})\) is absolutely integrable on \([0,1]^{n}\) since it is smooth. We compute the \(\mathbf{t}\)-th Fourier coefficient of \(F_{P}(\mathbf{x})\) as follows:
+      \begin{align*}
+        \hat{F}_{P}(\mathbf{t}) &= \int_{[0,1]^{n}}F_{P}(\mathbf{x})e^{-2\pi i\<\mathbf{t},\mathbf{x}\>}\,d\mathbf{x} \\
+        &= \int_{[0,1]^{n}}\sum_{\mathbf{n} \in \Z^{n}}f(P\mathbf{x}+P\mathbf{n})e^{-2\pi i\<\mathbf{t},\mathbf{x}\>}\,d\mathbf{x} \\
+        &= \sum_{\mathbf{n} \in \Z^{n}}\int_{[0,1]^{n}}f(P\mathbf{x}+P\mathbf{n})e^{-2\pi i\<\mathbf{t},\mathbf{x}\>}\,d\mathbf{x} && \text{FTT} \\
+        &= \frac{1}{V_{\L}}\sum_{\mathbf{n} \in \Z^{n}}\int_{P[0,1]^{n}}f(\mathbf{x}+P\mathbf{n})e^{-2\pi i\<\mathbf{t},P^{-1}\mathbf{x}\>} && \text{\(\mathbf{x} \mapsto P^{-1}\mathbf{x}\) and \cref{prop:covolume_of_dual_is_inverse}} \\
+        &= \frac{1}{V_{\L}}\sum_{\mathbf{n} \in \Z^{n}}\int_{P[0,1]^{n}}f(\mathbf{x}+P\mathbf{n})e^{-2\pi i\<\mathbf{t},P^{-1}\mathbf{x}\>}\,d\mathbf{x} \\
+        &= \frac{1}{V_{\L}}\sum_{\mathbf{n} \in \Z^{n}}\int_{P[0,1]^{n}}f(\mathbf{x}+P\mathbf{n})e^{-2\pi i\left\<(P^{-1})^{t}\mathbf{t},\mathbf{x}\right\>}\,d\mathbf{x} \\
+        &= \frac{1}{V_{\L}}\int_{\R^{n}}f(\mathbf{x})e^{-2\pi i\left\<(P^{-1})^{t}\mathbf{t},\mathbf{x}\right\>}\,d\mathbf{x} \\
+        &= \frac{1}{V_{\L}}(\mc{F}f)\left((P^{-1})^{t}\mathbf{t}\right).
+      \end{align*}
+      Therefore the definition of \(F_{P}(\mathbf{x})\) and its representation as a Fourier series together gives
+      \[
+        \sum_{\l \in \L}f(P\mathbf{x}+\l) = \frac{1}{V_{\L}}\sum_{\mathbf{t} \in \Z^{n}}(\mc{F}f)\left((P^{-1})^{t}\mathbf{t}\right)e^{2\pi i\<\mathbf{t},\mathbf{x}\>}.
+      \]
+      Changing variables \(\mathbf{x} \mapsto P^{-1}\mathbf{x}\) and using the fact \(\L^{\vee} = (P^{-1})^{t}\Z^{n}\) results in
+      \[
+        \sum_{\l \in \L}f(\mathbf{x}+\l) = \frac{1}{V_{\L}}\sum_{\l^{\vee} \in \L^{\vee}}(\mc{F}f)(\l^{\vee})e^{2\pi i\<\l^{\vee},\mathbf{x}\>}.
+      \]
+      This proves the first statement. Setting \(\mathbf{x} = \mathbf{0}\) proves the second statement.
+    \end{proof}
+
+    For convenience, we state the Poisson summation formula in the simplified case for the complete integral lattice \(\Z^{n}\) as a corollary since it is how the Poisson summation formula is usually applied:
+
+    \begin{corollary}
+      Suppose \(f(\mathbf{x})\) is absolutely integrable on \(\R^{n}\), and the function
+      \[
+        F(\mathbf{x}) = \sum_{\mathbf{n} \in \Z^{n}}f(\mathbf{x}+\mathbf{n}),
+      \]
+      is smooth. Then
+      \[
+        \sum_{\mathbf{n} \in \Z^{n}}f(\mathbf{x}+\mathbf{n}) = \sum_{\mathbf{t} \in \Z^{n}}(\mc{F}f)(\mathbf{t})e^{2\pi i\<\mathbf{t},\mathbf{x}\>},
+      \]
+      and
+      \[
+        \sum_{\mathbf{n} \in \Z^{n}}f(\mathbf{n}) = \sum_{\mathbf{t} \in \Z^{n}}(\mc{F}f)(\mathbf{t}).
+      \]
+    \end{corollary}
+    \begin{proof}
+      This is the Poisson summation formula for the complete integral lattice \(\Z^{n}\) since \(\Z^{n}\) is self-dual and \(V_{\Z^{n}} = 1\).
+    \end{proof}
+
+    Using the Dirichlet-Jordan test, we can prove a slightly stronger form of the Poisson summation formula in the single variable setting for the complete integral lattice \(\Z\):
+
+    \begin{theorem}\label{thm:Poisson_summation_formula_Dirichlet-Jordan_test}
+      Suppose \(f(x)\) is absolutely integrable on \(\R\), and the function
+      \[
+        F(x) = \asum_{n \in \Z}f(x+n),
+      \]
+      satisfies the Dirichlet-Jordan test, where the \(\ast\) indicates that \(f(x+n)\) is meant to represent the average of the left-hand and right-hand limits at jump discontinuities. Then
+      \[
+        \asum_{n \in \Z}f(x+n) = \sum_{t \in \Z}(\mc{F}f)(t)e^{2\pi itx},
+      \]
+      and
+      \[
+        \asum_{n \in \Z}f(n) = \sum_{t \in \Z}(\mc{F}f)(t).
+      \]
+    \end{theorem}
+    \begin{proof}
+      Observe that \(F(x)\) is \(1\)-periodic. As \(F(x)\) satisfies the Dirichlet-Jordan test by assumption, it admits a Fourier series converging locally uniformly to \(F(x)\) wherever \(F(x)\) is continuous. In fact, by the construction of \(F(x)\) and that the Fourier series of \(F(x)\) converges to the average of the left-hand and right-hand limits at jump discontinuities, the Fourier series of \(F(x)\) converges locally uniformly to \(F(x)\) everywhere. Moreover, \(F(x)\) is absolutely integrable on \([0,1]\) since it is smooth. We compute the \(t\)-th Fourier coefficient of \(F(x)\) as follows:
+      \begin{align*}
+        \hat{F}(t) &= \int_{0}^{1}F(x)e^{-2\pi itx}\,dx \\
+        &= \int_{0}^{1}\sum_{n \in \Z}f(x+n)e^{-2\pi itx}\,dx \\
+        &= \sum_{n \in \Z}\int_{0}^{1}f(x+n)e^{-2\pi itx}\,dx && \text{FTT} \\
+        &= \int_{-\infty}^{\infty}f(x)e^{-2\pi itx}\,dx \\
+        &= (\mc{F}f)(t).
+      \end{align*}
+      Therefore the definition of \(F(x)\) and its representation as a Fourier series together gives
+      \[
+        \asum_{n \in \Z}f(x+n) = \sum_{t \in \Z}(\mc{F}f)(t)e^{2\pi itx}.
+      \]
+      This proves the first statement. Setting \(x = 0\) proves the second statement.
+    \end{proof}
+
+    In practical settings, we need a class of functions \(f(\mathbf{x})\) for which the assumptions of the Poisson summation formula hold. We say that \(f(\mathbf{x})\) is of \textbf{Schwarz class}\index{Schwarz class} if \(f \in C^{\infty}(\R^{n})\) and \(f(\mathbf{x})\) along with all of its partial derivatives have rapid decay. If \(f(\mathbf{x})\) is of Schwarz class, the rapid decay implies that \(f(\mathbf{x})\) and all of its derivatives are absolutely integrable over \(\R^{n}\). Moreover, this also implies \(F(\mathbf{x}) = \sum_{\mathbf{n} \in \Z^{n}}f(\mathbf{x}+\mathbf{n})\) and all of its derivatives are locally absolutely uniformly convergent by the Weierstrass \(M\)-test. The uniform limit theorem then implies \(F(\mathbf{x})\) is smooth and thus the conditions of the Poisson summation formula are satisfied. We will now derive some properties of the Fourier transform including a case specific to Schwarz class functions:
+
+    \begin{proposition}\label{prop:Fourier_transform_properties}
+      Let \(f(\mathbf{x})\) and \(g(\mathbf{x})\) be absolutely integrable on \(\R^{n}\). Then the following hold:
+      \begin{enumerate}[label*=(\roman*)]
+        \item For any \(\a,\b \in \R\), we have
+        \[
+          (\mc{F}(\a f+\b g))(\boldsymbol{\xi}) = \a(\mc{F}f)(\boldsymbol{\xi})+\b(\mc{F}g)(\boldsymbol{\xi}).
+        \]
+        \item If \(g(\mathbf{x}) = f(\mathbf{x}+\boldsymbol{\a})\) for any \(\boldsymbol{\a} \in \R^{n}\) then
+        \[
+          (\mc{F}g)(\boldsymbol{\xi}) = e^{2\pi i\<\boldsymbol{\a},\boldsymbol{\xi}\>}(\mc{F}f)(\boldsymbol{\xi}).
+        \]
+        \item If \(g(\mathbf{x}) = f(A\mathbf{x})\) for any \(A \in \GL_{n}(\R)\) then
+        \[
+          (\mc{F}g)(\boldsymbol{\xi}) = \frac{1}{|\det(A)|}(\mc{F}f)((A^{-1})^{t}\boldsymbol{\xi}).
+        \]
+        \item If \(f(\mathbf{x})\) is of Schwarz class and \(g(\mathbf{x}) = \frac{\del}{\del \mathbf{x}}^{\mathbf{k}}f(\mathbf{x})\) for some \(\mathbf{k} \in \Z_{\ge 0}^{n}\) then
+        \[
+          (\mc{F}g)(\boldsymbol{\xi}) = (2\pi i\boldsymbol{\xi})^{\mathbf{k}}(\mc{F}f).
+        \]
+      \end{enumerate}
+    \end{proposition}
+    \begin{proof}
+      We will prove the statements separately:
+      \begin{enumerate}[label*=(\roman*)]
+        \item This is immediate from linearity of the integral.
+        \item Applying the change of variables \(\mathbf{x} \mapsto \mathbf{x}-\boldsymbol{\a}\) to
+        \[
+          (\mc{F}g)(\boldsymbol{\xi}) = \int_{\R^{n}}f(\mathbf{x}+\boldsymbol{\a})e^{-2\pi i\<\boldsymbol{\xi},\mathbf{x}\>}\,d\mathbf{x}
+        \]
+        gives
+        \[
+          \int_{\R^{n}}f(\mathbf{x})e^{-2\pi i\<\boldsymbol{\xi},\mathbf{x}-\boldsymbol{\a}\>}\,d\mathbf{x} = e^{2\pi i\<\boldsymbol{\xi},\boldsymbol{\a}\>}\int_{\R^{n}}f(\mathbf{x})e^{-2\pi i\<\boldsymbol{\xi},\mathbf{x}\>}\,d\mathbf{x} = e^{2\pi i\<\boldsymbol{\a},\boldsymbol{\xi}\>}(\mc{F}f)(\boldsymbol{\xi}).
+        \]
+        \item Applying the change of variables \(\mathbf{x} \mapsto A^{-1}\mathbf{x}\) to
+        \[
+          (\mc{F}g)(\boldsymbol{\xi}) = \int_{\R^{n}}f(A\mathbf{x})e^{-2\pi i\<\boldsymbol{\xi},\mathbf{x}\>}\,d\mathbf{x},
+        \]
+        gives
+        \[
+          \frac{1}{|\det(A)|}\int_{\R^{n}}f(\mathbf{x})e^{-2\pi i\<\boldsymbol{\xi},A^{-1}\mathbf{x}\>}\,d\mathbf{x} = \frac{1}{|\det(A)|}\int_{\R^{n}}f(\mathbf{x})e^{-2\pi i\left\<(A^{-1})^{t}\boldsymbol{\xi},\mathbf{x}\right\>}\,d\mathbf{x} = (\mc{F}f)((A^{-1})^{t}\boldsymbol{\xi}),
+        \]
+        since the Jacobian matrix is \(A\).
+        \item We may assume \(\mathbf{k} \neq \mathbf{0}\) for otherwise there is nothing to prove. Since \(f(\mathbf{x})\) is of Schwarz class, so is \(g(\mathbf{x})\). First suppose \(n = 1\) so that \(f(\mathbf{x}) = f(x)\), \(g(\mathbf{x}) = g(x)\), and \(\mathbf{k} = k \ge 1\). Then 
+        \[
+          (\mc{F}g)(\z) = \int_{-\infty}^{\infty}\frac{d^{k}}{dx^{k}}f(x)e^{-2\pi i\z x}\,dx = 2\pi i\z\int_{-\infty}^{\infty}\frac{d^{k-1}}{dx^{k-1}}f(x)e^{-2\pi i\z x}\,dx,
+        \]
+        where the second equality follows by an application of integration by parts and that \(f(x)\) is of Schwarz class. Repeating this procedure \(k-1\) times results in
+        \[
+          (2\pi i\z)^{k}\int_{-\infty}^{\infty}f(x)e^{-2\pi i\z x}\,dx = (2\pi i\z)^{k}(\mc{F})(\z),
+        \]
+        proving the case when \(n = 1\). The general case follows from what we have shown by applying repeated integration by parts in each variable to
+        \[
+          (\mc{F}g)(\boldsymbol{\xi}) = \int_{\R^{n}}\frac{\del}{\del \mathbf{x}}^{\mathbf{k}}f(\mathbf{x})e^{-2\pi i\<\boldsymbol{\xi},\mathbf{x}\>}\,d\mathbf{x}.
+        \]
+      \end{enumerate}
+    \end{proof}
+
+    The properties in \cref{prop:Fourier_transform_properties} are immensely useful when computing Fourier transforms. We now introduce examples of Schwarz class functions and compute their Fourier transforms. The classic example of a Schwarz class function is \(e^{-2\pi x^{2}}\). This function is particularly important because it is essentially its own Fourier transform:
+
+    \begin{proposition}\label{prop:Fourier_transform_of_exponential_single_variable}
+      Let \(\a > 0\) and set \(f(x) = e^{-2\pi\a x^{2}}\). Then
+      \[
+        (\mc{F}f)(\z) = \frac{e^{-\frac{\pi\z^{2}}{2\a}}}{\sqrt{2\a}}.
+      \]
+      In particular, \(e^{-\pi x^{2}}\) is its own Fourier transform.
+    \end{proposition}
+    \begin{proof}
+      Note that \(f(x)\) is absolutely integrable because it exhibits exponential decay. We compute its Fourier transform
+      \[
+        (\mc{F}f)(\z) = \int_{-\infty}^{\infty}e^{-2\pi\a x^{2}}e^{-2\pi i\z x}\,dx = \int_{-\infty}^{\infty}e^{-2\pi(\a x^{2}+i\z x)}\,dx.
+      \]
+      By performing the change of variables \(x \mapsto \frac{x}{\sqrt{\a}}\), the last integral becomes
+      \[
+        \frac{1}{\sqrt{\a}}\int_{-\infty}^{\infty}e^{-2\pi\left(x^{2}+\frac{i\z x}{\sqrt{\a}}\right)}\,dx.
+      \]
+      Complete the square in the exponent by observing
+      \[
+        x^{2}+\frac{i\z x}{\sqrt{\a}} = \left(x+\frac{i\z}{2\sqrt{\a}}\right)^{2}+\frac{\z^{2}}{4\a},
+      \]
+      so that the previous integral is equal to
+      \[
+        \frac{e^{-\frac{\pi\z^{2}}{2\a}}}{\sqrt{\a}}\int_{-\infty}^{\infty}e^{-2\pi\left(x+\frac{i\z}{2\sqrt{\a}}\right)^{2}}\,dx.
+      \]
+      The change of variables \(x \mapsto \frac{x}{\sqrt{2}}-\frac{i\z}{\sqrt{\a}}\) is permitted without affecting the line of integration by viewing the integral as a complex integral, noting that the integrand is entire as a complex function, and shifting the line of integration. Then the integral takes the form
+      \[
+        \frac{e^{-\frac{\pi\z^{2}}{2\a}}}{\sqrt{2\a}}\int_{-\infty}^{\infty}e^{-\pi x^{2}}\,dx = \frac{e^{-\frac{\pi\z^{2}}{2\a}}}{\sqrt{2\a}},
+      \]
+      where the equality holds because the integral is \(1\) since it is the Gaussian integral (see \cref{append:Special_Integrals}). This proves the first statement. The second statement follows by taking \(\a = \frac{1}{2}\).
+    \end{proof}
+
+    The analog of \(e^{-2\pi x^{2}}\) on \(\R^{n}\) is \(e^{-2\pi\<\mathbf{x},\mathbf{x}\>}\) which is clearly Schwarz class because \(e^{-2\pi x^{2}}\) is. We also obtain an analog of \cref{prop:Fourier_transform_of_exponential_single_variable} for this Schwarz class function as a corollary:
+
+    \begin{corollary}\label{cor:Fourier_transform_of_exponential_single_variable}
+      Let \(\a > 0\) and set \(f(\mathbf{x}) = e^{-2\pi\a\<\mathbf{x},\mathbf{x}\>}\). Then
+      \[
+        (\mc{F}f)(\boldsymbol{\xi}) = \frac{e^{-\frac{\pi\<\boldsymbol{\xi},\boldsymbol{\xi}\>}{2\a}}}{(2\a)^{\frac{n}{2}}}.
+      \]
+      In particular, \(e^{-\pi\<\mathbf{x},\mathbf{x}\>}\) is its own Fourier transform.
+    \end{corollary}
+    \begin{proof}
+      Applying \cref{prop:Fourier_transform_of_exponential_single_variable} to each variable separately proves the first statement. The second statement follows upon setting \(\a = \frac{1}{2}\).
+    \end{proof}
+\end{document}

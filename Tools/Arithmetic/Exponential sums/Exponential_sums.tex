@@ -1,0 +1,430 @@
+\documentclass[12pt]{article}
+\usepackage{import}
+\input{/Users/henrytwiss/Documents/Documents/LaTeX/Vignettes/preamble.tex}
+
+%=================%
+%  Title & Index  %
+%=================%
+\title{Exponential sums}
+\author{Henry Twiss}
+\makeindex
+
+\begin{document}
+  \date{}
+  \maketitle
+  \section{Ramanujan and Gauss Sums}
+    Let's begin with the Ramanujan sum. For \(m \ge 1\) and \(n \in \Z\), the \textbf{Ramanujan sum}\index{Ramanujan sum} \(r(n,m)\) is defined by
+    \[
+      r(n,m) = \psum_{a \tmod{m}}e^{\frac{2\pi ian}{m}}.
+    \]
+    Note that the Ramanujan sum is a finite sum of \(m\)-th roots of unity on the unit circle. Clearly we have \(r(0,m) = \vphi(m)\). Ramanujan sums can be computed explicitly by means of the M\"obius function:
+
+    \begin{proposition}\label{prop:Ramanujan_sum_evaluation}
+      For any \(m \ge 1\) and any nonzero \(n \in \Z\),
+      \[
+        r(n,m) = \sum_{d \mid (n,m)}d\mu\left(\frac{m}{d}\right).
+      \]
+    \end{proposition}
+    \begin{proof}
+      Summing \(r(n,d)\) over the divisors \(d\) of \(m\) yields
+      \[
+        \sum_{d \mid m}r(n,d) = \sum_{d \mid m}\psum_{a \tmod{d}}e^{\frac{2\pi ian}{d}} = \sum_{d \mid m}\psum_{a \tmod{\frac{m}{d}}}e^{\frac{2\pi iadn}{m}} = \sum_{b \tmod{m}}e^{\frac{2\pi ibn}{m}} ,
+      \]
+      where the second equality follows by making the change of variables \(d \mapsto \frac{m}{d}\) and the third equality holds by observing that every integer \(b\) modulo \(m\) is of the form \(b = ad\) for some \(d \mid m\) and \(a\) taken modulo \(\frac{m}{d}\) with \(\left(a,\frac{m}{d}\right) = 1\). Indeed, this is seen upon taking \(d = (b,m)\). If \(m \mid n\) the inner sum is \(m\) and otherwise it is zero because it is the sum of all the \(m\)-th roots of unity. Thus
+      \[
+        \sum_{d \mid m}r(n,d) = \begin{cases} m & \text{if \(m \mid n\)}, \\ 0 & \text{if \(m \nmid n\)}. \end{cases}
+      \]
+      By the M\"obius inversion formula, we have
+      \[
+        r(n,m) = \sum_{d \mid (n,m)}d\mu\left(\frac{m}{d}\right),
+      \]
+      as desired.
+    \end{proof}
+    We can also define a Ramanujan sum associated to Dirichlet characters. Let \(\chi\) be a Dirichlet character modulo \(m\). For any \(b \in \Z\), the \textbf{Ramanujan sum}\index{Ramanujan sum} \(\tau(b,\chi)\) associated to \(\chi\) is given by
+    \[
+      \tau(b,\chi) = \sum_{a \tmod{m}}\chi(a)e^{\frac{2\pi iab}{m}}.
+    \]
+    If \(b = 1\) we will write \(\tau(\chi)\) instead. That is, \(\tau(\chi) = \tau(1,\chi)\). We call \(\tau(\chi)\) the \textbf{Gauss sum}\index{Gauss sum} associated to \(\chi\). Observe that if \(m = 1\) then \(\chi\) is the trivial character and \(\tau(b,\chi) = 1\). So the interesting cases are when \(m \ge 2\). There are some basic properties of these sums which are very useful:
+
+    \begin{proposition}\label{prop:Gauss_sum_reduction}
+      Let \(\chi\) and \(\psi\) be nontrivial Dirichlet characters modulo \(m\) and \(n\) respectively and let \(b \in \Z\). Then the following hold:
+      \begin{enumerate}[label*=(\roman*)]
+        \item \(\conj{\tau(b,\cchi)} = \chi(-1)\tau(b,\chi)\).
+        \item If \((b,m) = 1\) then \(\tau(b,\chi) = \cchi(b)\tau(\chi)\).
+        \item If \((b,m) > 1\) and \(\chi\) is primitive then \(\tau(b,\chi) = 0\).
+        \item If \((m,n) = 1\) then \(\tau(b,\chi\psi) = \chi(n)\psi(m)\tau(b,\chi)\tau(b,\psi)\).
+        \item Let \(q\) be the conductor of \(\chi\) and let \(\wtilde{\chi}\) be the primitive Dirichlet character that lifts to \(\chi\). Then
+        \[
+          \tau(\chi) = \mu\left(\frac{m}{q}\right)\wtilde{\chi}\left(\frac{m}{q}\right)\tau(\wtilde{\chi}).
+        \]
+      \end{enumerate}
+    \end{proposition}
+    \begin{proof}
+      We will prove the statements separately.
+      \begin{enumerate}[label*=(\roman*)]
+        \item We compute
+        \begin{align*}
+          \conj{\tau(b,\cchi)} &= \conj{\sum_{a \tmod{m}}\cchi(a)e^{\frac{2\pi iab}{m}}} \\
+          &= \sum_{a \tmod{m}}\chi(a)e^{-\frac{2\pi iab}{m}} \\
+          &= \sum_{a \tmod{m}}\chi(-a)e^{\frac{2\pi iab}{m}} && \text{\(a \mapsto -a\)} \\
+          &= \chi(-1)\sum_{a \tmod{m}}\chi(a)e^{\frac{2\pi iab}{m}} \\
+          &= \chi(-1)\tau(b,\chi).
+        \end{align*}
+        This proves (i).
+        \item We compute
+        \begin{align*}
+          \tau(b,\chi) &= \sum_{a \tmod{m}}\chi(a)e^{\frac{2\pi iab}{m}} \\
+          &= \sum_{a \tmod{m}}\chi(a\conj{b})e^{\frac{2\pi ia}{m}} && \text{\(a \mapsto a\conj{b}\)} \\
+          &= \cchi(b)\sum_{a \tmod{m}}\chi(a)e^{\frac{2\pi ia}{m}} \\
+          &= \cchi(b)\tau(\chi).
+        \end{align*}
+        This proves (ii).
+        \item Suppose \(d\) is a proper divisor of \(m\) and \(c\) is an integer \(c\) such that \(c \equiv 1 \tmod{m}\). Then necessarily \((c,m) = 1\). Also note that as \(d \mid m\), \(c \equiv 1 \tmod{d}\) and \((c,d) = 1\). Moreover, there is such a \(c\) with the additional property that \(\chi(c) \neq 1\). For if not, \(\chi\) is induced from \(\chi_{d,0}\) which contradicts \(\chi\) being primitive. Now take \(d = \frac{m}{(b,m)}\) and choose \(c\) as above. Then
+        \[
+          \chi(c)\tau(b,\chi) = \sum_{a \tmod{m}}\chi(ac)e^{\frac{2\pi iab}{m}} = \sum_{a \tmod{m}}\chi(a)e^{\frac{2\pi iab\conj{c}}{m}} = \tau(b,\chi)
+        \]
+        upon making the change of variables \(a \mapsto a\conj{c}\) and where the last equality holds because \(\conj{c} \equiv 1 \tmod{d}\) and \(e^{\frac{2\pi ib}{m}}\) is a \(d\)-th root of unity. So altogether \(\chi(c)\tau(b,\chi) = \tau(b,\chi)\). Since \(\chi(c) \neq 1\), we conclude \(\tau(b,\chi) = 0\) and (iii) follows.
+        \item Since \((m,n) = 1\), the Chinese remainder theorem implies that we have an isomorphism
+        \[
+          (\Z/m\Z) \op (\Z/n\Z) \to (\Z/mn\Z) \qquad a \oplus a' \mapsto an+a'm.
+        \]
+        Under this isomorphism, we make the following computation:
+        \begin{align*}
+          \tau(b,\chi\psi) &= \sum_{an+a'm \tmod{mn}}\chi\psi(an+a'm)e^{\frac{2\pi i(an+a'm)b}{mn}} \\
+          &= \sum_{a\tmod{m}}\sum_{a'\tmod{n}}\chi\psi(an+a'm)e^{\frac{2\pi i(an+a'm)b}{mn}} \\
+          &= \sum_{a\tmod{m}}\sum_{a'\tmod{n}}\chi(an)\psi(a'm)e^{\frac{2\pi iab}{m}}e^{\frac{2\pi ia'b}{n}} \\
+          &= \chi(n)\psi(m)\sum_{a\tmod{m}}\chi(a)e^{\frac{2\pi iab}{m}}\sum_{a'\tmod{n}}\psi(a')e^{\frac{2\pi ia'b}{n}} \\
+          &= \chi(n)\psi(m)\tau(b,\chi)\tau(b,\psi).
+        \end{align*}
+        This proves (iv).
+        \item If \(\left(\frac{m}{q},q\right) > 1\) then \(\wtilde{\chi}\left(\frac{m}{q}\right) = 0\) so we need to show \(\tau(\chi) = 0\). As \(\left(\frac{m}{q},q\right) > 1\), there exists a prime \(p\) such that \(p \mid \frac{m}{q}\) and \(p \mid q\). By Euclidean division we may write any \(a\) modulo \(m\) in the form \(a = a'\frac{m}{p}+a''\) with \(a'\) taken modulo \(p\) and \(a''\) taken modulo \(\frac{m}{p}\). Then
+        \begin{equation}\label{equ:Gauss_sum_reduction_1}
+          \tau(\chi) = \sum_{a \tmod{m}}\chi(a)e^{\frac{2\pi ia}{m}} = \sum_{\substack{a' \tmod{p} \\ a'' \tmod{\frac{m}{p}}}}\chi\left(a'\frac{m}{p}+a''\right)e^{\frac{2\pi i\left(a'\frac{m}{p}+a''\right)}{m}}.
+        \end{equation}
+        Since \(p \mid \left(\frac{m}{q},q\right)\), we have \(p^{2} \mid m\). Therefore \(\left(a'\frac{m}{p}+a'',m\right) = 1\) if and only if \(\left(a'\frac{m}{p}+a'',\frac{m}{p}\right) = 1\) and this latter condition is equivalent to \(\left(a'',\frac{m}{p}\right) = 1\). Thus the last sum in \cref{equ:Gauss_sum_reduction_1} is
+        \[
+          \sum_{\substack{a' \tmod{p} \\ a'' \tmod{\frac{m}{p}} \\ \left(a'',\frac{m}{p}\right) = 1}}\chi\left(a'\frac{m}{p}+a''\right)e^{\frac{2\pi i\left(a'\frac{m}{p}+a''\right)}{m}}.
+        \]
+        As \(p \mid \frac{m}{q}\), we know \(q \mid \frac{m}{p}\) so that \(a'\frac{m}{p}+a'' \equiv a'' \tmod{q}\). Then \cref{prop:Dirichlet_character_induction_classification} implies \(\chi\left(a'\frac{m}{p}+a''\right) = \wtilde{\chi}(a'')\) and this sum is further reduced to
+        \begin{equation}\label{equ:Gauss_sum_reduction_2}
+          \psum_{a'' \tmod{\frac{m}{p}}}\wtilde{\chi}(a'')e^{\frac{2\pi ia''}{m}}\sum_{a' \tmod{p}}e^{\frac{2\pi ia'}{p}}.
+        \end{equation}
+        The inner sum in \cref{equ:Gauss_sum_reduction_2} vanishes since it is the sum over all \(p\)-th roots of unity and thus \(\tau(\chi) = 0\). Now suppose \(\left(\frac{m}{q},q\right) = 1\). Then (iv) implies
+        \[
+          \tau(\chi) = \tau(\wtilde{\chi}\chi_{\frac{m}{q},0}) = \wtilde{\chi}\left(\frac{m}{q}\right)\chi_{\frac{m}{q},0}(q)\tau(\wtilde{\chi})\tau(\chi_{\frac{m}{q},0}) = \tau(\chi_{\frac{m}{q},0})\wtilde{\chi}\left(\frac{m}{q}\right)\tau(\wtilde{\chi}).
+        \]
+        Now observe that \(\tau(\chi_{\frac{m}{q},0}) = r\left(1,\frac{m}{q}\right)\). By \cref{prop:Ramanujan_sum_evaluation} we see that \(r\left(1,\frac{m}{q}\right) = \mu\left(\frac{m}{q}\right)\) and
+        \[
+          \tau(\chi) = \mu\left(\frac{m}{q}\right)\wtilde{\chi}\left(\frac{m}{q}\right)\tau(\wtilde{\chi}),
+        \]
+        as claimed. This proves (v).
+      \end{enumerate}
+    \end{proof}
+
+    Notice that \cref{prop:Gauss_sum_reduction} reduces the evaluation of the Ramanujan sum \(\tau(b,\chi)\) to that of the Gauss sum \(\tau(\chi)\) at least when \(\chi\) is primitive. When \(\chi\) is imprimitive and \((b,m) > 1\) we need to appeal to evaluating \(\tau(b,\chi)\) by more direct means. Evaluating \(\tau(\chi)\) for general characters \(\chi\) turns out to be a very difficult problem and is still open. However, it is not difficult to determine the modulus of \(\tau(\chi)\) when \(\chi\) is primitive:
+
+    \begin{theorem}\label{thm:Gauss_sum_modulus}
+      Let \(\chi\) be a primitive Dirichlet character of conductor \(q\). Then
+      \[
+        |\tau(\chi)| = \sqrt{q}.
+      \]
+    \end{theorem}
+    \begin{proof}
+      If \(\chi\) is the trivial character this is obvious since \(\tau(\chi) = 1\). So we may assume \(\chi\) is nontrivial. Now this is just a computation:
+      \begin{align*}
+        |\tau(\chi)|^{2} &= \tau(\chi)\conj{\tau(\chi)} \\
+        &= \sum_{a \tmod{q}}\tau(\chi)\cchi(a)e^{-\frac{2\pi ia}{q}} \\
+        &=  \sum_{a \tmod{q}}\tau(a,\chi)e^{-\frac{2\pi ia}{q}} & \text{\cref{prop:Gauss_sum_reduction} (ii)} \\
+        &= \sum_{a \tmod{q}}\left(\sum_{a' \tmod{q}}\chi(a')e^{\frac{2\pi iaa'}{q}}\right)e^{-\frac{2\pi ia}{q}} \\
+        &= \sum_{a,a' \tmod{q}}\chi(a')e^{\frac{2\pi ia(a'-1)}{q}} \\
+        &= \sum_{a' \tmod{q}}\chi(a')\left(\sum_{a \tmod{q}}e^{\frac{2\pi ia(a'-1)}{q}}\right).
+      \end{align*}
+      Let \(S(a')\) denote the inner sum. For the \(a'\) such that \(a'-1 \equiv 0 \tmod{q}\), we have \(S(a') = q\). Otherwise, the change of variables \(a \mapsto a\conj{(a'-1)}\) shows that \(S(a') = 0\) because it is the sum of all \(q\)-th roots of unity. It follows that the double sum is \(\chi(1)q = q\). So altogether \(|\tau(\chi)|^{2} = q\) and hence \(|\tau(\chi)| = \sqrt{q}\).
+    \end{proof}
+
+    As an almost immediate corollary to \cref{thm:Gauss_sum_modulus}, we deduce a useful expression for primitive Dirichlet characters of conductor \(q\):
+
+    \begin{corollary}\label{cor:gauss_sum_primitive_formula}
+      Let \(\chi\) be a primitive Dirichlet character of conductor \(q\). Then
+      \[
+        \tau(n,\chi) = \cchi(n)\tau(\chi),
+      \]
+      for all \(n \in \Z\). In particular,
+      \[
+        \chi(n) = \frac{1}{\tau(\cchi)}\sum_{a \tmod{q}}\cchi(a)e^{\frac{2\pi ian}{q}},
+      \]
+      for all \(n \in \Z\).
+    \end{corollary}
+    \begin{proof}
+      If \(\chi\) is the trivial character this is obvious since \(\tau(n,\chi) = 1\). So assume \(\chi\) is nontrivial. If \((n,q) = 1\) then the first identity is \cref{prop:Gauss_sum_reduction} (ii). If \((n,q) > 1\) then the first identity follows from \cref{prop:Gauss_sum_reduction} (iii) and that \(\cchi(n) = 0\). This proves the first identity in full. For the second identity, first note that \(\tau(\chi) \neq 0\) by \cref{thm:Gauss_sum_modulus}. Replacing \(\chi\) with \(\cchi\), dividing the first identity by \(\tau(\chi)\), and expanding the Ramanujan sum, gives the second identity.
+    \end{proof}
+
+    In light of \cref{thm:Gauss_sum_modulus} we define the \textbf{epsilon factor}\index{epsilon factor} \(\e_{\chi}\) for a Dirichlet character \(\chi\) modulo \(m\) by
+    \[
+      \e_{\chi} = \frac{\tau(\chi)}{\sqrt{m}}.
+    \]
+    \cref{thm:Gauss_sum_modulus} says that this value lies on the unit circle when \(\chi\) is primitive and not the trivial character. The question of the evaluation of Gauss sums boils down to determining what value the epsilon factor is. This is the real difficultly as the epsilon factor is quite difficult to calculate and its value is not known for general Dirichlet characters. However, when \(\chi\) is primitive there is a simple relationship between \(\e_{\chi}\) and \(\e_{\cchi}\):
+
+    \begin{proposition}\label{prop:epsilon_factor_relationship}
+      Let \(\chi\) be a primitive Dirichlet character of conductor \(q\). Then
+      \[
+        \e_{\chi}\e_{\cchi} = \chi(-1).
+      \]
+    \end{proposition}
+    \begin{proof}
+      If \(\chi\) is trivial this is obvious since \(\e_{\chi} = \e_{\cchi} = 1\). So assume \(\chi\) is nontrivial. By \cref{prop:Gauss_sum_reduction} (i) and that \(\e_{\chi}\) lies on the unit circle, we have
+      \[
+        \e_{\chi} = \frac{\tau(\chi)}{\sqrt{q}} = \chi(-1)\conj{\frac{\tau(\chi)}{\sqrt{q}}} = \chi(-1)\e_{\cchi}^{-1},
+      \]
+      from whence the statement follows.
+    \end{proof}
+  \section{Quadratic Gauss Sums}
+    Another important sum is the quadratic Gauss sum. For any \(m \ge 1\) and any \(b \in \Z\), the \textbf{quadratic Gauss sum}\index{quadratic Gauss sum} \(g(b,m)\) is defined by
+    \[
+      g(b,m) = \sum_{a \tmod{m}}e^{\frac{2\pi ia^{2}b}{m}}.
+    \]
+    If \(b = 1\) we write \(g(m)\) instead. That is, \(g(m) = g(1,m)\). It turns out that if \(\chi_{m}\) is the quadratic Dirichlet character given by the Jacobi symbol then \(\tau(b,\chi_{m}) = g(b,m)\) provided \(m\) is square-free. This will take a little work to prove. We first reduce to the case when \((b,m) = 1\):
+
+    \begin{proposition}\label{prop:quadratic_Gauss_sum_relatively_prime_reduction}
+      Let \(m \ge 1\) be odd and let \(b \in \Z\). Then
+      \[
+        g(b,m) = (b,m)g\left(\frac{b}{(b,m)},\frac{m}{(b,m)}\right).
+      \]
+    \end{proposition}
+    \begin{proof}
+      By Euclidean division write any \(a\) modulo \(m\) in the form \(a = a'\frac{m}{(b,m)}+a''\) with \(a'\) take modulo \((b,m)\) and \(a''\) take modulo \(\frac{m}{(b,m)}\). Then
+      \begin{align*}
+        g(b,m) &= \sum_{a \tmod{m}}e^{\frac{2\pi ia^{2}b}{m}} \\
+        &= \sum_{\substack{a' \tmod{(b,m)} \\ a'' \tmod{\frac{m}{(b,m)}}}}e^{\frac{2\pi i\left(a'\frac{m}{(b,m)}+a''\right)^{2}b}{m}} \\
+        &= \sum_{a'' \tmod{\frac{m}{(b,m)}}}e^{\frac{2\pi i(a'')^{2}b}{m}}\sum_{a' \tmod{(b,m)}}e^{\frac{2\pi i\left(2a''a'\frac{m}{(b,m)}+\left(a'\frac{m}{(b,m)}\right)^{2}\right)b}{m}} \\
+        &= \sum_{a'' \tmod{\frac{m}{(b,m)}}}e^{\frac{2\pi i(a'')^{2}\frac{b}{(b,m)}}{\frac{m}{(b,m)}}}\sum_{a' \tmod{(b,m)}}e^{\frac{2\pi i\left(2a''a'\frac{m}{(b,m)}+\left(a'\frac{m}{(b,m)}\right)^{2}\right)\frac{b}{(b,m)}}{\frac{m}{(b,m)}}} \\
+        &= (b,m)\sum_{a'' \tmod{\frac{m}{(b,m)}}}e^{\frac{2\pi i(a'')^{2}\frac{b}{(b,m)}}{\frac{m}{(b,m)}}},
+      \end{align*}
+      where the last line follows because \(\left(2a''a'\frac{m}{(b,m)}+\left(a'\frac{m}{(b,m)}\right)^{2}\right) \equiv 0 \tmod{\frac{m}{(b,m)}}\) and thus the inner sum is \((b,m)\). The remaining sum is \(g\left(\frac{b}{(b,m)},\frac{m}{(b,m)}\right)\) which finishes the proof.
+    \end{proof}
+
+    As a consequence of \cref{prop:quadratic_Gauss_sum_relatively_prime_reduction}, we may always assume \((b,m) = 1\). Now we give an equivalent formulation of the Ramanujan sum associated to quadratic Dirichlet characters given by Jacobi symbols and show that in the case \(m = p\) an odd prime, the Ramanujan and quadratic Gauss sums agree:
+
+    \begin{proposition}\label{prop:Gauss_sum_equivalence_for_primes}
+      Let \(m \ge 1\) and \(b \in \Z\) be such that \((b,m) = 1\). Also let \(\chi_{m}\) be the quadratic Dirichlet character given by the Jacobi symbol. Then
+      \[
+        \tau(b,\chi_{m}) = \sum_{a \tmod{m}}\left(1+\legendre{a}{m}\right)e^{\frac{2\pi iab}{m}}.
+      \]
+      Moreover, when \(m = p\) is prime,
+      \[
+        \tau(b,\chi_{p}) = g(b,p).
+      \]
+    \end{proposition}
+    \begin{proof}
+      If \(m = 1\) the claim is obvious since \(\tau(b,\chi_{1}) = 1\) so assume \(m > 1\). To prove the first statement, observe that
+      \[
+        \sum_{a \tmod{m}}\left(1+\legendre{a}{m}\right)e^{\frac{2\pi iab}{m}} = \sum_{a \tmod{m}}e^{\frac{2\pi iab}{m}}+\sum_{a \tmod{m}}\legendre{a}{m}e^{\frac{2\pi iab}{m}}.
+      \]
+      The first sum on the right-hand side is zero as it is the sum over all \(m\)-th roots of unity since \((b,m) = 1\). This proves the first claim. Now let \(m = p\) be an odd prime. From the definition of the Jacobi symbol we see that \(1+\tlegendre{a}{p} = 2,0\) depending on if \(a\) is a quadratic residue modulo \(p\) or not provided \(a \not\equiv 0 \tmod{p}\). If \(a \equiv 0 \tmod{p}\) then \(1+\tlegendre{a}{p} = 1\). Moreover, if \(a\) is a quadratic residue modulo \(p\) then \(a \equiv (a')^{2} \tmod{p}\) for some \(a'\). So one the one hand,
+      \[
+        \tau(b,\chi_{p}) = \sum_{a \tmod{p}}\left(1+\legendre{a}{p}\right)e^{\frac{2\pi iab}{p}} = 1+2\sum_{\substack{a \tmod{p} \\ a \equiv (a')^{2} \tmod{p} \\ a \not\equiv 0 \tmod{p}}}e^{\frac{2\pi i(a')^{2}b}{p}}.
+      \]
+      On the other hand,
+      \[
+        g(b,p) = 1+\sum_{\substack{a \tmod{p} \\ a \not\equiv 0 \tmod{p}}}e^{\frac{2\pi ia^{2}b}{p}},
+      \]
+      but this last sum counts every quadratic residue twice because \((-a)^{2} = a^{2}\). Hence the previous two sums are equal completing the proof.
+    \end{proof}
+
+    We would like to generalize the second statement in \cref{prop:Gauss_sum_equivalence_for_primes} to when \(m\) is square-free. In this direction, a series of reduction properties will be helpful:
+
+    \begin{proposition}\label{prop:quadratic_Gauss_sum_reduction}
+      Let \(m,n \ge 1\), \(p\) be an odd prime, and \(b \in \Z\). Then the following hold:
+      \begin{enumerate}[label*=(\roman*)]
+        \item If \((b,p) = 1\) then \(g(b,p^{r}) = pg(b,p^{r-2})\) for all \(r \in \Z\) with \(r \ge 2\).
+        \item If \((m,n) = 1\) and \((b,mn) = 1\) then \(g(b,mn) = g(bn,m)g(bm,n)\).
+        \item If \(m\) is odd and \((b,m) = 1\) then \(g(b,m) = \tlegendre{b}{m}g(m)\) where \(\tlegendre{b}{m}\) is the Jacobi symbol.
+      \end{enumerate}
+    \end{proposition}
+    \begin{proof}
+      We will prove the statements separately.
+      \begin{enumerate}[label*=(\roman*)]
+        \item First notice that
+        \[
+          g(b,p^{r}) = \sum_{a \tmod{p^{r}}}e^{\frac{2\pi ia^{2}b}{p^{r}}} = \psum_{a \tmod{p^{r}}}e^{\frac{2\pi ia^{2}b}{p^{r}}}+\sum_{a \tmod{p^{r-1}}}e^{\frac{2\pi ia^{2}b}{p^{r-2}}},
+        \]
+        since every \(a\) modulo \(p\) satisfies \((a,p) = 1\) or not. By Euclidean division every element \(a\) modulo \(p^{r-1}\) is of the form \(a = a'p^{r-2}+a''\) with \(a'\) taken modulo \(p\) and \(a''\) taken modulo \(p^{r-2}\). Since \((a'p^{r-2}+a'') \equiv a'' \tmod{p^{r-2}}\), every \(a''\) is counted \(p\) times modulo \(p^{r-2}\). Along with the fact that \((a'p^{r-2}+a'')^{2} \equiv (a'')^{2} \tmod{p^{r-2}}\), we have
+        \[
+          \sum_{a \tmod{p^{r-1}}}e^{\frac{2\pi ia^{2}b}{p^{r-2}}} = \sum_{\substack{a' \tmod{p} \\ a'' \tmod{p^{r-2}}}}e^{\frac{2\pi i\left(a'p^{r-2}+a''\right)^{2}b}{p^{r-2}}} = p\sum_{a'' \tmod{p}}e^{\frac{2\pi i(a'')^{2}b}{p^{r-2}}} = pg(b,p^{r-2}).
+        \]
+        It remains to show that the sum
+        \[
+          \psum_{a \tmod{p^{r}}}e^{\frac{2\pi ia^{2}b}{p^{r}}},
+        \]
+        is zero. As this sum is exactly \(r(b,p^{r})\), \cref{prop:Ramanujan_sum_evaluation} implies
+        \[
+          \psum_{a \tmod{p^{r}}}e^{\frac{2\pi ia^{2}b}{p^{r}}} = \mu(p^{r}) = 0,
+        \]
+        because \((b,p) = 1\) and \(r \ge 2\). This proves (i).
+        \item Observe that
+          \[
+            g(bn,m)g(bm,n) = \left(\sum_{a \tmod{m}}e^{\frac{2\pi ia^{2}bn}{m}}\right)\left(\sum_{a' \tmod{n}}e^{\frac{2\pi i(a')^{2}bm}{n}}\right) = \sum_{\substack{a \tmod{m} \\ a' \tmod{n}}}e^{\frac{2\pi i\left((an)^{2}+(a'm)^{2}\right)b}{mn}}.
+          \]
+          Since \((m,n) = 1\), the Chinese remainder theorem gives an isomorphism
+          \[
+            (\Z/m\Z) \op (\Z/n\Z) \to (\Z/mn\Z) \qquad a \oplus a' \mapsto an+a'm.
+          \]
+          Set \(a'' = an+a'm\) so that \((a'')^{2} \equiv (an)^{2}+(a'm)^{2} \tmod{mn}\). Under this isomorphism, the last sum above is then equal to
+          \[
+            \sum_{a'' \tmod{mn}}e^{\frac{2\pi i(a'')^{2}b}{mn}},
+          \]
+          which is precisely \(g(b,mn)\). This proves (ii).
+        \item The claim is obvious if \(m = 1\) because \(g(b,1) = 1\) so assume \(m > 1\). If \(m = p\) then \cref{prop:Gauss_sum_equivalence_for_primes}, \cref{prop:Gauss_sum_reduction} (ii), and that quadratic Dirichlet characters are their own conjugate altogether imply the claim. Now let \(r \ge 1\) and assume by induction that the claim holds when \(m = p^{r'}\) for all positive integers \(r'\) such that \(r' < r\). Then by (i), we have
+        \begin{equation}\label{equ:quadratic_Gauss_sum_reduction_1}
+          g(b,p^{r}) = pg(b,p^{r-2}) = \legendre{b}{p^{r-2}}pg(p^{r-2}) = \legendre{b}{p^{r-2}}g(p^{r}) = \legendre{b}{p^{r}}g(p^{r}).
+        \end{equation}
+        It now suffices to prove the claim when \(m = p^{r}q^{s}\) where \(q\) is another odd prime and \(s \ge 1\). Then by (ii) and \cref{equ:quadratic_Gauss_sum_reduction_1}, we compute
+        \begin{align*}
+          g(b,p^{r}q^{s}) &= g(bq^{s},p^{r})g(bp^{r},q^{s}) \\
+          &= \legendre{bq^{s}}{p^{r}}\legendre{bp^{r}}{q^{s}}g(p^{r})g(q^{s}) \\
+          &= \legendre{b}{p^{r}q^{s}}\legendre{q^{s}}{p^{r}}\legendre{p^{r}}{q^{s}}g(p^{r})g(q^{s}) \\
+          &= \legendre{b}{p^{r}q^{s}}g(q^{s},p^{r})g(p^{r},q^{s}) \\
+          &= \legendre{b}{p^{r}q^{s}}g(p^{r}q^{s}).
+        \end{align*}
+        This proves (iii).
+      \end{enumerate}
+    \end{proof}
+
+    At last we can prove that our Ramanujan and quadratic Gauss sums agree for square-free \(m\):
+
+    \begin{theorem}
+      Suppose \(m \ge 1\) be square-free and odd and let \(\chi_{m}\) be the quadratic Dirichlet character given by the Jacobi symbol. Let \(b \in \mathbb{Z}\) such that \((b,m) = 1\). Then
+      \[
+        \tau(b,\chi_{m}) = g(b,m).
+      \]
+    \end{theorem}
+    \begin{proof}
+      The claim is obvious if \(m = 1\) because \(\tau(b,\chi_{1}) = 1\) and \(g(b,1) = 1\) so assume \(m > 1\). Since \(\chi_{m}\) is quadratic, it suffices to assume \(b = 1\) by \cref{prop:Gauss_sum_reduction} (ii) and \cref{prop:quadratic_Gauss_sum_reduction} (iii). Now let \(m = p_{1}p_{2} \cdots p_{k}\) be the prime decomposition of \(m\). Repeated application of \cref{prop:Gauss_sum_reduction} (iv) gives the first equality in the following chain:
+      \begin{align*}
+        \tau(\chi) &= \prod_{1 \le i < j \le k}\chi_{p_{i}}(p_{j})\chi_{p_{j}}(p_{i})\tau(\chi_{p_{i}})\tau(\chi_{p_{j}}) \\
+        &= \prod_{1 \le i < j \le k}\chi_{p_{i}}(p_{j})\chi_{p_{j}}(p_{i})g(p_{i})g(p_{j}) \\
+        &= \prod_{1 \le i < j \le k}g(p_{j},p_{i})g(p_{i},p_{j}) \\
+        &= g(q).
+      \end{align*}
+      This completes the proof.
+    \end{proof}
+
+    Now let's turn to \cref{prop:quadratic_Gauss_sum_reduction} and the evaluation of the quadratic Gauss sum. \cref{prop:quadratic_Gauss_sum_reduction} (ii) and (iii) reduce the evaluation of \(g(b,m)\) for odd \(m\) and \((b,m) = 1\) to computing \(g(p)\) for \(p\) an odd prime. As with the Gauss sum, it is not difficult to compute the modulus of the quadratic Gauss sum:
+
+    \begin{theorem}\label{thm:quadratic_Gauss_sum_modulus}
+      Let \(m \ge 1\) be odd. Then
+      \[
+        |g(m)| = \sqrt{m}.
+      \]
+    \end{theorem}
+    \begin{proof}
+      By \cref{prop:quadratic_Gauss_sum_reduction} (ii), it suffices to assume \(m = p^{r}\) is a power of an odd prime. By Euclidean division write \(r = 2n+r'\) for some positive integer \(n\) and with \(r' = 0,1\) depending on if \(r\) is even or odd respectively. Then \cref{prop:quadratic_Gauss_sum_reduction} (i) implies
+      \[
+        |g(p^{r})|^{2} = p^{2n}|g(p^{r'})|^{2}.
+      \]
+      If \(r' = 0\) then \(2n = r\) so that \(p^{2n} = p^{r}\). Thus \(|g(p^{r})| = \sqrt{p^{r}}\). If \(r' = 1\) then \cref{thm:Gauss_sum_modulus,prop:Gauss_sum_equivalence_for_primes} together imply \(|g(p^{r'})|^{2} = p\) so that the right-hand side above is \(p^{2n+1} = p^{r}\) and again we have \(|g(p^{r})| = \sqrt{p^{r}}\).
+    \end{proof}
+
+    Accordingly, we define the \textbf{epsilon factor}\index{epsilon factor} \(\e_{m}\) for any \(m \ge 1\) by
+    \[
+      \e_{m} = \frac{g(m)}{\sqrt{m}}.
+    \]
+    \cref{thm:quadratic_Gauss_sum_modulus} says that this value lies on the unit circle when \(m\) is odd. Thus the question of the evaluation of quadratic Gauss sums reduces to determining what the epsilon factor is. This was completely resolved and the original proof is due to Gauss in 1808 (see \cite{Gauss1808summatio}) while modern proofs use analytic techniques. We follow the analytic methods where the underlying idea is to rewrite \(g(m)\) in a form where \cref{thm:Poisson_summation_formula_Dirichlet-Jordan_test} can be applied. The precise statement and proof is given in the following:
+
+    \begin{theorem}\label{thm:Gauss's_evaluation}
+      Let \(m \ge 1\). Then
+      \[
+        \e_{m} = \begin{cases} (1+i) & \text{if \(m \equiv 0 \tmod{4}\)}, \\ 1 & \text{if \(m \equiv 1 \tmod{4}\)}, \\ 0 & \text{if \(m \equiv 2 \tmod{4}\)}, \\ i & \text{if \(m \equiv 3 \tmod{4}\)}. \end{cases}
+      \]
+    \end{theorem}
+    \begin{proof}
+      Consider the function
+      \[
+        f(x) = \begin{cases} e^{\frac{2\pi ix^{2}}{m}} & \text{if \(x \in [0,m]\),} \\ 0 & \text{if \(x \notin [0,m]\).} \end{cases}
+      \]
+      Observe that \(f(x)\) is absolutely integrable on \(\R\) as it is compactly supported. It is also continuously differentiable with a finite number of jump discontinuities (they are at \(x = 0\) and \(x = m\)). Then so is
+      \[
+        \asum_{n \in \Z}f(x+n)
+      \]
+      because finitely many of the summands are nonzero. In particular, this sum satisfies the Dirichlet-Jordan test. By \cref{thm:Poisson_summation_formula_Dirichlet-Jordan_test}, we have
+      \[
+        \asum_{n \in \Z}f(n) = \sum_{t \in \Z}(\mc{F}f)(t),
+      \]
+      where the \(\ast\) indicates that \(f(x+n)\) is meant to represent the average of the left-hand and right-hand limits at jump discontinuities. But from the definition of \(f(x)\), we find that
+      \[
+        \asum_{n \in \Z}f(n) = \sum_{a \tmod{m}}f(a) = g(m),
+      \]
+      and hence
+      \[
+        g(m) = \sum_{t \in \Z}(\mc{F}f)(t).
+      \]
+      It remains to compute the Fourier transform of \(f(x)\) which is
+      \[
+        (\mc{F}f)(t) = \int_{-\infty}^{\infty}f(x)e^{-2\pi itx} = \int_{0}^{m}e^{2\pi i\left(\frac{x^{2}}{m}-tx\right)}\,dx.
+      \]
+      By performing the change of variables \(x \mapsto \sqrt{m}x\), the last integral becomes
+      \[
+        \sqrt{m}\int_{0}^{\sqrt{m}}e^{2\pi i(x^{2}-t\sqrt{m}x)}\,dx.
+      \]
+      Complete the square in the exponent by observing
+      \[
+        x^{2}-t\sqrt{m}x = \left(x+\frac{t\sqrt{m}}{2}\right)^{2}-\frac{t^{2}m}{4},
+      \]
+      so that the previous integral is equal to
+      \[
+        \sqrt{m}e^{-\frac{2\pi it^{2}m}{4}}\int_{0}^{\sqrt{m}}e^{2\pi i\left(x+\frac{t\sqrt{m}}{2}\right)^{2}}\,dx.
+      \]
+      Changing variables \(x \mapsto x-\frac{t\sqrt{m}}{2}\) yields
+      \[
+        \sqrt{m}e^{-\frac{2\pi it^{2}m}{4}}\int_{\frac{t\sqrt{m}}{2}}^{\sqrt{m}+\frac{t\sqrt{m}}{2}}e^{2\pi ix^{2}}\,dx.
+      \]
+      As \(t \equiv 0,1 \tmod{4}\) according to if \(t\) is even or odd, we have
+      \[
+        \sum_{\substack{t \in \Z \\ \text{\(t\) even}}}(\mc{F}f)(t) = \sqrt{m}\int_{-\infty}^{\infty}e^{2\pi ix^{2}}\,dx \quad \text{and} \quad \sum_{\substack{t \in \Z \\ \text{\(t\) odd}}}(\mc{F}f)(t) = \sqrt{m}e^{-\frac{2\pi im}{4}}\int_{-\infty}^{\infty}e^{2\pi ix^{2}}\,dx.
+      \]
+      Whence
+      \[
+        g(m) = \sqrt{m}\left(1+e^{-\frac{2\pi im}{4}}\right)\int_{-\infty}^{\infty}e^{2\pi ix^{2}}\,dx.
+      \]
+      We now compute the remaining integral. As \(g(1) = 1\) and \(e^{-\frac{2\pi i}{4}} = -i\), taking \(m = 1\) yields
+      \[
+        \int_{-\infty}^{\infty}e^{2\pi ix^{2}}\,dx = \frac{1}{1-i}.
+      \]
+      Therefore
+      \[
+        \e_{m} = \frac{g(m)}{\sqrt{m}} = \frac{1+e^{-\frac{2\pi im}{4}}}{1-i} = \begin{cases} (1+i) & \text{if \(m \equiv 0 \tmod{4}\)}, \\ 1 & \text{if \(m \equiv 1 \tmod{4}\)}, \\ 0 & \text{if \(m \equiv 2 \tmod{4}\)}, \\ i & \text{if \(m \equiv 3 \tmod{4}\)}, \end{cases}
+      \]
+      as desired.
+    \end{proof}
+
+    As an immediate corollary, \cref{thm:Gauss's_evaluation} implies the evaluation of the epsilon factor \(\e_{\chi_{p}}\) where \(\chi_{p}\) is the quadratic Dirichlet character given by the Jacobi symbol for an odd prime \(p\):
+
+    \begin{corollary}
+      Let \(p\) be an odd prime and \(\chi_{p}\) be the quadratic Dirichlet character given by the Jacobi symbol. Then
+      \[
+        \e_{\chi_{p}} = \begin{cases} 1 & \text{if \(p \equiv 1 \tmod{4}\)}, \\ i & \text{if \(p \equiv 3 \tmod{4}\)}. \end{cases}
+      \]
+    \end{corollary}
+    \begin{proof}
+      The statement follows immediately from \cref{thm:Gauss's_evaluation,prop:Gauss_sum_equivalence_for_primes}.
+    \end{proof}
+  \section{Kloosterman and Sali\'e Sums}
+    Our last class of sums generalize both types of Ramanujan sums. For any \(c \ge 1\) and \(m,n \in \Z\), the \textbf{Kloosterman sum}\index{Kloosterman sum} \(K(m,n,c)\) is defined by
+    \[
+      K(m,n,c) = \sum_{\substack{a \tmod{c} \\ (a,c) = 1}}e^{\frac{2\pi i(am+\conj{a}n)}{c}} = \psum_{a \tmod{c}}e^{\frac{2\pi i(am+\conj{a}n)}{c}}.
+    \]
+    Notice that if either \(m = 0\) or \(n = 0\) then the Kloosterman sum reduces to a Ramanujan sum. Kloosterman sums have similar properties to those of Ramanujan sums, but we will not need them. The only result we will need is a famous bound, often called the \textbf{Weil bound}\index{Weil bound} for Kloosterman sums, proved by Weil (see \cite{weil1948some} for a proof):
+
+    \begin{theorem*}[Weil bound]
+      Let \(c \ge 1\) and \(m,n \in \Z\). Then
+      \[
+        |K(m,n,c)| \le \s_{0}(c)\sqrt{(m,n,c)c}.
+      \]
+    \end{theorem*}
+
+    Lastly, Sali\'e sums are Kloosterman sums with Dirichlet characters. To be precise, for any \(c \ge 1\), \(m,n \in \Z\), and a Dirichlet character \(\chi\) with conductor \(q \mid c\), the \textbf{Sali\'e sum}\index{Sali\'e sum} \(S_{\chi}(m,n,c)\) is defined by
+    \[
+      S_{\chi}(m,n,c) = \sum_{\substack{a \tmod{c} \\ (a,c) = 1}}\chi(a)e^{\frac{2\pi i(am+\conj{a}n)}{c}} = \psum_{a \tmod{c}}\chi(a)e^{\frac{2\pi i(am+\conj{a}n)}{c}}.
+    \]
+    If either \(m = 0\) or \(n = 0\) then the Sali\'e sum reduces to a Ramanujan sum associated to \(\chi\).
+\end{document}

@@ -1,0 +1,207 @@
+\documentclass[12pt]{article}
+\usepackage{import}
+\input{/Users/henrytwiss/Documents/Documents/LaTeX/Vignettes/preamble.tex}
+
+%=================%
+%  Title & Index  %
+%=================%
+\title{Quadratic number fields}
+\author{Henry Twiss}
+\makeindex
+
+\begin{document}
+  \date{}
+  \maketitle
+  \section{Quadratic Number Fields}
+    We will classify and discuss the structure of quadratic number fields. Note that since any degree \(2\) extension is normal, quadratic number fields are automatically Galois. We first show that quadratic number fields are exactly those where we adjoin the square-root of a square-free integer other than \(0\) or \(1\):
+
+    \begin{proposition}\label{prop:classification_of_quadratic_number_fields}
+      Every quadratic number field \(K\) is of the form \(K = \Q(\sqrt{d})\) for some square-free integer \(d\) other than \(0\) or \(1\).
+    \end{proposition}
+    \begin{proof}
+      Suppose \(K\) is a quadratic number field. In particular, \(K/\Q\) is separable so by the primitive element theorem there exists \(\t \in K\) such that \(K = \Q(\t)\). The minimal polynomial \(m_{\t}(x)\) of \(\t\) over \(\Q\) is of the form
+      \[
+        m_{\t}(x) = x^{2}+ax+b,
+      \]
+      for \(a,b \in \Q\). Then the quadratic formula gives
+      \[
+        \t = -\frac{a}{2}\pm\frac{\sqrt{q}}{2},
+      \]
+      where \(q = a^{2}-4b \in \Q\). Clearly \(q \neq 0\) and \(q \neq 1\) for otherwise \(\t \in \Q\). It follows that \(K = \Q(\sqrt{q})\). Write \(q = \frac{n}{m}\) for relatively prime \(n,m \in \Z\) and set \(d = m^{2}q = nm \in \Z\). Then \(d\) is square-free, \(d \neq 0\), and \(d \neq 1\). Moreover, \(\sqrt{d} = m\sqrt{q}\) so that \(K = \Q(\sqrt{d})\). 
+    \end{proof}
+
+    From \cref{prop:classification_of_quadratic_number_fields}, we see that the \(d\) for a quadratic number field \(\Q(\sqrt{d})\) satisfies \(d \equiv 1,2,3 \tmod{4}\) (otherwise \(d\) is not square-free). Moreover, any element of a quadratic number field is of the form \(a+b\sqrt{d}\) with \(a,b \in \Q\) and for some square-free \(d\) other than \(0\) or \(1\). We say that a quadratic number field \(\Q(\sqrt{d})\) is \textbf{real}\index{real} if \(d > 0\) and \textbf{imaginary}\index{imaginary} if \(d < 0\). Now \(\Q(\sqrt{d})\) is real or imaginary according to if \(\sqrt{d}\) is real or purely imaginary so that the two elements \(\s_{1}\) and \(\s_{2}\) of \(\Hom_{\Q}(\Q(\sqrt{d}),\conj{\Q})\) are
+    \[
+      \s_{1}(a+b\sqrt{d}) = a+b\sqrt{d} \quad \text{and} \quad \s_{2}(a+b\sqrt{d}) = a-b\sqrt{d},
+    \]
+    because the roots of the minimal polynomial for \(\sqrt{d}\) over \(\Q\) are \(\pm\sqrt{d}\). In particular, the signature is \((2,0)\) or \((0,1)\) according to if \(\Q(\sqrt{d})\) is real or imaginary. We write \(\Trace_{d} = \Trace_{\Q(\sqrt{d})}\) and \(\Norm_{d} = \Norm_{\Q(\sqrt{d})}\) for the field trace and field norm of \(\Q(\sqrt{d})\) respectively. Then \cref{prop:formulas_for_trace_and_norm} shows that the trace and norm of \(\k = a+b\sqrt{d} \in \Q(\sqrt{d})\) are given by
+    \[
+      \Trace_{d}(\k) = 2a \quad \text{and} \quad \Norm_{d}(\k) = a^{2}-b^{2}d.
+    \]
+    We will now begin describing the ring of integers, discriminant, and the factorization of primes in \(\Q(\sqrt{d})\). For simplicity, we will write \(\mc{O}_{d} = \mc{O}_{\Q(\sqrt{d})}\) and \(\D_{d} = \D_{\Q(\sqrt{d})}\). The ring of integers has a particularly simple description since quadratic number fields are monogenic as the following proposition shows:
+    
+    \begin{proposition}\label{prop:ring_of_integers_quadratic}
+      Let \(\Q(\sqrt{d})\) be a quadratic number field. Then \(\Q(\sqrt{d})\) is monogenic where
+      \[
+        \mc{O}_{d} = \begin{cases} \Z\left[\frac{1+\sqrt{d}}{2}\right] & \text{if \(d \equiv 1 \tmod{4}\)}, \\ \Z[\sqrt{d}] & \text{if \(d \equiv 2,3 \tmod{4}\)}. \end{cases}
+      \]
+    \end{proposition}
+    \begin{proof}
+      Let \(\a = a+b\sqrt{d} \in \Q(\sqrt{d})\) be an algebraic integer. If \(b = 0\) then \(\a \in \Q\) and since the only elements of \(\Q\) that are algebraic integers are the integers themselves we must have that \(\a\) is an integer. Now suppose \(b \neq 0\). Then the minimal polynomial of \(\a\) over \(\Q\) is
+      \[
+        m_{\a}(x) = x^{2}+2ax+(a^{2}-b^{2}d) = (x-(a+b\sqrt{d}))(x-(a-b\sqrt{d})).
+      \]
+      As \(\a\) is an algebraic integer, \(2a \in \Z\) and \(a^{2}-b^{2}d \in \Z\) (note that these are the trace and norm of \(\a\) respectively). In particular, \((2a)^{2}+(2b)^{2}d \in \Z\) and hence \((2b)^{2} \in \Z\) is as well. But as \(b \in \Q\), it must be the case that \(2b \in \Z\). If \(2a = n+1\) is odd then \(n\) is even. We compute
+      \[
+        a^{2}-b^{2}d = \left(\frac{n+1}{2}\right)^{2}-b^{2}d = \frac{n^{2}+2n+1+4b^{2}d}{4},
+      \]
+      and since the right-hand side must be an integer \(b \notin \Z\). For if \(b \in \Z\), the numerator of the right-hand side is equivalent to \(1\) modulo \(4\) because \(n\) is even. As \(2b \in \Z\) it follows that \(2b\) must be odd so set \(2b = m+1\) with \(m\) even. Again, we compute
+      \[
+        a^{2}-b^{2}d = \left(\frac{n+1}{2}\right)^{2}-\left(\frac{m+1}{2}\right)^{2}d = \frac{n^{2}+2n+1-d(m^{2}+2m+1)}{4},
+      \]
+      and since the right-hand side must be an integer the numerator must be divisible by \(4\). As \(n\) and \(m\) are even, this is equivalent to \(d \equiv 1 \tmod{4}\). So we have shown \(2a\) or \(2b\) is odd if and only if \(d \equiv 1 \tmod{4}\). Thus if \(d \equiv 1 \tmod{4}\), we have \(a = \frac{a'}{2}\) and \(b = \frac{b'}{2}\) for some \(a',b' \in \Z\) and hence \(\a \in \Z\left[\frac{1+\sqrt{d}}{2}\right]\). Otherwise, \(d \equiv 2,3 \tmod{4}\) (because \(d\) is square-free) so that \(2a\) and \(2b\) are both even, \(a,b \in \Z\), and therefore \(\a \in \Z[\sqrt{d}]\). We have now shown that \(\mc{O}_{d} \subseteq \Z\left[\frac{1+\sqrt{d}}{2}\right]\) and \(\mc{O}_{d} \subseteq \Z[\sqrt{d}]\) according to if \(d \equiv 1 \tmod{4}\) or \(d \equiv 2,3 \tmod{4}\) respectively. For the reverse containment, it suffices to show that \(\frac{1+\sqrt{d}}{2}\) and \(\sqrt{d}\) are algebraic integers according to if \(d \equiv 1 \tmod{4}\) or \(d \equiv 2,3 \tmod{4}\) respectively since \(\mc{O}_{K}\) is a ring. Indeed they are since their minimal polynomials over \(\Q\) are
+      \[
+        m_{\frac{1+\sqrt{d}}{2}}(x) = x^{2}-x+\frac{1-d}{4} \quad \text{and} \quad m_{\sqrt{d}}(x) = x^{2}-d,
+      \]
+      where \(\frac{1-d}{4} \in \Z\) because \(d \equiv 1 \tmod{4}\).
+    \end{proof}
+
+    It follows from \cref{prop:ring_of_integers_quadratic} that
+    \[
+      1,\frac{1+\sqrt{d}}{2} \quad \text{and} \quad 1,\sqrt{d},
+    \]
+    are integral bases for \(\mc{O}_{d}\) according to if \(d \equiv 1 \tmod{4}\) or \(d \equiv 2,3 \tmod{4}\) respectively. Let us now show that the discriminants quadratic number fields are exactly the fundamental discriminants other than \(1\):
+
+    \begin{proposition}\label{prop:discriminant_quadratic}
+      Let \(\Q(\sqrt{d})\) be a quadratic number field. Then
+      \[
+        \D_{d} = \begin{cases} d & \text{if \(d \equiv 1 \tmod{4}\)}, \\ 4d & \text{if \(d \equiv 2,3 \tmod{4}\)}. \end{cases}
+      \]
+      In particular, the discriminants quadratic number fields are exactly the fundamental discriminants other than \(1\).
+    \end{proposition}
+    \begin{proof}
+      Let \(\s_{1}\) and \(\s_{2}\) be the two elements of \(\Hom_{\Q}(\Q(\sqrt{d}),\conj{\Q})\) where \(\s_{1}\) is the identity and \(\s_{2}\) is given by sending \(\sqrt{d}\) to its conjugate. If \(d \equiv 1 \tmod{4}\), an integral basis for \(\mc{O}_{d}\) is \(1,\frac{1+\sqrt{d}}{2}\). In this case, the embedding matrix is
+      \[
+        M\left(1,\frac{1+\sqrt{d}}{2}\right) = \begin{pmatrix} 1 & \frac{1+\sqrt{d}}{2} \\ 1 & \frac{1-\sqrt{d}}{2} \end{pmatrix},
+      \]
+      and thus \(\D_{d} = d\). If \(d \equiv 2,3 \tmod{4}\), an integral basis for \(\mc{O}_{d}\) is \(1,\sqrt{d}\). In this case, the embedding matrix is
+      \[
+        M(1,\sqrt{d}) = \begin{pmatrix} 1 & \sqrt{d} \\ 1 & -\sqrt{d} \end{pmatrix},
+      \]
+      and hence \(\D_{d} = 4d\). This proves the first statement and the second statement is clear since \(d\) is square-free and not \(0\) or \(1\).
+    \end{proof}
+
+    From now on, we will write fundamental discriminants other than \(1\) as \(\D_{d}\) instead of \(D\) to clarify the connection to quadratic number fields. We will now discuss the factorization of \(p\mc{O}_{d}\) in the quadratic number field \(\Q(\sqrt{d})\) for a prime \(p\). Since \(\Q(\sqrt{d})\) is a degree \(2\) extension, the fundamental equality (or \cref{prop:Galois_action_on_primes_is_transitive} using that \(\Q(\sqrt{d})/\Q\) is Galois) implies that \(p\) is either inert, totally ramified, or totally split. In other words, there are three possible cases for how \(p\mc{O}_{d}\) factors:
+    \[
+      p\mc{O}_{d} = \mf{p}, \quad p\mc{O}_{d} = \mf{p}^{2}, \quad \text{and} \quad p\mc{O}_{d} = \mf{p}\mf{q},
+    \]
+    for some primes \(\mf{p}\) and \(\mf{q}\), according to if \(p\) is inert, totally ramified, or totally split. Since \(\Q(\sqrt{d})\) is monogenic by \cref{prop:ring_of_integers_quadratic}, the conductor is \(\mc{O}_{K}\) and so we can describe the factorization using the Dedekind-Kummer theorem for every prime \(p\). In particular, we will connect the prime factorization to the quadratic character \(\chi_{\D_{d}}\) associated to the fundamental discriminant \(\D_{d}\):
+
+    \begin{proposition}\label{prop:factorization_of_primes_quadratic}
+      Let \(\Q(\sqrt{d})\) be a quadratic number field and let \(\chi_{\D_{d}}\) be the quadratic character given by the fundamental discriminant \(\D_{d}\). Then for any prime \(p\), we have
+      \[
+        \chi_{\D_{d}}(p) = \begin{cases} 1 & \text{if \(p\) is totally split}, \\ -1 & \text{if \(p\) is inert}, \\ 0 & \text{if \(p\) is totally ramified}. \end{cases}
+      \]
+    \end{proposition}
+    \begin{proof}
+      Recall that \(p\) is ramified if and only if it divides \(|\D_{d}|\) and note that this is exactly when \(\chi_{\D_{d}}(p) = 0\). Therefore it suffices to prove the cases when \(p\) is totally split or inert. First suppose \(d \equiv 1 \tmod{4}\) so that \(\mc{O}_{d} = \Z\left[\frac{1+\sqrt{d}}{2}\right]\) and \(\D_{d} = d\) by \cref{prop:ring_of_integers_quadratic,prop:discriminant_quadratic}. The minimal polynomial \(m_{\frac{1+\sqrt{d}}{2}}(x)\) for \(\frac{1+\sqrt{d}}{2}\) over \(\Q\) is
+      \[
+        m_{\frac{1+\sqrt{d}}{2}}(x) = x^{2}-x+\frac{1-d}{4},
+      \]
+      where \(\frac{1-d}{4} \in \Z\) because \(d \equiv 1 \tmod{4}\). The reduction of \(m_{\frac{1+\sqrt{d}}{2}}(x)\) modulo \(p\) is either irreducible, factors into two distinct linear factors, or is a square, and Dedekind-Kummer theorem implies that this is equivalent to \(p\) being inert, totally split, or totally ramified accordingly because the prime factorization of fractional ideals is unique. First suppose \(p \neq 2\). Then from the quadratic formula, \(m_{\frac{1+\sqrt{d}}{2}}(x)\) reduces modulo \(p\) as
+      \[
+        m_{\frac{1+\sqrt{d}}{2}}(x) \equiv \left(x-\frac{1+\sqrt{d}}{2}\right)\left(x-\frac{1-\sqrt{d}}{2}\right) \pmod{p},
+      \]
+      if and only if the roots \(\frac{1\pm\sqrt{d}}{2}\) are elements of \(\F_{p}\) and is otherwise irreducible. As \(p \neq 2\), these factors are distinct. Moreover, \(\frac{1\pm\sqrt{d}}{2}\) is an element of \(\F_{p}\) if and only if \(d\) is a square modulo \(p\) and hence \(p\) is totally split or inert according to if \(\chi_{d}(p) = \pm1\). Now suppose \(p = 2\). Since \(m_{\frac{1+\sqrt{d}}{2}}(x)\) has a nonzero linear term with an odd coefficient, it reduces modulo \(2\) as
+      \[
+        m_{\frac{1+\sqrt{d}}{2}}(x) \equiv x(x-1) \tmod{2},
+      \]
+      if and only if \(\frac{1-d}{4} \equiv 0 \tmod{2}\) and is otherwise irreducible. Clearly these factors are distinct. Now observe \(\frac{1-d}{4} \equiv 0 \tmod{2}\) is equivalent to \(d \equiv 1 \tmod{8}\) provided \(d > 0\) and \(d \equiv 7 \tmod{8}\) provided \(d < 0\) and thus \(p\) is totally split or inert according to if \(\chi_{d}(2) = \pm1\). This completes the argument in the case \(d \equiv 1 \tmod{4}\). Now suppose \(d \equiv 2,3 \tmod{4}\) so that \(\mc{O}_{d} = \Z[\sqrt{d}]\) and \(\D_{d} = 4d\) by \cref{prop:ring_of_integers_quadratic,prop:discriminant_quadratic}. The minimal polynomial \(m_{\sqrt{d}}(x)\) for \(\sqrt{d}\) over \(\Q\) is
+      \[
+        m_{\sqrt{d}}(x) = x^{2}-d.
+      \]
+      As \(\D_{d} = 4d\), we see that \(2\) is ramified and therefore we may assume \(p \neq 2\). Similarly, the reduction of \(m_{\sqrt{d}}(x)\) modulo \(p\) is either irreducible, factors into two distinct linear factors, or is a square, and Dedekind-Kummer theorem implies that this is equivalent to \(p\) being inert, totally split, or totally ramified accordingly because the prime factorization of fractional ideals is unique. As \(p \neq 2\), the quadratic formula implies that \(m_{\sqrt{d}}(x)\) reduces modulo \(p\) as
+      \[
+        m_{\sqrt{d}}(x) \equiv (x-\sqrt{d})(x+\sqrt{d}) \pmod{p},
+      \]
+      if and only if the roots \(\pm\sqrt{d}\) are elements of \(\F_{p}\). As \(p \neq 2\), these factors are distinct. Moreover, \(\sqrt{d}\) is an element of \(\F_{p}\) if and only if \(d\) and hence \(4d\) are squares modulo \(p\) so that \(p\) is totally split or inert according to if \(\chi_{4d}(p) = \pm1\). This completes the verification in the case \(d \equiv 2,3 \tmod{4}\).
+    \end{proof}
+
+    From \cref{prop:factorization_of_primes_quadratic}, the factorization of primes in \(\Q(\sqrt{d})\) is controlled by the quadratic character \(\chi_{\D_{d}}\) associated to the fundamental discriminant \(\D_{d}\). In other words, the factorization of \(p\) depends completely upon if \(\D_{d}\) is a square modulo \(p\). While splitting of primes can be explicitly described for quadratic number fields, the class number is a significantly more difficult problem. We will write \(h_{d} = h_{\Q(\sqrt{d})}\). The \textbf{class number problem}\index{class number problem} was originally introduced by Gauss and aims to classify all quadratic number fields of a given class number:
+
+    \begin{problem*}[Class number problem]
+      For a fixed \(n \ge 1\), classify all quadratic number fields \(\Q(\sqrt{d})\) of class number \(n\).
+    \end{problem*}
+
+    Some progress has been made toward the class number problem. In 1801, Gauss found nine imaginary quadratic numbers fields of class number \(1\) (see \cite{gauss1801disquisitiones}). They are listed according to \(d\) as follows:
+    \[
+      d  \in \{-1,-2,-3,-7,-11,-19,-43,-67,-163\}.
+    \]
+    Gauss also conjectured that these are the only imaginary quadratic numbers fields of class number \(1\). An argument was presented by Heegner in 1952 (see \cite{heegner1952diophantische}) which was correct up to some minor flaws. Baker and Stark both gave independent proofs in the mid 1960's (see \cite{baker1967linear,stark1967complete}) resulting in the following theorem which solves the class number problem for imaginary quadratic number fields in the case \(n = 1\):
+
+    \begin{theorem}
+      If \(\Q(\sqrt{d})\) is an imaginary quadratic number field of class number \(1\) then
+      \[
+        d \in \{-1,-2,-3,-7,-11,-19,-43,-67,-163\}.
+      \]
+      Equivalently, an imaginary quadratic number field \(\Q(\sqrt{d})\) has class number \(1\) if and only if
+      \[
+        \D_{d} \in \{-3,-4,-7,-8,-11,-19,-43,-67,-163\}.
+      \]
+    \end{theorem}
+
+    As for real quadratic fields, we know much less. In the same 1801 paper of Gauss (see \cite{gauss1801disquisitiones}), he conjectured that there should be infinitely many real quadratic fields and that the class number should remain unbounded:
+
+    \begin{conjecture}
+      There are infinitely many real quadratic fields \(\Q(\sqrt{d})\) that have class number \(1\). Moreover,
+      \[
+        \lim_{d \to \infty}h_{d} = \infty.
+      \]
+    \end{conjecture}
+
+    While the class number problem remains quite out of reach, the structure of the unit group is much easier to classify. Write \(\mu(d) = \mu(\Q(\sqrt{d}))\) and \(w_{d} = w_{\Q(\sqrt{d})}\). In fact, by Dirichlet's unit theorem we only need to understand the roots of unity \(\mu(d)\) of \(\Q(\sqrt{d})\). In all but two cases, \(\mu(d) = \<-1\>\):
+
+    \begin{proposition}\label{prop:unit_group_quadratic}
+      Let \(\Q(\sqrt{d})\) be a quadratic number field. Then
+      \[
+        \mu(d) = \begin{cases} \<i\> & \text{if \(d = -1\)}, \\ \<\w\> & \text{if \(d = -3\)}, \\ \<-1\> & \text{otherwise}, \end{cases} \quad \text{and} \quad w_{d} = \begin{cases} 4 & \text{if \(d = -1\)}, \\ 6 & \text{if \(d = -3\)}, \\ 2 & \text{otherwise}, \end{cases}
+      \]
+      where \(\w = e^{\frac{\pi i}{3}}\). In particular,
+      \[
+        \mc{O}_{d}^{\ast} = \begin{cases} \mu(d) \x \<\e_{d}\> & \text{if \(d > 0\)}, \\ \mu(d) & \text{if \(d < 0\)}, \end{cases}
+      \]
+      where \(\e_{d}\) is a fundamental unit.
+    \end{proposition}
+    \begin{proof}
+        First suppose \(d > 0\). Then \(\Q(\sqrt{d}) \subset \R\) and thus \(\mu(d) = \<-1\>\) since these are the only roots of unity in \(\R\) and clearly they are in \(\Q(\sqrt{d})\). Now suppose \(d < 0\). Then \(\Q(\sqrt{d})\) is imaginary and its signature is \((0,1)\). Recall that \(\a \in \mc{O}_{d}\) is a unit if and only if the norm of \(\a\) is \(\pm 1\). Actually, since \(d < 0\) the definition of the norm shows that the norm is always nonnegative. Hence \(\a\) is a unit if and only if its norm is \(1\). First suppose \(d \equiv 2,3 \tmod{4}\). Then \cref{prop:ring_of_integers_quadratic} implies
+      \[
+        \a = a+b\sqrt{d},
+      \]
+      for some \(a,b \in \Z\), and \(\a\) is a unit if and only if
+      \[
+        \Norm_{d}(\a) = a^{2}-b^{2}d = a^{2}+b^{2}|d| = 1.
+      \]
+      Since \(|d| \equiv d \equiv 2,3 \tmod{4}\), this happens if and only if \(b = 0\) unless \(d = -1\). In the former case, \(d < 0\) and \(\a = a\) is a unit if and only if \(a^{2} = 1\) which is to say that \(\a = \pm 1\). In the latter case, \(d = -1\) and \(\a = a+bi\) with \(b \neq 0\) (for otherwise we are in the former case) is a unit if and only if \(a^{2}+b^{2} = 1\) which means \(a = \pm1\) and \(b = 0\) or \(a = 0\) and \(b = \pm 1\) so that \(\a\) runs over the \(4\)-th roots of unity. Altogether, we have shown that \(\mu(d) = \<-1\>\) provided \(d \equiv 2,3 \tmod{4}\) unless \(d = -1\) in which case \(\mu(-1) = \<i\>\). Now suppose \(d \equiv 1 \tmod{4}\). Then \cref{prop:ring_of_integers_quadratic} implies
+      \[
+        \a = a+b\frac{1+\sqrt{d}}{2} = \frac{2a+b}{2}+\frac{b}{2}\sqrt{d},
+      \]
+      for some \(a,b \in \Z\), and \(\a\) is a unit if and only if
+      \[
+        \Norm_{d}(\a) = \frac{4a^{2}+4ab+b^{2}}{4}-\frac{b^{2}}{4}d = a^{2}+ab+(1+|d|)\frac{b^{2}}{4} = 1.
+      \]
+      Since \(|d| \equiv d \equiv 1 \tmod{4}\), this happens if and only if \(b = 0\) or \(d = -3\) (if \(b \neq 0\) then \(a^{2}+ab+(1+|d|)\frac{b^{2}}{4} > 1\) for such \(d\) unless \(d = -3\)). In the former case, \(\a = a\) is a unit if and only if \(a^{2} = 1\) which means \(\a = \pm1\). In the latter case, \(\a = a+b\frac{1+\sqrt{-3}}{2}\) is a unit if and only if \(a^{2}+ab+b^{2} = 1\) which happens if \(a = \pm 1\) and \(b = 0\), \(a = 0\) and \(b = \pm 1\), \(a = 1\) and \(b = -1\), or \(a = -1\) and \(b = 1\). So \(\a\) runs over the \(6\)-th roots of unity. This shows \(\mu(d) = \<-1\>\) provided \(d \equiv 1 \tmod{4}\) unless \(d = -3\) in which case \(\mu(-3) = \<\w\>\). This proves the claim about \(\mu(d)\) in all cases and the statement about \(w_{d}\) follows immediately. To prove the last statement, the signature of \(\Q(\sqrt{d})\) is \((2,0)\) or \((0,1)\) according to if \(d > 0\) or \(d < 0\). Applying Dirichlet's unit theorem completes the proof.
+    \end{proof}
+
+    Lastly, we discuss the regulator. Set \(R_{d} = R_{\Q(\sqrt{d})}\). Then we have the following proposition:
+
+    \begin{proposition}\label{prop:regulator_quadratic}
+      Let \(\Q(\sqrt{d})\) be a quadratic number field. Then
+      \[
+        R_{d} = \begin{cases} \log|\e_{d}| & \text{if \(d > 0\)}, \\ 1 & \text{if \(d < 0\)}, \end{cases}
+      \]
+      where \(\e_{d}\) is a fundamental unit.
+    \end{proposition}
+    \begin{proof}
+      If \(d > 0\) then \cref{prop:unit_group_quadratic} implies that a system of fundamental units for \(\Q(\sqrt{d})\) is given by a single fundamental unit \(\e_{d}\). Since the signature of \(\Q(\sqrt{d})\) is \((2,0)\), we have \(\l(\e_{d}) = (\log|\e_{d}|,\log|\e_{d}|)\) and therefore \(R_{K} = \log|\e_{d}|\). If \(d < 0\) then \cref{prop:unit_group_quadratic} implies that there are no fundamental units and thus \(R_{K} = 1\).
+    \end{proof}
+\end{document}
