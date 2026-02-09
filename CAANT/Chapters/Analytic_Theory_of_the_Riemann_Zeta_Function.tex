@@ -1,0 +1,719 @@
+\chapter{Analytic Theory of the Riemann Zeta Function}
+  \section{The Riemann Zeta Function}
+    \subsection*{The Definition and Euler Product}
+      The \textbf{Riemann zeta function}\index{Riemann zeta function} \(\z(s)\) is defined by the following Dirichlet series:
+      \[
+        \z(s) = \sum_{n \ge 1}\frac{1}{n^{s}}.
+      \]
+      This is the prototypical example of a Dirichlet series as all the coefficients are \(1\). We will see that \(\z(s)\) is a Selberg class \(L\)-function. As the coefficients are uniformly bounded and completely multiplicative, \(\z(s)\) is locally absolutely uniformly convergent for \(\s > 1\) and admits the following degree \(1\) Euler product by \cref{prop:Dirichlet_series_Euler_product}:
+      \[
+        \z(s) = \prod_{p}(1-p^{-s})^{-1}.
+      \]
+      The local factor at \(p\) is
+      \[
+        \z_{p}(s) = (1-p^{-s})^{-1},
+      \]
+      with local root \(1\).
+    \subsection*{The Integral Representation: Part I}
+      We want to find an integral representation for \(\z(s)\). To do this, consider the function
+      \[
+        \w(z) = \sum_{n \ge 1}e^{\pi in^{2}z},
+      \]
+      defined for \(z \in \H\). It is locally absolutely uniformly convergent in this region by Weierstrass \(M\)-test. Moreover, we have
+      \[
+        \w(z) = O\left(\sum_{n \ge 1}e^{-\pi n^{2}y}\right) = O(e^{-\pi y}),
+      \]
+      where the second equality holds because each term is of smaller order than the next so that the series is bounded by a constant times the first term. It follows that \(\w(z)\) exhibits exponential decay. Now consider the following Mellin transform:
+      \[
+        \int_{0}^{\infty}\w(iy)y^{\frac{s}{2}}\,\frac{dy}{y}.
+      \]
+      By the exponential decay of \(\w(z)\), this integral is locally absolutely uniformly convergent for \(\s > 1\) and hence defines an analytic function there. Then we compute
+      \begin{align*}
+        \int_{0}^{\infty}\w(iy)y^{\frac{s}{2}}\,\frac{dy}{y} &= \int_{0}^{\infty}\sum_{n \ge 1}e^{-\pi n^{2}y}y^{\frac{s}{2}}\,\frac{dy}{y} \\
+        &= \sum_{n \ge 1}\int_{0}^{\infty}e^{-\pi n^{2}y}y^{\frac{s}{2}}\,\frac{dy}{y} && \text{FTT} \\
+        &= \sum_{n \ge 1}\frac{1}{\pi^{\frac{s}{2}}n^{s}}\int_{0}^{\infty}e^{-y}y^{\frac{s}{2}}\,\frac{dy}{y} && \text{\(y \mapsto \frac{y}{\pi n^{2}}\)} \\
+        &= \frac{\G\left(\frac{s}{2}\right)}{\pi^{\frac{s}{2}}}\sum_{n \ge 1}\frac{1}{n^{s}} \\
+        &= \frac{\G\left(\frac{s}{2}\right)}{\pi^{\frac{s}{2}}}\z(s).
+      \end{align*}
+      Therefore we have an integral representation
+      \begin{equation}\label{equ:integral_representation_zeta_1}
+        \z(s) = \frac{\pi^{\frac{s}{2}}}{\G\left(\frac{s}{2}\right)}\int_{0}^{\infty}\w(iy)y^{\frac{s}{2}}\,\frac{dy}{y}.
+      \end{equation}
+      Unfortunately, we cannot proceed until we obtain a functional equation for \(\w(z)\). So we will make a detour and come back to the integral representation after.
+    \subsection*{The Jacobi Theta Function}
+      The \textbf{Jacobi theta function}\index{Jacobi theta function} \(\vt(z)\) is defined by
+      \[
+        \vt(z) = \sum_{n \in \Z}e^{2\pi in^{2}z},
+      \]
+      for \(z \in \H\). It is locally absolutely uniformly convergent in this region by the Weierstrass \(M\)-test. Moreover,
+      \[
+        \vt(z)-1 = O\left(\sum_{n \in \Z-\{0\}}e^{-2\pi n^{2}y}\right) = O(e^{-2\pi y}),
+      \]
+      where the second equality holds because each term is of smaller order than the \(n = \pm 1\) terms so that the series is bounded by a constant times the order of these terms. In particular, \(\vt(z)-1\) exhibits exponential decay. The relationship to \(\w(z)\) is given by
+      \[
+        \w(z) = \frac{\vt\left(\frac{z}{2}\right)-1}{2}.
+      \]
+      The essential fact we will need is a functional equation for the Jacobi theta function:
+
+      \begin{theorem}\label{thm:functional_equation_Jacobi_theta}
+        For \(z \in \H\),
+        \[
+          \vt(z) = \frac{1}{\sqrt{-2iz}}\vt\left(-\frac{1}{4z}\right).
+        \]
+      \end{theorem}
+      \begin{proof}
+        We will apply the Poisson summation formula to
+        \[
+          \vt(z) = \sum_{n \in \Z}e^{2\pi in^{2}z}.
+        \]
+        To do this, we compute the Fourier transform of the summand and by the identity theorem it suffices to verify this for \(z = iy\) with \(y > 0\). So set
+        \[
+          f(x) = e^{-2\pi x^{2}y}.
+        \]
+        Then \(f(x)\) is of Schwarz class. By \cref{prop:Fourier_transform_of_exponential_single_variable}, we have
+        \[
+          (\mc{F}f)(t) = \frac{e^{-\frac{\pi t^{2}}{2y}}}{\sqrt{2y}}.
+        \]
+        The Poisson summation formula together with the identity theorem gives
+        \[
+          \vt(z) = \sum_{n \in \Z}e^{2\pi in^{2}z} = \sum_{t \in \Z}\frac{e^{-\frac{\pi t^{2}}{-2iz}}}{\sqrt{-2iz}} = \frac{1}{\sqrt{-2iz}}\sum_{t \in \Z}e^{-\frac{\pi t^{2}}{-2iz}} = \frac{1}{\sqrt{-2iz}}\sum_{t \in \Z}e^{2\pi it^{2}\left(-\frac{1}{4z}\right)} = \frac{1}{\sqrt{-2iz}}\vt\left(-\frac{1}{4z}\right).
+        \]
+      \end{proof}
+
+      We will use \cref{thm:functional_equation_Jacobi_theta} to analytically continue \(\z(s)\).
+    \subsection*{The Integral Representation: Part II}
+      Returning to the Riemann zeta function, we split the integral in \cref{equ:integral_representation_zeta_1} into two pieces by writing
+      \begin{equation}\label{equ:symmetric_integral_zeta_split}
+        \int_{0}^{\infty}\w(iy)y^{\frac{s}{2}}\,\frac{dy}{y} = \int_{0}^{1}\w(iy)y^{\frac{s}{2}}\,\frac{dy}{y}+\int_{1}^{\infty}\w(iy)y^{\frac{s}{2}}\,\frac{dy}{y}.
+      \end{equation}
+      The idea now is to rewrite the first piece in the same form and symmetrize the result as much as possible. We being by performing a change of variables \(y \mapsto \frac{1}{y}\) to the first piece to obtain
+      \[
+        \int_{1}^{\infty}\w\left(\frac{i}{y}\right)y^{-\frac{s}{2}}\,\frac{dy}{y}
+      \]
+      Now we compute
+      \begin{align*}
+        \w\left(\frac{i}{y}\right) &= \w\left(-\frac{1}{iy}\right) \\
+        &= \frac{\vt\left(-\frac{1}{2iy}\right)-1}{2} \\
+        &= \frac{\sqrt{y}\vt\left(\frac{iy}{2}\right)-1}{2} && \text{\cref{thm:functional_equation_Jacobi_theta}} \\
+        &= \sqrt{y}\w(iy)+\frac{\sqrt{y}}{2}-\frac{1}{2}.
+      \end{align*}
+      This chain implies that our first piece can be expressed as
+      \[
+        \int_{1}^{\infty}\left(\sqrt{y}\w(iy)+\frac{\sqrt{y}}{2}-\frac{1}{2}\right)y^{-\frac{s}{2}}\,\frac{dy}{y},
+      \]
+      which is further equivalent to
+      \[
+        \int_{1}^{\infty}\w(iy)y^{\frac{1-s}{2}}\,\frac{dy}{y}-\frac{1}{s(1-s)},
+      \]
+      because the integral over the last two pieces is \(\frac{1}{1-s}-\frac{1}{s} = -\frac{1}{s(1-s)}\). Substituting this result back into \cref{equ:symmetric_integral_zeta_split} and combining with \cref{equ:integral_representation_zeta_1} yields the integral representation
+      \begin{equation}\label{equ:integral_representation_zeta_final}
+        \z(s) = \frac{\pi^{\frac{s}{2}}}{\G\left(\frac{s}{2}\right)}\left[-\frac{1}{s(1-s)}+\int_{1}^{\infty}\w(iy)y^{\frac{1-s}{2}}\,\frac{dy}{y}+\int_{1}^{\infty}\w(iy)y^{\frac{s}{2}}\,\frac{dy}{y}\right].
+      \end{equation}
+      This integral representation will give analytic continuation. To see this, first observe that everything outside the brackets is entire. Moreover, the integrands exhibit exponential decay and therefore the integrals are locally absolutely uniformly convergent on \(\C\). The fractional term is holomorphic except for simple poles at \(s = 0\) and \(s = 1\). The meromorphic continuation to \(\C\) follows with possible simple poles at \(s = 0\) and \(s = 1\). There is no pole at \(s = 0\). Indeed, \(\G\left(\frac{s}{2}\right)\) has a simple pole at \(s = 0\) and so its reciprocal has a simple zero. This cancels the corresponding simple pole of \(-\frac{1}{s(1-s)}\) so that \(\z(s)\) has a removable singularity and thus is holomorphic at \(s = 0\). At \(s = 1\), \(\G\left(\frac{s}{2}\right)\) is nonzero and so \(\z(s)\) has a simple pole. Therefore \(\z(s)\) has meromorphic continuation to all of \(\C\) with a simple pole at \(s = 1\).
+    \subsection*{The Functional Equation}
+      An immediate consequence of applying the symmetry \(s \mapsto 1-s\) to \cref{equ:integral_representation_zeta_final} is the following functional equation:
+      \[
+        \frac{\G\left(\frac{s}{2}\right)}{\pi^{\frac{s}{2}}}\z(s) = \frac{\G\left(\frac{1-s}{2}\right)}{\pi^{\frac{1-s}{2}}}\z(1-s).
+      \]
+      We identify the gamma factor as
+      \[
+        \g(s,\z) = \pi^{-\frac{s}{2}}\G\left(\frac{s}{2}\right),
+      \]
+      with \(\k = 0\) the only local root at infinity. Clearly it satisfies the required bounds. The conductor is \(q(\z) = 1\) so no primes ramify. The completed Riemann zeta function is
+      \[
+        \L(s,\z) = \pi^{-\frac{s}{2}}\G\left(\frac{s}{2}\right)\z(s),
+      \]
+      with functional equation
+      \[
+        \L(s,\z) = \L(1-s,\z).
+      \]
+      This is the functional equation of \(\z(s)\) and in this case is just a reformulation of the previous functional equation. From it we find that the root number is \(\e(\z) = 1\) and that \(\z(s)\) is self-dual. We can now show that the order of \(\z(s)\) is \(1\). Since there is only a simple pole at \(s = 1\), multiply by \((s-1)\) to clear the polar divisor. As the integrals in \cref{equ:integral_representation_zeta_final} are locally absolutely uniformly convergent, computing the order amounts to estimating the gamma factor. Since the reciprocal of the gamma function is of order \(1\), we have
+      \[
+        \frac{1}{\g(s,\z)} \ll_{\e} e^{|s|^{1+\e}}.
+      \]
+      Thus the reciprocal of the gamma factor is also of order \(1\). It follows that
+      \[
+        (s-1)\z(s) \ll_{\e} e^{|s|^{1+\e}}.
+      \]
+      This shows \((s-1)\z(s)\) is of order \(1\) and thus \(\z(s)\) is as well after removing the polar divisor. We now compute the residue of \(\z(s)\) at \(s = 1\). First observe that the only term in \cref{equ:integral_representation_zeta_final} contributing to the pole is \(-\frac{\pi^{\frac{s}{2}}}{\G\left(\frac{s}{2}\right)}\frac{1}{s(1-s)}\). Then
+      \[
+        \Res_{s = 1}\z(s) = \Res_{s = 1}\left(-\frac{\pi^{\frac{s}{2}}}{\G\left(\frac{s}{2}\right)}\frac{1}{s(1-s)}\right) = \lim_{s \to 1}\left(\frac{\pi^{\frac{s}{2}}}{\G\left(\frac{s}{2}\right)}\frac{1}{s}\right) = 1,
+      \]
+      where the last equality follows from \cref{equ:gamma_function_at_1/2}. We summarize all of our work into the following theorem:
+
+      \begin{theorem}\label{thm:zeta_Selberg}
+        \(\z(s)\) is a Selberg class \(L\)-function with degree \(1\) Euler product given by
+        \[
+          \z(s) = \prod_{p}(1-p^{-s})^{-1}.
+        \]
+        Moreover, it admits meromorphic continuation to \(\C\), possesses the functional equation
+        \[
+          \pi^{-\frac{s}{2}}\G\left(\frac{s}{2}\right)\z(s) = \L(s,\z) = \L(1-s,\z),
+        \]
+        and has a simple pole at \(s = 1\) of residue \(1\).
+      \end{theorem}
+
+      Lastly, we note that by virtue of the functional equation we can also compute \(\z(0)\). Indeed, since \(\Res_{s = 1}\z(s) = 1\), we have
+      \[
+        \lim_{s \to 1}(s-1)\L(s,\z) = \left(\Res_{s = 1}\z(s)\right)\left(\lim_{s \to 1}\pi^{-\frac{s}{2}}\G\left(\frac{s}{2}\right)\right) = 1.
+      \]
+      In other words, \(\L(s,\z)\) has a simple pole at \(s = 1\) of residue \(1\) too. It follows that \(\L(s,\z)\) also has a simple pole at \(s = 0\) of residue \(1\). Hence
+      \[
+        1 = \lim_{s \to 1}(s-1)\L(1-s,\z) = \left(\Res_{s = 1}\G\left(\frac{1-s}{2}\right)\right)\left(\lim_{s \to 1}\pi^{-\frac{1-s}{2}}\z(1-s)\right) = -2\z(0),
+      \]
+      because \(\Res_{s = 0}\G(s) = 1\). Therefore \(\z(0) = -\frac{1}{2}\).
+    \subsection*{The Inverse Riemann Zeta Function}
+      It turns out that the inverse of the Riemann zeta function is the Dirichlet series whose coefficients are given by the M\"obius function:
+
+      \begin{proposition}\label{prop:Dirichlet_Mobius_is_zeta_inverse}
+        For \(\s > 1\),
+        \[
+          \z(s)^{-1} = \sum_{n \ge 1}\frac{\mu(n)}{n^{s}} = \prod_{p}(1-p^{-s}).
+        \]
+      \end{proposition}
+      \begin{proof}
+        Recall from \cref{prop:Mobius_indicator} that
+        \[
+          \mathbf{1} \ast \mu = \d.
+        \]
+        From \cref{equ:Dirichlet_convolution_of_Dirichlet_series}, we obtain
+        \[
+          \z(s)\sum_{n \ge 1}\frac{\mu(n)}{n^{s}} = 1,
+        \]
+        for \(\s > 1\). This is equivalent to first equality. The second follows from the Euler product for \(\z(s)\).
+      \end{proof}
+  \section{The Prime Number Theorem}
+    The function \(\psi(x)\) is defined by
+    \[
+      \psi(x) = \sum_{n \le x}\L(n),
+    \]
+    for \(x > 0\). We will obtain an explicit formula for \(\psi(x)\) analogous to the explicit formula for the Riemann zeta function. The explicit formula for \(\psi(x)\) will be obtained by applying truncated Perron's formula to the logarithmic derivative of \(\z(s)\). Since \(\psi(x)\) is discontinuous when \(x\) is a prime power, we need to work with a slightly modified function to apply the Mellin inversion formula. Define \(\psi_{0}(x)\) by
+    \[
+      \psi_{0}(x) = \begin{cases} \psi(x) & \text{if \(x\) is not a prime power}, \\ \psi(x)-\frac{1}{2}\L(x) & \text{if \(x\) is a prime power}. \end{cases}
+    \]
+    Equivalently, \(\psi_{0}(x)\) is \(\psi(x)\) except that its value is halfway between the limit values when \(x\) is a prime power. Stated another way, if \(x\) is a prime power the last term in the sum for \(\psi_{0}(x)\) is multiplied by \(\frac{1}{2}\). The \textbf{explicit formula}\index{explicit formula} for \(\psi(x)\) is the following:
+
+    \begin{theorem*}[Explicit formula for \(\psi(x)\)]
+      For \(x \ge 2\),
+      \[
+        \psi_{0}(x) = x-\sum_{\rho}\frac{x^{\rho}}{\rho}-\frac{\z'}{\z}(0)-\frac{1}{2}\log(1-x^{-2}),
+      \]
+      where the sum is counted with multiplicity and ordered with respect to the size of the ordinate.
+    \end{theorem*}
+
+    A few comments are in order before we prove the explicit formula for \(\psi(x)\). First, since \(\rho\) is conjectured to be of the form \(\rho = \frac{1}{2}+i\g\) via the Riemann hypothesis for the Riemann zeta function, \(x\) is conjectured to be the main term in the explicit formula. Second, using the Taylor series of the logarithm, the last term can be expressed as
+    \[
+      \frac{1}{2}\log(1-x^{-2}) = \frac{1}{2}\sum_{m \ge 1}(-1)^{m-1}\frac{(-x^{-2})^{m}}{m} = \sum_{m \ge 1}(-1)^{2m-1}\frac{x^{-2m}}{2m} = \sum_{m \ge 1}\frac{x^{-2m}}{-2m} = \sum_{\w}\frac{x^{\w}}{\w},
+    \]
+    where \(\w\) runs over the trivial zeros of \(\z(s)\). We will now prove the explicit formula for \(\psi(x)\):
+
+    \begin{proof}[Proof of the explicit formula for \(\psi(x)\)]
+      Applying truncated Perron's formula to \(-\frac{\z'}{\z}(s)\) gives
+      \begin{equation}\label{equ:explicit_formula_zeta_proof_1}
+        \psi_{0}(x)-J(x,T) \ll x^{c}\sum_{\substack{n \ge 1 \\ n \neq x}}\frac{\L(n)}{n^{c}}\min\left(1,\frac{1}{T\log\left(\frac{x}{n}\right)}\right)+\d_{x}\L(x)\frac{c}{T},
+      \end{equation}
+      where
+      \[
+        J(x,T) = \frac{1}{2\pi i}\int_{c-iT}^{c+iT}-\frac{\z'}{\z}(s)x^{s}\,\frac{ds}{s},
+      \]
+      \(c > 1\), and it is understood that \(\d_{x} = 0\) unless \(x\) is a prime power. Take \(T > 2\) not coinciding with the ordinate of a nontrivial zero and let \(c = 1+\frac{1}{\log(x^{2})}\) so that \(x^{c} = \sqrt{e}x\) and \(1 < c < 2\). The first step is to estimate the right-hand side of \cref{equ:explicit_formula_zeta_proof_1}. We deal with the terms corresponding to \(n\) such that \(n\) is bounded away from \(x\) before anything else. So suppose \(n \le \frac{3}{4}x\) or \(n \ge \frac{5}{4}x\). For these \(n\), \(\log\left(\frac{x}{n}\right)\) is bounded away from zero so that their contribution is
+      \begin{equation}\label{equ:explicit_formula_zeta_proof_2}
+        \ll \frac{x^{c}}{T}\sum_{n \ge 1}\frac{\L(n)}{n^{c}} \ll \frac{x^{c}}{T}\left(-\frac{\z'}{\z}(c)\right) \ll \frac{x\log(x)}{T},
+      \end{equation}
+      where the last estimate follows from \cref{lem:powerful_L-function_approximation_lemma} (iv) applied to \(\z(s)\) while discarding all of the terms in both sums and our choice of \(c\) (in particular \(\log(c) \ll \log(x)\)). Now we deal with the terms \(n\) close to \(x\). Consider those \(n\) for which \(\frac{3}{4}x < n < x\). Let \(x_{1}\) be the largest prime power less than \(x\). We may also suppose \(\frac{3}{4}x < x_{1} < x\) since otherwise \(\L(n) = 0\) and these terms do not contribute anything. Moreover, \(\frac{x^{c}}{n^{c}} \ll 1\). For the term \(n = x_{1}\), we have
+      \[
+        \log\left(\frac{x}{n}\right) = -\log\left(1-\frac{x-x_{1}}{x}\right) \ge \frac{x-x_{1}}{x},
+      \]
+      where we have obtained the inequality by using Taylor series of the logarithm truncated after the first term. The contribution of this term is then
+      \begin{equation}\label{equ:explicit_formula_zeta_proof_3}
+        \ll \L(x_{1})\min\left(1,\frac{x}{T(x-x_{1})}\right) \ll \log(x)\min\left(1,\frac{x}{T(x-x_{1})}\right).
+      \end{equation}
+      For the other such \(n\), we can write \(n = x_{1}-v\), where \(v\) is an integer satisfying \(0 < v < \frac{1}{4}x\), so that
+      \[
+        \log\left(\frac{x}{n}\right) \ge \log\left(\frac{x_{1}}{n}\right) = -\log\left(1-\frac{v}{x_{1}}\right) \ge \frac{v}{x_{1}},
+      \]
+      where we have obtained the latter inequality by using Taylor series of the logarithm truncated after the first term. The contribution for these \(n\) is then
+      \begin{equation}\label{equ:explicit_formula_zeta_proof_4}
+        \ll \sum_{0 < v < \frac{1}{4}x}\L(x_{1}-v)\frac{x_{1}}{Tv} \ll \frac{x}{T}\sum_{0 < v < \frac{1}{4}x}\frac{\L(x_{1}-v)}{v} \ll \frac{x\log(x)}{T}\sum_{0 < v < \frac{1}{4}x}\frac{1}{v} \ll \frac{x\log^{2}(x)}{T}.
+      \end{equation}
+      The contribution for those \(n\) for which \(x < n < \frac{5}{4}x\) is handled in exactly the same way with \(x_{1}\) being the least prime power larger than \(x\). Let \(\<x\>\) be the distance between \(x\) and the nearest prime power other than \(x\) if \(x\) itself is a prime power. Combining \cref{equ:explicit_formula_zeta_proof_3,equ:explicit_formula_zeta_proof_4} with our previous comment, the contribution for those \(n\) with \(\frac{3}{4}x < n < \frac{5}{4}x\) is
+      \begin{equation}\label{equ:explicit_formula_zeta_proof_5}
+        \ll \frac{x\log^{2}(x)}{T}+\log(x)\min\left(1,\frac{x}{T\<x\>}\right).
+      \end{equation}
+      Putting \cref{equ:explicit_formula_zeta_proof_2,equ:explicit_formula_zeta_proof_5} together and noticing that the error term in \cref{equ:explicit_formula_zeta_proof_2} is absorbed by the second error term in \cref{equ:explicit_formula_zeta_proof_5}, we obtain
+      \begin{equation}\label{equ:explicit_formula_zeta_proof_6}
+        \psi_{0}(x)-J(x,T) \ll \frac{x\log^{2}(x)}{T}+\log(x)\min\left(1,\frac{x}{T\<x\>}\right).
+      \end{equation}
+      This is the first part of the proof. Now we estimate \(J(x,T)\) by appealing to the residue theorem. Let \(U \ge 1\) be an odd integer and let \(\eta = \sum_{1 \le i \le 4}\eta_{i}\) be the contour in \cref{fig:explict_formula_zeta_contour}.
+
+      \begin{figure}[ht]
+        \centering
+        \begin{tikzpicture}[scale=2]
+          \def\xmin{-3.5} \def\xmax{2}
+          \def\ymin{-2} \def\ymax{2}
+          \draw[thick] (\xmin,0) -- (\xmax,0);
+          \draw[thick] (0,\ymin) -- (0,\ymax);
+          \draw[thick] (1,\ymin) -- (1,\ymax);
+          \draw[dashed] (0.5,\ymin) -- (0.5,\ymax);
+
+          \draw[->-] (1.5,-1.5) -- (1.5,1.5);
+          \draw[->-] (1.5,1.5) -- (-3,1.5);
+          \draw[->-] (-3,1.5) -- (-3,-1.5);
+          \draw[->-] (-3,-1.5) -- (1.5,-1.5);
+
+          \node at (1.5,0) [below right] {\tiny{\(\eta_{1}\)}};
+          \node at (-0.75,1.5) [above] {\tiny{\(\eta_{2}\)}};
+          \node at (-3,0) [below left] {\tiny{\(\eta_{3}\)}};
+          \node at (-0.75,-1.5) [below] {\tiny{\(\eta_{4}\)}};
+
+          \node at (1.5,-1.5) [circle,fill,inner sep=1.5pt]{};
+          \node at (1.5,1.5) [circle,fill,inner sep=1.5pt]{};
+          \node at (0.5,1.5) [circle,fill,inner sep=1.5pt]{};
+          \node at (-3,1.5) [circle,fill,inner sep=1.5pt]{};
+          \node at (-3,-1.5) [circle,fill,inner sep=1.5pt]{};
+          \node at (0.5,-1.5) [circle,fill,inner sep=1.5pt]{};
+
+          \node at (1.5,-1.5) [below] {\tiny{\(c-iT\)}};
+          \node at (1.5,1.5) [above] {\tiny{\(c+iT\)}};
+          \node at (0.5,1.5) [above right] {\tiny{\(\frac{1}{2}+iT\)}};
+          \node at (-3,1.5) [above] {\tiny{\(-U+iT\)}};
+          \node at (-3,-1.5) [below] {\tiny{\(-U-iT\)}};
+          \node at (0.5,-1.5) [below right] {\tiny{\(\frac{1}{2}-iT\)}};
+        \end{tikzpicture}
+        \caption{Contour for the explicit formula for \(\psi(x)\)}
+        \label{fig:explict_formula_zeta_contour}
+      \end{figure}
+
+      We may express \(J(x,T)\) as
+      \[
+        J(x,T) = \frac{1}{2\pi i}\int_{\eta_{1}}-\frac{\z'}{\z}(s)x^{s}\,\frac{ds}{s}.
+      \]
+      The residue theorem together with the formula for the negative logarithmic derivative in \cref{prop:explicit_formula_log_derivative} applied to \(\z(s)\) and \cref{cor:logarithmic_derivative_of_gamma} imply
+      \begin{equation}\label{equ:explicit_formula_zeta_proof_7}
+        J(x,T) = x-\sum_{|\g| < T}\frac{x^{\rho}}{\rho}-\frac{\z'}{\z}(0)-\sum_{0 < 2m < U}\frac{x^{-2m}}{-2m}+\frac{1}{2\pi i}\int_{\eta_{2}+\eta_{3}+\eta_{4}}-\frac{\z'}{\z}(s)x^{s}\,\frac{ds}{s},
+      \end{equation}
+      where \(\rho = \b+i\g\) is a nontrivial zero of \(\z\). We will estimate \(J(x,T)\) by estimating the remaining integral. By \cref{lem:powerful_L-function_approximation_lemma} (ii) applied to \(\z(s)\), the number of nontrivial zeros satisfying \(|\g-T| < 1\) is \(O(\log(T))\). Among the ordinates of these nontrivial zeros, there must be a gap of size larger than \(O\left(\frac{1}{\log(T)}\right)\). Upon varying \(T\) by a bounded amount (we are varying in the interval \([T-1,T+1]\)) so that it belongs to this gap, we can additionally ensure
+      \[
+        \g-T \gg \frac{1}{\log(T)},
+      \]
+      for all the nontrivial zeros of \(\z(s)\). To estimate part of the horizontal integrals over \(\eta_{2}\) and \(\eta_{4}\), \cref{lem:powerful_L-function_approximation_lemma} (iv) applied to \(\z(s)\) gives
+      \[
+        \frac{\z'}{\z}(s) = \sum_{|\g-T| < 1}\frac{1}{s-\rho}+O(\log(T)),
+      \]
+      on the parts of these intervals with \(-1 \le \s \le 2\). By our choice of \(T\), \(|s-\rho| \ge |\g-T| \gg \frac{1}{\log(T)}\) so that each term in the sum is \(O(\log(T))\). There are at most \(O(\log(T))\) such terms by \cref{lem:powerful_L-function_approximation_lemma} (ii) applied to \(\z(s)\), so we find that
+      \[
+        \frac{\z'}{\z}(s) = O(\log^{2}(T)),
+      \]
+      on the parts of these intervals with \(-1 \le \s \le 2\). It follows that the parts of the horizontal integrals over \(\eta_{2}\) and \(\eta_{4}\) with  \(-1 \le \s \le c\) (recall \(c < 2\)) contribute
+      \begin{equation}\label{equ:explicit_formula_zeta_proof_8}
+        \ll \frac{\log^{2}(T)}{T}\int_{-1}^{c}x^{\s}\,d\s \ll \frac{\log^{2}(T)}{T}\int_{-\infty}^{c}x^{\s}\,d\s \ll \frac{x\log^{2}(T)}{T\log(x)},
+      \end{equation}
+      where in the last estimate we have used the choice of \(c\). To estimate the remainder of the horizontal integrals, we need a bound for \(\frac{\z'}{\z}(s)\) when \(\s < -1\) and away from the trivial zeros. To this end, write the functional equation for \(\z(s)\) in the form
+      \[
+        \z(s) = \pi^{s-1}\frac{\G\left(\frac{1-s}{2}\right)}{\G\left(\frac{s}{2}\right)}\z(1-s),
+      \]
+      and take the logarithmic derivative to get
+      \[
+        \frac{\z'}{\z}(s) = \log(\pi)+\frac{1}{2}\frac{\G'}{\G}\left(\frac{1-s}{2}\right)-\frac{1}{2}\frac{\G'}{\G}\left(\frac{s}{2}\right)+\frac{\z'}{\z}(1-s).
+      \]
+      Let \(s\) be such that \(\s < -1\) and suppose \(s\) is distance \(\frac{1}{2}\) away from the trivial zeros. We will estimate every term on the right-hand side of the previous identity. The first term is constant and the last term is bounded since it is an absolutely convergent Dirichlet series. As for the digamma terms, since \(s\) is away from the trivial zeros, \cref{equ:modified_digamma_estimate} implies \(\frac{1}{2}\frac{\G'}{\G}\left(\frac{1-s}{2}\right) = O(\log{|1-s|})\) and \(\frac{1}{2}\frac{\G'}{\G}\left(\frac{s}{2}\right) = O(\log{|s|})\). However, as \(\s < -1\) and \(s\) is away from the trivial zeros, \(s\) and \(1-s\) are bounded away from zero so that \(\frac{1}{2}\frac{\G'}{\G}\left(\frac{1-s}{2}\right) = O(\log{|s|})\). Putting these estimates together gives
+      \begin{equation}\label{equ:explicit_formula_zeta_proof_9}
+        \frac{\z'}{\z}(s) \ll \log|s|,
+      \end{equation}
+      for \(\s < -1\). Using \cref{equ:explicit_formula_zeta_proof_9}, the parts of the horizontal integrals over \(\eta_{2}\) and \(\eta_{4}\) with \(-U \le \s \le -1\) contribute
+      \begin{equation}\label{equ:explicit_formula_zeta_proof_10}
+        \ll \frac{\log(T)}{T}\int_{-U}^{-1}x^{\s}\,d\s \ll \frac{\log(T)}{Tx\log(x)}.
+      \end{equation}
+      Combining \cref{equ:explicit_formula_zeta_proof_8,equ:explicit_formula_zeta_proof_10} gives
+      \begin{equation}\label{equ:explicit_formula_zeta_proof_11}
+        \frac{1}{2\pi i}\int_{\eta_{2}+\eta_{4}}-\frac{\z'}{\z}(s)x^{s}\,\frac{ds}{s} \ll \frac{x\log^{2}(T)}{T\log(x)}+\frac{\log(T)}{Tx\log(x)} \ll \frac{x\log^{2}(T)}{T\log(x)}.
+      \end{equation}
+      To estimate the vertical integral, we use \cref{equ:explicit_formula_zeta_proof_9} again to conclude that
+      \begin{equation}\label{equ:explicit_formula_zeta_proof_12}
+        \frac{1}{2\pi i}\int_{\eta_{3}}-\frac{\z'}{\z}(s)x^{s}\,\frac{ds}{s} \ll \frac{\log(U)}{U}\int_{-T}^{T}x^{-U}\,dt \ll \frac{T\log(U)}{Ux^{U}}.
+      \end{equation}
+      Combining \cref{equ:explicit_formula_zeta_proof_7,equ:explicit_formula_zeta_proof_11,equ:explicit_formula_zeta_proof_12} and taking the limit as \(U \to \infty\), the error term in \cref{equ:explicit_formula_zeta_proof_12} vanishes and the sum over \(m\) in \cref{equ:explicit_formula_zeta_proof_7} evaluates to \(\frac{1}{2}\log(1-x^{-2})\) (as we have already mentioned) giving
+      \begin{equation}\label{equ:explicit_formula_zeta_proof_13}
+        J(x,T) = x-\sum_{|\g| < T}\frac{x^{\rho}}{\rho}-\frac{\z'}{\z}(0)-\frac{1}{2}\log(1-x^{-2})+\frac{x\log^{2}(T)}{T\log(x)}.
+      \end{equation}
+      Substituting \cref{equ:explicit_formula_zeta_proof_13} into \cref{equ:explicit_formula_zeta_proof_6}, we at last obtain
+      \begin{equation}\label{equ:explicit_formula_zeta_proof_14}
+        \psi_{0}(x) = x-\sum_{|\g| < T}\frac{x^{\rho}}{\rho}-\frac{\z'}{\z}(0)-\frac{1}{2}\log(1-x^{-2})+\frac{x\log^{2}(xT)}{T}+\log(x)\min\left(1,\frac{x}{T\<x\>}\right),
+      \end{equation}
+      where the second to last term on the right-hand side is obtained by combining the error term in \cref{equ:explicit_formula_zeta_proof_11} with the first error term in \cref{equ:explicit_formula_zeta_proof_6}. The theorem follows by taking the limit as \(T \to \infty\).
+    \end{proof}
+
+    Note that the convergence of the right-hand side in the explicit formula for \(\psi(x)\) is uniform in any interval not containing a prime power since \(\psi(x)\) is continuous there. Moreover, we have an approximate formula for \(\psi(x)\) as a corollary:
+
+    \begin{corollary}\label{cor:explicit_formula_zeta_corollary}
+      For \(x \ge 2\) and \(T > 2\),
+      \[
+        \psi_{0}(x) = x-\sum_{|\g| < T}\frac{x^{\rho}}{\rho}+R(x,T),
+      \]
+      where \(\rho\) runs over the nontrivial zeros of \(\z(s)\) counted with multiplicity and ordered with respect to the size of the ordinate, and
+      \[
+        R(x,T) \ll \frac{x\log^{2}(xT)}{T}+\log(x)\min\left(1,\frac{x}{T\<x\>}\right),
+      \]
+      where \(\<x\>\) is the distance between \(x\) and the nearest prime power other than \(x\) if \(x\) itself is a prime power. Moreover, if \(x\) is an integer, we have the simplified estimate
+      \[
+        R(x,T) \ll \frac{x\log^{2}(xT)}{T}.
+      \]
+    \end{corollary}
+    \begin{proof}
+      This follows from \cref{equ:explicit_formula_zeta_proof_14} since \(\frac{\z'}{\z}(0)\) is constant and \(\frac{1}{2}\log(1-x^{2})\) is bounded for \(x \ge 2\). If \(x\) is an integer then \(\<x\> \ge 1\) so that \(\log(x)\min\left(1,\frac{x}{T\<x\>}\right) \le \frac{x\log(x)}{T}\) and this term can be absorbed into \(O\left(\frac{x\log^{2}(xT)}{T}\right)\).
+    \end{proof}
+
+    With our refined explicit formula in hand, we are ready to discuss and prove the prime number theorem. The \textbf{prime counting function}\index{prime counting function} \(\pi(x)\) is defined by
+    \[
+      \pi(x) = \sum_{p \le x}1,
+    \]
+    for \(x > 0\). Equivalently, \(\pi(x)\) counts the number of primes that no larger than \(x\). That \(\pi(x) \to \infty\) as \(x \to \infty\) is equivalent to the existence of infinitely many primes. A more interesting question is to ask how the primes are distributed among the integers. The (classical) \textbf{prime number theorem}\index{prime number theorem} answers this question and the precise statement is the following:
+
+    \begin{theorem*}[Prime number theorem, classical]
+      For \(x \ge 2\),
+      \[
+        \pi(x) \sim \frac{x}{\log(x)}.
+      \]
+    \end{theorem*}
+
+    There is an equivalent statement to the classical prime number theorem. Define the \textbf{logarithmic integral}\index{logarithmic integral} \(\Li(x)\) by
+    \[
+      \Li(x) = \int_{2}^{x}\frac{dt}{\log(t)},
+    \]
+    for \(x \ge 2\). Notice that \(\Li(x) \sim \frac{x}{\log{x}}\) because
+    \[
+      \lim_{x \to \infty}\left|\frac{\Li(x)}{\frac{x}{\log{x}}}\right| = \lim_{x \to \infty}\left|\frac{\int_{2}^{x}\frac{dt}{\log(t)}}{\frac{x}{\log{x}}}\right| = \lim_{x \to \infty}\left|\frac{\frac{1}{\log(x)}}{\frac{\log(x)-1}{\log^{2}(x)}}\right| = \lim_{x \to \infty}\left|\frac{\log(x)}{\log(x)-1}\right| = 1.
+    \]
+    where in the second equality we have used  L'H\^opital's rule. So an equivalent statement is the (logarithmic integral) \textbf{prime number theorem}\index{prime number theorem}:
+
+    \begin{theorem*}[Prime number theorem, logarithmic integral]
+      For \(x \ge 2\),
+      \[
+        \pi(x) \sim \Li(x).
+      \]
+    \end{theorem*}
+
+    For the moment, we will delay the proofs of these two variants of the prime number theorem and give some intuition and historical context to the results. Intuitively, the prime number theorem is a result about how dense the primes are in the integers. To see this, notice that the result is equivalent to the asymptotic
+    \[
+      \frac{\pi(x)}{x} \sim \frac{1}{\log(x)}.
+    \]
+    Letting \(x \ge 2\), the left-hand side is the probability that a randomly chosen positive integer no larger than \(x\) is prime. Thus the asymptotic result says that for large enough \(x\), the probability that a randomly chosen integer no larger than \(x\) is prime is approximately \(\frac{1}{\log(x)}\). We can also interpret this as saying that the average gap between primes no larger than \(x\) is approximately \(\frac{1}{\log(x)}\). As a consequence, a positive integer with at most \(2n\) digits is half as likely to be prime than a positive integer with at most \(n\) digits for large \(n\). Indeed, there are \(10^{n}-1\) numbers with at most \(n\) digits, \(10^{2n}-1\) with at most \(2n\) digits, and \(\log(10^{2n}-1) \sim 2\log(10^{n})\). Note that the prime number theorem says nothing about the exact error \(\pi(x)-\frac{x}{\log(x)}\) as \(x \to \infty\). It only says that the relative error tends to zero, which we recall can be expressed in the form
+    \[
+      \pi(x) = \frac{x}{\log(x)}(1+o(1)),
+    \]
+    as this is equivalent to asymptotic equivalence. Now for some historical context. While Gauss was not the first to put forth a conjectural form of the prime number theorem, he was known for compiling extensive tables of primes and he conjectured that the density of the primes up to \(x\) was roughly \(\frac{1}{\log(x)}\). This raises the question of how might one expect Gauss's conjecture to be true. To see this, let \(d\d_{p}\) be the weighted point measure that assigns \(\frac{1}{p}\) at the prime \(p\) and zero otherwise. Then
+    \[
+      \sum_{p \le x}\frac{1}{p} = \int_{1}^{x}\,d\d_{p}(u).
+    \]
+    We can interpret the integral as integrating the density \(d\d_{p}\) over \([1,x]\). We would like a more explicit description of \(d\d_{p}\). Euler (see \cite{euler1744variae}), argued
+    \[
+      \sum_{p \le x}\frac{1}{p} \sim \log\log(x),
+    \]
+    and notice that
+    \[
+      \log\log(x) = \int_{1}^{\log(x)}\frac{du}{u} = \int_{e}^{x}\frac{1}{u}\,\frac{du}{\log{u}},
+    \]
+    where in the second equality we have made the change of variables \(u \mapsto \log(u)\). So altogether, we have
+    \[
+      \sum_{p \le x}\frac{1}{p} \sim \int_{e}^{x}\frac{1}{u}\,\frac{du}{\log{u}}.
+    \]
+    This asymptotic gives a more explicit representation of the density \(d\d_{p}\). Notice that both sides of this asymptotic are essentially weighted the same with the left-hand side by \(\frac{1}{p}\) and the right-hand side by \(\frac{1}{u}\). Cancelling these weights (this is not strictly allowed), we might expect
+    \[
+      \pi(x) = \sum_{p \le x}1 \sim \int_{e}^{x}\frac{du}{\log(u)},
+    \]
+    which is simply the logarithmic integral prime number theorem. Legendre was the first to put forth a conjectural form of the prime number theorem. In 1798 (see \cite{legendre1798essai}) he claimed that \(\pi(x)\) was of the form
+    \[
+      \frac{x}{A\log(x)+B},
+    \]
+    for some constants \(A\) and \(B\). In 1808 (see \cite{legendre1808essai}) he refined his conjecture by claiming
+    \[
+      \frac{x}{\log(x)+A(x)},
+    \]
+    where \(\lim_{x \to \infty}A(x) \approx 1.08366\). Riemann's 1859 manuscript (see \cite{riemann1859ueber}) contains an outline for how to prove the prime number theorem, but it was not until 1896 that the prime number theorem was proved independently by Hadamard and de la Vall\'ee Poussin (see \cite{hadamard1896distribution} and \cite{poussin1897recherches}). Their proofs, as well as every proof thereon out until 1949, used complex analytic methods in an essential way (there are now elementary proofs due to Erd\"os and Selberg). We are now ready to prove the prime number theorem. Strictly speaking, we will prove the (asymptotic formula) \textbf{prime number theorem}\index{prime number theorem}, due to de la Vall\'ee Poussin, which gives an asymptotic formula for \(\pi(x)\) with \(\Li(x)\) as the main term:
+
+    \begin{theorem*}[Prime number theorem, asymptotic formula]
+      For \(x \ge 2\), there exists a positive constant \(c\) such that
+      \[
+        \pi(x) = \Li(x)+O\left(xe^{-c\sqrt{\log(x)}}\right).
+      \]
+    \end{theorem*}
+    \begin{proof}
+      It suffices to assume \(x\) is an integer, because \(\pi(x)\) can only change value at integers and the other functions in the statement are increasing. We will first prove
+      \begin{equation}\label{equ:prime_number_theorem_zeta_1}
+        \psi(x) = x+O\left(xe^{-c\sqrt{\log(x)}}\right),
+      \end{equation}
+      for some positive constant \(c\). To achieve this, we estimate the sum over the nontrivial zeros of \(\z(s)\) in \cref{cor:explicit_formula_zeta_corollary}. So let \(T > 2\) not coinciding with the ordinate of a nontrivial zero, and suppose \(\rho = \b+i\g\) is a nontrivial zero with \(|\g| < T\). By \cref{thm:improved_zero-free_region_zeta}, we know \(\b < 1-\frac{c}{\log(T)}\) for some positive constant \(c\). It follows that
+      \begin{equation}\label{equ:prime_number_theorem_zeta_2}
+        |x^{\rho}| = x^{\b} < x^{1-\frac{c}{\log(T)}} = xe^{-c\frac{\log(x)}{\log(T)}}.
+      \end{equation}
+      As \(|\rho| > |\g|\), letting \(\g_{1} > 0\) (which is bounded away from zero since the zeros of \(\z(s)\) are discrete and we know that there is no real nontrivial zero) be the ordinate of the first nontrivial zero, applying integration by parts gives
+      \begin{equation}\label{equ:prime_number_theorem_zeta_3}
+        \sum_{|\g| < T}\frac{1}{\rho} \ll \sum_{\g_{1} \le |\g| < T}\frac{1}{\g} \ll \int_{\g_{1}}^{T}\frac{dN(t)}{t} = \frac{N(T)}{T}+\int_{\g_{1}}^{T}\frac{N(t)}{t^{2}}\,dt \ll \log^{2}(T),
+      \end{equation}
+      where in the last estimate we have used that \(N(t) \ll t\log(t)\) which follows from \cref{thm:zero_counting}. Putting \cref{equ:prime_number_theorem_zeta_2,equ:prime_number_theorem_zeta_3} together gives
+      \begin{equation}\label{equ:prime_number_theorem_zeta_4}
+        \sum_{|\g| < T}\frac{x^{\rho}}{\rho} \ll x\log^{2}(T)e^{-c\frac{\log(x)}{\log(T)}}.
+      \end{equation}
+      As \(\psi(x) \sim \psi_{0}(x)\) and \(x\) is an integer, \cref{equ:prime_number_theorem_zeta_4} with \cref{cor:explicit_formula_zeta_corollary} together imply
+      \begin{equation}\label{equ:prime_number_theorem_zeta_5}
+        \psi(x)-x \ll x\log^{2}(T)e^{-c\frac{\log(x)}{\log(T)}}+\frac{x\log^{2}(xT)}{T}.
+      \end{equation}
+      We will now let \(T\) be determined by
+      \[
+        \log^{2}(T) = \log(x),
+      \]
+      or equivalently,
+      \[
+        T = e^{\sqrt{\log(x)}}.
+      \]
+      With this choice of \(T\) (note that if \(x \ge 2\) then \(T > 2\)), we can estimate \cref{equ:prime_number_theorem_zeta_5} as follows:
+      \begin{align*}
+        \psi(x)-x &\ll x\log(x)e^{-c\sqrt{\log(x)}}+x\left(\log^{2}(x)+\log(x)\right)e^{-\sqrt{\log(x)}} \\
+        &\ll x\log(x)e^{-c\sqrt{\log(x)}}+x\log^{2}(x)e^{-\sqrt{\log(x)}} \\
+        &\ll x\log^{2}(x)e^{-\min(1,c)\sqrt{\log(x)}}.
+      \end{align*}
+      As \(\log(x) = o\left(e^{-\e\sqrt{\log(x)}}\right)\), we conclude that
+      \[
+        \psi(x)-x \ll xe^{-c\sqrt{\log(x)}},
+      \]
+      for some smaller \(c\) with \(c < 1\). This is equivalent to \cref{equ:prime_number_theorem_zeta_1}. Now let
+      \[
+        \pi_{1}(x) = \sum_{n \le x}\frac{\L(n)}{\log(n)}.
+      \]
+      We can write \(\pi_{1}(x)\) in terms of \(\psi(x)\) as follows:
+      \begin{align*}
+        \pi_{1}(x) &= \sum_{n \le x}\frac{\L(n)}{\log(n)} \\
+        &= \sum_{n \le x}\L(n)\int_{n}^{x}\frac{dt}{t\log^{2}(t)}+\frac{1}{\log(x)}\sum_{n \le x}\L(n) \\
+        &= \int_{2}^{x}\sum_{n \le t}\L(n)\frac{dt}{t\log^{2}(t)}+\frac{1}{\log(x)}\sum_{n \le x}\L(n) \\
+        &= \int_{2}^{x}\frac{\psi(t)}{t\log^{2}(t)}\,dt+\frac{\psi(x)}{\log(x)}.
+      \end{align*}
+      Applying \cref{equ:prime_number_theorem_zeta_1} to the last expression yields
+      \begin{equation}\label{equ:prime_number_theorem_zeta_6}
+        \pi_{1}(x) = \int_{2}^{x}\frac{t}{t\log^{2}(t)}\,dt+\frac{x}{\log(x)}+O\left(\int_{2}^{x}\frac{e^{-c\sqrt{\log(t)}}}{\log^{2}(t)}\,dt+\frac{xe^{-c\sqrt{\log(x)}}}{\log(x)}\right).
+      \end{equation}
+      Upon applying integrating by parts to the main term in \cref{equ:prime_number_theorem_zeta_6}, we obtain
+      \begin{equation}\label{equ:prime_number_theorem_zeta_7}
+        \int_{2}^{x}\frac{t}{t\log^{2}(t)}\,dt+\frac{x}{\log(x)} = \int_{2}^{x}\frac{dt}{\log(t)}+\frac{2}{\log(2)} = \Li(x)+\frac{2}{\log(2)}.
+      \end{equation}
+      As for the error term in \cref{equ:prime_number_theorem_zeta_6}, \(\log^{2}(t)\) and \(\log(x)\) are both bounded away from zero so that
+      \[
+        \int_{2}^{x}\frac{e^{-c\sqrt{\log(t)}}}{\log^{2}(t)}\,dt+\frac{xe^{-c\sqrt{\log(x)}}}{\log(x)} \ll \int_{2}^{x}e^{-c\sqrt{\log(t)}}\,dt+xe^{-c\sqrt{\log(x)}}.
+      \]
+      For \(t \le x^{\frac{1}{4}}\), we use the bound \(e^{-c\sqrt{\log(t)}} < 1\) so that
+      \[
+        \int_{2}^{x^{\frac{1}{4}}}e^{-c\sqrt{\log(t)}}\,dt < \int_{2}^{x^{\frac{1}{4}}}\,dt \ll x^{\frac{1}{4}}.
+      \]
+      For \(t > x^{\frac{1}{4}}\), \(\sqrt{\log(t)} > \frac{1}{2}\sqrt{\log(x)}\) and thus
+      \[
+        \int_{2}^{x^{\frac{1}{4}}}e^{-c\sqrt{\log(t)}}\,dt \le e^{-c\frac{1}{2}\sqrt{\log(x)}}\int_{2}^{x^{\frac{1}{4}}}\,dt \ll x^{\frac{1}{4}}e^{-c\frac{1}{2}\sqrt{\log(x)}}. 
+      \]
+      All of these estimates together imply
+      \begin{equation}\label{equ:prime_number_theorem_zeta_8}
+        \int_{2}^{x}\frac{e^{-c\sqrt{\log(t)}}}{\log^{2}(t)}\,dt+\frac{xe^{-c\sqrt{\log(x)}}}{\log(x)} \ll xe^{-c\sqrt{\log(x)}},
+      \end{equation}
+      for some smaller \(c\). Combining \cref{equ:prime_number_theorem_zeta_6,equ:prime_number_theorem_zeta_7,equ:prime_number_theorem_zeta_8} yields
+      \begin{equation}\label{equ:prime_number_theorem_zeta_9}
+        \pi_{1}(x) = \Li(x)+O\left(xe^{-c\sqrt{\log(x)}}\right),
+      \end{equation}
+      where the constant in \cref{equ:prime_number_theorem_zeta_7} has been absorbed into the error term. We now pass from \(\pi_{1}(x)\) to \(\pi(x)\). If \(p\) is a prime such that \(p^{m} < x\), for some \(m \ge 1\), then \(p < x^{\frac{1}{2}} < x^{\frac{1}{3}} < \cdots < x^{\frac{1}{m}}\). Therefore
+      \begin{equation}\label{equ:prime_number_theorem_zeta_10}
+        \pi_{1}(x) = \sum_{n \le x}\frac{\L(n)}{\log(n)} = \sum_{p^{m} \le x}\frac{\log(p)}{m\log(p)} = \pi(x)+\frac{1}{2}\pi(x^{\frac{1}{2}})+\cdots.
+      \end{equation}
+      Moreover, as \(\pi(x^{\frac{1}{n}}) < x^{\frac{1}{n}}\) for any \(n \ge 1\), we see that \(\pi(x)-\pi_{1}(x) = O(x^{\frac{1}{2}})\). This estimate together with \cref{equ:prime_number_theorem_zeta_9,equ:prime_number_theorem_zeta_10} gives
+      \[
+        \pi(x) = \Li(x)+O\left(xe^{-c\sqrt{\log(x)}}\right),
+      \]
+      because \(x^{\frac{1}{2}} \ll xe^{-c\sqrt{\log(x)}}\). This completes the proof.
+    \end{proof}
+
+    The proof of the classical and logarithmic integral variants of the prime number theorem are immediate:
+
+    \begin{proof}[Proof of prime number theorem, classical and logarithmic integral]
+      The asymptotic formula prime number theorem is equivalent to
+      \[
+        \pi(x) = \Li(x)\left(1+O\left(\frac{xe^{-c\sqrt{\log(x)}}}{\Li(x)}\right)\right).
+      \]
+      But we have shown \(\Li(x) \sim \frac{x}{\log(x)}\) so that
+      \[
+        \frac{xe^{-c\sqrt{\log(x)}}}{\Li(x)} \sim \log(x)e^{-c\sqrt{\log(x)}} = o(1),
+      \]
+      where the equality holds since \(\log(x) = o\left(e^{-\e\sqrt{\log(x)}}\right)\). The logarithmic integral prime number theorem follows. The classical prime number theorem also holds using the asymptotic \(\Li(x) \sim \frac{x}{\log(x)}\) again.
+    \end{proof}
+
+    In the proof of the logarithmic integral and classical variants of the prime number theorem, we saw that \(xe^{-c\sqrt{\log(x)}} < \frac{x}{\log(x)}\) for sufficiently large \(x\). Therefore the exact error \(\pi(x)-\Li(x)\) grows slower than \(\pi(x)-\frac{x}{\log{x}}\) for sufficiently large \(x\). This means that \(\Li(x)\) is a better numerical approximation to \(\pi(x)\) than \(\frac{x}{\log(x)}\). There is also the following result due to Hardy and Littlewood (see \cite{hardy1916contributions}) which gives us more information:
+
+    \begin{proposition}\label{thm:Littlewood_Li_approximation_theorem}
+      \(\pi(x)-\Li(x)\) changes sign infinitely often as \(x \to \infty\).
+    \end{proposition}
+
+    So in addition, \cref{thm:Littlewood_Li_approximation_theorem} implies that \(\Li(x)\) never underestimates or overestimates \(\pi(x)\) continuously. On the other hand, the exact error \(\pi(x)-\frac{x}{\log(x)}\) is positive provided \(x \ge 17\) (see \cite{rosser1962approximate}). It is also worthwhile to note that in 1901 Koch showed that the Riemann hypothesis improves the error term in the asymptotic formula prime number theorem (see \cite{von1901distribution}):
+
+    \begin{proposition}\label{prop:Riemann_hypothesis_prime_number_theorem}
+      For \(x \ge 2\),
+      \[
+        \pi(x) = \Li(x)+O(\sqrt{x}\log(x)),
+      \]
+      provided the Riemann hypothesis for the Riemann zeta function holds.
+    \end{proposition}
+    \begin{proof}
+      If \(\rho\) is a nontrivial zero of \(\z(s)\), the Riemann hypothesis implies \(|x^{\rho}| = \sqrt{x}\). Therefore as in the proof of the asymptotic formula prime number theorem,
+      \[
+        \sum_{|\g| < T}\frac{x^{\rho}}{\rho} \ll \sqrt{x}\log^{2}(T),
+      \]
+      for \(T > 2\) not coinciding with the ordinate of a nontrivial zero. Repeating the same argument with \(T\) determined by
+      \[
+        T^{2} = x,
+      \]
+      gives
+      \[
+        \psi(x) = x+O(\sqrt{x}\log^{2}(x)),
+      \]
+      and then transferring to \(\pi_{1}(x)\) and finally \(\pi(x)\) gives
+      \[
+        \pi(x) = x+O(\sqrt{x}\log(x)).
+      \]
+    \end{proof}
+
+    In fact, an improvement in the zero-free region for the Riemann zeta function will give an error term in between the asymptotic formula prime number theorem and \cref{prop:Riemann_hypothesis_prime_number_theorem}. So it is the strength of the zero-free region which controls the size of the error term.
+  \section{The Second Moment of the Riemann Zeta Function}
+    We will discuss the second moment of the Riemann zeta function. Of primary importance is to prove the infamous result of Hardy and Littlewood (see \cite{hardy1916contributions}). Of secondary importance is to illustrate where the primary obstructions appear in the proof and how inputting more refined analytic data will lead to improved asymptotics. Throughout, it will be useful to recall that
+    \begin{equation}\label{equ:approximation_for_harmonic_sums}
+      \sum_{n \ll N}\frac{1}{n} = \log(N)+O(1),
+    \end{equation}
+    for any \(N \ge 1\), which follows from \cref{equ:Euler-Mascheroni_constant_definition}. The aforementioned result of Hardy and Littlewood (see \cite{hardy1916contributions}) is an asymptotic equivalence for \(M_{2}(T,\z)\). Actually, we prove something slightly stronger:
+
+    \begin{theorem}\label{thm:second_moment_of_Riemann_zeta_asymptotic_equivalence}
+      For \(T > 2\),
+      \[
+        M_{2}(T,\z) = T\log(T)+O\left(T\log^{\frac{3}{4}}(T)\right).
+      \]
+      In particular,
+      \[
+        M_{2}(T,\z) \sim T\log(T).
+      \]
+    \end{theorem}
+    \begin{proof}
+      Taking \(s = \frac{1}{2}+it\), \(X = \sqrt{\frac{t}{\log(t)}}\) for \(t \ge 2\), and \(\Phi(u) = \cos^{-4M}\left(\frac{\pi u}{4M}\right)\) with \(M \ge 1\) in the approximate functional equation gives
+      \begin{align*}
+        \z\left(\frac{1}{2}+it\right) &= \sum_{n \ge 1}\frac{1}{n^{\frac{1}{2}+it}}V_{\frac{1}{2}+it}\left(n\sqrt{\frac{\log(t)}{t}}\right) \\
+        &+ \e\left(\frac{1}{2}+it,\z\right)\sum_{n \ge 1}\frac{1}{n^{\frac{1}{2}-it}}V_{\frac{1}{2}-it}\left(n\sqrt{\frac{t}{\log(t)}}\right)+\frac{R\left(\frac{1}{2}+it,\sqrt{\frac{t}{\log(t)}},\z\right)}{\g\left(\frac{1}{2}+it,\z\right)}.
+      \end{align*}
+      By \cref{prop:V_function_decay}, we find that \(V_{\frac{1}{2}+it}\left(n\sqrt{\frac{\log(t)}{t}}\right)\) and \(V_{\frac{1}{2}-it}\left(n\sqrt{\frac{t}{\log(t)}}\right)\) are bounded for \(n \ll \frac{t}{\sqrt{\log(t)}}\) and \(n \ll \sqrt{\log(t)}\) respectively and then exhibit polynomial decay of arbitrarily large order thereafter. Moreover, \cref{equ:modified_gamma_estimates,equ:choice_for_V_decay_estimate} together imply that the third term exhibits exponential decay and is therefore absolutely bounded. Lastly, \(\e\left(\frac{1}{2}+it,\z\right)\) is absolutely bounded by \cref{equ:gamma_factor_analytic_conductor_estimate}. Altogether, this means
+      \[
+        \z\left(\frac{1}{2}+it\right) = \sum_{n \ll \frac{t}{\sqrt{\log(t)}}}\frac{1}{n^{\frac{1}{2}+it}}+O\left(\sum_{n \ll \sqrt{\log(t)}}\frac{1}{\sqrt{n}}\right)+O(1),
+      \]
+      and using the estimate
+      \[
+        \sum_{n \ll \sqrt{\log(t)}}\frac{1}{\sqrt{n}} = O\left(\int_{1}^{\sqrt{\log(t)}}\frac{1}{\sqrt{x}}\,dx\right) = O\left(\log^{\frac{1}{4}}(t)\right),
+      \]
+      we arrive at
+      \begin{equation}\label{equ:second_moment_zeta_asymptotic_equivalence_1}
+        \z\left(\frac{1}{2}+it\right) = \sum_{n \ll \frac{t}{\sqrt{\log(t)}}}\frac{1}{n^{\frac{1}{2}+it}}+O\left(\log^{\frac{1}{4}}(t)\right),
+      \end{equation}
+      since \(1 = O\left(\log^{\frac{1}{4}}(t)\right)\) for \(t \ge 2\). Applying \cref{equ:second_moment_zeta_asymptotic_equivalence_1} to the definition of \(M_{2}(T,\z)\) and recalling that \(\z\left(\frac{1}{2}+it\right)\) is absolutely bounded for \(0 \le t \le 2\), yields
+      \begin{equation}\label{equ:second_moment_zeta_asymptotic_equivalence_2}
+        \begin{aligned}
+          M_{2}(T,\z) &= \int_{2}^{T}\left|\sum_{n \ll \frac{t}{\sqrt{\log(t)}}}\frac{1}{n^{\frac{1}{2}+it}}\right|^{2}\,dt \\
+          &+ O\left(\int_{2}^{T}\left|\sum_{n \ll \frac{t}{\sqrt{\log(t)}}}\frac{1}{n^{\frac{1}{2}+it}}\right|\log^{\frac{1}{4}}(t)\,dt\right)+O\left(\int_{2}^{T}\sqrt{\log(t)}\,dt\right).
+        \end{aligned}
+      \end{equation}
+      We will now simplify \cref{equ:second_moment_zeta_asymptotic_equivalence_2}. For the second term, the Cauchy-Schwarz inequality gives
+      \begin{align*}
+        \int_{2}^{T}\left|\sum_{n \ll \frac{t}{\sqrt{\log(t)}}}\frac{1}{n^{\frac{1}{2}+it}}\right|\log^{\frac{1}{4}}(t)\,dt &= O\left(\left(\int_{2}^{T}\left|\sum_{n \ll \frac{t}{\sqrt{\log(t)}}}\frac{1}{n^{\frac{1}{2}+it}}\right|^{2}\int_{2}^{T}\sqrt{\log(t)}\,dt\right)^{\frac{1}{2}}\right) \\
+        &= O\left(\left(\int_{2}^{T}\left|\sum_{n \ll \frac{t}{\sqrt{\log(t)}}}\frac{1}{n^{\frac{1}{2}+it}}\right|^{2}\,dt\right)^{\frac{1}{2}}\sqrt{T}\log^{\frac{1}{4}}(T)\right),
+      \end{align*}
+      where in the second line we have made use of the estimate
+      \[
+        \int_{2}^{T}\sqrt{\log(t)}\,dt = T\sqrt{\log(T)}+O\left(\int_{2}^{T}\frac{1}{\sqrt{\log(t)}}\,dt\right) = T\sqrt{\log(T)}+O(T) = O\left(T\sqrt{\log(T)}\right),
+      \]
+      which follows from an application of integration by parts. Applying this estimate to third term as well, \cref{equ:second_moment_zeta_asymptotic_equivalence_2} becomes
+      \begin{equation}\label{equ:second_moment_zeta_asymptotic_equivalence_3}
+        \begin{aligned}
+          M_{2}(T,\z) &= \int_{2}^{T}\left|\sum_{n \ll \frac{t}{\sqrt{\log(t)}}}\frac{1}{n^{\frac{1}{2}+it}}\right|^{2}\,dt \\
+          &+ O\left(\left(\int_{2}^{T}\left|\sum_{n \ll \frac{t}{\sqrt{\log(t)}}}\frac{1}{n^{\frac{1}{2}+it}}\right|^{2}\,dt\right)^{\frac{1}{2}}\sqrt{T}\log^{\frac{1}{4}}(T)\right)+O\left(T\sqrt{\log(T)}\right).
+        \end{aligned}
+      \end{equation}
+      We now show that the remaining integral is asymptotically equivalent to \(T\log(T)\). We first expand the sum and interchange it with the integral by the Fubini-Tonelli theorem to get
+      \begin{equation}\label{equ:second_moment_zeta_asymptotic_equivalence_4}
+        \begin{aligned}
+           \int_{2}^{T}\left|\sum_{n \ll \frac{t}{\sqrt{\log(t)}}}\frac{1}{n^{\frac{1}{2}+it}}\right|^{2} &= \int_{2}^{T}\sum_{n,m \ll \frac{t}{\sqrt{\log(t)}}}\frac{1}{n^{\frac{1}{2}+it}m^{\frac{1}{2}-it}}\,dt \\
+          &= \sum_{n,m \ll \frac{T}{\sqrt{\log(T)}}}\int_{\max(m,n,2)}^{T}\frac{1}{n^{\frac{1}{2}+it}m^{\frac{1}{2}-it}}\,dt \\
+          &= \sum_{n \ll \frac{T}{\sqrt{\log(T)}}}\frac{T-n}{n}+ \sum_{\substack{n,m \ll \frac{T}{\sqrt{\log(T)}} \\ n \neq m}}\frac{1}{\sqrt{nm}}\int_{\max(n,m,2)}^{T}\left(\frac{m}{n}\right)^{it}\,dt \\
+          &= T\sum_{n \ll \frac{T}{\sqrt{\log(T)}}}\frac{1}{n}+O\left(\sum_{n \ll \frac{T}{\sqrt{\log(T)}}}1\right)+\left(\sum_{\substack{n,m \ll \frac{T}{\sqrt{\log(T)}} \\ n \neq m}}\frac{1}{\sqrt{nm}\log\left(\frac{m}{n}\right)}\right),
+        \end{aligned}
+      \end{equation}
+      where in the third line we have separated the terms for which \(n = m\) or not. We now estimate all of the remaining terms in \cref{equ:second_moment_zeta_asymptotic_equivalence_4}. For the first term, by \cref{equ:approximation_for_harmonic_sums} we have
+      \begin{equation}\label{equ:second_moment_zeta_asymptotic_equivalence_5}
+        T\sum_{n \ll \frac{T}{\sqrt{\log(T)}}}\frac{1}{n} = T\log\left(\frac{T}{\sqrt{\log(T)}}\right)+O(T) = T\log(T)+O(T\log\log(T)).
+      \end{equation}
+      The second term is easier since
+      \begin{equation}\label{equ:second_moment_zeta_asymptotic_equivalence_6}
+        \sum_{n \ll \frac{T}{\sqrt{\log(T)}}}1 = O\left(\frac{T}{\sqrt{\log(T)}}\right) = O(T).
+      \end{equation}
+      For the last term, separate the sum into the terms for which \(n < \frac{m}{2}\) or not, so that
+      \begin{equation}\label{equ:second_moment_zeta_asymptotic_equivalence_7}
+        \sum_{\substack{n,m \ll \frac{T}{\sqrt{\log(T)}} \\ n \neq m}}\frac{1}{\sqrt{nm}\log\left(\frac{m}{n}\right)} = \sum_{\substack{n,m \ll \frac{T}{\sqrt{\log(T)}} \\ n < \frac{m}{2}}}\frac{1}{\sqrt{nm}\log\left(\frac{m}{n}\right)}+\sum_{\substack{n,m \ll \frac{T}{\sqrt{\log(T)}} \\ n \ge \frac{m}{2} \\ n \neq m}}\frac{1}{\sqrt{nm}\log\left(\frac{m}{n}\right)}.
+      \end{equation}
+      In the first sum on the right-hand side of \cref{equ:second_moment_zeta_asymptotic_equivalence_7} we have \(\log\left(\frac{m}{n}\right) \ge \log\left(2\right)\) so that \(\log\left(\frac{m}{n}\right)\) is bounded from below. Hence
+      \[
+        \sum_{\substack{n,m \ll \frac{T}{\sqrt{\log(T)}} \\ n < \frac{m}{2}}}\frac{1}{\sqrt{nm}\log\left(\frac{m}{n}\right)} = O\left(\sum_{\substack{n,m \ll \frac{T}{\sqrt{\log(T)}} \\ n < \frac{m}{2}}}\frac{1}{\sqrt{nm}}\right) = O\left(\left(\sum_{n \ll \frac{T}{\sqrt{\log(T)}}}\frac{1}{\sqrt{n}}\right)^{2}\right).
+      \]
+      But as
+      \[
+        \sum_{n \ll \frac{T}{\sqrt{\log(T)}}}\frac{1}{\sqrt{n}} = O\left(\int_{1}^{\frac{T}{\sqrt{\log(T)}}}\frac{1}{\sqrt{x}}\,dx\right) = O\left(\frac{\sqrt{T}}{\log^{\frac{1}{4}}(T)}\right),
+      \]
+      upon combining the previous two estimates, we find that
+      \begin{equation}\label{equ:second_moment_zeta_asymptotic_equivalence_8}
+        \sum_{\substack{n,m \ll \frac{T}{\sqrt{\log(T)}} \\ n < \frac{m}{2}}}\frac{1}{\sqrt{nm}\log\left(\frac{m}{n}\right)} = O\left(\frac{T}{\sqrt{\log(T)}}\right).
+      \end{equation}
+      For the second sum, write \(n = m-r\) where \(1 \le r \le \frac{m}{2}\) so that \(\log\left(\frac{m}{n}\right) = \log\left(\frac{m}{m-r}\right) = -\log(1-\frac{r}{m}) \ge \frac{r}{m}\) where the inequality follows from the Taylor series of the logarithm. Whence
+      \[
+        \sum_{\substack{n,m \ll \frac{T}{\sqrt{\log(T)}} \\ n \ge \frac{m}{2} \\ n \neq m}}\frac{1}{\sqrt{nm}\log\left(\frac{m}{n}\right)} = O\left(\sum_{m \ll \frac{T}{\sqrt{\log(T)}}}\sum_{r \le \frac{m}{2}}\frac{m}{r\sqrt{m(m-r)}}\right) = O\left(\sum_{m \ll \frac{T}{\sqrt{\log(T)}}}\sum_{r \le \frac{m}{2}}\frac{1}{r}\right).
+      \]
+      To estimate the double sum, using \cref{equ:approximation_for_harmonic_sums} again, we have
+      \[
+        \sum_{r \le \frac{m}{2}}\frac{1}{r} = \log(m)+O(1).
+      \]
+      This estimate together with
+      \[
+        \sum_{m \ll \frac{T}{\sqrt{\log(T)}}}\log(m)+O(1) = \frac{T}{\sqrt{\log(T)}}\log\left(\frac{T}{\sqrt{\log(T)}}\right)+O\left(\frac{T}{\sqrt{\log(T)}}\right) = O\left(T\sqrt{\log(T)}\right),
+      \]
+      gives
+      \begin{equation}\label{equ:second_moment_zeta_asymptotic_equivalence_9}
+        \sum_{\substack{n,m \ll \frac{T}{\sqrt{\log(T)}} \\ n \ge \frac{m}{2} \\ n \neq m}}\frac{1}{\sqrt{nm}\log\left(\frac{m}{n}\right)} = O\left(T\sqrt{\log(T)}\right).
+      \end{equation}
+      Substituting \cref{equ:second_moment_zeta_asymptotic_equivalence_8,equ:second_moment_zeta_asymptotic_equivalence_9} into \cref{equ:second_moment_zeta_asymptotic_equivalence_7} yields
+      \begin{equation}\label{equ:second_moment_zeta_asymptotic_equivalence_10}
+        \sum_{\substack{n,m \ll \frac{T}{\sqrt{\log(T)}} \\ n \neq m}}\frac{1}{\sqrt{nm}\log\left(\frac{m}{n}\right)} = O\left(T\sqrt{\log(T)}\right),
+      \end{equation}
+      because \(O\left(T\sqrt{\log(T)}\right)\) is the largest of the present \(O\)-estimates. Then \cref{equ:second_moment_zeta_asymptotic_equivalence_5,equ:second_moment_zeta_asymptotic_equivalence_6,equ:second_moment_zeta_asymptotic_equivalence_10} together with \cref{equ:second_moment_zeta_asymptotic_equivalence_4} yields
+      \begin{equation}\label{equ:second_moment_zeta_asymptotic_equivalence_11}
+        \int_{2}^{T}\left|\sum_{n \ll \frac{t}{\sqrt{\log(t)}}}\frac{1}{n^{\frac{1}{2}+it}}\right|^{2} = T\log(T)+O\left(T\sqrt{\log(T)}\right),
+      \end{equation}
+      again because \(O\left(T\sqrt{\log(T)}\right)\) is the largest of all the present \(O\)-estimates. Applying \cref{equ:second_moment_zeta_asymptotic_equivalence_11} to \cref{equ:second_moment_zeta_asymptotic_equivalence_3}, we at last obtain
+      \[
+        M_{2}(T,\z) = T\log(T)+O\left(T\log^{\frac{3}{4}}(T)\right)+O\left(T\sqrt{\log(T)}\right) = T\log(T)+O\left(T\log^{\frac{3}{4}}(T)\right).
+      \]
+      which is the desired asymptotic formula. The asymptotic equivalence follows from the asymptotic formula since \(T\log^{\frac{3}{4}}(T) = o(T\log(T))\).
+    \end{proof}
+    
+    A few comments about the proof of \cref{thm:second_moment_of_Riemann_zeta_asymptotic_equivalence} are in order. The error term in the asymptotic formula only saves \(\log^{\frac{1}{4}}(T)\) from the main term so not much is saved at all. In fact, this is much weaker than the \(k = 1\) case in \cref{conj:CFKRS_conjectures_zeta}. As this conjecture has been verified for \(k = 1\) (actually \(k = 2\) as well as we have already noted), it is possible to do much better. See \cite{titchmarsh1986theory} for a detailed discussion of these estimates and the increasingly refined analytic techniques that are necessary to obtain them. Nevertheless, as \(\log(T) \ll_{\e} T^{\e}\), the asymptotic equivalence implies that the necessary bound for the Riemann zeta function is satisfied for \cref{prop:equivalence_Lindelof_hypothesis_and_moments} in the case \(k = 1\).
+
+    \begin{remark}
+      As far as the truth of the Lindel\"of hypothesis is concerned, \cref{prop:equivalence_Lindelof_hypothesis_and_moments} implies that we do not even need to obtain asymptotic formulas for the \(2k\)-th moments of \(L\)-functions. 
+    \end{remark}
+    
+    The main analytic data being fed into \cref{thm:second_moment_of_Riemann_zeta_asymptotic_equivalence} is the approximate functional equation for the Riemann zeta function. The main contribution from the resulting asymptotic, namely \cref{equ:second_moment_zeta_asymptotic_equivalence_1}, in \(M_{2}(T,\z)\) is \(T\log(T)\) which comes from the diagonal contribution in
+    \[
+      \int_{2}^{T}\left|\sum_{n \ll \frac{t}{\sqrt{\log(t)}}}\frac{1}{n^{\frac{1}{2}+it}}\right|^{2} = \int_{2}^{T}\sum_{n,m \ll \frac{t}{\sqrt{\log(t)}}}\frac{1}{n^{\frac{1}{2}+it}m^{\frac{1}{2}-it}}\,dt,
+    \]
+    occurring when \(n = m\), as computed in \cref{equ:second_moment_zeta_asymptotic_equivalence_4}. This sum is
+    \[
+      T\sum_{n \ll \frac{T}{\sqrt{\log(T)}}}\frac{1}{n},
+    \]
+    and it is estimated in \cref{equ:second_moment_zeta_asymptotic_equivalence_5}. This is the longest sum coming from \cref{equ:second_moment_zeta_asymptotic_equivalence_2} of highest order (because of the factor of \(T\)). It should also be observed that the contribution for those terms when \(n \neq m\) and \(n \ge \frac{m}{2}\) comes very close to the main term. This sum is
+    \[
+      \sum_{\substack{n,m \ll \frac{T}{\sqrt{\log(T)}} \\ n \ge \frac{m}{2} \\ n \neq m}}\frac{1}{\sqrt{nm}\log\left(\frac{m}{n}\right)},
+    \]
+    and it is estimated in \cref{equ:second_moment_zeta_asymptotic_equivalence_9} to be \(O\left(T\sqrt{\log(T)}\right)\). If the length of our sum in \cref{equ:second_moment_zeta_asymptotic_equivalence_1} was increased by a factor of \(\sqrt{\log(t)}\) from \(\frac{t}{\sqrt{\log(t)}}\) to \(t\), then this term would contribute \(O\left(T\log(T)\right)\) which would ruin both the asymptotic formula and asymptotic equivalence. In essence, this means that the choice of the length of our sum in the proof of \cref{thm:second_moment_of_Riemann_zeta_asymptotic_equivalence} is essentially optimal.
+  

@@ -1,0 +1,40 @@
+\documentclass[12pt,oneside]{book}
+\usepackage{import}
+\input{preamble}
+
+%=================%
+%  Title & Index  %
+%=================%
+\title{Classical Algebraic and Analytic Number Theory}
+\author{Henry Twiss}
+\date{2025}
+\makeindex
+
+\begin{document}
+\maketitle
+\pagestyle{empty}
+\addtocontents{toc}{\protect\thispagestyle{empty}}
+\tableofcontents
+\setcounter{page}{0}
+
+\part{Multiplicative Number Theory}
+  \include{Chapters/Arithmetic_Functions}
+  \chapter{\todo{Ditributions and Asymptotics}}
+  \include{Chapters/Dirichlet_Characters_and_Character_Sums}
+  
+\part{Algebraic Number Theory}
+  \chapter{\todo{Algebraic Integers}}
+  \chapter{\todo{Ramification}}
+  \chapter{\todo{Geometry of Numbers}}
+
+\part{Analytic Number Theory}
+  \include{Chapters/Dirichlet_Series}
+  \include{Chapters/Analytic_L-functions}
+  \chapter{\todo{Moments}}
+  \chapter{\todo{Analytic Theory of the Riemann Zeta Function}}
+  \chapter{\todo{Analytic Theory of Dirichlet \texorpdfstring{\(L\)}{L}-functions}}
+  \chapter{\todo{Analytic Theory of Dedekind Zeta Functions}}
+
+\part{Appendices}
+
+\end{document}

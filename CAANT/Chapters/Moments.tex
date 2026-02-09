@@ -1,0 +1,197 @@
+\chapter{Moments}
+  The study of moments of \(L\)-functions is essentially the method of studying a single \(L\)-function, or a family of \(L\)-functions, on average. While this approach leads to weaker results for a single \(L\)-function, it is often more malleable and sheds light on the general behavior of these objects. In the following we introduce moments of a single \(L\)-function, moments of families, and discuss some of their longstanding conjectures.
+\section{Continuous and Discrete Moments}
+  One of the longstanding goal in the study of \(L\)-functions is to prove the Riemann hypothesis for the Riemann zeta function. More generally, we wish to prove the Riemann hypothesis for different types of \(L\)-functions. Another longstanding goal would be to prove the Lindel\"of hypothesis for the Riemann zeta function, or more generally, any Selberg class \(L\)-function. While both the Riemann and Lindel\"of hypotheses remain out of reach for any Selberg class \(L\)-function \(L(s,f)\), the latter is more tractable because the convexity bound gives the estimate
+  \[
+    L\left(\frac{1}{2}+it,f\right) \ll_{\e} \mf{q}\left(\frac{1}{2}+it,f\right)^{\d+\e},
+  \]
+  with \(\d = \frac{1}{4}\) whereas the Lindel\"of hypothesis claims that we can take \(\d = 0\). As we have already mentioned, breaking the convexity bound \(\d = \frac{1}{4}\) is a very daunting task requiring extremely modern techniques and has only been successful in a few cases. This approach of breaking convexity to study the Lindel\"of hypothesis is quite direct. There is another approach to study the Lindel\"of hypothesis that is more indirect by considering averages of the \(L\)-function in question. This is the study of moments of \(L\)-functions. For any \(L\)-function \(L(s,f)\) and \(k \ge 1\), we define the \(k\)-th \textbf{moment}\index{moment} of \(L(s,f)\), namely \(M_{k}(T,f)\), to be
+  \[
+    M_{k}(T,f) = \int_{0}^{T}\left|L\left(\frac{1}{2}+it,f\right)\right|^{k}\,dt,
+  \]
+  for any \(T > 0\). More generally, we can define moments for any continuous or discrete family \(\mc{F}\) of \(L\)-functions. For any \(k \ge 1\), we define the \(k\)-th \textbf{moment}\index{moment} of \(\mc{F}\), namely \(M_{k}(T,\mc{F};\s)\) or \(M_{k}(Q,\mc{F};s)\), to be
+  \[
+    M_{k}(T,\mc{F};\s) = \int_{0}^{T}|L\left(\s+it,f\right)|^{k}\,dt \quad \text{or} \quad M_{k}(Q,\mc{F};s) = \sum_{\substack{f \in \mc{F} \\ q(f) \le Q}}|L\left(s,f\right)|^{k},
+  \]
+  according to if \(\mc{F}\) is continuous or discrete. We call these moments \textbf{continuous}\index{continuous} and \textbf{discrete}\index{discrete} respectively. Note that continuous moments only depend upon \(\s\) while discrete moments may depend upon \(s\). Moreover, we suppress the dependence upon \(\s\) or \(s\) respectively if \(\s = \frac{1}{2}\) or \(s = \frac{1}{2}\). So for a continuous family, \(M_{k}(T,\mc{F}) = M_{k}(T,f)\). Generally speaking, we are usually interested in proving asymptotics for moments in terms of the parameter of the analytic conductor that is approaching infinity for the particular family. For continuous families this parameter is \(t\) and for discrete families it is \(q(f)\). In the case of \(M_{k}(T,f)\), it is useful to think of this moment as essentially a \(k\)-power average version of the Lindel\"of hypothesis for \(L(s,f)\). There is actually a close connection to the Lindel\"of hypothesis since sufficient estimates for \(M_{2k}(T,f)\) in \(T\) for all \(k \ge 1\) is equivalent to the Lindel\"of hypothesis as the following proposition shows:
+
+  \begin{proposition}\label{prop:equivalence_Lindelof_hypothesis_and_moments}
+    Let \(L(s,f)\) be an \(L\)-function. The truth of the Lindel\"of hypothesis for \(L(s,f)\) is equivalent to the estimate
+    \[
+      M_{2k}(T,f) \ll_{\e} T^{1+\e},
+    \]
+    for all \(k \ge 1\).
+  \end{proposition}
+  \begin{proof}
+    First suppose the Lindel\"of hypothesis for \(L(s,f)\) holds. As \(\mf{q}\left(\frac{1}{2}+it,f\right) \ll t^{d_{f}}\), the Lindel\"of hypothesis for \(L(s,f)\) implies
+    \[
+      M_{2k}(T,f) \ll \int_{0}^{T}t^{\e}\,dt \ll T^{1+\e},
+    \]
+    as desired. Now suppose that \(M_{2k}(T,f) \ll_{\e} T^{1+\e}\) for all \(k \ge 1\). If the Lindel\"of hypothesis for \(L(s,f)\) is false then there is some \(0 < \l < 1\) and positive unbounded real sequence \((t_{n})_{n \ge 1}\) such that
+    \[
+      \left|L\left(\frac{1}{2}+it_{n},f\right)\right| > C\mf{q}\left(\frac{1}{2}+it_{n},f\right)^{\l},
+    \]
+    for any \(C > 0\). In particular,
+      \[
+      \left|L\left(\frac{1}{2}+it,f\right)\right| > Ct_{n}^{d_{f}\l}.
+    \]
+    Now the convexity bound for \(L'(s,f)\) implies the weaker estimate \(L'\left(\frac{1}{2}+it\right) \le C't^{d_{f}}\) for some \(C' > 0\) and \(t\) bounded away from zero. Then
+    \[
+      \left|L\left(\frac{1}{2}+it,f\right)-L\left(\frac{1}{2}+it_{n},f\right)\right| = \left|\int_{t_{n}}^{t}L'\left(\frac{1}{2}+ir,f\right)\,dr\right| < C't_{n}^{d_{f}}|t-t_{n}| < \frac{C}{2}t_{n}^{d_{f}\l},
+    \]
+    provided \(|t-t_{n}| \le t_{n}^{d_{f}(\l-1)}\) which is valid for sufficiently large \(n\) (and thus \(t_{n}\) and \(t\) are bounded away from zero). For such \(t\) and \(n\), the previous two bounds together imply
+    \[
+      \left|L\left(\frac{1}{2}+it,f\right)\right| > \frac{C}{2}t_{n}^{d_{f}\l}.
+    \]
+    Now take \(T = \frac{4}{3}t_{n}\) so that the interval \((t_{n}-t_{n}^{d_{f}(\l-1)},t_{n}+t_{n}^{d_{f}(\l-1)})\) is contained in \(\left(\frac{T}{2},T\right)\) provided we take \(n\) larger if necessary. It follows that
+    \[
+      \int_{\frac{T}{2}}^{T}\left|L\left(\frac{1}{2}+it,f\right)\right|^{2k}\,dt > \int_{t_{n}-t_{n}^{d_{f}(\l-1)}}^{t_{n}+t_{n}^{d_{f}(\l-1)}}\left|L\left(\frac{1}{2}+it,f\right)\right|^{2k}\,dt > 2\left(\frac{C}{2}\right)^{2k}t_{n}^{(2k+1)d_{f}\l-d_{f}},
+    \]
+    and hence
+    \[
+      M_{2k}(T,f) > 2\left(\frac{C}{2}\right)^{2k}\left(\frac{3}{4}\right)^{(2k+1)d_{f}\l-d_{f}}T^{(2k+1)d_{f}\l-d_{f}}.
+    \]
+    This is a contradiction for sufficiently large \(k\) which completes the proof.
+  \end{proof}
+
+  The usefulness of \cref{prop:equivalence_Lindelof_hypothesis_and_moments} is that the difficulty of proving the Lindel\"of hypothesis for \(L(s,f)\) has been transferred to proving sufficient asymptotics for the moments \(M_{2k}(T,f)\) each of which should, heuristically speaking, be an easier problem to resolve on its own.
+\section{The Moment Conjectures}
+  Hardy and Littlewood were the first to introduce moments and they did so in the context of the Riemann zeta function. In 1918, they proved an asymptotic for the second moment (see \cite{hardy1916contributions} for a proof):
+  \[
+    M_{2}(T,\zeta) \sim T\log(T).
+  \]
+  In 1926, Ingham obtained an asymptotic for the fourth moment (see \cite{ingham1928mean} for a proof):
+  \[
+    M_{4}(T,\zeta) \sim \frac{1}{2\pi^{2}}T\log^{4}(T).
+  \]
+  Observe that both of these asymptotics are stronger than those in \cref{prop:equivalence_Lindelof_hypothesis_and_moments}. In other words, this is evidence in support of the truth of the Lindel\"of hypotheses for \(\z(s)\). Unfortunately, this is where progress significantly halts. No analogous formulas have been obtained for moments of any \(L\)-function when \(k > 2\). In fact, the problem is so intractable that, until recently, there were not even conjectures about what the asymptotics should be. In 2000, Keating and Snaith used the Katz-Sarnak philosophy to put forth a precise conjecture for the asymptotics of the moments of the Riemann zeta function (see \cite{keating2000random} for details):
+
+  \begin{conjecture}\label{conj:KS_conjectures_zeta}
+    For all \(k \ge 1\),
+    \[
+      M_{2k}(T,\zeta) \sim \frac{g_{k}}{(k^{2})!}a_{k}T\log^{k^{2}}(T),
+    \]
+    with
+    \[
+      g_{k} = (k^{2})!\prod_{0 \le j \le k-1}\frac{j!}{(j+k)!},
+    \]
+    and
+    \[
+      a_{k} = \prod_{p}\left((1-p^{-1})^{(k-1)^{2}}\sum_{0 \le j \le k-1}\binom{k-1}{j}^{2}p^{-j}\right).
+    \]
+  \end{conjecture}
+  
+  \cref{conj:KS_conjectures_zeta} agrees with the results of Hardy and Littlewood for \(k = 1\) (note that \(g_{1} = 1\) and \(a_{1} = 1\)) and Ingham for \(k = 2\) (note that \(g_{2} = 2\) and \(a_{2} = \zeta(2)^{-1} = \frac{6}{\pi^{2}}\) because it is the sum of the reciprocals of squares). Monumental progress was made in 2005 when Conrey, Farmer, Keating, Rubinstein, and Snaith used random matrix theory to put forth a procedure for deducing conjectured asymptotic formulas, not just moments of the Riemann zeta function, for many families of \(L\)-functions (see \cite{conrey2005integral}). Moreover, they proved that analogous statistics hold for the associated symmetry types of the families which is in agreement with the Katz-Sarnak philosophy. We will describe some of their conjectures. For a unitary example, they predicted a refined asymptotic for the Riemann zeta function:
+
+  \begin{conjecture}\label{conj:CFKRS_conjectures_zeta}
+    For all \(k \ge 1\) and \(T \ge 1\),
+    \[
+      M_{2k}(T,\zeta) = TP_{k}(\log(T))+O_{\e}\left(T^{\frac{1}{2}+\e}\right),
+    \]
+    where \(P_{k}\) is a polynomial of degree \(k^{2}\) with leading coefficient \(\frac{g_{k}}{(k^{2})!}a_{k}\) and we have
+    \[
+      g_{k} = (k^{2})!\prod_{0 \le j \le k-1}\frac{j!}{(j+k)!},
+    \]
+    and
+    \[
+      a_{k} = \prod_{p}\left((1-p^{-1})^{(k-1)^{2}}\sum_{0 \le j \le k-1}\binom{k-1}{j}^{2}p^{-j}\right).
+    \]
+  \end{conjecture}
+
+  \cref{conj:CFKRS_conjectures_zeta} has been proven in the cases \(k = 1,2\) (see \cite{conrey2005integral} for comments). Moreover, this result is clearly stronger than \cref{conj:KS_conjectures_zeta} and it gives an exact error of order \(O(T^{\frac{1}{2}+\e})\). This error is roughly the square-root of the main term. For an orthogonal example, they predicted an asymptotic for a family of Hecke \(L\)-functions:
+
+  \begin{conjecture}\label{conj:CFKRS_conjectures_modular}
+    Let \(\mc{M}\) be the family of bases of primitive Hecke eigenforms for the space of newforms of weight \(2\), square-free level \(q\), and ordered by \(q\). For all \(k \ge 1\), and \(Q \ge 1\),
+    \[
+      M_{k}(Q,\mc{M}) = \frac{1}{3}QR_{k}(\log(Q))+O_{\e}\left(Q^{\frac{1}{2}+\e}\right),
+    \]
+    where \(R_{k}\) is a polynomial of degree \(\frac{1}{2}k(k-1)\) with leading coefficient \(\frac{g_{k}}{\left(\frac{1}{2}k(k-1)\right)!}a_{k}\) and we have
+    \[
+      g_{k} = 2^{k-1}\left(\frac{1}{2}k(k-1)\right)!\prod_{1 \le j \le k-1}\frac{j!}{(2j)!},
+    \]
+    and
+    \[
+      a_{k} = \prod_{p \nmid Q}(1-p^{-1})^{\frac{1}{2}k(k-1)}\frac{2}{\pi}\int_{0}^{\pi}\sin^{2}\left(\t\left(\frac{e^{i\t}(1-e^{i\t}p^{-\frac{1}{2}})^{-1}-e^{-i\t}(1-e^{i\t}p^{-\frac{1}{2}})^{-1}}{e^{i\t}-e^{-i\t}}\right)^{k}\right)\,d\t.
+    \]
+  \end{conjecture}
+
+  The main term in \cref{conj:CFKRS_conjectures_modular} has been proved in the cases \(k = 1,2,3,4\) when \(q\) is prime (see \cite{conrey2005integral} for comments). For an symplectic example, they predicted an asymptotic for a family of Dirichlet \(L\)-functions:
+
+  \begin{conjecture}\label{conj:CFKRS_conjectures_Dirichlet}
+    Let \(\mc{D}\) be the family of Dirichlet \(L\)-functions attached to the quadratic characters \(\chi_{\D_{d}}\) associated to the fundamental discriminants \(\D_{d}\) and ordered by \(|\D_{d}|\). For all \(k \ge 1\) and \(D \ge 1\),
+    \[
+      M_{k}(D,\mc{D}) = \frac{6}{\pi^{2}}DQ_{k}(\log(D))+O_{\e}\left(D^{\frac{1}{2}+\e}\right),
+    \]
+    where \(Q_{k}\) is a polynomial of degree \(\frac{1}{2}k(k+1)\) with leading coefficient \(\frac{g_{k}}{\left(\frac{1}{2}k(k+1)\right)!}a_{k}\) and we have
+    \[
+      g_{k} = \left(\frac{1}{2}k(k+1)\right)!\prod_{1 \le j \le k-1}\frac{j!}{(2j)!},
+    \]
+    and
+    \[
+      a_{k} = \prod_{p}\frac{(1-p^{-1})^{\frac{1}{2}k(k+1)}}{(1+p^{-1})}\left(\frac{(1-p^{-\frac{1}{2}})^{-k}+(1+p^{-\frac{1}{2}})^{-k}}{2}+p^{-1}\right).
+    \]
+  \end{conjecture}
+
+  The main term in \cref{conj:CFKRS_conjectures_Dirichlet} has been proved in the cases \(k = 1,2,3\) (see \cite{conrey2005integral} for comments). We will now describe \textbf{moment recipe}\index{moment recipe} in \cite{conrey2005integral} used to predict the \(2k\)-th moment of a family \(\mc{F}\) of primitive \(L\)-functions:
+
+  \begin{enumerate}[label*=(\roman*)]
+    \item Let \(f \in \mc{F}\) and set
+    \[
+      L(s;\a_{1},\ldots,\a_{2k},f) = L(s+\a_{1},f) \cdots L(s+\a_{k},f)L(1-s-\a_{k+1},f) \cdots L(1-s-\a_{2k},f),
+    \]
+    with \(\a_{\ell} \in \C\) for \(1 \le \ell \le 2k\).
+    \item Replace each \(L\)-function with its two sums from the approximate function equation, ignoring the function \(V_{s}(y)\) and possible residue term, and multiply out all of the sums to obtain \(2^{2k}\) many terms. That is, make the substitutions
+    \[
+      L(s+\a_{\ell},f) \mapsto \sum_{n \ge 1}\frac{a_{f}(n)}{n^{s+\a_{\ell}}}+\e(s+\a_{\ell},f)\sum_{n \ge 1}\frac{\conj{a_{f}(n)}}{n^{1-s-\a_{\ell}}},
+    \]
+    for \(1 \le \ell \le k\) and
+    \[
+      L(1-s-\a_{\ell},f) \mapsto \sum_{n \ge 1}\frac{a_{f}(n)}{n^{1-s-\a_{\ell}}}+\e(1-s-\a_{\ell},f)\sum_{n \ge 1}\frac{\conj{a_{f}(n)}}{n^{s+\a_{\ell}}},
+    \]
+    for \(k+1 \le \ell \le 2k\) respectively. Then expand all of the terms into the form
+    \[
+      \prod_{i \in \conj{I}}\e(s+\a_{i},f)\prod_{j \in \conj{J}}\e(1-s-\a_{j},f)\sum_{n_{1},\ldots,n_{2k} \ge 1}\frac{\prod_{i \in I}a_{f}(n_{i})\prod_{i \in \conj{I}}\conj{a_{f}(n_{i})}\prod_{j \in J}a_{f}(n_{j})\prod_{j \in \conj{J}}\conj{a_{f}(n_{j})}}{\prod_{i \in I}n_{i}^{s+\a_{i}}\prod_{i \in \conj{I}}n_{i}^{1-s-\a_{i}}\prod_{j \in J}n_{j}^{1-s-\a_{j}}\prod_{j \in \conj{J}}n_{j}^{s+\a_{j}}},
+    \]
+    where \(I \cup \conj{I} = \{1,\ldots,k\}\) and \(J \cup \conj{J} = \{k+1,\ldots,2k\}\) are partitions.
+    \item Retain only the \(\binom{2k}{k} = \sum_{0 \le m \le k}\binom{k}{m}^{2}\) terms for which \(|\conj{I}| = |\conj{J}|\) (the size \(m\) of these subsets satisfies \(0 \le m \le k\) and there are \(\binom{k}{m}\) many choices for each subset of size \(m\)). Then apply Stirling's formula to simplify the remaining ratios of gamma factors by replacing them with their asymptotics.
+    \item In each of the \(\binom{2k}{k}\) terms, retain only the diagonal term from the sum. That is, keep the summands for which \(n_{1} = n_{2} = \cdots = n_{2k}\). In other words, only retain
+    \[
+      \prod_{i \in \conj{I}}\e(s+\a_{i},f)\prod_{j \in \conj{J}}\e(1-s-\a_{j},f)\sum_{n \ge 1}\frac{\prod_{i \in I}a_{f}(n)\prod_{i \in \conj{I}}\conj{a_{f}(n)}\prod_{j \in J}a_{f}(n)\prod_{j \in \conj{J}}\conj{a_{f}(n)}}{\prod_{i \in I}n^{s+\a_{i}}\prod_{i \in \conj{I}}n^{1-s-\a_{i}}\prod_{j \in J}n^{1-s-\a_{j}}\prod_{j \in \conj{J}}n^{s+\a_{j}}}.
+    \]
+    Let \(M(s;\a_{1},\ldots,\a_{2k},f)\) denote the resulting function.
+    \item Then for any \(T \ge 1\) or \(Q \ge 1\), the moment recipe predicts that
+    \[
+      M_{2k}\left(T,\mc{F},\frac{1}{2}\right) = \lim_{\a_{1},\ldots,\a_{2k} \to 0}\int_{0}^{T}M\left(\frac{1}{2}+it;\a_{1},\ldots,\a_{2k},f\right)\left(1+O\left(T^{\frac{1}{2}+\e}\right)\right)\,dt,
+    \]
+    or
+    \[
+       M_{2k}\left(Q,\mc{F},\frac{1}{2}\right) = \lim_{\a_{1},\ldots,\a_{2k} \to 0}\sum_{\substack{f \in \mc{F} \\ q(f) \le Q}}M\left(\frac{1}{2};\a_{1},\ldots,\a_{2k},f\right)\left(1+O\left(T^{\frac{1}{2}+\e}\right)\right),
+    \]
+    according to if \(\mc{F}\) is continuous or discrete.
+  \end{enumerate}
+
+  A couple of comments about the moment recipe are necessary. First, while this procedure produces heuristics for the \(2k\)-moment, we expect the resulting identities in step (v) to hold for the \(k\)-moment as well because if \(k\) is odd we have \(2\left(\frac{k-1}{2}\right) < k < 2\left(\frac{k+1}{2}\right)\). The reason for only retaining the \(\binom{2k}{k}\) terms for which \(|\conj{I}| = |\conj{J}|\) in step (iii) is because the terms for which \(|\conj{I}| \neq |\conj{J}|\) are expected to be near zero. Indeed, Stirling's formula implies
+  \[
+    \frac{\G(1-s)}{\G(s)} \sim -s^{1-2s}e^{2s-1} \quad \text{and} \quad \frac{\G(s)}{\G(1-s)} \sim -s^{2s-1}e^{1-2s},
+  \]
+  provided \(|\arg(s)| < \pi-\e\) and \(|s| > \d\) for some \(\e,\d > 0\). Then the definition of \(\e(s,f)\) gives
+  \[
+    \e(s,f) \sim -q(f)^{2s-1}\left(\frac{s}{\pi e}\right)^{d_{f}\left(\frac{1}{2}-s\right)} \quad \text{and} \quad \e(1-s,f) \sim -q(f)^{1-2s}\left(\frac{s}{\pi e}\right)^{d_{f}\left(s-\frac{1}{2}\right)}.
+  \]
+  Because of the presence of the \(e^{d_{f}s}\) and \(e^{-d_{f}s}\) factors in these asymptotics and that
+  \[
+    \int_{0}^{2\pi}e^{it}\,dt = 0,
+  \]
+  we expect the terms for which \(|\conj{I}| \neq |\conj{J}|\) to be near zero when integrating from \(0\) to \(T\). In the case \(|\conj{I}| = |\conj{J}|\), these exponential factors cancel, in the limit as \(\a_{i} \to 0\) for all \(i\), and therefore we do not expect these terms to be near zero. The two equalities in part (v) are known as the \textbf{moment conjectures}\index{moment conjectures}:
+
+  \begin{conjecture}[Moment conjectures]
+    Let \(\mc{F}\) be a family of primitive \(L\)-functions with \(f \in \mc{F}\). Then
+    \[
+      M_{2k}\left(T,\mc{F},\frac{1}{2}\right) = \lim_{\a_{1},\ldots,\a_{2k} \to 0}\int_{0}^{T}M\left(\frac{1}{2}+it;\a_{1},\ldots,\a_{2k},f\right)\left(1+O\left(T^{\frac{1}{2}+\e}\right)\right)\,dt,
+    \]
+    or
+    \[
+       M_{2k}\left(Q,\mc{F},\frac{1}{2}\right) = \lim_{\a_{1},\ldots,\a_{2k} \to 0}\sum_{\substack{f \in \mc{F} \\ q(f) \le Q}}M\left(\frac{1}{2};\a_{1},\ldots,\a_{2k},f\right)\left(1+O\left(T^{\frac{1}{2}+\e}\right)\right),
+    \]
+    according to if \(\mc{F}\) is continuous or discrete.
+  \end{conjecture}

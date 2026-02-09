@@ -1,0 +1,1102 @@
+\chapter{Analytic Theory of Dirichlet \texorpdfstring{\(L\)}{L}-functions}
+  \section{Dirichlet \texorpdfstring{\(L\)}{L}-functions}
+    \subsection*{The Definition and Euler Product}
+      To every Dirichlet character \(\chi\) there is an associated \(L\)-function. Throughout we will let \(m\) denote the modulus and \(q\) the conductor of \(\chi\) respectively. The \textbf{Dirichlet \(L\)-series}\index{Dirichlet \(L\)-series} (respectively \textbf{Dirichlet \(L\)-function}\index{Dirichlet \(L\)-function} if it is an \(L\)-function) \(L(s,\chi)\) attached to the Dirichlet character \(\chi\) is defined by the following Dirichlet series:
+      \[
+        L(s,\chi) = \sum_{n \ge 1}\frac{\chi(n)}{n^{s}}.
+      \]
+      We say that \(L(s,\chi)\) is \textbf{quadratic}\index{quadratic}, \textbf{cubic}\index{cubic}, etc.\ if \(\chi\) is. In any case, the above sum can be restricted to all positive integers relatively prime to \(m\) since \(\chi(n) = 0\) if \((n,m) > 1\). We will see that \(L(s,\chi)\) is a Selberg class \(L\)-function if \(\chi\) is primitive and of conductor \(q > 1\) (in the case \(q = 1\), \(L(s,\chi) = \z(s)\)). From now we make this assumption about \(\chi\). As the coefficients are uniformly bounded and completely multiplicative, \(L(s,\chi)\) is locally absolutely uniformly convergent for \(\s > 1\) and admits the following degree \(1\) Euler product by \cref{prop:Dirichlet_series_Euler_product}:
+      \[
+        L(s,\chi) = \prod_{p}(1-\chi(p)p^{-s})^{-1}.
+      \]
+      The local factor at \(p\) is
+      \[
+        L_{p}(s,\chi) = (1-\chi(p)p^{-s})^{-1},
+      \]
+      with local root \(\chi(p)\).
+    \subsection*{The Integral Representation: Part I}
+      The integral representation for \(L(s,\chi)\) is deduced in a similar way as for \(\z(s)\). However, it will depend on if \(\chi\) is even or odd. To handle both cases simultaneously let \(\d_{\chi} = 0,1\) according to whether \(\chi\) is even or odd. In other words,
+      \[
+        \d_{\chi} = \frac{\chi(1)-\chi(-1)}{2}.
+      \]
+      We also have \(\chi(-1) = (-1)^{\d_{\chi}}\). Note that \(\d_{\chi}\) takes the same value for both \(\chi\) and \(\cchi\). To find an integral representation for \(L(s,\chi)\), consider the function
+      \[
+        \w_{\chi}(z) = \sum_{n \ge 1}\chi(n)n^{\d_{\chi}}e^{\pi in^{2}z},
+      \]
+      defined for \(z \in \H\). It is locally absolutely uniformly convergent in this region by the Weierstrass \(M\)-test. Moreover, we have
+      \[
+        \w_{\chi}(z) = O\left(\sum_{n \ge 1}ne^{-\pi n^{2}y}\right) = O(e^{-\pi y}),
+      \]
+      where the second equality holds because each term is of smaller order than the next so that the series is bounded by a constant times the first term. Hence \(\w_{\chi}(z)\) exhibits exponential decay. Now consider the following Mellin transform:
+      \[
+        \int_{0}^{\infty}\w_{\chi}(iy)y^{\frac{s+\d_{\chi}}{2}}\,\frac{dy}{y}.
+      \]
+      By the exponential decay of \(w_{\chi}\), this integral is locally absolutely uniformly convergent for \(\s > 1\) and hence defines an analytic function there. Then we compute
+      \begin{align*}
+        \int_{0}^{\infty}\w_{\chi}(iy)y^{\frac{s+\d_{\chi}}{2}}\,\frac{dy}{y} &= \int_{0}^{\infty}\sum_{n \ge 1}\chi(n)n^{\d_{\chi}}e^{-\pi n^{2}y}y^{\frac{s+\d_{\chi}}{2}}\,\frac{dy}{y} \\
+        &= \sum_{n \ge 1}\int_{0}^{\infty}\chi(n)n^{\d_{\chi}}e^{-\pi n^{2}y}y^{\frac{s+\d_{\chi}}{2}}\,\frac{dy}{y} && \text{FTT} \\
+        &= \sum_{n \ge 1}\frac{\chi(n)}{\pi^{\frac{s+\d_{\chi}}{2}}n^{s}}\int_{0}^{\infty}e^{-y}y^{\frac{s+\d_{\chi}}{2}}\,\frac{dy}{y} && \text{\(y \mapsto \frac{y}{\pi n^{2}}\)} \\
+        &= \frac{\G\left(\frac{s+\d_{\chi}}{2}\right)}{\pi^{\frac{s+\d_{\chi}}{2}}}\sum_{n \ge 1}\frac{\chi(n)}{n^{s}} \\
+        &= \frac{\G\left(\frac{s+\d_{\chi}}{2}\right)}{\pi^{\frac{s+\d_{\chi}}{2}}}L(s,\chi).
+      \end{align*}
+      Therefore we have an integral representation
+      \begin{equation}\label{equ:integral_representation_Dirichlet_L-functions_1}
+        L(s,\chi) = \frac{\pi^{\frac{s+\d_{\chi}}{2}}}{\G\left(\frac{s+\d_{\chi}}{2}\right)}\int_{0}^{\infty}\w_{\chi}(iy)y^{\frac{s+\d_{\chi}}{2}}\,\frac{dy}{y},
+      \end{equation}
+      and just as for the Riemann zeta function, we need to find a functional equation for \(\w_{\chi}(z)\) before we can proceed.
+    \subsection*{The Dirichlet Theta Function}
+      The \textbf{Dirichlet theta function}\index{Dirichlet theta function} \(\vt_{\chi}(z)\) attached to the character \(\chi\), is defined by
+      \[
+        \vt_{\chi}(z) = \sum_{n \in \Z}\chi(n)n^{\d_{\chi}}e^{2\pi in^{2}z},
+      \]
+      for \(z \in \H\). It is locally absolutely uniformly convergent in this region by the Weierstrass \(M\)-test. Moreover,
+      \[
+        \vt_{\chi}(z) = O\left(\sum_{n \in \Z}ne^{-2\pi n^{2}y}\right) = O(e^{-2\pi y}),
+      \]
+      where the second equality holds because each term is of smaller order than the \(n = \pm 1\) terms so that the series is bounded by a constant times the order of these terms. In particular, \(\vt_{\chi}(z)\) exhibits exponential decay. The relationship to \(\w_{\chi}(z)\) is given by
+      \[
+        \w_{\chi}(z) = \frac{\vt_{\chi}\left(\frac{z}{2}\right)}{2}.
+      \]
+      This is a slightly less complex relationship than the analog for the Jacobi theta function because assuming \(q > 1\) means \(\chi(0) = 0\). The essential fact we will need is a functional equation for the Dirichlet theta function:
+
+      \begin{theorem}\label{thm:functional_equation_Dirichlet_theta}
+        Let \(\chi\) be a primitive Dirichlet character of conductor \(q > 1\). For \(z \in \H\),
+        \[
+          \vt_{\chi}(z) = \frac{\e_{\chi}}{i^{\d_{\chi}}(-2qiz)^{\frac{1}{2}+\d_{\chi}}}\vt_{\cchi}\left(-\frac{1}{4q^{2}z}\right).
+        \]
+      \end{theorem}
+      \begin{proof}
+        Since \(\chi\) is \(q\)-periodic and \(\vt_{\chi}(z)\) is absolutely convergent, we can write
+        \[
+          \vt_{\chi}(z) = \sum_{a \tmod{q}}\chi(a)\sum_{m \in \Z}(mq+a)^{\d_{\chi}}e^{2\pi i(mq+a)^{2}z}.
+        \]
+        Set
+        \[
+          I_{a}(z) = \sum_{m \in \Z}(mq+a)^{\d_{\chi}}e^{2\pi i(mq+a)^{2}z}.
+        \]
+        We will apply the Poisson summation formula to \(I_{a}(z)\). To do this, we compute the Fourier transform of the summand and by the identity theorem it suffices to verify this for \(z = iy\) with \(y > 0\). So set
+        \[
+          f(x) = (xq+a)^{\d_{\chi}}e^{-2\pi(xq+a)^{2}y}.
+        \]
+        Then \(f(x)\) is of Schwarz class. By \cref{prop:Fourier_transform_properties} (i)-(iv) and \cref{prop:Fourier_transform_of_exponential_single_variable}, we have
+        \[
+          (\mc{F}f)(t) = \left(\frac{-it}{2qy}\right)^{\d_{\chi}}\frac{e^{\frac{2\pi iat}{q}-\frac{\pi t^{2}}{2q^{2}y}}}{\sqrt{2q^{2}y}}.
+        \]
+        The Poisson summation formula together with the identity theorem gives
+        \[
+          I_{a}(z) = \sum_{m \in \Z}(mq+a)^{\d_{\chi}}e^{2\pi i(mq+a)^{2}z} = \sum_{t \in \Z}\left(\frac{-it}{2q(-iz)}\right)^{\d_{\chi}}\frac{e^{\frac{2\pi iat}{q}-\frac{\pi t^{2}}{2q^{2}(-iz)}}}{\sqrt{2q^{2}(-iz)}}.
+        \]
+        Plugging this back into the definition of \(\vt_{\chi}(z)\) yields
+        \begin{align*}
+          \vt_{\chi}(z) &= \sum_{a \tmod{q}}\chi(a)\sum_{t \in \Z}\left(\frac{-it}{2q(-iz)}\right)^{\d_{\chi}}\frac{e^{\frac{2\pi iat}{q}-\frac{\pi t^{2}}{2q^{2}(-iz)}}}{\sqrt{2q^{2}(-iz)}} \\
+          &= \sum_{a \tmod{q}}\chi(a)\sum_{t \in \Z}\left(\frac{t}{i(-2qiz)}\right)^{\d_{\chi}}\frac{e^{\frac{2\pi iat}{q}-\frac{\pi it^{2}}{2q^{2}z}}}{\sqrt{q(-2qiz)}} \\
+          &= \frac{1}{i^{\d_{\chi}}\sqrt{q}(-2qiz)^{\frac{1}{2}+\d_{\chi}}}\sum_{t \in \Z}t^{\d_{\chi}}e^{-\frac{\pi it^{2}}{2q^{2}z}}\sum_{a \tmod{q}}\chi(a)e^{\frac{2\pi i at}{q}} \\
+          &= \frac{1}{i^{\d_{\chi}}\sqrt{q}(-2qiz)^{\frac{1}{2}+\d_{\chi}}}\sum_{t \in \Z}t^{\d_{\chi}}e^{-\frac{\pi it^{2}}{2q^{2}z}}\tau(t,\chi) && \text{definition of \(\tau(t,\chi)\)} \\
+          &= \frac{\tau(\chi)}{i^{\d_{\chi}}\sqrt{q}(-2qiz)^{\frac{1}{2}+\d_{\chi}}}\sum_{t \in \Z}\cchi(t)t^{\d_{\chi}}e^{-\frac{\pi it^{2}}{2q^{2}z}} && \text{\cref{cor:gauss_sum_primitive_formula}} \\
+          &= \frac{\e_{\chi}}{i^{\d_{\chi}}(-2qiz)^{\frac{1}{2}+\d_{\chi}}}\sum_{t \in \Z}\cchi(t)t^{\d_{\chi}}e^{-\frac{\pi it^{2}}{2q^{2}z}} && \text{\(\e_{\chi} = \frac{\tau(\chi)}{\sqrt{q}}\)} \\
+          &= \frac{\e_{\chi}}{i^{\d_{\chi}}(-2qiz)^{\frac{1}{2}+\d_{\chi}}}\sum_{t \in \Z}\cchi(t)t^{\d_{\chi}}e^{2\pi it^{2}\left(-\frac{1}{4q^{2}z}\right)} \\
+          &=  \frac{\e_{\chi}}{i^{\d_{\chi}}(-2qiz)^{\frac{1}{2}+\d_{\chi}}}\vt_{\cchi}\left(-\frac{1}{4q^{2}z}\right).
+        \end{align*}
+      \end{proof}
+
+      Notice that the functional equation relates \(\vt_{\chi}(z)\) to \(\vt_{\cchi}(z)\). Regardless, we will use \cref{thm:functional_equation_Dirichlet_theta} to analytically continue \(L(s,\chi)\).
+    \subsection*{The Integral Representation: Part II}
+      Returning to \(L(s,\chi)\), split the integral in \cref{equ:integral_representation_Dirichlet_L-functions_1} into two pieces by writing
+      \begin{equation}\label{equ:symmetric_integral_Dirichlet_L-functions_split}
+        \int_{0}^{\infty}\w_{\chi}(iy)y^{\frac{s+\d_{\chi}}{2}}\,\frac{dy}{y} = \int_{0}^{\frac{1}{q}}\w_{\chi}(iy)y^{\frac{s+\d_{\chi}}{2}}\,\frac{dy}{y}+\int_{\frac{1}{q}}^{\infty}\w_{\chi}(iy)y^{\frac{s+\d_{\chi}}{2}}\,\frac{dy}{y}.
+      \end{equation}
+      We now rewrite the first piece in the same form and symmetrize the result as much as possible. Start by performing a change of variables \(y \mapsto \frac{1}{q^{2}y}\) to the first piece to obtain
+      \[
+        \int_{\frac{1}{q}}^{\infty}\w_{\chi}\left(\frac{i}{q^{2}y}\right)(q^{2}y)^{-\frac{s+\d_{\chi}}{2}}\,\frac{dy}{y}.
+      \]
+      Now we compute
+      \begin{align*}
+        \w_{\chi}\left(\frac{i}{q^{2}y}\right) &= \w_{\chi}\left(-\frac{1}{q^{2}iy}\right) \\
+        &= \frac{\vt_{\chi}\left(-\frac{1}{2q^{2}iy}\right)}{2} \\
+        &= \frac{i^{\d_{\chi}}(qy)^{\frac{1}{2}+\d_{\chi}}}{\e_{\cchi}}\frac{\vt_{\cchi}\left(\frac{iy}{2}\right)}{2} && \text{\cref{thm:functional_equation_Dirichlet_theta}} \\
+        &= \e_{\chi}(-i)^{\d_{\chi}}(qy)^{\frac{1}{2}+\d_{\chi}}\frac{\vt_{\cchi}\left(\frac{iy}{2}\right)}{2} && \text{\cref{prop:epsilon_factor_relationship} and that \(\chi(-1) = (-1)^{\d_{\chi}}\)} \\
+        &= \frac{\e_{\chi}(qy)^{\frac{1}{2}+\d_{\chi}}}{i^{\d_{\chi}}}\frac{\vt_{\cchi}\left(\frac{iy}{2}\right)}{2} \\
+        &= \frac{\e_{\chi}(qy)^{\frac{1}{2}+\d_{\chi}}}{i^{\d_{\chi}}}\w_{\cchi}(iy).
+      \end{align*}
+      This chain implies that our first piece can be expressed as
+      \[
+        \frac{\e_{\chi}}{i^{\d_{\chi}}}q^{\frac{1}{2}-s}\int_{\frac{1}{q}}^{\infty}\w_{\cchi}(iy)y^{\frac{(1-s)+\d_{\chi}}{2}}\,\frac{dy}{y}.
+      \]
+      Substituting this expression back into \cref{equ:symmetric_integral_Dirichlet_L-functions_split} and combining with \cref{equ:integral_representation_Dirichlet_L-functions_1} gives the integral representation
+      \begin{equation}\label{equ:integral_representation_Dirichlet_final}
+        L(s,\chi) = \frac{\pi^{\frac{s+\d_{\chi}}{2}}}{\G\left(\frac{s+\d_{\chi}}{2}\right)}\left[\frac{\e_{\chi}}{i^{\d_{\chi}}}q^{\frac{1}{2}-s}\int_{\frac{1}{q}}^{\infty}\w_{\cchi}(iy)y^{\frac{(1-s)+\d_{\chi}}{2}}\,\frac{dy}{y}+\int_{\frac{1}{q}}^{\infty}\w_{\chi}(iy)y^{\frac{s+\d_{\chi}}{2}}\,\frac{dy}{y}\right].
+      \end{equation}
+      This integral representation will give analytic continuation. Indeed, we know everything outside the brackets is entire. The integrands exhibit exponential decay and therefore the integrals are locally absolutely uniformly convergent on \(\C\). This gives analytic continuation to all of \(\C\). In particular, \(L(s,\chi)\) has no poles.
+    \subsection*{The Functional Equation}
+      An immediate consequence of applying the symmetry \(s \mapsto 1-s\) to \cref{equ:integral_representation_Dirichlet_final} is the following functional equation:
+      \[
+        q^{\frac{s}{2}}\frac{\G\left(\frac{s+\d_{\chi}}{2}\right)}{\pi^{\frac{s+\d_{\chi}}{2}}}L(s,\chi) = \frac{\e_{\chi}}{i^{\d_{\chi}}}q^{\frac{1-s}{2}}\frac{\G\left(\frac{(1-s)+\d_{\chi}}{2}\right)}{\pi^{\frac{(1-s)+\d_{\chi}}{2}}}L(1-s,\cchi).
+      \]
+      We identify the gamma factor as
+      \[
+        \g(s,\chi) = \pi^{-\frac{s}{2}}\G\left(\frac{s+\d_{\chi}}{2}\right),
+      \]
+      with \(\k = \d_{\chi}\) the only local root at infinity. Clearly it satisfies the required bounds. The conductor is \(q(\chi) = q\) and if \(p\) is unramified then the local root is \(\chi(p) \neq 0\). The completed \(L\)-function is
+      \[
+        \L(s,\chi) = q^{\frac{s}{2}}\pi^{-\frac{s}{2}}\G\left(\frac{s+\d_{\chi}}{2}\right)L(s,\chi),
+      \]
+      with functional equation
+      \[
+        \L(s,\chi) = \frac{\e_{\chi}}{i^{\d_{\chi}}}\L(1-s,\cchi).
+      \]
+      From it we see that the root number is \(\e(\chi) = \frac{\e_{\chi}}{i^{\d_{\chi}}}\) and that \(L(s,\chi)\) has dual \(L(s,\cchi)\). We now show that \(L(s,\chi)\) is of order \(1\). Since \(L(s,\chi)\) has no poles, we do not need to clear any polar divisors. As the integrals in \cref{equ:integral_representation_Dirichlet_final} are locally absolutely uniformly convergent, computing the order amounts to estimating the gamma factor. Since the reciprocal of the gamma function is of order \(1\), we have
+      \[
+        \frac{1}{\g(s,\chi)} \ll_{\e} e^{|s|^{1+\e}}.
+      \]
+      So the reciprocal of the gamma factor is also of order \(1\). It follows that
+      \[
+        L(s,\chi) \ll_{\e} e^{|s|^{1+\e}}.
+      \]
+      So \(L(s,\chi)\) is of order \(1\). We summarize all of our work into the following theorem:
+
+      \begin{theorem}\label{thm:primitive_Dirichlet_Selberg}
+        For any primitive Dirichlet character \(\chi\) of conductor \(q > 1\), \(L(s,\chi)\) is a Selberg class \(L\)-function with degree \(1\) Euler product given by
+        \[
+          L(s,\chi) = \prod_{p}(1-\chi(p)p^{-s})^{-1}.
+        \]
+        Moreover, it admits analytic continuation to \(\C\) and possesses the functional equation
+        \[
+          q^{\frac{s}{2}}\pi^{-\frac{s}{2}}\G\left(\frac{s+\d_{\chi}}{2}\right)L(s,\chi) = \L(s,\chi) = \frac{\e_{\chi}}{i^{\d_{\chi}}}\L(1-s,\cchi).
+        \]
+      \end{theorem}
+    \subsection*{Beyond Primitivity}
+      We can still obtain meromorphic continuation of the \(L\)-series \(L(s,\chi)\) if \(\chi\) is imprimitive. Just as for primitive characters, \cref{prop:Dirichlet_series_Euler_product} implies that \(L(s,\chi)\) is locally absolutely uniformly convergent for \(\s > 1\) and admits the following degree \(1\) Euler product:
+      \[
+        L(s,\chi) = \prod_{p}(1-\chi(p)p^{-s})^{-1}.
+      \]
+      In fact, if \(\chi\) is induced by \(\wtilde{\chi}\) then \(\chi(p) = \wtilde{\chi}(p)\) if \(p \nmid q\) and \(\chi(p) = 0\) if \(p \mid m\). Therefore
+      \begin{equation}\label{equ:non-primitive_primitive_Dirichlet_L-series_relation}
+        L(s,\chi) = \prod_{p}(1-\wtilde{\chi}(p)p^{-s})^{-1}\prod_{p \mid m}(1-\wtilde{\chi}(p)p^{-s}) = L(s,\wtilde{\chi})\prod_{p \mid m}(1-\wtilde{\chi}(p)p^{-s}).
+      \end{equation}
+      Observe from \cref{equ:non-primitive_primitive_Dirichlet_L-series_relation} that \(L(s,\chi)\) differs from a Dirichlet \(L\)-function by finitely many local factors. Using \cref{thm:zeta_Selberg,thm:primitive_Dirichlet_Selberg} we see that \(L(s,\chi)\) admits meromorphic continuation to \(\C\) and if \(\chi\) is principal there is a simple pole at \(s = 1\) of residue \(\prod_{p \mid m}(1-\wtilde{\chi}(p)p^{-1})\). We collect this work in the following theorem:
+
+      \begin{theorem}\label{thm:analytic_continuation_Dirichlet}
+        For any Dirichlet character \(\chi\) modulo \(m\), let \(\wtilde{\chi}\) be the primitive character inducing \(\chi\). Then \(L(s,\chi)\) is locally absolutely uniformly convergent for \(\s > 1\) with degree \(1\) Euler product given by
+        \[
+          L(s,\chi) = \prod_{p}(1-\chi(p)p^{-s})^{-1}.
+        \]
+        Moreover, it admits meromorphic continuation to \(\C\) and if \(\chi\) is principal there is a simple pole at \(s = 1\) of residue \(\prod_{p \mid m}(1-\wtilde{\chi}(p)p^{-1})\).
+      \end{theorem}
+      
+      It is worth noting that for any non-principal Dirichlet character \(\chi\) modulo \(m\), the \(L\)-series \(L(s,\chi)\) converges for \(\s > 0\). Indeed, setting \(A(X) = \sum_{n \le X}\chi(n)\) we have \(A(X) \le m\) by  Dirichlet orthogonality relations (namely (i)) and that \(\chi\) is \(m\)-periodic, and then the claim follows from \cref{prop:Dirichlet_series_convergence_bounded_coefficient_sum}. While this fact is not too important from an analytic continuation standpoint, it is useful because it allows for the manipulation (without rearrangement since we do not have absolute convergence) of the \(L\)-series \(L(s,\chi)\) in the vertical strip \(0 < \s \le 1\).
+  \section{Dirichlet's Theorem on Arithmetic Progressions}
+    One of the more well-known arithmetic results proved using \(L\)-series is \textbf{Dirichlet's theorem on arithmetic progressions}\index{Dirichlet's theorem on arithmetic progressions}:
+
+    \begin{theorem*}[Dirichlet's theorem on arithmetic progressions]\label{thm:Dirichlet's_theorem_on_primes_in_arithmetic_progressions}
+      Let \(a\) and \(m\) be integers such that \(m \ge 1\) and \((a,m) = 1\). Then the series
+      \[
+        \sum_{p \equiv a \tmod{m}}\frac{1}{p},
+      \]
+      diverges. In particular, the arithmetic progression \(\{a+km \mid k \in \Z_{\ge 0}\}\) contain infinitely many primes.
+    \end{theorem*}
+
+    The proof can be broken into three steps. The first is to estimate the logarithm of a Dirichlet \(L\)-series \(L(s,\chi)\) and show that almost all of the terms are uniformly bounded as \(s \to 1\). The next step is to use the Dirichlet orthogonality relations of the characters to sieve out the correct sum. The last step is to show the non-vanishing result \(L(1,\chi) \neq 0\) for all non-principal characters \(\chi\). This is the essential part of the proof as it is what assures us that the sum diverges. Fortunately, we have done all of the difficult work to prove this already:
+
+    \begin{theorem}\label{thm:non-vanishing_of_Dirichlet_L-functions_at_s=1}
+      Let \(\chi\) be a non-principal Dirichlet character. Then \(L(1,\chi)\) is finite and nonzero.
+    \end{theorem}
+    \begin{proof}
+      This follows immediately by applying \cref{lem:non-vanshing_at_1_lemma} to \(\z(s)L(s,\chi)\) and noting that \(L(s,\chi)\) is holomorphic.
+    \end{proof}
+
+    We now prove Dirichlet's theorem on arithmetic progressions:
+
+    \begin{proof}[Proof of Dirichlet's theorem on arithmetic progressions]
+        Let \(\chi\) be a Dirichlet character modulo \(m\). Then for \(\s > 1\), taking the logarithm of the Euler product of \(L(s,\chi)\) gives
+        \[
+          \log{L(s,\chi)} = -\sum_{p}\log(1-\chi(p)p^{-s}).
+        \]
+        The Taylor series of the logarithm implies
+        \[
+          \log(1-\chi(p)p^{-s}) = \sum_{k \ge 1}(-1)^{k-1}\frac{(-\chi(p)p^{-s})^{k}}{k} = \sum_{k \ge 1}(-1)^{2k-1}\frac{\chi(p^{k})}{kp^{ks}},
+        \]
+        so that
+        \begin{equation}\label{equ:Dirichlets_theorem_1}
+          \log{L(s,\chi)} = \sum_{p}\sum_{k \ge 1}\frac{\chi(p^{k})}{kp^{ks}}.
+        \end{equation}
+        The double sum restricted to \(k \ge 2\) is uniformly bounded for \(\s > 1\). Indeed, first observe
+        \[
+          \left|\sum_{k \ge 2}\frac{\chi(p^{k})}{kp^{ks}}\right| \ll \sum_{k \ge 2}\frac{1}{p^{k}} = \frac{1}{p^{2}}\sum_{k \ge 0}\frac{1}{p^{k}} = \frac{1}{p^{2}}(1-p^{-1})^{-1} \le \frac{2}{p^{2}},
+        \]
+        where the last inequality follows because \(p > 2\). Then
+        \[
+          \left|\sum_{p}\sum_{k \ge 2}\frac{\chi(p^{k})}{kp^{ks}}\right| \le 2\sum_{p}\frac{1}{p^{2}} < 2\sum_{n \ge 1}\frac{1}{n^{2}} = 2\z(2),
+        \]
+        as desired. Now let \(a\) and \(m\) be integers such that \(m \ge 1\) and \((a,m) = 1\). Using \cref{equ:Dirichlets_theorem_1}, we may write
+        \[
+          \sum_{\chi \tmod{m}}\cchi(a)\log{L(s,\chi)} = \sum_{\chi \tmod{m}}\sum_{p}\frac{\cchi(a)\chi(p)}{p^{s}}+\sum_{\chi \tmod{m}}\cchi(a)\sum_{p}\sum_{k \ge 2}\frac{\chi(p^{k})}{kp^{ks}},
+        \]
+        and by the Dirichlet orthogonality relations (namely (ii)), we have
+        \[
+          \sum_{\chi \tmod{m}}\sum_{p}\frac{\cchi(a)\chi(p)}{p^{s}} = \sum_{p}\frac1{p^{s}}\sum_{\chi \tmod{m}}\cchi(a)\chi(p) = \vphi(m)\sum_{p \equiv{a} \tmod{m}}\frac{1}{p^{s}}.
+        \]
+        Combining these two identities together gives
+        \[
+          \sum_{\chi \tmod{m}}\cchi(a)\log{L(s,\chi)}-\sum_{\chi \tmod{m}}\cchi(a)\sum_{p}\sum_{k \ge 2}\frac{\chi(p^{k})}{kp^{ks}} = \vphi(m)\sum_{p \equiv{a} \tmod{m}}\frac{1}{p^{s}}.
+        \]
+        The triple sum in this identity is uniformly bounded for \(\s > 1\) because the inner double sum is and there are finitely many Dirichlet characters modulo \(m\). Therefore it suffices to show that the first sum on the left-hand side diverges as \(s \to 1\). We have
+        \[
+          L(s,\chi_{m,0}) = \z(s)\prod_{p \mid m}(1-p^{-s}),
+        \]
+        for \(\chi = \chi_{m,0}\), and so the corresponding term in the sum is
+        \[
+          \conj{\chi_{m,0}}(a)\log L(s,\chi_{m,0}) = \log\z(s)+\sum_{p \mid m}\log(1-p^{-s}),
+        \]
+        which diverges as \(s \to 1\) because \(\z(s)\) has a simple pole at \(s = 1\). We will be done if \(\log{L(s,\chi)}\) remains bounded as \(s \to 1\) for all \(\chi \neq \chi_{m,0}\). So assume \(\chi\) is non-principal. Then we must show \(L(1,\chi)\) is finite and nonzero. This follows from \cref{thm:non-vanishing_of_Dirichlet_L-functions_at_s=1}.
+    \end{proof}
+  \section{Siegel's Theorem and Siegel Zeros}
+    The discussion of Siegel zeros first arose during the study of zero-free regions for Dirichlet \(L\)-functions. Refining the argument used in \cref{thm:zero_free_region_generic}, we can show that Siegel zeros only exist when the character \(\chi\) is quadratic. But first we improve the zero-free region for the Riemann zeta function:
+
+    \begin{theorem}\label{thm:improved_zero-free_region_zeta}
+      There exists a constant \(c > 0\) such that \(\z(s)\) has no zeros in the region
+      \[
+        \s \ge 1-\frac{c}{\log(|t|+3)}.
+      \]
+    \end{theorem}
+    \begin{proof}
+      By \cref{thm:zero_free_region_generic} applied to \(\z(s)\), it suffices to show that \(\z(s)\) has no real nontrivial zeros. To see this, let \(\eta(s)\) be defined by
+      \[
+        \eta(s) = \sum_{n \ge 1}\frac{(-1)^{n-1}}{n^{s}}.
+      \]
+      Note that \(\eta(s)\) converges for \(\s > 0\) by \cref{prop:Dirichlet_series_convergence_bounded_coefficient_sum}. Now for \(0 < s < 1\) and even \(n\), \(\frac{1}{n^{s}}-\frac{1}{(n+1)^{s}} > 0\) so that \(\eta(s) > 0\). But for \(\s > 0\), we have
+      \[
+        (1-2^{1-s})\z(s) = \sum_{n \ge 1}\frac{1}{n^{s}}-2\sum_{n \ge 1}\frac{1}{(2n)^{s}} = \sum_{n \ge 1}\frac{(-1)^{n-1}}{n^{s}} = \eta(s).
+      \]
+      Therefore \(\z(s)\) cannot admit a zero for \(0 < s < 1\) because then \(\eta(s)\) would be zero too. This completes the proof.
+    \end{proof}
+
+    \cref{thm:improved_zero-free_region_zeta} shows that \(\z(s)\) has no Siegel zeros. Moreover, the proof shows that \(\z(s)\) is negative for \(0 < s < 1\). As for the height of the first zero, it occurs on the critical line (as predicted by the Riemann hypothesis) at height \(t \approx 14.134\) (see \cite{davenport1980multiplicative} for a further discussion). The first \(15\) zeros were computed by Gram in 1903 (see \cite{gram1903note}). Since then, billions of zeros have been computed and have all been verified to lie on the critical line. Our improved zero-free region for Dirichlet \(L\)-functions is only slightly different but causes increasing complexity in further study. The improvement is that if a Siegel zero exists for a Dirichlet \(L\)-function then the character is necessarily quadratic:
+
+    \begin{theorem}\label{thm:improved_zero-free_region_Dirichlet}
+      Let \(\chi\) be a primitive Dirichlet character of conductor \(q > 1\). Then there exists a constant \(c > 0\) such that \(L(s,\chi)\) has no zeros in the region
+      \[
+        \s \ge 1-\frac{c}{\log(q(|t|+3))},
+      \]
+      except for possibly one simple real zero \(\b_{\chi}\) with \(\b_{\chi} < 1\) in the case \(\chi\) is quadratic.
+    \end{theorem}
+    \begin{proof}
+      By \cref{thm:zero_free_region_generic} applied to \(\z(s)L(s,\chi)\), and shrinking \(c\) if necessary, it remains to show that there not a simple real zero \(\b_{\chi}\) if \(\chi\) is not quadratic. For this, let \(L(s,f)\) be the \(L\)-series defined by
+      \[
+        L(s,f) = L^{3}(s,\chi_{q,0})L^{4}(s,\chi)L(s,\chi^{2}).
+      \]
+      Then \(d_{f} = 8\) and \(\mathfrak{q}(f)\) satisfies
+      \[
+        \mathfrak{q}(f) \le \mathfrak{q}(\chi_{q,0})^{3}\mathfrak{q}(\chi)^{4}\mathfrak{q}(\chi^{2}) \le 3^{8}q^{5} < (3q)^{8}.
+      \]
+      Moreover, \(\Re(\L_{f}(n)) \ge 0\) for \((n,q) = 1\). To see this, suppose \(p\) is an unramified prime. The local roots of \(L(s,f)\) at \(p\) are \(1\) with multiplicity three, \(\chi(p)\) with multiplicity four, and \(\chi^{2}(p)\) with multiplicity one. So for any \(k \ge 1\), the sum of \(k\)-th powers of these local roots is
+      \[
+        3+4\chi^{k}(p)+\chi^{2k}(p).
+      \]
+      Writing \(\chi(p) = e^{ix}\), the real part of this expression is
+      \[
+        3+4\cos(x)+\cos(2x) = 2(1+\cos(x))^{2} \ge 0,
+      \]
+      where we have also made use of the identity \(3+4\cos(x)+\cos(2x) = 2(1+\cos(x))^{2}\). Thus \(\Re(\L_{f}(n)) \ge 0\) for \((n,q) = 1\), and the conditions of \cref{lem:non-vanshing_at_1_lemma} are satisfied for \(L(s,f)\) (recall \cref{equ:non-primitive_primitive_Dirichlet_L-series_relation} for the \(L\)-series \(L(s,\chi_{q,0})\) and \(L(s,\chi^{2})\)). On the one hand, if \(\b\) be a real nontrivial zero of \(L(s,\chi)\) then \(L(s,f)\) has a real nontrivial zero at \(s = \b\) of order at least \(4\). On the other hand, using \cref{equ:non-primitive_primitive_Dirichlet_L-series_relation} and that \(\chi^{2} \neq \chi_{q,0}\), \(L(s,f)\) has a pole at \(s = 1\) of order \(3\). Then, upon shrinking \(c\) if necessary, \cref{lem:non-vanshing_at_1_lemma} gives a contradiction since \(r_{f} = 3\). This completes the proof.
+    \end{proof}
+
+    Siegel zeros present an unfortunate obstruction to zero-free region results for Dirichlet \(L\)-functions when the primitive character \(\chi\) is quadratic. However, if we no longer require the constant \(c\) in the zero-free region to be effective, we can obtain a much better result for how close the Siegel zero can be to \(1\). This result will follow from a lower bound for \(L(1,\chi)\) known as \textbf{Siegel's theorem}\index{Siegel's theorem}:
+
+    \begin{theorem*}[Siegel's theorem]
+      Let \(\chi\) be a primitive quadratic Dirichlet character \(\chi\) of conductor \(q > 1\). Then there exists a positive constant \(c_{1}(\e)\) such that
+      \[
+        L(1,\chi) \ge \frac{c_{1}(\e)}{q^{\e}}.
+      \]
+      In particular, there exists a positive constant \(c_{2}(\e)\) such that \(L(s,\chi)\) has no real zeros in the interval
+      \[
+        \s \ge 1-\frac{c_{2}(\e)}{q^{\e}}.
+      \]
+    \end{theorem*}
+
+    The largest defect of Siegel's theorem is that the implicit constants \(c_{1}(\e)\) and \(c_{2}(\e)\) are ineffective (and not necessarily equal). To prove Siegel's theorem, we we will require two lemmas. The first is about the size of \(L^{(k)}(\s,\chi)\) for \(\s\) close to \(1\):
+
+    \begin{lemma}\label{lem:log_growth_of_Dirichlet_L-series_near_1}
+      Let \(\chi\) be a non-principal Dirichlet character modulo \(m > 1\). Then for any for any \(k \ge 0\), we have \(L^{(k)}(\s,\chi) = O(\log^{k+1}(m))\) provided \(\s\) is such that \(0 \le 1-\s \le \frac{1}{\log(m)}\).
+    \end{lemma}
+    \begin{proof}
+      Recall that the Dirichlet \(L\)-series \(L(s,\chi)\) converges for \(\s > 0\) and thus for \(0 \le 1-\s \le \frac{1}{\log(m)}\). As \(L(s,\chi)\) admits analytic continuation to \(\C\), it is holomorphic for \(0 \le 1-\s \le \frac{1}{\log(m)}\) and so its \(k\)-th derivative is given by
+      \[
+        L^{(k)}(\s,\chi) = \sum_{n \ge 1}\frac{\chi(n)\log^{k}(n)}{n^{\s}} = \sum_{n \le m}\frac{\chi(n)\log^{k}(n)}{n^{\s}}+\sum_{n > m}\frac{\chi(n)\log^{k}(n)}{n^{\s}}.
+      \]
+      We will show that the last two sums are both \(O(\log^{k+1}(m))\). For the first sum, if \(n \le m\), we have
+      \[
+        \left|\frac{\chi(n)\log^{k}(n)}{n^{\s}}\right| \le \frac{1}{n^{\s}}\log^{k}(n) = \frac{n^{1-\s}}{n}\log^{k}(n) < \frac{m^{1-\s}}{n}\log^{k}(n) < \frac{e}{n}\log^{k}(m),
+      \]
+      where the last inequality follows because \(1-\s \le \frac{1}{\log(m)}\). Then
+      \[
+        \left|\sum_{n \le m}\frac{\chi(n)\log^{k}(n)}{n^{\s}}\right| < e\log^{k}(m)\sum_{n \le m}\frac{1}{n} < e\log^{k}(m)\int_{1}^{m}\frac{1}{n}\,dn \ll \log^{k+1}(m).
+      \]
+      For the second sum, let \(A(Y) = \sum_{n \le Y}\chi(n)\). Then \(|A(Y)| \le m\) by the Dirichlet orthogonality relations (namely \cref{cor:Dirichlet_orthogonality_relations} (i)) and that \(\chi\) is \(m\)-periodic. Hence \(A(Y)\log(Y)Y^{-\s} \to 0\) as \(Y \to \infty\) and \cref{cor:Abels_summation_formula_limit_version} gives
+      \begin{equation}\label{equ:Siegels_theorem_second_version_lemma_1}
+        \sum_{n > m}\frac{\chi(n)\log^{k}(n)}{n^{\s}} = -A(m)\log^{k}(m)m^{-\s}-\int_{m}^{\infty}A(u)(k-\s\log(u))\log^{k-1}(u)u^{-(\s+1)}\,du.
+      \end{equation}
+      Since \(0 \le 1-\s \le \frac{1}{\log(m)}\), we have \(k-\s\log(u) \ll \log(u)\). With this estimate, that \(|A(u)| \le m\), and \cref{equ:Siegels_theorem_second_version_lemma_1}, we make the following computation:
+      \begin{align*}
+        \left|\sum_{n > m}\frac{\chi(n)\log^{k}(n)}{n^{\s}}\right| &\le |A(m)|\log^{k}(m)m^{-\s}+\int_{m}^{\infty}|A(u)(k-\s\log(u))|\log^{k-1}(u)u^{-(\s+1)}\,du \\
+        &\ll m^{1-\s}\log^{k}(m)+m\int_{m}^{\infty}\log^{k}(u)u^{-(\s+1)}\,du \\
+        &= m^{1-\s}\log^{k}(m)+\frac{m}{\s}\left(\log^{k}(m)m^{-\s}+\int_{m}^{\infty}\log^{k-1}(u)u^{-(\s+1)}\,du\right) \\
+        &\ll m^{1-\s}\log^{k}(m)+\frac{m^{1-\s}}{\s}\log^{k}(m) \\
+        &\ll \log^{k+1}(m),
+      \end{align*}
+      where in the third line we have used integration by parts, in the fourth we have used that the remaining integral is bounded by the former, and in the last line we have used that \(1-\s \le \frac{1}{\log(m)}\) (which implies that \(\frac{1}{\s} \ll \log(m)\)). Therefore the second sum is \(O(\log^{k+1}(m))\) and hence \(L^{(k)}(\s,\chi) = O(\log^{k+1}(m))\).
+    \end{proof}
+
+    Our second lemma is concerned with the positivity of the coefficients of a Dirichlet series formed by combining two Dirichlet \(L\)-series attached to distinct quadratic characters with distinct moduli:
+
+    \begin{lemma}\label{lem:Siegel_zero_auxiliary_L-function_lemma}
+      Let \(\chi_{1}\) and \(\chi_{2}\) be quadratic Dirichlet characters and let \(L(s,f)\) be the \(L\)-series defined by
+      \[
+        L(s,f) = \z(s)L(s,\chi_{1})L(s,\chi_{2})L(s,\chi_{1}\chi_{2}).
+      \]
+      Then \(\L_{f}(n) \ge 0\). In particular, \(a_{f}(n) \ge 0\) and \(a_{f}(0) = 1\).
+    \end{lemma}
+    \begin{proof}
+      For any prime \(p\), the local roots at \(p\) are \(1\) with multiplicity one, \(\chi_{1}(p)\) with multiplicity one, \(\chi_{2}(p)\) with multiplicity one, and \(\chi_{1}\chi_{2}(p)\) with multiplicity one. So for any \(k \ge 1\), the sum of \(k\)-th powers of these local roots is
+      \[
+        (1+\chi_{1}^{k}(p))(1+\chi_{2}^{k}(p)) \ge 0.
+      \]
+      Thus \(\L_{f}(n) \ge 0\). It follows immediately from the Euler product of \(L(s,f)\) that \(a_{f}(n) \ge 0\) too. Also, it is clear from the Euler product of \(L(s,f)\) that \(a_{f}(0) = 1\).
+    \end{proof}
+
+    We are now ready to prove Siegel's theorem and we follow a particularly simple proof due to Goldfeld (see \cite{goldfeld1974simple}):
+
+    \begin{proof}[Proof of Siegel's theorem]
+      Observe that the first statement holds holds for a single \(q\) and hence for bounded \(q\) by taking the minimum of all the constants. Therefore we may assume \(q\) arbitrarily large throughout. We may also assume \(\e \le \frac{1}{4}\) because \(\frac{1}{q^{\e}}\) is a decreasing function of \(\e\). We now prove that the first statement implies the second by contradiction. For if there was a real zero \(\b\) in the desired interval then for large enough \(q\) we have \(0 \le 1-\b \le \frac{1}{\log(q)}\) so that \(L'(\s,\chi) = O(\log^{2}(q))\) for \(\b \le \s \le 1\) by \cref{lem:log_growth_of_Dirichlet_L-series_near_1}. These two estimates and the mean value theorem together give
+      \[
+        L(1,\chi) = L(1,\chi)-L(\b,\chi) = L'(\s,\chi)(1-\b) \ll \frac{\log^{2}(q)}{q^{\e}}.
+      \]
+      Upon taking \(\frac{\e}{2}\) in the lower bound, we obtain
+      \[
+        \frac{1}{q^{\frac{\e}{2}}} \ll L(1,\chi) \ll \frac{\log^{2}(q)}{q^{\e}},
+      \]
+      which is a contradiction. Therefore the second statement holds provided the first does. We will now prove the first statement which will complete the proof. Let \(\chi_{1}\) and \(\chi_{2}\) be distinct primitive quadratic characters of conductors \(q_{1} > 1\) and \(q_{2} > 1\) respectively. Consider the \(L\)-series \(L(s,f)\) defined by
+      \[
+        L(s,f) = \z(s)L(s,\chi_{1})L(s,\chi_{2})L(s,\chi_{1}\chi_{2}).
+      \]
+      Observe that \(L(s,f)\) is holomorphic except for a simple pole at \(s = 1\). Let \(\l\) be the residue at this pole so that
+      \[
+        \l = L(1,\chi_{1})L(1,\chi_{2})L(1,\chi_{1}\chi_{2}).
+      \]
+      If there exists a Siegel zero \(\b\) with \(1-\e \le \b < 1\), let \(\chi_{1}\) be the character corresponding to the Dirichlet \(L\)-function that admits this Siegel zero. Then \(L(\b,f) = 0\) independent of the choice of \(\chi_{2}\). If there is no such Siegel zero, choose \(\chi_{1}\) to be any quadratic primitive character and \(\b\) to be any number such that \(1-\e \le \b < 1\). Then \(L(\b,f) < 0\) independent of the choice of \(\chi_{2}\). Indeed, \(\z(s)\) is negative in this interval (actually \(0 < s < 1\)) while each of the Dirichlet \(L\)-series defining \(L(s,f)\) is positive (the Dirichlet \(L\)-series converge for \(\s > 0\), are positive for \(\s > 1\) by their Euler product, are nonzero at \(s = 1\) by \cref{thm:non-vanishing_of_Dirichlet_L-functions_at_s=1}, and do not admit a real zero in this interval by our choice of \(\b\)). So with our choice of \(\chi_{1}\) (depending on the existence of a Siegel zero or not) we see that \(L(\b,f) < 0\) for any choice of \(\chi_{2}\). We now take \(\chi_{2} = \chi\). Let \(\psi(y)\) be a bump function that is identically \(1\) on \([0,1]\) and let \(\Psi(s)\) be its Mellin transform. On the one hand, our choice of \(\psi(y)\) and \cref{lem:Siegel_zero_auxiliary_L-function_lemma} together imply
+      \begin{equation}\label{equ:Siegels_theorem_1}
+        \sum_{n \ge 1}\frac{a_{f}(n)}{n^{\b}}\psi\left(\frac{n}{X}\right) \ge 1,
+      \end{equation}
+      for any \(X \ge 1\). On the other hand, smoothed Perron's formula gives
+      \[
+        \sum_{n \ge 1}\frac{a_{f}(n)}{n^{\b}}\psi\left(\frac{n}{X}\right) = \frac{1}{2\pi i}\int_{(c)}L(s+\b,f)\Psi(s)X^{s}\,ds,
+      \]
+      for any \(c > 1-\b\). Shifting the line of integration to \(\left(\frac{1}{2}-\b\right)\), we pass by a simple pole at \(s = 1-\b\) from \(L(s+\b,f)\) and obtain
+      \begin{equation}\label{equ:Siegels_theorem_2}
+        \sum_{n \ge 1}\frac{a_{f}(n)}{n^{\b}}\psi\left(\frac{n}{X}\right) = \frac{1}{2\pi i}\int_{\left(\frac{1}{2}-\b\right)}L(s+\b,f)\Psi(s)X^{s}\,ds+\l\Psi(1-\b)X^{1-\b}.
+      \end{equation}
+      By the convexity bound and \cref{prop:smoothing_function_Mellin_inverse_vertical_strips}, the remaining integral satisfies the weak bound \(O(qX^{\frac{1}{2}-\b})\) and we have the estimate \(\Psi(1-\b) \ll (1-\b)^{-1}\). These bounds together with \cref{equ:Siegels_theorem_1,equ:Siegels_theorem_2} give
+      \[
+        1 \ll qX^{\frac{1}{2}-\b}+X^{1-\b}\frac{\l}{1-\b}.
+      \]
+      As \(1-\e \le \b < 1\) and \(\e \le \frac{1}{4}\), we can take \(X \asymp q^{4}\) to ensure that \(qX^{\frac{1}{2}-\b} \ll 1\). With this restriction on \(X\), our estimate becomes
+      \[
+        1 \ll q^{4(1-\b)}\frac{\l}{1-\b}.
+      \]
+      By \cref{lem:log_growth_of_Dirichlet_L-series_near_1}, \(\l \ll \log^{2}(q)L(1,\chi)\) and we have
+      \[
+        1 \ll q^{4(1-\b)}\frac{\log^{2}(q)L(1,\chi)}{1-\b}.
+      \]
+      Isolating \(L(1,\chi)\) results in
+      \[
+        \frac{1-\b}{q^{4(1-\b)}\log^{2}(q)} \ll L(1,\chi).
+      \]
+      But \(1-\e \le \b < 1\) implies \(0< 1-\b \le \e\) and so
+      \[
+        \frac{1}{q^{\e}} \ll_{\e} L(1,\chi),
+      \]
+      where we have used that \(\log(q) \ll_{\e} q^{\e}\). This is equivalent to the desired lower bound.
+    \end{proof}
+
+    The part of the proof in Siegel's theorem which makes \(c_{1}(\e)\) and \(c_{2}(\e)\) ineffective is the value of \(\b\). The choice of \(\b\) depends upon the existence of a Siegel zero near \(1\) relative to the given \(\e\). Since we don't know if Siegel zeros exist, this makes estimating \(\b\) relative to \(\e\) ineffective and hence the constants \(c_{1}(\e)\) and \(c_{2}(\e)\) as well. Many results in analytic number theory make use of Siegel's theorem and hence also rely on ineffective constants. Moreover, some important problems investigate methods to get around using Siegel's theorem in favor of a weaker result that is effective. So far, no Siegel zero has been shown to exist or not exist for Dirichlet \(L\)-functions. But some progress has been made to showing that they are rare:
+
+    \begin{proposition}\label{prop:product_of_quadratic_Dirichlet_L-functions_has_one_zero}
+      Let \(\chi_{1}\) and \(\chi_{2}\) be distinct quadratic Dirichlet characters of conductors \(q_{1}\) and \(q_{2}\). If \(L(s,\chi_{1})\) and \(L(s,\chi_{2})\) have Siegel zeros \(\b_{1}\) and \(\b_{2}\) respectively and \(\chi_{1}\chi_{2}\) is not principal then there exists a positive constant \(c\) such that
+      \[
+        \min(\b_{1},\b_{2}) < 1-\frac{c}{\log(q_{1}q_{2})}.
+      \]
+    \end{proposition}
+    \begin{proof}
+        We may assume \(\chi_{1}\) and \(\chi_{2}\) are primitive since if \(\wtilde{\chi_{i}}\) is the primitive character inducing \(\chi_{i}\), for \(i = 1,2\), the only difference in zeros between \(L(s,\chi_{i})\) and \(L(s,\wtilde{\chi}_{i})\) occur on the line \(\s = 0\). Now let \(\wtilde{\chi}\) be the primitive character of conductor \(q\) inducing \(\chi_{1}\chi_{2}\). From \cref{equ:non-primitive_primitive_Dirichlet_L-series_relation}, we find that
+        \begin{equation}\label{equ:product_of_quadratic_Dirichlet_L-functions_has_one_zero_1}
+          \left|\frac{L'}{L}(s,\chi_{1}\chi_{2})-\frac{L'}{L}(s,\wtilde{\chi})\right| = \left|\sum_{p \mid q_{1}q_{2}}\frac{\wtilde{\chi}(p)\log(p)p^{-s}}{1-\wtilde{\chi}(p)p^{-s}}\right| \le \sum_{p \mid q_{1}q_{2}}\frac{\log(p)p^{-\s}}{1-p^{-\s}} \le \sum_{p \mid q_{1}q_{2}}\log(p) \le \log(q_{1}q_{2}).
+        \end{equation}
+        Let \(s = \s\) with \(1 < \s \le 2\). Using the reverse triangle inequality, we deduce from \cref{equ:product_of_quadratic_Dirichlet_L-functions_has_one_zero_1} that
+        \begin{equation}\label{equ:product_of_quadratic_Dirichlet_L-functions_has_one_zero_2}
+          -\frac{L'}{L}(\s,\chi_{1}\chi_{2}) < c\log(q_{1}q_{2}),
+        \end{equation}
+        for some positive constant \(c\).
+        By \cref{lem:powerful_L-function_approximation_lemma} (iv) applied to \(\z(s)\) while discarding all of the terms in both sums, we have
+        \begin{equation}\label{equ:product_of_quadratic_Dirichlet_L-functions_has_one_zero_3}
+          -\frac{\z'}{\z}(\s) < A+\frac{1}{\s-1},
+        \end{equation}
+        for some positive constant \(A\). By \cref{lem:powerful_L-function_approximation_lemma} (iv) applied to \(L(s,\chi_{i})\) and only retaining the term corresponding to \(\b_{i}\), we have
+        \begin{equation}\label{equ:product_of_quadratic_Dirichlet_L-functions_has_one_zero_4}
+          -\frac{L'}{L}(\s,\chi_{i}) < A\log(q_{i})+\frac{1}{\s-\b_{i}},
+        \end{equation}
+        for \(i = 1,2\) and some possibly larger constant \(A\). Now let \(L(s,g)\) be the \(L\)-series defined by
+        \[
+          L(s,g) = \z(s)L(s,\chi_{1})L(s,\chi_{2})L(s,\chi_{1}\chi_{2}),
+        \]
+        so that \(-\frac{L'}{L}(\s,g) \ge 0\) by \cref{lem:Siegel_zero_auxiliary_L-function_lemma}. Combining \cref{equ:product_of_quadratic_Dirichlet_L-functions_has_one_zero_1,equ:product_of_quadratic_Dirichlet_L-functions_has_one_zero_2,equ:product_of_quadratic_Dirichlet_L-functions_has_one_zero_3,equ:product_of_quadratic_Dirichlet_L-functions_has_one_zero_4} with this fact implies
+        \[
+        0 < A+\frac{1}{\s-1}+A\log(q_{1})-\frac{1}{\s-\b_{1}}+A\log(q_{2})-\frac{1}{\s-\b_{2}}+c\log(q_{1}q_{2}).
+        \]
+        Taking \(c\) larger, if necessary, we arrive at the simplified estimate
+        \[
+          0 < \frac{1}{\s-1}-\frac{1}{\s-\b_{1}}-\frac{1}{\s-\b_{2}}+c\log(q_{1}q_{2}),
+        \]
+        which we rewrite as
+        \[
+          \frac{1}{\s-\b_{1}}+\frac{1}{\s-\b_{2}} < \frac{1}{\s-1}+c\log(q_{1}q_{2}),
+        \]
+        Now let \(\s = 1+\frac{\d}{\log(q_{1}q_{2})}\) for some \(\d > 0\). Upon substituting, we have
+        \[
+          \frac{1}{\s-\b_{1}}+\frac{1}{\s-\b_{2}} < \left(c+\frac{1}{\d}\right)\log(q_{1}q_{2}).
+        \]
+        If \(\min(\b_{1},\b_{2}) \ge 1-\frac{c}{\log(q_{1}q_{2})}\), it follows that
+        \[
+          2(\d+c) < c+\frac{1}{\d},
+        \]
+        which is a contradiction if we take \(\d\) small enough to ensure \(2\d^{2}+c\d < 1\).
+      \end{proof}
+    
+      From \cref{prop:product_of_quadratic_Dirichlet_L-functions_has_one_zero} we immediately see that for every modulus \(m > 1\) there is at most one primitive quadratic Dirichlet character that can admit a Siegel zero:
+
+    \begin{proposition}\label{prop:at_most_one_Siegel_zero_per_modulus}
+      For every integer \(m > 1\), there is at most one Dirichlet character \(\chi\) modulo \(m\) such that \(L(s,\chi)\) has a Siegel zero. If this Siegel zero exists, \(\chi\) is necessarily quadratic.
+    \end{proposition}
+    \begin{proof}
+      Let \(\wtilde{\chi}\) be the primitive character inducing \(\chi\). As the zeros of \(L(s,\chi)\) and \(L(s,\wtilde{\chi})\) differ only on the line \(\s = 0\), \cref{thm:improved_zero-free_region_Dirichlet} implies that \(\wtilde{\chi}\), and hence \(\chi\), must be quadratic. So suppose \(\chi_{1}\) and \(\chi_{2}\) are two distinct characters modulo \(m\), of conductors \(q_{1}\) and \(q_{2}\), admitting Siegel zeros \(\b_{1}\) and \(\b_{2}\). Then \(\chi_{1}\chi_{2} \neq \chi_{m,0}\). Moreover, \(\b_{1} \ge 1-\frac{c_{1}}{\log(q_{1})}\) and \(\b_{2} \ge 1-\frac{c_{2}}{\log(q_{2})}\) for some positive constants \(c_{1}\) and \(c_{2}\). Taking \(c\) smaller, if necessary, we have \(\min(\b_{1},\b_{2}) \ge 1-\frac{c}{\log(q_{1}q_{2})}\) which contradicts \cref{prop:product_of_quadratic_Dirichlet_L-functions_has_one_zero}.
+    \end{proof}
+  \section{The Burgess Bound for Dirichlet \texorpdfstring{\(L\)}{L}-functions}
+    Let \(\chi\) be a Dirichlet character modulo \(m\). We call the sum
+    \[
+      S_{\chi}(M,N) = \sum_{M+1 \le n \le M+N}\chi(n),
+    \]
+    for \(M \ge 0\) and \(N \ge 1\), the \textbf{character sum}\index{character sum} of \(\chi\). If \(M = 0\), we write \(S_{\chi}(N) = S_{\chi}(0,N)\) for simplicity. In the case \(\chi\) is primitive of conductor \(q > 1\), an infamous subconvexity estimate for the Dirichlet \(L\)-function \(L(s,\chi)\) in the \(q\)-aspect was achieved by Burgess in the 1960's (see \cite{burgess1963character}). The key idea of his argument lies in improved bounds for character sums in certain ranges of \(M\) and \(N\) relative to powers of \(q\) which we will describe. On the one hand, since \(|\chi(n)| \le 1\) for all \(n \ge 1\), we have the trivial bound
+    \begin{equation}\label{equ:character_sum_trivial_bound}
+      S_{\chi}(M,N) \ll N.
+    \end{equation}
+    On the other hand, by the Dirichlet orthogonality relations (namely \cref{cor:Dirichlet_orthogonality_relations} i) and that \(\chi\) is non-principal, we have
+    \begin{equation}\label{equ:character_sum_orthogonality_bound}
+      S_{\chi}(M,N) \ll m.
+    \end{equation}
+    Note that \cref{equ:character_sum_orthogonality_bound} is only an improvement upon \cref{equ:character_sum_trivial_bound} when \(m \ll N\). It turns out that a much shaper bound than \cref{equ:character_sum_orthogonality_bound} can be obtained with very little work. We will first require a small lemma:
+
+    \begin{lemma}\label{lem:Polya-Vinogradov_lemma}
+      Let \(f(x)\) be a integrable convex function on \(\left(a-\frac{b}{2},a+\frac{b}{2}\right)\) for some \(a \in \R\) and \(b > 0\). Then
+      \[
+        f(a) \le \frac{1}{b}\int_{a-\frac{b}{2}}^{a+\frac{b}{2}}f(x)\,dx.
+      \]
+    \end{lemma}
+    \begin{proof}
+      By the definition of convexity,
+      \[
+        f(a) = f\left(\frac{1}{2}x+\frac{1}{2}(2a-x)\right) \le \frac{1}{2}f(x)+\frac{1}{2}f(2a-x).
+      \]
+      Integrating the left-hand side over \(\left(a-\frac{b}{2},a+\frac{b}{2}\right)\) yields
+      \[
+        \int_{a-\frac{b}{2}}^{a+\frac{b}{2}}f(a)\,dx = bf(a),
+      \]
+      while integrating the right-hand side over \(\left[a-\frac{b}{2},a+\frac{b}{2}\right]\) gives
+      \[
+        \int_{a-\frac{b}{2}}^{a+\frac{b}{2}}\left(\frac{1}{2}f(x)+\frac{1}{2}f(2a-x)\right)\,dx = \frac{1}{2}\int_{a-\frac{b}{2}}^{a+\frac{b}{2}}f(x)\,dx+\int_{a-\frac{b}{2}}^{a+\frac{b}{2}}\frac{1}{2}f(2a-x)\,dx = \int_{a-\frac{b}{2}}^{a+\frac{b}{2}}f(x)\,dx,
+      \]
+      upon making the change of variables \(x \mapsto 2a-x\) in the second integral. Hence
+      \[
+        bf(a) \le \int_{a-\frac{b}{2}}^{a+\frac{b}{2}}f(x)\,dx,
+      \]
+      which is equivalent to the claim.
+    \end{proof}
+    
+    We can now improve upon \cref{equ:character_sum_orthogonality_bound}. This result is known as the \textbf{P\'olya-Vinogradov inequality}\index{P\'olya-Vinogradov inequality} as it was proved independently by P\'olya and Vinogradov in 1918 (see \cite{polya1918verteilung} and \cite{vinogradov1918distribution}):
+
+    \begin{theorem*}[P\'olya-Vinogradov inequality]
+      Let \(\chi\) be a non-principal Dirichlet character modulo \(m\). Then for any \(M \ge 0\) and \(N \ge 1\),
+      \[
+        S_{\chi}(M,N) \ll \sqrt{m}\log(m).
+      \]
+    \end{theorem*}
+    \begin{proof}
+      First suppose \(\chi\) is primitive of conductor \(q > 1\). Using \cref{cor:gauss_sum_primitive_formula}, we have
+      \[
+        S_{\chi}(M,N) = \frac{1}{\tau(\cchi)}\sum_{a \tmod{q}}\cchi(a)\sum_{M+1 \le n \le M+N}e^{\frac{2\pi ian}{q}}.
+      \]
+      The inner sum is geometric and evaluates to
+      \[
+        \sum_{M+1 \le n \le M+N}e^{\frac{2\pi ian}{q}} = e^{\frac{2\pi ia(M+1)}{q}}\left(\frac{1-e^{\frac{2\pi iaN}{q}}}{1-e^{\frac{2\pi ia}{q}}}\right) = e^{\frac{2\pi ia\left(M+\frac{N-1}{2}\right)}{q}}\left(\frac{e^{\frac{\pi iaN}{q}}-e^{-\frac{\pi iaN}{q}}}{e^{\frac{\pi ia}{q}}-e^{-\frac{\pi ia}{q}}}\right) = e^{\frac{2\pi ia\left(M+\frac{N-1}{2}\right)}{q}}\frac{\sin\left(\frac{\pi Na}{q}\right)}{\sin\left(\frac{\pi a}{q}\right)},
+      \]
+      where in the last equality we have made use of the formula \(\sin(x) = \frac{e^{ix}+e^{-ix}}{2i}\). Then \cref{thm:Gauss_sum_modulus}, gives
+      \[
+        S_{\chi}(M,N) \ll \frac{1}{\sqrt{q}}\sum_{1 \le a \le q-1}\frac{1}{\sin\left(\frac{\pi a}{q}\right)},
+      \]
+      where we recall that \(\cchi(0) = 0\). Now the function \(\frac{1}{\sin(\pi x)}\) is convex and integrable on \((0,1)\) (its second derivative is \(\pi^{2}\frac{1+\cos^{2}(\pi x)}{\sin^{3}(\pi x)} > 0\) on this interval), so from \cref{lem:Polya-Vinogradov_lemma} we get
+      \[
+        \frac{1}{\sqrt{q}}\sum_{1 \le a \le q-1}\frac{1}{\sin\left(\frac{\pi a}{q}\right)} \le \frac{1}{\sqrt{q}}\sum_{1 \le a \le q-1}q\int_{\frac{a}{q}-\frac{1}{2q}}^{\frac{a}{q}+\frac{1}{2q}}\frac{1}{\sin(\pi x)}\,dx = \sqrt{q}\int_{\frac{1}{2q}}^{1-\frac{1}{2q}}\frac{1}{\sin(\pi x)}\,dx = 2\sqrt{q}\int_{\frac{1}{2q}}^{\frac{1}{2}}\frac{1}{\sin(\pi x)}\,dx,
+      \]
+      where the last equality holds because \(\sin(\pi x) = \sin(\pi-\pi x) = \sin(\pi(1-x))\) so that the integral of \(\frac{1}{\sin(\pi x)}\) is symmetric over \(\left(\frac{1}{2q},\frac{1}{2}\right)\) and \(\left(\frac{1}{2},1-\frac{1}{2q}\right)\). Now \(\sin(\pi x) \ge 2x\) on the interval \([0,\frac{1}{2}]\) (because \(\sin(\pi x) = 2x\) at the boundary and both functions are increasing on the interior), so that
+      \[
+        2\sqrt{q}\int_{\frac{1}{2q}}^{\frac{1}{2}}\frac{1}{\sin(\pi x)}\,dx \le q\int_{\frac{1}{2q}}^{\frac{1}{2}}\frac{1}{x}\,dx \ll \sqrt{q}\log(q).
+      \]
+      Therefore
+      \[
+        S_{\chi}(M,N) \ll \sqrt{q}\log(q),
+      \]
+      as desired. This proves the bound in the case \(\chi\) is primitive. Now suppose \(\chi\) is induced by the primitive character \(\wtilde{\chi}\) of conductor \(q > 1\). Then \(q \mid m\), and so we may write \(m = kq\) for some \(k \ge 1\). Rewrite the sum in terms of \(\wtilde{\chi}\) as follows:
+      \begin{align*}
+        S_{\chi}(M,N) &= \sum_{\substack{M+1 \le n \le M+N \\ (n,k) = 1}}\wtilde{\chi}(n) \\
+        &= \sum_{M+1 \le n \le M+N}\wtilde{\chi}(n)\sum_{d \mid (n,k)}\mu(d) && \text{\cref{prop:Mobius_indicator}} \\
+        &= \sum_{d \mid k}\mu(d)\sum_{\substack{M+1 \le n \le M+N \\ d \mid n}}\wtilde{\chi}(n) \\
+        &= \sum_{d \mid k}\mu(d)\sum_{\frac{M+1}{d} \le n \le \frac{M+N}{d}}\wtilde{\chi}(dn) && \text{\(n \to dn\)} \\
+        &= \sum_{d \mid k}\mu(d)\wtilde{\chi}(d)\sum_{\left\lfloor\frac{M+1}{d}\right\rfloor \le n \le \left\lfloor\frac{M+N}{d}\right\rfloor}\wtilde{\chi}(n).
+      \end{align*}
+      The inner sum is \(O(\sqrt{q}\log(q))\) by the primitive case and so
+      \[
+        S_{\chi}(M,N) \ll \sqrt{q}\log(q)\sum_{d \mid k}|\mu(d)| \ll 2^{\w(k)}\sqrt{q}\log(q).
+      \]
+      Since \(2^{\w(k)} \ll \s_{0}(k) \ll_{\e} k^{\e}\) (see \cref{prop:sum_of_divisors_growth_rate}) it follows that \(2^{\w(k)} \ll \sqrt{k}\) upon taking \(\e = \frac{1}{2}\). This bound together with \(\log(q) \le \log(m)\) gives
+      \[
+        S_{\chi}(M,N) \ll \sqrt{m}\log(m),
+      \]
+      as claimed.
+    \end{proof}
+
+    The P\'olya-Vinogradov inequality greatly improves upon \cref{equ:character_sum_orthogonality_bound} and is particularly useful when \(N\) is much larger than \(m\). A slight improvement was made in 1977 by Montgomery and Vaughn under the Riemann hypothesis for Dirichlet \(L\)-functions (see \cite{montgomery1977exponential} for a proof):
+
+    \begin{theorem}\label{thm:MV_bound_character_sum}
+      Let \(\chi\) be a non-principal Dirichlet character modulo \(m\). Then for any \(M \ge 0\) and \(N \ge 1\),
+      \[
+        S_{\chi}(M,N) \ll \sqrt{m}\log{\log(m)},
+      \]
+      provided the Riemann hypothesis for Dirichlet \(L\)-functions holds.
+    \end{theorem}
+    
+    While \cref{thm:MV_bound_character_sum} is not much of an improvement from the P\'olya-Vinogradov inequality, it is sharp due to a result of Paley in 1932 (see \cite{paley1932theorem}). This means that, quite remarkably, the P\'olya-Vinogradov inequality is almost optimal. It is also useful to have an estimate that is sharper when \(N\) is small compared to \(m\). In 1963, Burgess made progress in this direction by proving the following result (see \cite{burgess1963character} for a proof which is a generalization of the 1962 papers \cite{burgess1962characterL-series} and \cite{burgess1962characterprimitive}):
+
+    \begin{theorem}\label{thm:Burgess_inequality}
+      Let \(\chi\) be a non-principal Dirichlet character modulo \(m > 1\) and \(M \ge 0\), \(N \ge 1\), and \(r \ge 1\) be integers. Then
+      \[
+        S_{\chi}(M,N) \ll_{\e} N^{1-\frac{1}{r}}m^{\frac{r+1}{4r^{2}}+\e},
+      \]
+      provided \(m\) is cube-free or \(r = 2\).
+    \end{theorem}
+
+    \cref{thm:Burgess_inequality} can be thought of as a blend between \cref{equ:character_sum_trivial_bound} and the P\'olya-Vinogradov inequality. Despite the proof being reasonably short, we do not provide the argument as it requires some machinery beyond the scope of this text. More importantly, Burgess used \cref{thm:Burgess_inequality} in conjunction with the P\'olya-Vinogradov inequality to prove a subconvexity estimate for Dirichlet \(L\)-functions in the conductor-aspect:
+
+    \begin{theorem}\label{thm:Burgess_bound_conductor_aspect_Dirichlet}
+      Let \(\chi\) be a primitive Dirichlet character of conductor \(q > 1\). Then for \(0 < \s < 1\), we have
+      \[
+        L(s,\chi) \ll_{s,\e} \begin{cases} q^{\frac{4-5\s}{8}+\e} & \text{if \(0 < \s \le \frac{1}{2}\)}, \\ q^{\frac{3-3\s}{8}+\e} & \text{if \(\frac{1}{2} \le \s < 1\)}. \end{cases}
+      \]
+      In particular,
+      \[
+        L\left(\frac{1}{2}+it,\chi\right) \ll_{t,\e} q^{\frac{3}{16}+\e}. 
+      \]
+    \end{theorem}
+    \begin{proof}
+      Let \(0 < \s < 1\). \cref{cor:partial_sum_summation_by_parts_corollary} gives
+      \[
+        \sum_{n \le N}\frac{\chi(n)}{n^{s}} = S_{\chi}(N)N^{-s}+\sum_{n \le N-1}S_{\chi}(n)(n^{-s}-(n+1)^{-s}),
+      \]
+      for any \(N \ge 1\). Applying the mean value theorem to \(f(x) = \frac{1}{x^{s}}\) on the interval \([n,n+1]\) yields \((n^{-s}-(n+1)^{-s}) \ll_{t} \frac{1}{n^{\s+1}}\), and thus
+      \[
+        \sum_{n \le N}\frac{\chi(n)}{n^{s}} \ll_{t} |S_{\chi}(N)|N^{-\s}+\sum_{n \le N-1}\frac{|S_{\chi}(n)|}{n^{\s+1}}.
+      \]
+      As \(|S_{\chi}(N)||N^{-\s}| \to 0\) as \(N \to \infty\) (recall \cref{equ:character_sum_orthogonality_bound}), taking the limit as \(N \to \infty\) results in
+      \[
+        L(s,\chi) \ll_{t} \sum_{n \ge 1}\frac{|S_{\chi}(n)|}{n^{\s+1}}.
+      \]
+      Now let \(M > 2\), \(N \ge 1\), and decompose the right-hand side in the form
+      \[
+        L(s,\chi) \ll_{t} \sum_{1 \le M-1}\frac{|S_{\chi}(n)|}{n^{\s+1}}+\sum_{M \le n \le N}\frac{|S_{\chi}(n)|}{n^{\s+1}}+\sum_{n \ge N+1}\frac{|S_{\chi}(n)|}{n^{\s+1}}.
+      \]
+      Applying \cref{equ:character_sum_trivial_bound} to the first character sum, \cref{thm:Burgess_inequality} (in the case \(r = 2\)) to the second character sum, and the P\'olya-Vinogradov inequality to the third character sum, we obtain
+      \[
+        L(s,\chi) \ll_{t,\e} \sum_{1 \le M-1}\frac{1}{n^{\s}}+q^{\frac{3}{16}+\e}\sum_{M \le n \le N}\frac{1}{n^{\s+\frac{1}{2}}}+q^{\frac{1}{2}+\e}\sum_{n \ge N+1}\frac{1}{n^{\s+1}},
+      \]
+      where we have used that \(\log(q) \ll_{\e} q^{\e}\). Now observe that
+      \[
+        \sum_{1 \le M-1}\frac{1}{n^{\s}} \ll \int_{1}^{M-1}\frac{1}{x^{\s}}\,dx \ll_{\s} M^{1-\s} \quad \text{and} \quad \sum_{n \ge N+1}\frac{1}{n^{\s+1}} \ll \int_{N+1}^{\infty}\frac{1}{x^{\s+1}}\,dx \ll_{\s} N^{-\s}.
+      \]
+      Applying these estimates gives
+      \[
+        L(s,\chi) \ll_{s,\e} M^{1-\s}+q^{\frac{3}{16}+\e}\sum_{M \le n \le N}\frac{1}{n^{\s+\frac{1}{2}}}+q^{\frac{1}{2}+\e}N^{-\s},
+      \]
+      since \(0 < \s < 1\). Similarly, we see that
+      \[
+        \sum_{M \le n \le N}\frac{1}{n^{\s+\frac{1}{2}}} \ll \int_{M}^{N}\frac{1}{n^{\s+\frac{1}{2}}}\,dx \ll_{\s} \begin{cases} N^{\frac{1}{2}-\s} & \text{if \(0 < \s < \frac{1}{2}\)}, \\ \log(N) & \text{if \(\s = \frac{1}{2}\)}, \\ M^{\frac{1}{2}-\s} & \text{if \(\frac{1}{2} < \s < 1\)}. \end{cases}
+      \]
+       Upon setting \(M = \lfloor q^{\frac{3}{8}} \rfloor\) and \(N = \lceil q^{\frac{5}{8}} \rceil\), we obtain
+      \[
+        L(s,\chi) \ll_{s,\e} \begin{cases} q^{\frac{4-5\s}{8}+\e} & \text{if \(0 < \s \le \frac{1}{2}\)}, \\ q^{\frac{3-3\s}{8}+\e} & \text{if \(\frac{1}{2} \le \s < \frac{1}{2}\)}, \end{cases}
+      \]
+      because the third term dominates for \(0 < \s < \frac{1}{2}\), the first term dominates for \(\frac{1}{2} < \s < 1\), and at \(s = \frac{1}{2}\) the first and third terms are balanced and dominate the second term. This proves the first statement. The second follows by taking \(\s = \frac{1}{2}\).
+    \end{proof}
+
+    In particular, \cref{thm:Burgess_bound_conductor_aspect_Dirichlet} shows that the Burgess bound in the conductor-aspect holds for Dirichlet \(L\)-functions. This is how the Burgess bound got its name as it was the first subconvexity estimate for Dirichlet \(L\)-functions in the conductor-aspect.
+  \section{The Siegel-Walfisz Theorem}
+    Let \(\chi\) be a Dirichlet character modulo \(m > 1\). The function \(\psi(x,\chi)\) is defined by
+    \[
+      \psi(x,\chi) = \sum_{n \le x}\chi(n)\L(n),
+    \]
+    for \(x > 0\). This function plays the analogous role of \(\psi(x)\) but for Dirichlet \(L\)-series. Accordingly, we will derive an explicit formula for \(\psi(x,\chi)\) in a similar manner to that of \(\psi(x)\). Because \(\psi(x,\chi)\) is discontinuous when \(x\) is a prime power, we also introduce a slightly modified function. Define \(\psi_{0}(x,\chi)\) by
+    \[
+      \psi_{0}(x,\chi) = \begin{cases} \psi(x,\chi) & \text{if \(x\) is not a prime power}, \\ \psi(x,\chi)-\frac{1}{2}\chi(x)\L(x) & \text{if \(x\) is a prime power}. \end{cases}
+    \]
+    Thus \(\psi_{0}(x,\chi)\) is \(\psi(x,\chi)\) except that its value is halfway between the limit values when \(x\) is a prime power. We will also need to define a particular constant that will come up. For a character \(\chi\), define \(b(\chi)\) to be \(\frac{L'}{L}(0,\chi)\) if \(\chi\) is odd and to be the constant term in the Laurent series of \(\frac{L'}{L}(s,\chi)\) if \(\chi\) is even (as in the even case \(\frac{L'}{L}(s,\chi)\) has a pole at \(s = 0\)). The \textbf{explicit formula}\index{explicit formula} for \(\psi(x,\chi)\) is the following:
+
+    \begin{theorem*}[Explicit formula for \(\psi(x,\chi)\)]
+      Let \(\chi\) be a primitive Dirichlet character of conductor \(q > 1\). Then for \(x \ge 2\),
+      \[
+        \psi_{0}(x,\chi) = -\sum_{\rho}\frac{x^{\rho}}{\rho}-b(\chi)+\tanh^{-1}(x^{-1}),
+      \]
+      if \(\chi\) is odd, and
+      \[
+        \psi_{0}(x,\chi) = -\sum_{\rho}\frac{x^{\rho}}{\rho}-\log(x)-b(\chi)-\frac{1}{2}\log(1-x^{-2}),
+      \]
+      if \(\chi\) is even, and where in both expressions, \(\rho\) runs over the nontrivial zeros of \(L(s,\chi)\) counted with multiplicity and ordered with respect to the size of the ordinate.
+    \end{theorem*}
+
+    As for \(\psi(x)\), a few comments are in order. Unlike the explicit formula for \(\psi(x)\), there is no main term \(x\) in the explicit formula for \(\psi(x,\chi)\). This is because \(L(s,\chi)\) does not have a pole at \(s = 1\). Also, in the case \(\chi\) is odd, the Taylor series of the inverse hyperbolic tangent lets us write
+    \[
+      \tanh^{-1}(x^{-1}) = \sum_{m \ge 1}\frac{x^{-(2m-1)}}{2m-1} = -\sum_{m \ge 1}\frac{x^{-(2m-1)}}{-(2m-1)} = -\sum_{\w}\frac{x^{\w}}{\w},
+    \]
+    where \(\w\) runs over the trivial zeros of \(L(s,\chi)\). In the case \(\chi\) is even, \(\frac{1}{2}\log(1-x^{-2})\) accounts for the contribution of the trivial zeros just as for \(\z(s)\). We will now prove the explicit formula for \(\psi(x,\chi)\):
+
+    \begin{proof}[Proof of the explicit formula for \(\psi(x,\chi)\)]
+      By truncated Perron's formula applied to \(-\frac{L'}{L}(s,\chi)\), we get
+      \begin{equation}\label{equ:explicit_formula_Dirichlet_proof_1}
+        \psi_{0}(x,\chi)-J(x,T,\chi) \ll x^{c}\sum_{\substack{n \ge 1 \\ n \neq x}}\frac{\chi(n)\L(n)}{n^{c}}\min\left(1,\frac{1}{T\log\left(\frac{x}{n}\right)}\right)+\d_{x}\chi(x)\L(x)\frac{c}{T},
+      \end{equation}
+      where
+      \[
+        J(x,T,\chi) = \frac{1}{2\pi i}\int_{c-iT}^{c+iT}-\frac{L'}{L}(s,\chi)x^{s}\,\frac{ds}{s},
+      \]
+      \(c > 1\), and it is understood that \(\d_{x} = 0\) unless \(x\) is a prime power. Take \(T > 2\) not coinciding with the ordinate of a nontrivial zero and let \(c = 1+\frac{1}{\log(x^{2})}\) so that \(x^{c} = \sqrt{e}x\). We will estimate the right-hand side of \cref{equ:explicit_formula_Dirichlet_proof_1}. First, we estimate the terms corresponding to \(n\) such that \(n\) is bounded away from \(x\). So suppose \(n \le \frac{3}{4}x\) or \(n \ge \frac{5}{4}x\). For these \(n\), \(\log\left(\frac{x}{n}\right)\) is bounded away from zero so that their contribution is
+      \begin{equation}\label{equ:explicit_formula_Dirichlet_proof_2}
+        \ll \frac{x^{c}}{T}\sum_{n \ge 1}\frac{\chi(n)\L(n)}{n^{c}} \ll \frac{x^{c}}{T}\left(-\frac{L'}{L}(c,\chi)\right) \ll \frac{x\log(x)}{T},
+      \end{equation}
+      where the last estimate follows from \cref{lem:powerful_L-function_approximation_lemma} (iv) applied to \(L(s,\chi)\) while discarding all of the terms in both sums and our choice of \(c\) (in particular \(\log(c) \ll \log(x)\)). Now we estimate the terms \(n\) close to \(x\). So consider those \(n\) for which \(\frac{3}{4}x < n < x\) and let \(x_{1}\) be the largest prime power less than \(x\). We may also assume \(\frac{3}{4}x < x_{1} < x\) since otherwise \(\L(n) = 0\) and these terms do not contribute anything. Moreover, \(\frac{x^{c}}{n^{c}} \ll 1\). For the term \(n = x_{1}\), we have the estimate
+      \[
+        \log\left(\frac{x}{n}\right) = -\log\left(1-\frac{x-x_{1}}{x}\right) \ge \frac{x-x_{1}}{x},
+      \]
+      where we have obtained the inequality by using Taylor series of the logarithm truncated after the first term. The contribution of this term is
+      \begin{equation}\label{equ:explicit_formula_Dirichlet_proof_3}
+        \ll \chi(x_{1})\L(x_{1})\min\left(1,\frac{x}{T(x-x_{1})}\right) \ll \log(x)\min\left(1,\frac{x}{T(x-x_{1})}\right).
+      \end{equation}
+      For the other \(n\), we write \(n = x_{1}-v\), where \(v\) is an integer satisfying \(0 < v < \frac{1}{4}x\), so that
+      \[
+        \log\left(\frac{x}{n}\right) \ge \log\left(\frac{x_{1}}{n}\right) = -\log\left(1-\frac{v}{x_{1}}\right) \ge \frac{v}{x_{1}},
+      \]
+      where we have obtained the latter inequality by using Taylor series of the logarithm truncated after the first term. The contribution for these \(n\) is
+      \begin{equation}\label{equ:explicit_formula_Dirichlet_proof_4}
+        \ll \sum_{0 < v < \frac{1}{4}x}\chi(x_{1}-v)\L(x_{1}-v)\frac{x_{1}}{Tv} \ll \frac{x}{T}\sum_{0 < v < \frac{1}{4}x}\frac{\L(x_{1}-v)}{v} \ll \frac{x\log(x)}{T}\sum_{0 < v < \frac{1}{4}x}\frac{1}{v} \ll \frac{x\log^{2}(x)}{T}.
+      \end{equation}
+      The contribution for those \(n\) for which \(x < n < \frac{5}{4}x\) is handled in exactly the same way with \(x_{1}\) being the least prime power larger than \(x\). Let \(\<x\>\) be the distance between \(x\) and the nearest prime power other than \(x\) if \(x\) itself is a prime power. Combining \cref{equ:explicit_formula_Dirichlet_proof_3,equ:explicit_formula_Dirichlet_proof_4} with our previous comment, the contribution for those \(n\) with \(\frac{3}{4}x < n < \frac{5}{4}x\) is
+      \begin{equation}\label{equ:explicit_formula_Dirichlet_proof_5}
+        \ll \frac{x\log^{2}(x)}{T}+\log(x)\min\left(1,\frac{x}{T\<x\>}\right).
+      \end{equation}
+      Putting \cref{equ:explicit_formula_Dirichlet_proof_2,equ:explicit_formula_Dirichlet_proof_5}, the error term in \cref{equ:explicit_formula_Dirichlet_proof_2} is absorbed by the second error term in \cref{equ:explicit_formula_Dirichlet_proof_5} and we obtain
+      \begin{equation}\label{equ:explicit_formula_Dirichlet_proof_6}
+        \psi_{0}(x,\chi)-J(x,T,\chi) \ll \frac{x\log^{2}(x)}{T}+\log(x)\min\left(1,\frac{x}{T\<x\>}\right).
+      \end{equation}
+      Now we estimate \(J(x,T,\chi)\) by using the residue theorem. Let \(U \ge 1\) be an integer, with \(U\) is even if \(\chi\) is odd and odd if \(\chi\) is even, and let \(\eta = \sum_{1 \le i \le 4}\eta_{i}\) be the contour in \cref{fig:explict_formula_Dirichlet_contour}. We may write \(J(x,T,\chi)\) as
+      \[
+        J(x,T,\chi) = \frac{1}{2\pi i}\int_{\eta_{1}}-\frac{L'}{L}(s,\chi)x^{s}\,\frac{ds}{s}.
+      \]
+
+      \begin{figure}[ht]
+        \centering
+        \begin{tikzpicture}[scale=2]
+          \def\xmin{-3.5} \def\xmax{2}
+          \def\ymin{-2} \def\ymax{2}
+          \draw[thick] (\xmin,0) -- (\xmax,0);
+          \draw[thick] (0,\ymin) -- (0,\ymax);
+          \draw[thick] (1,\ymin) -- (1,\ymax);
+          \draw[dashed] (0.5,\ymin) -- (0.5,\ymax);
+
+          \draw[->-] (1.5,-1.5) -- (1.5,1.5);
+          \draw[->-] (1.5,1.5) -- (-3,1.5);
+          \draw[->-] (-3,1.5) -- (-3,-1.5);
+          \draw[->-] (-3,-1.5) -- (1.5,-1.5);
+
+          \node at (1.5,0) [below right] {\tiny{\(\eta_{1}\)}};
+          \node at (-0.75,1.5) [above] {\tiny{\(\eta_{2}\)}};
+          \node at (-3,0) [below left] {\tiny{\(\eta_{3}\)}};
+          \node at (-0.75,-1.5) [below] {\tiny{\(\eta_{4}\)}};
+
+          \node at (1.5,-1.5) [circle,fill,inner sep=1.5pt]{};
+          \node at (1.5,1.5) [circle,fill,inner sep=1.5pt]{};
+          \node at (0.5,1.5) [circle,fill,inner sep=1.5pt]{};
+          \node at (-3,1.5) [circle,fill,inner sep=1.5pt]{};
+          \node at (-3,-1.5) [circle,fill,inner sep=1.5pt]{};
+          \node at (0.5,-1.5) [circle,fill,inner sep=1.5pt]{};
+
+          \node at (1.5,-1.5) [below] {\tiny{\(c-iT\)}};
+          \node at (1.5,1.5) [above] {\tiny{\(c+iT\)}};
+          \node at (0.5,1.5) [above right] {\tiny{\(\frac{1}{2}+iT\)}};
+          \node at (-3,1.5) [above] {\tiny{\(-U+iT\)}};
+          \node at (-3,-1.5) [below] {\tiny{\(-U-iT\)}};
+          \node at (0.5,-1.5) [below right] {\tiny{\(\frac{1}{2}-iT\)}};
+        \end{tikzpicture}
+        \caption{Contour for the explicit formula for \(\psi(x,\chi)\)}
+        \label{fig:explict_formula_Dirichlet_contour}
+      \end{figure}
+
+      We now separate the cases that \(\chi\) is even or odd. If \(\chi\) is odd then the residue theorem, the formula for the negative logarithmic derivative in \cref{prop:explicit_formula_log_derivative} applied to \(L(s,\chi)\), and \cref{cor:logarithmic_derivative_of_gamma} together give
+      \begin{equation}\label{equ:explicit_formula_Dirichlet_proof_7}
+        J(x,T,\chi) = -\sum_{|\g| < T}\frac{x^{\rho}}{\rho}-b(\chi)-\sum_{0 < 2m+1 < U}\frac{x^{-(2m-1)}}{-(2m-1)}+\frac{1}{2\pi i}\int_{\eta_{2}+\eta_{3}+\eta_{4}}-\frac{L'}{L}(s,\chi)x^{s}\,\frac{ds}{s},
+      \end{equation}
+      where \(\rho = \b+i\g\) is a nontrivial zero of \(L(s,\chi)\). If \(\chi\) is even then there is a minor complication because \(L(s,\chi)\) has a simple zero at \(s = 0\) and so the integrand has a double pole at \(s = 0\). To find the residue, the Laurent series are
+      \[
+        \frac{L'}{L}(s,\chi) = \frac{1}{s}+b(\chi)+\cdots \quad \text{and} \quad \frac{x^{s}}{s} = \frac{1}{s}+\log(x)+\cdots,
+      \]
+      and thus the residue of the integrand is \(-(\log(x)+b(\chi))\). Now as before, the residue theorem, the formula for the negative logarithmic derivative in \cref{prop:explicit_formula_log_derivative} applied to \(L(s,\chi)\), and \cref{cor:logarithmic_derivative_of_gamma} together give
+      \begin{equation}\label{equ:explicit_formula_Dirichlet_proof_7'}
+        J(x,T,\chi) = -\sum_{|\g| < T}\frac{x^{\rho}}{\rho}-\log(x)-b(\chi)-\sum_{0 < 2m < U}\frac{x^{-2m}}{-2m}+\frac{1}{2\pi i}\int_{\eta_{2}+\eta_{3}+\eta_{4}}-\frac{L'}{L}(s,\chi)x^{s}\,\frac{ds}{s},
+      \end{equation}
+      where \(\rho = \b+i\g\) is a nontrivial zero of \(L(s,\chi)\). We now estimate the remaining integrals in \cref{equ:explicit_formula_Dirichlet_proof_7,equ:explicit_formula_Dirichlet_proof_7'}. For this estimate, the parity of \(\chi\) does not matter so we make no such restriction. By \cref{lem:powerful_L-function_approximation_lemma} (ii) applied to \(L(s,\chi)\), the number of nontrivial zeros satisfying \(|\g-T| < 1\) is \(O(\log(qT))\). Among the ordinates of these nontrivial zeros, there must be a gap of size larger than \(O\left(\frac{1}{\log(qT)}\right)\). Upon varying \(T\) by a bounded amount (we are varying in the interval \([T-1,T+1]\)) so that it belongs to this gap, we can additionally ensure
+      \[
+        \g-T \gg \frac{1}{\log(qT)},
+      \]
+      for all the nontrivial zeros of \(L(s,\chi)\). To estimate part of the horizontal integrals over \(\eta_{2}\) and \(\eta_{4}\), \cref{lem:powerful_L-function_approximation_lemma} (iv) applied to \(L(s,\chi)\) gives
+      \[
+        \frac{L'}{L}(s,\chi) = \sum_{|\g-T| < 1}\frac{1}{s-\rho}+O(\log(qT)),
+      \]
+      on the parts of these intervals with \(-1 \le \s \le 2\). Our choice of \(T\) implies \(|s-\rho| \ge |\g-T| \gg \frac{1}{\log(qT)}\) so that each term in the sum is \(O(\log(qT))\). As there are at most \(O(\log(qT))\) such terms by \cref{lem:powerful_L-function_approximation_lemma} (ii) applied to \(L(s,\chi)\), we have
+      \[
+        \frac{L'}{L}(s,\chi) = O(\log^{2}(qT)),
+      \]
+      on the parts of these intervals with \(-1 \le \s \le 2\). It follows that the parts of the horizontal integrals over \(\eta_{2}\) and \(\eta_{4}\) with  \(-1 \le \s \le c\) (recall \(c < 2\)) contribute
+      \begin{equation}\label{equ:explicit_formula_Dirichlet_proof_8}
+        \ll \frac{\log^{2}(qT)}{T}\int_{-1}^{c}x^{\s}\,d\s \ll \frac{\log^{2}(qT)}{T}\int_{-\infty}^{c}x^{\s}\,d\s \ll \frac{x\log^{2}(qT)}{T\log(x)}.
+      \end{equation}
+      where in the last estimate we have used the choice of \(c\). To estimate the remainder of the horizontal integrals, we require a bound for \(\frac{L'}{L}(s,\chi)\) when \(\s < -1\) and away from the trivial zeros. To find such a bound, write the functional equation for \(L(s,\chi)\) in the form
+      \[
+        L(s,\chi) = \frac{\e_{\chi}}{i^{\mf{a}}}q^{\frac{1}{2}-s}\pi^{s-1}\frac{\G\left(\frac{(1-s)+\mf{a}}{2}\right)}{\G\left(\frac{s+\mf{a}}{2}\right)}L(1-s,\chi),
+      \]
+      and take the logarithmic derivative to get
+      \[
+        \frac{L'}{L}(s,\chi) = -\log(q)+\log(\pi)+\frac{1}{2}\frac{\G'}{\G}\left(\frac{(1-s)+\mf{a}}{2}\right)-\frac{1}{2}\frac{\G'}{\G}\left(\frac{s+\mf{a}}{2}\right)+\frac{L'}{L}(1-s,\chi).
+      \]
+      Now let \(s\) be such that \(\s < -1\) and suppose \(s\) is distance \(\frac{1}{2}\) away from the trivial zeros. We will estimate every term on the right-hand side of the identity above. The second term is constant and the last term is bounded since it is an absolutely convergent Dirichlet series. For the digamma terms, \(s\) is away from the trivial zeros so \cref{equ:modified_digamma_estimate} implies \(\frac{1}{2}\frac{\G'}{\G}\left(\frac{(1-s)+\mf{a}}{2}\right) = O(\log{|(1-s)+\mf{a}|})\) and \(\frac{1}{2}\frac{\G'}{\G}\left(\frac{s+\mf{a}}{2}\right) = O(\log{|s+\mf{a}|})\). However, as \(\s < -1\) and \(s\) is away from the trivial zeros, \(s+\mf{a}\) and \((1-s)+\mf{a}\) are bounded away from zero so that \(\frac{1}{2}\frac{\G'}{\G}\left(\frac{(1-s)+\mf{a}}{2}\right) = O(\log{|s|})\) and \(\frac{1}{2}\frac{\G'}{\G}\left(\frac{s+\mf{a}}{2}\right) = O(\log{|s|})\). Putting these estimates together with the first term yields
+      \begin{equation}\label{equ:explicit_formula_Dirichlet_proof_9}
+        \frac{L'}{L}(s,\chi) \ll \log(q|s|),
+      \end{equation}
+      for \(\s < -1\). Using \cref{equ:explicit_formula_Dirichlet_proof_9}, the parts of the horizontal integrals over \(\eta_{2}\) and \(\eta_{4}\) with \(-U \le \s \le -1\) contribute
+      \begin{equation}\label{equ:explicit_formula_Dirichlet_proof_10}
+        \ll \frac{\log(qT)}{T}\int_{-U}^{-1}x^{\s}\,d\s \ll \frac{\log(qT)}{Tx\log(x)}.
+      \end{equation}
+      Combining \cref{equ:explicit_formula_Dirichlet_proof_8,equ:explicit_formula_Dirichlet_proof_10} gives
+      \begin{equation}\label{equ:explicit_formula_Dirichlet_proof_11}
+        \frac{1}{2\pi i}\int_{\eta_{2}+\eta_{4}}-\frac{L'}{L}(s)x^{s}\,\frac{ds}{s} \ll \frac{x\log^{2}(qT)}{T\log(x)}+\frac{\log(qT)}{Tx\log(x)} \ll \frac{x\log^{2}(qT)}{T\log(x)}.
+      \end{equation}
+      To estimate the vertical integral, we use \cref{equ:explicit_formula_Dirichlet_proof_9} again to conclude that
+      \begin{equation}\label{equ:explicit_formula_Dirichlet_proof_12}
+        \frac{1}{2\pi i}\int_{\eta_{3}}-\frac{L'}{L}(s,\chi)x^{s}\,\frac{ds}{s} \ll \frac{\log(qU)}{U}\int_{-T}^{T}x^{-U}\,dt \ll \frac{T\log(qU)}{Ux^{U}}.
+      \end{equation}
+      Combining \cref{equ:explicit_formula_Dirichlet_proof_7,equ:explicit_formula_Dirichlet_proof_11,equ:explicit_formula_Dirichlet_proof_12} and taking the limit as \(U \to \infty\), the error term in \cref{equ:explicit_formula_Dirichlet_proof_12} vanishes and the sum over \(m\) in \cref{equ:explicit_formula_Dirichlet_proof_7,equ:explicit_formula_Dirichlet_proof_7'} evaluates to \(-\tanh^{-1}(x^{-1})\) or \(\frac{1}{2}\log(1-x^{-2})\) respectively (as we have already mentioned) giving
+      \begin{equation}\label{equ:explicit_formula_Dirichlet_proof_13}
+        J(x,T,\chi) = -\sum_{|\g| < T}\frac{x^{\rho}}{\rho}-b(\chi)+\tanh^{-1}(x^{-1})+\frac{x\log^{2}(qT)}{T\log(x)},
+      \end{equation}
+      if \(\chi\) is odd, and
+      \begin{equation}\label{equ:explicit_formula_Dirichlet_proof_13'}
+        J(x,T,\chi) = -\sum_{|\g| < T}\frac{x^{\rho}}{\rho}-\log(x)-b(\chi)-\frac{1}{2}\log(1-x^{-2})+\frac{x\log^{2}(qT)}{T\log(x)},
+      \end{equation}
+      if \(\chi\) is even.
+      Substituting \cref{equ:explicit_formula_Dirichlet_proof_13,equ:explicit_formula_Dirichlet_proof_13'} into \cref{equ:explicit_formula_Dirichlet_proof_6} in the respective cases, we obtain
+      \begin{equation}\label{equ:explicit_formula_Dirichlet_proof_14}
+        \psi_{0}(x,\chi) = -\sum_{|\g| < T}\frac{x^{\rho}}{\rho}-b(\chi)+\tanh^{-1}(x^{-1})+\frac{x\log^{2}(xqT)}{T}+\log(x)\min\left(1,\frac{x}{T\<x\>}\right),
+      \end{equation}
+      if \(\chi\) is odd, and
+      \begin{equation}\label{equ:explicit_formula_Dirichlet_proof_14'}
+        \psi_{0}(x,\chi) = -\sum_{|\g| < T}\frac{x^{\rho}}{\rho}-\log(x)-b(\chi)-\frac{1}{2}\log(1-x^{-2})+\frac{x\log^{2}(xqT)}{T}+\log(x)\min\left(1,\frac{x}{T\<x\>}\right),
+      \end{equation}
+      if \(\chi\) is even, and where the second to last term on the right-hand side in both equations are obtained by combining the error term in \cref{equ:explicit_formula_Dirichlet_proof_11} with the first error term in \cref{equ:explicit_formula_Dirichlet_proof_6}. The theorem follows by taking the limit as \(T \to \infty\).
+    \end{proof}
+
+    As was the case for \(\psi(x)\), the convergence of the right-hand side in the explicit formula for \(\psi(x,\chi)\) is uniform in any interval not containing a prime power since \(\psi(x,\chi)\) is continuous there. Moreover, there is an approximate formula for \(\psi(x,\chi)\) as a corollary which holds for all Dirichlet characters:
+
+
+    \begin{corollary}\label{cor:explicit_formula_Dirichlet_corollary}
+      Let \(\chi\) be a Dirichlet character modulo \(m > 1\). Then for \(2 \le T \le x\),
+      \[
+        \psi_{0}(x,\chi) = -\frac{x^{\b_{\chi}}}{\b_{\chi}}-\asum_{|\g| < T}\frac{x^{\rho}}{\rho}+R(x,T,\chi),
+      \]
+      where \(\rho\) runs over the nontrivial zeros of \(L(s,\chi)\) counted with multiplicity and ordered with respect to the size of the ordinate, the \(\ast\) in the sum indicates that we are excluding the terms corresponding to real zeros, the term corresponding to a Siegel zero \(\b_{\chi}\) is present only if \(L(s,\chi)\) admits a Siegel zero, and
+      \[
+        R(x,T,\chi) \ll \frac{x\log^{2}(xmT)}{T}+x^{1-\b_{\chi}}\log(x)+\log(x)\min\left(1,\frac{x}{T\<x\>}\right),
+      \]
+      where \(\<x\>\) is the distance between \(x\) and the nearest prime power other than \(x\) if \(x\) itself is a prime power and again the term corresponding to a Siegel zero \(\b_{\chi}\) is present only if \(L(s,\chi)\) admits a Siegel zero. Moreover, if \(x\) is an integer, we have the simplified estimate
+      \[
+        R(x,T,\chi) \ll \frac{x\log^{2}(xmT)}{T}+x^{1-\b_{\chi}}\log(x).
+      \]
+    \end{corollary}
+    \begin{proof}
+      We first reduced to the case that \(\chi\) is primitive. Let \(\wtilde{\chi}\) be the primitive character inducing \(\chi\) and denote its conductor by \(q\). We estimate
+      \begin{equation}\label{equ:difference_between_Dirichlet-Chebyshevs}
+        \begin{aligned}
+          |\psi_{0}(x,\chi)-\psi_{0}(x,\wtilde{\chi})| &\le \sum_{\substack{n \le x \\ (n,m) > 1}}\L(n) \\
+          &= \sum_{p \mid m}\sum_{\substack{v \ge 1 \\ p^{v} \le x}}\log(p) \\
+          &\ll \log(x)\sum_{p \mid m}\log(p) \\
+          &\ll \log(x)\log(m) \\
+          &\ll \log^{2}(xm),
+        \end{aligned}
+      \end{equation}
+      where the third line holds because \(p^{v} \le x\) implies \(v \le \frac{\log(x)}{\log(p)}\) so that there are \(O(\log(x))\) many terms in the inner sum and in the last line we have used the simple estimates \(\log(x) \ll \log(xm)\) and \(\log(m) \ll \log(xm)\). Therefore the difference between \(\psi_{0}(x,\chi)\) and \(\psi_{0}(x,\wtilde{\chi})\) is \(O(\log^{2}(xm))\). Now for \(2 \le T \le x\), we have \(\log^{2}(xm) \ll \frac{x\log^{2}(xmT)}{T}\), which implies that the difference is absorbed into \(O\left(\frac{x\log^{2}(xmT)}{T}\right)\) which is the first term in the error for \(R(x,T,\chi)\). As \(R(x,T,\wtilde{\chi}) \ll R(x,T,\chi)\) because \(q \le m\), and there are finitely many nontrivial zeros of \(L(s,\chi)\) that are not nontrivial zeros of \(L(s,\wtilde{\chi})\) (all occurring on the line \(\s = 0\)), it suffices to assume that \(\chi\) is primitive. The claim will follow from estimating terms in \cref{equ:explicit_formula_Dirichlet_proof_14,equ:explicit_formula_Dirichlet_proof_14'}. We will estimate the constant \(b(\chi)\) first. The formula for the negative logarithmic derivative in \cref{prop:explicit_formula_log_derivative} applied to \(L(s,\chi)\) at \(s = 2\) implies
+      \begin{equation}\label{equ:explicit_formula_Dirichlet_corollary_1}
+        0 = -\frac{L'}{L}(2,\chi)-\frac{1}{2}\log(q)+\frac{1}{2}\log(\pi)-\frac{1}{2}\frac{\G'}{\G}\left(\frac{2+\mf{a}}{2}\right)+B(\chi)+\sum_{\rho}\left(\frac{1}{2-\rho}+\frac{1}{\rho}\right).
+      \end{equation}
+      Adding \cref{equ:explicit_formula_Dirichlet_corollary_1} to the formula for the negative logarithmic derivative in \cref{prop:explicit_formula_log_derivative} applied to \(L(s,\chi)\) gives
+      \[
+        -\frac{L'}{L}(s,\chi) = -\frac{L'}{L}(2,\chi)-\frac{1}{2}\frac{\G'}{\G}\left(\frac{2+\mf{a}}{2}\right)+\frac{1}{2}\frac{\G'}{\G}\left(\frac{s+\mf{a}}{2}\right)-\sum_{\rho}\left(\frac{1}{s-\rho}-\frac{1}{2-\rho}\right).
+      \]
+      As the first two terms are constant, we obtain a weaker estimate
+      \[
+        -\frac{L'}{L}(s,\chi) = \frac{1}{2}\frac{\G'}{\G}\left(\frac{s+\mf{a}}{2}\right)-\sum_{\rho}\left(\frac{1}{s-\rho}-\frac{1}{2-\rho}\right)+O(1).
+      \]
+      If \(\chi\) is odd, we set \(s = 0\) since \(\frac{1}{2}\frac{\G'}{\G}\left(\frac{s+\mf{a}}{2}\right)\) does not have a pole there. If \(\chi\) is even, we compare constant terms in the Laurent series using the Laurent series
+      \[
+        \frac{L'}{L}(s,\chi) = \frac{1}{s}+b(\chi)+\cdots \quad \text{and} \quad \frac{1}{2}\frac{\G'}{\G}\left(\frac{s+\mf{a}}{2}\right) = \frac{1}{s}+b+\cdots,
+      \]
+      for some constant \(b\). In either case, our previous estimate gives
+      \begin{equation}\label{equ:explicit_formula_Dirichlet_corollary_2}
+        b(\chi) = -\sum_{\rho}\left(\frac{1}{\rho}+\frac{1}{2-\rho}\right)+O(1).
+      \end{equation}
+      Let \(\rho = \b+i\g\). For all the terms with \(|\g| > 1\), we estimate
+      \begin{equation}\label{equ:explicit_formula_Dirichlet_corollary_3}
+        \sum_{|\g| > 1}\left(\frac{1}{\rho}+\frac{1}{2-\rho}\right) \le \sum_{|\g| > 1}\left|\frac{1}{\rho}+\frac{1}{2-\rho}\right| = \sum_{|\g| > 1}\frac{2}{|\rho(2-\rho)|} \ll \sum_{|\g| > 1}\frac{1}{|\rho|^{2}} \ll \log(q),
+      \end{equation}
+      where the second to last estimate holds since \(2-\rho \gg \rho\) because \(\b\) is bounded and the last estimate holds by the convergent sum in \cref{prop:explicit_formula_log_derivative}and \cref{lem:powerful_L-function_approximation_lemma} (ii) both applied to \(L(s,\chi)\) (recall that the tail of a convergent series is bounded). For the terms corresponding to \(2-\rho\) with \(|\g| \le 1\), we have
+      \begin{equation}\label{equ:explicit_formula_Dirichlet_corollary_4}
+        \sum_{|\g| \le 1}\frac{1}{2-\rho} \le \sum_{|\g| \le 1}\frac{1}{|2-\rho|} \ll \log(q),
+      \end{equation}
+      where the last estimate holds by using \cref{lem:powerful_L-function_approximation_lemma} (ii) applied to \(L(s,\chi)\) and because the nontrivial zeros are bounded away from \(2\). Combining \cref{equ:explicit_formula_Dirichlet_corollary_2,equ:explicit_formula_Dirichlet_corollary_3,equ:explicit_formula_Dirichlet_corollary_4} yields
+      \begin{equation}\label{equ:explicit_formula_Dirichlet_corollary_5}
+        b(\chi) = -\sum_{|\g| \le 1}\frac{1}{\rho}+O(\log(q)).
+      \end{equation}
+      Inserting \cref{equ:explicit_formula_Dirichlet_corollary_5} into \cref{equ:explicit_formula_Dirichlet_proof_14,equ:explicit_formula_Dirichlet_proof_14'} and noting that \(\tanh^{-1}(x^{-1})\) and \(\frac{1}{2}\log(1-x^{-2})\) are both bounded for \(x \ge 2\) gives
+      \begin{equation}\label{equ:explicit_formula_Dirichlet_corollary_6}
+        \psi_{0}(x,\chi) = -\sum_{|\g| < T}\frac{x^{\rho}}{\rho}+\sum_{|\g| \le 1}\frac{1}{\rho}+R'(x,T,\chi),
+      \end{equation}
+      where
+      \[
+        R'(x,T,\chi) \ll \frac{x\log^{2}(xqT)}{T}+\log(x)\min\left(1,\frac{x}{T\<x\>}\right),
+      \]
+      and we have absorbed the error in \cref{equ:explicit_formula_Dirichlet_corollary_5} into \(O\left(\frac{x\log^{2}(xqT)}{T}\right)\) because \(2 \le T \le x\). Extracting the terms corresponding to the possible real zeros \(\b_{\chi}\) and \(1-\b_{\chi}\) in \cref{equ:explicit_formula_Dirichlet_corollary_6}, we obtain
+      \begin{equation}\label{equ:explicit_formula_Dirichlet_corollary_7}
+        \psi_{0}(x,\chi) = -\asum_{|\g| < T}\frac{x^{\rho}}{\rho}+\asum_{|\g| \le 1}\frac{1}{\rho}-\frac{x^{\b_{\chi}}-1}{\b_{\chi}}-\frac{x^{1-\b_{\chi}}-1}{1-\b_{\chi}}+R'(x,T,\chi).
+      \end{equation}
+      We now estimate some of the terms in \cref{equ:explicit_formula_Dirichlet_corollary_7}. For the second sum, we have \(\rho \gg \frac{1}{\log(q)}\) since \(\g\) is bounded and \(\b < 1-\frac{c}{\log(q|\g|)}\) for some positive constant \(c\) by \cref{thm:improved_zero-free_region_Dirichlet}. Thus
+      \begin{equation}\label{equ:explicit_formula_Dirichlet_corollary_8}
+        \asum_{|\g| \le 1}\frac{1}{\rho} \ll \asum_{|\g| \le 1}\log(q) \ll \log^{2}(q),
+      \end{equation}
+      where the last estimate holds by \cref{lem:powerful_L-function_approximation_lemma} (ii) applied to \(L(s,\chi)\). Similarly,
+      \begin{equation}\label{equ:explicit_formula_Dirichlet_corollary_9}
+        \frac{x^{1-\b_{\chi}}-1}{1-\b_{\chi}} \ll x^{1-\b_{\chi}}\log(x),
+      \end{equation}
+      because \(\rho \gg \frac{1}{\log(q)}\) implies \(1-\b_{\chi} \gg \frac{1}{\log(q)} \gg \frac{1}{\log(x)}\). Substituting \cref{equ:explicit_formula_Dirichlet_corollary_8,equ:explicit_formula_Dirichlet_corollary_9} into \cref{equ:explicit_formula_Dirichlet_corollary_7} and noting that \(\b_{\chi}\) is bounded yields
+      \begin{equation}\label{equ:explicit_formula_Dirichlet_corollary_10}
+        \psi_{0}(x,\chi) = -\frac{x^{\b_{\chi}}}{\b_{\chi}}-\asum_{|\g| < T}\frac{x^{\rho}}{\rho}+R(x,T,\chi),
+      \end{equation}
+      where
+      \[
+        R(x,T,\chi) \ll \frac{x\log^{2}(xqT)}{T}+x^{1-\b_{\chi}}\log(x)+\log(x)\min\left(1,\frac{x}{T\<x\>}\right)
+      \]
+      and we have absorbed the error in \cref{equ:explicit_formula_Dirichlet_corollary_8} into \(O\left(\frac{x\log^{2}(xqT)}{T}\right)\) because because \(2 \le T \le x\). If \(x\) is an integer then \(\<x\> \ge 1\) so that \(\log(x)\min\left(1,\frac{x}{T\<x\>}\right) \le \frac{x\log(x)}{T}\) and this term can be absorbed into \(O\left(\frac{x\log^{2}(xqT)}{T}\right)\).
+    \end{proof}
+    
+    We can now discuss the Siegel–Walfisz theorem. Let \(a\) and \(m\) be integers such that \(m > 1\) and \((a,m) = 1\). The \textbf{prime counting function}\index{prime counting function} \(\pi(x:a,m)\) is defined by
+    \[
+      \pi(x;a,m) = \sum_{\substack{p \le x \\ p \equiv a \tmod{m}}}1,
+    \]
+    for \(x > 0\). Equivalently, \(\pi(x;a,m)\) counts the number of primes that no larger than \(x\) and are equivalent to \(a\) modulo \(m\). This is the analog of \(\pi(x)\) that is naturally associated to Dirichlet characters modulo \(m\). Accordingly, there are asymptotics for \(\pi(x;a,m)\) analogous to those for \(\pi(x)\). To prove them, we will require an auxiliary function. The function \(\psi(x;a,m)\) is defined by
+    \[
+      \psi(x;a,m) = \sum_{\substack{n \le x \\ n \equiv a \tmod{m}}}\L(n),
+    \]
+    for \(x \ge 1\). This is just \(\psi(x)\) restricted to only those terms equivalent to \(a\) modulo \(m\). As for the asymptotic, the (classical) \textbf{Siegel–Walfisz theorem}\index{Siegel–Walfisz theorem} is the first of them and the precise statement is the following:
+
+    \begin{theorem*}[Siegel–Walfisz theorem, classical]
+      Let \(a\) and \(m\) be integers such that \(m > 1\) and \((a,m) = 1\). For \(x \ge 2\),
+      \[
+        \pi(x;a,m) \sim \frac{x}{\vphi(m)\log(x)}.
+      \]
+    \end{theorem*}
+    
+    The (logarithmic integral) \textbf{Siegel–Walfisz theorem}\index{Siegel–Walfisz theorem} is equivalent and sometimes more useful:
+
+    \begin{theorem*}[Siegel–Walfisz theorem, logarithmic integral]
+      Let \(a\) and \(m\) be integers such that \(m > 1\) and \((a,m) = 1\). For \(x \ge 2\),
+      \[
+        \pi(x;a,m) \sim \frac{\Li(x)}{\vphi(m)}.
+      \]
+    \end{theorem*}
+    
+    We will prove the (asymptotic formula) \textbf{Siegel–Walfisz theorem}\index{Siegel–Walfisz theorem} which is slightly stronger as gives an asymptotic formula for \(\pi(x;a,m)\) with \(\frac{\Li(x)}{\vphi(m)}\) as the main term:
+
+    \begin{theorem*}[Siegel–Walfisz theorem, asymptotic formula]
+      Let \(a\) and \(m\) be integers such that \(m > 1\) and \((a,m) = 1\). For \(N \ge 1\) and \(x \ge 2\), there exists a positive constant \(c\) such that
+      \[
+        \pi(x;a,m) = \frac{\Li(x)}{\vphi(m)}+O\left(xe^{-c\sqrt{\log(x)}}\right),
+      \]
+      provided \(m \le \log^{N}(x)\).
+    \end{theorem*}
+    \begin{proof}
+      It suffices to assume \(x\) is an integer, because \(\pi(x;a,m)\) can only change value at integers and the other functions in the statement are increasing. We being with the identity
+      \begin{equation}\label{equ:Siegel-Walfisz_1}
+        \psi(x;a,m) = \frac{1}{\vphi(m)}\sum_{\chi \tmod{m}}\cchi(a)\psi(x,\chi),
+      \end{equation}
+      which holds by the Dirichlet orthogonality relations (namely (ii)). Let \(\wtilde{\chi}\) be the primitive character inducing \(\chi\). Then \cref{equ:difference_between_Dirichlet-Chebyshevs} implies
+      \begin{equation}\label{equ:Siegel-Walfisz_2}
+        \psi(x,\chi) = \psi(x,\wtilde{\chi})+O(\log^{2}(xm)).
+      \end{equation}
+      When \(\chi = \chi_{m,0}\) we have \(\psi(x,\wtilde{\chi}) = \psi(x)\), and as \(\psi(x,\chi) \sim \psi_{0}(x,\chi)\), substituting \cref{equ:prime_number_theorem_zeta_1} into \cref{equ:Siegel-Walfisz_2} gives
+      \begin{equation}\label{equ:Siegel-Walfisz_3}
+        \psi(x,\chi_{m,0}) = \psi(x)+O\left(xe^{-c\sqrt{\log(x)}}+\log^{2}(xm)\right),
+      \end{equation}
+      for some positive constant \(c\). Upon combining \cref{equ:Siegel-Walfisz_1,equ:Siegel-Walfisz_3}, we obtain
+      \begin{equation}\label{equ:Siegel-Walfisz_4}
+        \psi(x;a,m) = \frac{x}{\vphi(m)}+\frac{1}{\vphi(m)}\sum_{\substack{\chi \tmod{m} \\ \chi \neq \chi_{m,0}}}\cchi(a)\psi(x,\chi)+O\left(\frac{1}{\vphi(m)}\left(xe^{-c\sqrt{\log(x)}}+\log^{2}(xm)\right)\right).
+      \end{equation}
+      We now prove
+      \begin{equation}\label{equ:Siegel-Walfisz_5}
+        \psi(x,\chi) = -\frac{x^{\b_{\chi}}}{\b_{\chi}}+O\left(xe^{-c\sqrt{\log(x)}}\right),
+      \end{equation}
+      for some potentially different constant \(c\), where \(\chi \neq \chi_{m,0}\), and the term corresponding to \(\b_{\chi}\) appears if and only if \(L(s,\chi)\) admits a Siegel zero. To accomplish this, we estimate the sum over the nontrivial zeros of \(L(s,\chi)\) in \cref{cor:explicit_formula_Dirichlet_corollary}. So fix a non-principal \(\chi\) modulo \(m\) and let \(\wtilde{\chi}\) be the primitive character inducing \(\chi\). Let \(2 \le T \le x\) not coinciding with the ordinate of a nontrivial zero and let \(\rho = \b+i\g\) be a complex nontrivial zero of \(L(s,\chi)\) with \(|\g| < T\). By \cref{thm:improved_zero-free_region_Dirichlet}, all of the zeros \(\rho\) satisfy \(\b < 1-\frac{c}{\log(mT)}\) for some possibly smaller \(c\) (recall that the nontrivial zeros of \(L(s,\chi)\) that are not nontrivial zeros of \(L(s,\wtilde{\chi})\) lie on the line \(\s = 0\)). It follows that
+      \begin{equation}\label{equ:Siegel-Walfisz_6}
+        |x^{\rho}| = x^{\b} < x^{1-\frac{c}{\log(mT)}} = xe^{-c\frac{\log(x)}{\log(mT)}}.
+      \end{equation}
+      As \(|\rho| > |\g|\), for those terms with \(|\g| > 1\) (unlike the Riemann zeta function we do not have a positive lower bound for the first ordinate \(\g_{1}\) of a nontrivial zero that is not real since Siegel zeros may exist), applying integration by parts gives
+      \begin{equation}\label{equ:Siegel-Walfisz_7}
+        \sum_{1 < |\g| < T}\frac{1}{\rho} \ll \sum_{1 < |\g| < T}\frac{1}{\g} \ll \int_{1}^{T}\frac{dN(t,\wtilde{\chi})}{t} = \frac{N(T,\wtilde{\chi})}{T}+\int_{1}^{T}\frac{N(t,\wtilde{\chi})}{t^{2}}\,dt \ll \log^{2}(mT) \ll \log^{2}(xm),
+      \end{equation}
+      where in the second to last estimate we have used that \(N(t,\wtilde{\chi}) \ll t\log(qt) \ll t\log(mt)\) which follows from \cref{thm:zero_counting} applied to \(L(s,\wtilde{\chi})\) and that \(q \le m\) and in the last estimate we have used the bound \(T \le x\). For the remaining terms with \(|\g| \le 1\) (that do not correspond to real nontrivial zeros), \cref{equ:explicit_formula_Dirichlet_corollary_8} along with \(q \le m\) gives
+      \begin{equation}\label{equ:Siegel-Walfisz_8}
+        \asum_{|\g| \le 1}\frac{1}{\rho} \ll \log^{2}(m).
+      \end{equation}
+      Combining \cref{equ:Siegel-Walfisz_5,equ:Siegel-Walfisz_6,equ:Siegel-Walfisz_7,equ:Siegel-Walfisz_8} yields
+      \begin{equation}\label{equ:Siegel-Walfisz_9}
+        \asum_{|\g| < T}\frac{x^{\rho}}{\rho} \ll x\log^{2}(xm)e^{-c\frac{\log(x)}{\log(mT)}},
+      \end{equation}
+      where the \(\ast\) in the sum indicates that we are excluding the terms corresponding to real zeros, and the error in \cref{equ:Siegel-Walfisz_8} has been absorbed by that in \cref{equ:Siegel-Walfisz_7}. As \(\psi(x,\chi) \sim \psi_{0}(x,\chi)\) and \(x\) is an integer, inserting \cref{equ:Siegel-Walfisz_9} into \cref{cor:explicit_formula_Dirichlet_corollary} results in
+      \begin{equation}\label{equ:Siegel-Walfisz_10}
+        \psi(x,\chi)+\frac{x^{\b_{\chi}}}{\b_{\chi}} \ll x\log^{2}(xm)e^{-c\frac{\log(x)}{\log(mT)}}+\frac{x\log^{2}(xmT)}{T}+x^{1-\b_{\chi}}\log(x),
+      \end{equation}
+      where the terms corresponding to real zeros are present if and only if \(L(s,\chi)\) admits a Siegel zero. We now let \(T\) be determined by \(T = x\) for \(2 \le x < 3\) and
+      \[
+        \log^{2}(T) = \log(x),
+      \]
+      or equivalently,
+      \[
+        T = e^{\sqrt{\log(x)}},
+      \]
+      for \(x \ge 3\). With this choice of \(T\) (note that if \(x \ge 2\) then \(2 \le T \le x\)) and that \(m \ll \log^{N}(x)\), we can estimate \cref{equ:Siegel-Walfisz_10} as follows:
+      \begin{align*}
+        \psi(x)+\frac{x^{\b_{\chi}}}{x} &\ll x(\log^{2}(x)+\log^{2}(m))e^{-c\frac{\log(x)}{\log(m)+\sqrt{\log(x)}}}+x(\log^{2}(x)+\log^{2}(m)+\log(x))e^{-\sqrt{\log(x)}}+x^{1-\b_{\chi}}\log(x) \\
+        &\ll x(\log^{2}(x)+\log^{2}(m))e^{-c\frac{\log(x)}{\log(m)+\sqrt{\log(x)}}}+x(\log^{2}(x)+\log^{2}(m)+\log(x))e^{-\sqrt{\log(x)}}+x^{1-\b_{\chi}}\log(x) \\
+        &\ll x(\log^{2}(x)+\log^{2}(m))e^{-c\sqrt{\log(x)}}+x(\log^{2}(x)+\log^{2}(m))e^{-\sqrt{\log(x)}}+x^{1-\b_{\chi}}\log(x) \\
+        &\ll x\log^{2}(x)e^{-c\sqrt{\log(x)}}+x\log^{2}(x)e^{-\sqrt{\log(x)}}+x^{1-\b_{\chi}}\log(x) \\
+        &\ll x\log^{2}(x)e^{-\min(1,c)\frac{\sqrt{\log(x)}}{\log(m)}},
+      \end{align*}
+      where in the last estimate we have used that \(x^{1-\b_{\chi}} \le x^{\frac{1}{2}}\) because \(\b_{\chi} \ge \frac{1}{2}\). As \(\log(x) = o\left(e^{-\e\sqrt{\log(x)}}\right)\), we conclude that
+      \[
+        \psi(x)+\frac{x^{\b_{\chi}}}{x} \ll xe^{-c\sqrt{\log(x)}},
+      \]
+      for some smaller \(c\) with \(c < 1\). This is equivalent to \cref{equ:Siegel-Walfisz_5}. Substituting \cref{equ:Siegel-Walfisz_5} into \cref{equ:Siegel-Walfisz_4} and noting that there is at most one Siegel zero for characters modulo \(m\) by \cref{prop:at_most_one_Siegel_zero_per_modulus}, we arrive at
+      \begin{equation}\label{equ:Siegel-Walfisz_11}
+        \psi(x;a,m) = \frac{x}{\vphi(m)}-\frac{\cchi_{1}(a)x^{\b_{\chi}}}{\vphi(m)\b_{\chi}}+O\left(xe^{-c\sqrt{\log(x)}}\right),
+      \end{equation}
+      where \(\chi_{1}\) is the single quadratic character modulo \(m\) such that \(L(s,\chi_{1})\) admits a Siegel zero if it exists and we have absorbed the second term in the error in \cref{equ:Siegel-Walfisz_4} into the first since \(\log(x) = o\left(e^{-\e\sqrt{\log(x)}}\right)\) and \(m \ll \log^{N}(x)\). Taking \(\e = \frac{1}{2N}\) in Siegel's theorem, \(m^\frac{1}{2N} \ll \sqrt{\log(x)}\) so that \(\b_{\chi} < 1-\frac{c}{\sqrt{\log(x)}}\) for some potentially smaller constant \(c\). It follows that \(m^{2N}\) Therefore
+      \begin{equation}\label{equ:Siegel-Walfisz_12}
+        x^{\b_{\chi}} < x^{1-\frac{c}{\sqrt{\log(x)}}} = xe^{-c\log(x)}.
+      \end{equation}
+      Combining \cref{equ:Siegel-Walfisz_11,equ:Siegel-Walfisz_12} gives the simplified estimate
+      \begin{equation}\label{equ:Siegel-Walfisz_13}
+        \psi(x;a,m) = \frac{x}{\vphi(m)}+O\left(xe^{-c\sqrt{\log(x)}}\right),
+      \end{equation}
+      for some potentially smaller constant \(c\). Now let
+      \[
+        \pi_{1}(x;a,m) = \sum_{\substack{n \le x \\ n \equiv a \tmod{m}}}\frac{\L(n)}{\log(n)}.
+      \]
+      We can write \(\pi_{1}(x;a,m)\) in terms of \(\psi(x;a,m)\) as follows:
+      \begin{align*}
+        \pi_{1}(x;a,m) &= \sum_{\substack{n \le x \\ n \equiv a \tmod{m}}}\frac{\L(n)}{\log(n)} \\
+        &= \sum_{\substack{n \le x \\ n \equiv a \tmod{m}}}\L(n)\int_{n}^{x}\frac{dt}{t\log^{2}(t)}+\frac{1}{\log(x)}\sum_{\substack{n \le x \\ n \equiv a \tmod{m}}}\L(n) \\
+        &= \int_{2}^{x}\sum_{\substack{n \le x \\ n \equiv a \tmod{m}}}\L(n)\frac{dt}{t\log^{2}(t)}+\frac{1}{\log(x)}\sum_{\substack{n \le x \\ n \equiv a \tmod{m}}}\L(n) \\
+        &= \int_{2}^{x}\frac{\psi(t;a,m)}{t\log^{2}(t)}\,dt+\frac{\psi(x;a,m)}{\log(x)}.
+      \end{align*}
+      Applying \cref{equ:Siegel-Walfisz_13} to the last expression yields
+      \begin{equation}\label{equ:Siegel-Walfisz_14}
+        \pi_{1}(x;a,m) = \int_{2}^{x}\frac{t}{\vphi(m)t\log^{2}(t)}\,dt+\frac{x}{\vphi(m)\log(x)}+O\left(\int_{2}^{x}\frac{e^{-c\sqrt{\log(t)}}}{\log^{2}(t)}\,dt+\frac{xe^{-c\sqrt{\log(x)}}}{\log(x)}\right).
+      \end{equation}
+      Applying integrating by parts to the main term in \cref{equ:Siegel-Walfisz_14}, we obtain
+      \begin{equation}\label{equ:Siegel-Walfisz_15}
+        \int_{2}^{x}\frac{t}{\vphi(m)t\log^{2}(t)}\,dt+\frac{x}{\vphi(m)\log(x)} = \int_{2}^{x}\frac{dt}{\vphi(m)\log(t)}+\frac{2}{\vphi(m)\log(2)} = \frac{\Li(x)}{\vphi(m)}+\frac{2}{\vphi(m)\log(2)}.
+      \end{equation}
+      As for the error term in \cref{equ:Siegel-Walfisz_14}, we use \cref{equ:prime_number_theorem_zeta_8}. Combining \cref{equ:prime_number_theorem_zeta_8,equ:Siegel-Walfisz_14,equ:Siegel-Walfisz_15} yields
+      \begin{equation}\label{equ:Siegel-Walfisz_16}
+        \pi_{1}(x;a,m) = \frac{\Li(x)}{\vphi(m)}+O\left(xe^{-c\sqrt{\log(x)}}\right),
+      \end{equation}
+      for some smaller \(c\) and where the constant in \cref{equ:Siegel-Walfisz_15} has been absorbed into the error term. As last we pass from \(\pi_{1}(x;a,m)\) to \(\pi(x;a,m)\). If \(p\) is a prime such that \(p^{m} < x\), for some \(m \ge 1\), then \(p < x^{\frac{1}{2}} < x^{\frac{1}{3}} < \cdots < x^{\frac{1}{m}}\). Therefore
+      \begin{equation}\label{equ:Siegel-Walfisz_17}
+        \pi_{1}(x;a,m) = \sum_{\substack{n \le x \\ n \equiv a \tmod{m}}}\frac{\L(n)}{\log(n)} = \sum_{\substack{p^{m} \le x \\ p^{m} \equiv a \tmod{m}}}\frac{\log(p)}{m\log(p)} = \pi(x;a,m)+\frac{1}{2}\pi(x^{\frac{1}{2}};a,m)+\cdots.
+      \end{equation}
+      Moreover, as \(\pi(x^{\frac{1}{n}};a,m) < x^{\frac{1}{n}}\) for any \(n \ge 1\), we see that \(\pi(x;a,m)-\pi_{1}(x;a,m) = O(x^{\frac{1}{2}})\). This estimate together with \cref{equ:Siegel-Walfisz_16,equ:Siegel-Walfisz_17} gives
+      \[
+        \pi(x) = \frac{\Li(x)}{\vphi(m)}+O\left(xe^{-c\sqrt{\log(x)}}\right),
+      \]
+      because \(x^{\frac{1}{2}} \ll xe^{-c\sqrt{\log(x)}}\). This completes the proof.
+    \end{proof}
+
+    It is interesting to note that the constant \(c\) in the Siegel-Walfisz theorem is ineffective because of the use of Siegel's theorem (it also depends upon \(N\)). This is unlike the prime number theorem, where the constant \(c\) can be made to be effective. The proof of the classical and logarithmic integral variants of the Siegel-Walfisz theorem are immediate:
+
+    \begin{proof}[Proof of Siegel-Walfisz theorem, classical and logarithmic integral]
+      The asymptotic formula Siegel-Walfisz theorem is equivalent to
+      \[
+        \pi(x;a,m) = \frac{\Li(x)}{\vphi(m)}\left(1+O\left(\frac{\vphi(m)xe^{-c\sqrt{\log(x)}}}{\Li(x)}\right)\right),
+      \]
+      provided \(m \ll \log^{N}(x)\) for some \(N \ge 1\). As \(\Li(x) \sim \frac{x}{\log(x)}\), we have
+      \[
+        \frac{\vphi(m)xe^{-c\sqrt{\log(x)}}}{\Li(x)} \sim \vphi(m)\log(x)e^{-c\sqrt{\log(x)}} = o(1),
+      \]
+      where the equality holds since \(m \ll \log^{N}(x)\) and \(\log(x) = o\left(e^{-\e\sqrt{\log(x)}}\right)\). The logarithmic integral Siegel-Walfisz theorem follows and then the classical Siegel-Walfisz theorem holds as well after using the asymptotic \(\Li(x) \sim \frac{x}{\log(x)}\) again.
+    \end{proof}
+    
+    Also, we have an optimal error term, in a much wider range of \(m\), assuming the Riemann hypothesis for Dirichlet \(L\)-functions:
+    
+    \begin{proposition}\label{prop:Riemann_hypothesis_Siegel-Walfisz_theorem}
+      Let \(a\) and \(m\) be integers such that \(m > 1\) and \((a,m) = 1\). For \(x \ge 2\),
+      \[
+        \pi(x;a,m) = \frac{\Li(x)}{\vphi(m)}+O(\sqrt{x}\log(x)),
+      \]
+      provided \(m \le x\) and the Riemann hypothesis for Dirichlet \(L\)-functions holds.
+    \end{proposition}
+    \begin{proof}
+      Let \(\chi\) be a Dirichlet character modulo \(m\). If \(\rho\) is a nontrivial zero of \(L(s,\chi)\), the Riemann hypothesis for Dirichlet \(L\)-functions implies \(|x^{\rho}| = \sqrt{x}\) and that Siegel zeros do not exist so we may merely assume \(m \le x\). Therefore as in the proof of the asymptotic formula Siegel-Walfisz theorem,
+      \[
+        \sum_{|\g| < T}\frac{x^{\rho}}{\rho} \ll \sqrt{x}\log^{2}(x),
+      \]
+      for \(2 \le T \le x\) not coinciding with the ordinate of a nontrivial zero. Repeating the same argument with \(T\) determined by \(T = x\) for \(2 \le x < 3\) and 
+      \[
+        T^{2} = x,
+      \]
+      for \(x \ge 3\) gives
+      \[
+        \psi(x;a,m) = \frac{x}{\vphi(m)}+O(\sqrt{x}\log^{2}(x)),
+      \]
+      and then transferring to \(\pi_{1}(x)\) and finally \(\pi(x)\) gives
+      \[
+        \pi(x;a,m) = \frac{x}{\vphi(m)}+O(\sqrt{x}\log(x)).
+      \]
+      \end{proof}
+
+      Just like in the prime number theorem, an improvement in the zero-free region for Dirichlet L-functions will give an error term in between the asymptotic formula Siegel-Walfisz theorem and \cref{prop:Riemann_hypothesis_Siegel-Walfisz_theorem}. So again it is the strength of the zero-free region which controls the size of the error term.

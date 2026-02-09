@@ -1,0 +1,668 @@
+\chapter{Dirichlet Series}
+  Throughout, \(s = \s+it\) and \(s_{0} = \s_{0}+it_{0}\) will stand for complex variables with \(\s\), \(\s_{0}\), \(t\), and \(t_{0}\) real.
+  \section{Convergence Properties}
+    A \textit{Dirichlet series} \(D(s)\) is a sum of the form
+    \[
+      D(s) = \sum_{n \ge 1}\frac{a(n)}{n^{s}},
+    \]
+    with \(a(n) \in \C\). Our first aim is to understand where Dirichlet series converge and where they converge absolutely. It does not take much for \(D(s)\) to converge uniformly in a sector.
+
+    \begin{theorem}\label{thm:convergence_of_Dirichlet_series}
+      Suppose \(D(s)\) is a Dirichlet series that converges at \(s_{0} = \s_{0}+it_{0}\). Then for any \(H > 0\), \(D(s)\) converges uniformly in the sector
+      \[
+        \{s \in \C:\s \ge \s_{0} \text{ and } |t-t_{0}| \le H(\s-\s_{0})\}.
+      \]
+      In particular, \(D(s)\) converges in the half-plane \(\s > \s_{0}\).
+    \end{theorem}
+    \begin{proof}
+      Write \(R(u) = \sum_{n \ge u}\frac{a(n)}{n^{s_{0}}}\) for the tail of \(D(s_{0})\) so that
+      \[
+        \frac{a(n)}{n^{s_{0}}} = (R(n)-R(n+1)).
+      \]
+      Then for positive integers \(N\) and \(M\) with \(M \le N\), summation by parts implies
+      \[
+        \sum_{M \le n \le N}\frac{a(n)}{n^{s}} = R(M)M^{s_{0}-s}-R(N+1)(N+1)^{s_{0}-s}-\sum_{M \le n \le N}R(n+1)(n^{s_{0}-s}-(n+1)^{s_{0}-s}).
+      \]
+      We will express the sum on the right-hand side as an integral. To do this, observe that
+      \[
+        n^{s_{0}-s}-(n+1)^{s_{0}-s} = -(s_{0}-s)\int_{n}^{n+1}u^{s_{0}-s-1}\,du.
+      \]
+      As \(R(u)\) is constant on the interval \((n,n+1]\) a short computation shows
+      \[
+        \sum_{M \le n \le N}R(n+1)(n^{s_{0}-s}-(n+1)^{s_{0}-s}) = -(s_{0}-s)\int_{M}^{N+1}R(u)u^{s_{0}-s-1}\,du,
+      \]
+      Whence
+      \[
+        \sum_{M \le n \le N}\frac{a(n)}{n^{s}} = R(M)M^{s_{0}-s}-R(N+1)(N+1)^{s_{0}-s}+(s_{0}-s)\int_{M}^{N+1}R(u)u^{s_{0}-s-1}\,du.
+      \]
+      As \(D(s)\) converges at \(s = s_{0}\), we can choose \(M\) sufficiently large such that \(|R(u)| < \e\) for all \(u \ge M\). It follows that \(|R(u)u^{s_{0}-s}| < \e\) for all such \(u\) provided \(s\) in the desired sector. For such \(s\), we have
+      \[
+        |s-s_{0}| \le (\s-\s_{0})+|t-t_{0}| \le (H+1)(\s-\s_{0}).
+      \]
+      These estimates together imply
+      \[
+        \sum_{M \le n \le N}\frac{a(n)}{n^{s}} = O\left(2\e+\e(H+1)(\s-\s_{0})\int_{M}^{N+1}u^{\s_{0}-\s-1}\,du\right).
+      \]
+      Since the integral is \(O\left(\frac{1}{\s-\s_{0}}\right)\), the sum is \(o(1)\) for \(s\) in the desired sector. The first statement follows by uniform Cauchy's criterion. Taking the limit as \(H \to \infty\) proves the second statement. 
+    \end{proof}
+    
+    We will want to keep track of where Dirichlet series converge absolutely. Let \(\s_{c}\) be the infimum of all \(\s\) for which \(D(s)\) converges. We call \(\s_{c}\) the \textit{abscissa of convergence} of \(D(s)\). Similarly, let \(\s_{a}\) be the infimum of all \(\s\) for which \(D(s)\) converges absolutely. We call \(\s_{a}\) the \textit{abscissa of absolute convergence} of \(D(s)\). As the summands of \(D(s)\) are holomorphic, the convergence is locally absolutely uniform for \(\s > \s_{a}\) (actually uniform in sectors) and so \(D(s)\) is holomorphic in this half-plane.  
+    
+    The abscissas \(\s_{c}\) and \(\s_{a}\) act as the boundaries of convergence and absolute convergence respectively. Anything can happen on the lines \(\s = \s_{c}\) and \(\s = \s_{a}\), but to the right of them we have convergence and absolute convergence of \(D(s)\) respectively. It turns out that \(\s_{a}\) is never far from \(\s_{c}\) provided \(\s_{c}\) is finite.
+
+    \begin{theorem}\label{thm:abscissa_of_absolute_convergence_bound}
+      If \(D(s)\) is a Dirichlet series with finite abscissa of convergence \(\s_{c}\) then
+      \[
+        \s_{c} \le \s_{a} \le \s_{c}+1.
+      \]
+    \end{theorem}
+    \begin{proof}
+      The first inequality is clear since absolute convergence implies convergence. For the second inequality, the terms \(a(n)n^{-(\s_{c}+\e)}\) tend to zero as \(n \to \infty\) because \(D(s)\) converges at \(s = \s_{c}+\e\). Therefore \(a(n) \ll_{\e} n^{\s_{c}+\e}\) and so \(D(s)\) is absolutely convergent at \(s = \s_{c}+1+2\e\). This means \(\s_{a} \le \s_{c}+1+2\e\). Taking the limit as \(\e \to 0\) gives the second inequality.
+    \end{proof}
+
+    We now turn to the question of uniqueness of Dirichlet series. In particular, we would like to show that Dirichlet series are uniquely determined by their coefficient as this would allow us compare coefficient analogous to that of Taylor series. This is indeed possible.
+
+    \begin{proposition}\label{prop:coefficients_of_Dirichlet_series_are_unique}
+      Suppose \(D(s)\) is a Dirichlet series with finite abscissa of convergence \(\s_{c}\) such that
+      \[
+        D(s) = \sum_{n \ge 1}\frac{a(n)}{n^{s}} \quad \text{and} \quad D(s) = \sum_{n \ge 1}\frac{b(n)}{n^{s}}.
+      \]
+      Then \(a(n) = b(n)\) for all \(n\).
+    \end{proposition}
+    \begin{proof}
+      Set \(c(n) = a(n)-b(n)\). Then it suffices to prove \(c(n) = 0\) for all \(n\) and we will do so by induction. Take \(\s \ge \s_{a}\) so that \(D(s)\) converges absolutely. Letting \(\s \to \infty\), the dominated convergence theorem implies
+      \[
+        \lim_{\s \to \infty}D(\s) = a(1) \quad \text{and} \quad \lim_{\s \to \infty}D(\s) = b(1).
+      \]
+      Whence \(c(1) = 0\). Assume by induction that \(c(n) = 0\) for \(n \le N\) and consider the Dirichlet series
+      \[
+        \sum_{n \ge 1}\frac{c(n)}{n^{s}}.
+      \]
+      Its abscissa of absolute convergence is \(\s_{a}\). As
+      \[
+        \sum_{n > N}\frac{c(n)}{n^{s}} = 0,
+      \]
+      by assumption, it follows that
+      \[
+        c(N+1) = -\sum_{n > N}c(n)\left(\frac{N}{n}\right)^{\s}.
+      \]
+      Letting \(\s \to \infty\), the dominated convergence theorem implies
+      \[
+        \lim_{\s \to \infty}\left(-\sum_{n > N}c(n)\left(\frac{N}{n}\right)^{\s}\right) = 0.
+      \]
+      Hence \(c(N+1) = 0\) which completes the proof.
+    \end{proof}
+
+    We will now introduce several resulting concerning the growth and average growth of the coefficients of a Dirichlet series. For legibility, it will be useful to introduce some notation. If \(D(s)\) is a Dirichlet series with coefficients \(a(n)\) then for \(X > 0\), we set
+    \[
+      A(X) = \sum_{n \le X}a(n) \quad \text{and} \quad |A|(X) = \sum_{n \le X}|a(n)|.
+    \]
+    These are the partial sums of the coefficients \(a(n)\) and their absolute values up to \(X\) respectively. Many of our results will be in terms of these sums. Our first result shows that the coefficients of a Dirichlet series grown at most polynomially provided the Dirichlet series converges absolutely at some point. 
+    
+    \begin{proposition}\label{prop:Dirichlet_series_polynomial_bound_from_absolute_convergence}
+      Suppose \(D(s)\) is a Dirichlet series with coefficients \(a(n)\) that converges absolutely at \(s = \a\) for some real \(\a\). Then
+      \[
+        a(n) \ll_{\e} n^{\a+\e}.
+      \]
+      In particular, if \(D(s)\) has finite abscissa of absolute convergence \(\s_{a}\) then
+      \[
+        a(n) \ll_{\e} n^{\s_{a}+\e}.
+      \]
+    \end{proposition}
+    \begin{proof}
+      Necessarily \(\s_{a} \le \a\) and so \(D(s)\) converges absolutely in the half-plane \(\s > \a\). Write
+      \[
+        |a(n)| \le n^{\a+\e}\sum_{n \ge 1}\frac{|a(n)|}{n^{\a+\e}}.
+      \]
+      The sum is \(O_{\e}(1)\) because \(D(s)\) is absolutely convergent for \(\s > \a\). The first estimate follows at once. The second is immediate from the first and the definition of the abscissa of absolute convergence.
+    \end{proof}
+    
+    It is natural to be curious about the converse, namely, is it possible to determine an upper bound on the abscissa of absolute convergence if we know a polynomial bound for the coefficients. This is indeed possible.
+    
+    \begin{proposition}\label{prop:Dirichlet_series_convergence_polynomial_bound}
+      Suppose \(D(s)\) is a Dirichlet series whose coefficients satisfy the estimate \(a(n) \ll_{\a} n^{\a}\) for some real \(\a\). Then the abscissa of absolute convergence satisfies \(\s_{a} \le \a+1\).
+    \end{proposition}
+    \begin{proof}
+      Let \(\s > \a+1\). It suffices to show convergence of the series
+      \[
+        \sum_{n \ge 1}\frac{|a(n)|}{n^{\s}}.
+      \]
+      As
+      \[
+        \sum_{n \ge 1}\frac{|a(n)|}{n^{\s}} \ll_{\a} \sum_{n \ge 1}\frac{1}{n^{\s-\a}},
+      \]
+      and the latter series converges, the proof is complete.
+    \end{proof}
+
+    Let us now turn to the same questions but using averages of the coefficients. Our first result is analogous to \cref{prop:Dirichlet_series_polynomial_bound_from_absolute_convergence}.
+
+    \begin{proposition}\label{prop:Dirichlet_series_coefficient_size_on_average}
+      Suppose \(D(s)\) is a Dirichlet series with coefficients \(a(n)\) that converges absolutely at \(s = \a\) for some real \(\a\). Then
+      \[
+        A(X) \ll X^{\a+\e} \quad \text{and} \quad |A|(X) \ll X^{\a+\e}.
+      \]
+      In particular,
+      \[
+        A(X) \ll_{\e} X^{\s_{a}+\e} \quad \text{and} \quad |A|(X) \ll_{\e} X^{\s_{a}+\e}.
+      \]
+    \end{proposition}
+    \begin{proof}
+      Necessarily \(\s_{a} \le \a\) and so \(D(s)\) converges absolutely in the half-plane \(\s > \a\). Write
+      \[
+        \sum_{n \le X}|a(n)| \le X^{\a+\e}\sum_{n \ge 1}\frac{|a(n)|}{n^{\a+\e}}.
+      \]
+      The sum is \(O_{\e}(1)\) because \(D(s)\) is absolutely convergent for \(\s > \a\). As \(A(x) \ll |A|(x)\), the first statement follows at once. The second is immediate from the first and the definition of the abscissa of absolute convergence.
+    \end{proof}
+    
+    It turns out that if \(A(X)\) is bounded then \(\s_{c}\) is negative.
+    
+    \begin{proposition}\label{prop:Dirichlet_series_convergence_bounded_coefficient_sum}
+      Suppose \(D(s)\) is a Dirichlet series and that \(A(X) \ll 1\). Then \(\s_{c} \le 0\).
+    \end{proposition}
+    \begin{proof}
+      Let \(\s > 0\). Since \(A(X) \ll 1\), we have \(A(X)X^{-s} \to 0\) as \(X \to \infty\). Abel's summation formula then gives
+      \[
+        D(s) = s\int_{1}^{\infty}A(u)u^{-(s+1)}\,du.
+      \]
+      This expresses \(D(s)\) as an integral. Direct evaluation shows that the integral is finite. Therefore \(D(s)\) converges for \(\s > 0\) which means \(\s_{c} \le 0\).
+    \end{proof}
+
+    Unfortunately, it is not often the case that \(A(X)\) is bounded as this is quite a strong condition for most Dirichlet series. Fortunately, we can still obtain nice result analogous to that of \cref{prop:Dirichlet_series_convergence_polynomial_bound} if we assume \(|A|(X)\) grows at most polynomially.
+
+    \begin{proposition}\label{prop:Dirichlet_series_convergence_polynomial_bound_average}
+      Suppose \(D(s)\) is a Dirichlet series such that \(|A|(X) \ll_{\a} X^{\a}\) for some \(\a \ge 0\). Then the abscissa of absolute convergence satisfies \(\s_{a} \le \a\).
+    \end{proposition}
+    \begin{proof}
+      Let \(\s > \a\). It suffices to show convergence of the series
+      \[
+        \sum_{n \ge 1}\frac{|a(n)|}{n^{\s}}.
+      \]
+      The bound \(|A|(X) \ll_{\a} X^{\a}\) implies \(a(X) \ll_{\a} X^{\a}\). This means \(|a(X)|X^{-\s} \to 0\) as \(X \to \infty\). Abel's summation formula then gives
+      \[
+        \sum_{n \ge 1}\frac{|a(n)|}{n^{\s}} = \s\int_{1}^{\infty}|A|(u)u^{-(\s+1)}\,du.
+      \]
+      The bound \(|A|(X) \ll_{\a} X^{\a}\) and direct evaluation show that the integral is bounded. Therefore our series is bounded and hence must converge.
+    \end{proof}
+
+    Unfortunately, \cref{prop:Dirichlet_series_convergence_polynomial_bound_average} does not immediately imply a sharper upper bound for the abscissa of absolute convergence than that of \cref{prop:Dirichlet_series_convergence_polynomial_bound}. This is because if \(a(n) \ll_{\a} n^{\a}\) then the trivial bounds for \(A(X)\) and \(|A(X)|\) are
+    \[
+      A(X) \ll_{\a} X^{\a+1} \quad \text{and} \quad |A|(X) \ll_{\a} X^{\a+1}.
+    \]
+    In particular, using the second bound in \cref{prop:Dirichlet_series_convergence_polynomial_bound_average} will give \(\s_{a} \le \a+1\). So if we want to obtain sharper upper bounds for the abscissa of absolute convergence then we must improve the polynomial bound for the coefficients directly. Unfortunately, this is often a daunting task in practice especially if the Dirichlet series is connected to a deep algebraic or arithmetic object. However, if we assume that the coefficients are nonnegative then \textit{Landau's theorem} provides a way of locating the abscissa of absolute convergence exactly:
+
+    \begin{theorem*}[Landau's theorem]
+      Suppose \(D(s)\) is a Dirichlet series with nonnegative coefficients \(a(n)\) and finite abscissa of absolute convergence \(\s_{a}\). Then \(\s_{a}\) is a singularity of \(D(s)\).
+    \end{theorem*}
+    \begin{proof}
+      Replacing \(a(n)\) by \(a(n)n^{-\s_{a}}\), if necessary, we may assume \(\s_{a} = 0\). Now suppose to the contrary that \(D(s)\) was holomorphic at \(s = 0\). Then \(D(s)\) is holomorphic in the domain
+      \[
+        \mc{D} = \{s \in \C:\s_{a} > 0\} \cup \{s \in \C:|s| < \d\},
+      \]
+      for some \(\d > 0\). Let \(P(s)\) be the power series expansion of \(D(s)\) at \(s = 1\). Then
+      \[
+        P(s) = \sum_{k \ge 0}\frac{c_{k}}{k!}(s-1)^{k},
+      \]
+      where
+      \[
+        c_{k} = \sum_{n \ge 1}\frac{a(n)(-\log(n))^{k}}{n},
+      \]
+      upon differentiating \(D(s)\) termwise. The radius of convergence of \(P(s)\) is the distance from \(s = 1\) to the nearest singularity of \(P(s)\). Since \(P(s)\) is holomorphic on \(\mc{D}\), the closest possible singularities are at \(s = \pm i\d\). Therefore, the radius of convergence is at least \(\sqrt{1+\d^{2}}\). Write \(\sqrt{1+\d^{2}} = 1+\d'\) for some \(\d' > 0\). Then for \(|s-1| < 1+\d'\), \(P(s)\) is holomorphic and can be expressed as
+      \[
+        P(s) = \sum_{k \ge 0}\frac{(s-1)^{k}}{k!}\sum_{n \ge 1}\frac{a(n)(-\log(n))^{k}}{n}.
+      \]
+      Now choose \(s\) in this region to be real with with \(-\d' < s < 1\). Then this double sum is a sum of positive terms by assumption of the \(a(n)\) being nonnegative. As \(P(s)\) is necessarily absolutely convergent, interchanging the sums and a short computation shows
+      \[
+        P(s) = D(s).
+      \]
+      As \(-\d' < s < 1\) and \(D(s)\) has nonnegative coefficients, it converges absolutely for some \(s < 0\). This contradicts \(\s_{a} = 0\).
+    \end{proof}
+
+    There is a very important distinction in Landau's theorem that abscissa of absolute convergence is a singularity and not just a point where the Dirichlet series does not converge. Indeed, this means that if \(D(s)\) could be analytically continued to a region containing \(\s = \s_{a}\) then the continuation must have a pole at \(s = \s_{a}\). In particular, the abscissa of absolute convergence would then be a pole with the largest possible real part. This signals that the singularity is an inherent property of the analytic continuation and not one of the representation of the function as a Dirichlet series.
+  \section{Euler Products}
+    Generally speaking, if the coefficients \(a(n)\) are chosen at random, \(D(s)\) is not guaranteed to good properties outside of absolute convergence in some half-plane (provided it converges at a point). However, many Dirichlet series of interest will have coefficients that are multiplicative. These Dirichlet series admits product expressions.
+
+    \begin{proposition}\label{prop:Dirichlet_series_Euler_product}
+      Suppose \(D(s)\) is a Dirichlet series with finite abscissa of absolute convergence \(\s_{a}\) and whose coefficients \(a(n)\) are multiplicative. Then
+      \[
+        D(s) = \prod_{p}\left(\sum_{k \ge 0}\frac{a(p^{k})}{p^{ks}}\right),
+      \]
+      for \(\s > \s_{a}\). If the prime power coefficients satisfy
+      \[
+        a(p^{k}) = \sum_{1 \le j_{1} \le \cdots \le j_{k} \le d}\a_{j_{1}}(p) \cdots \a_{j_{k}}(p),
+      \]
+      for some \(\a_{1}(p),\ldots,\a_{d}(p) \in \C\) and positive integer \(d\), then the product takes the form
+      \[
+        D(s) = \prod_{p}(1-\a_{1}(p)p^{-s})^{-1} \cdots (1-\a_{d}(p)p^{-s})^{-1}.
+      \]
+    \end{proposition}
+    \begin{proof}
+      Let \(\s > \s_{a}\) and consider the series
+      \[
+        \sum_{k \ge 0}\frac{a(p^{k})}{p^{ks}}.
+      \]
+      This series converges absolutely because \(D(s)\) does. Now let \(N\) be a positive integer. By absolute convergence and the fundamental theorem of arithmetic,
+      \[
+        \prod_{p \le N}\left(\sum_{k \ge 0}\frac{a(p^{k})}{p^{ks}}\right) = \sum_{n \le N}\frac{a(n)}{n^{s}}+\asum_{n > N}\frac{a(n)}{n^{s}},
+      \]
+      where the \(\ast\) indicates that we are summing over only those additional terms \(\frac{a(n)}{n^{s}}\) that appear in the expanded product. As \(N \to \infty\), the first sum on the right-hand side tends to \(D(s)\) and the second sum tends to zero because it is part of the tail of \(D(s)\). This proves that the product converges and is equal to \(D(s)\). If the prime power coefficients are of the form
+      \[
+        a(p^{k}) = \sum_{1 \le j_{1} \le \cdots \le j_{k} \le d}\a_{j_{1}}(p) \cdots \a_{j_{k}}(p),
+      \]
+      then
+      \[
+        \sum_{k \ge 0}\frac{a(p^{k})}{p^{ks}} = (1-\a_{1}(p)p^{-s})^{-1} \cdots (1-\a_{d}(p)p^{-s})^{-1},
+      \]
+        from which the product formula follows.
+    \end{proof}
+
+    The representation
+    \[
+      D(s) = \prod_{p}\left(\sum_{k \ge 0}\frac{a(p^{k})}{p^{ks}}\right),
+    \]
+    the called the \textit{Euler product} of \(D(s)\). By \cref{prop:Dirichlet_series_Euler_product}, multiplicativity of the coefficients is enough to ensure that the Euler product exists and is equal to the Dirichlet series in the half-plane of absolute convergence. If the Euler product takes the form
+    \[
+      D(s) = \prod_{p}(1-\a_{1}(p)p^{-s})^{-1} \cdots (1-\a_{d}(p)p^{-s})^{-1},
+    \]
+    then it is said to be of \textit{degree} \(d\). The special case of complete multiplicative coefficients corresponds to degree \(1\) Euler products as
+    \[
+      D(s) = \prod_{p}(1-a(p)p^{-s})^{-1}.
+    \]
+    The condition
+    \[
+      a(p^{k}) = \sum_{1 \le j_{1} \le \cdots \le j_{k} \le d}\a_{j_{1}}(p) \cdots \a_{j_{k}}(p),
+    \]
+    guarantees that the Dirichlet series has an Euler product of degree \(d\).
+
+    \begin{remark}\label{rem:absolute_Euler_product}
+      Replacing \(D(s)\) with its absolute series in \cref{prop:Dirichlet_series_Euler_product} shows that
+      \[
+        \sum_{n \ge 1}\frac{|a(n)|}{n^{\s}} = \prod_{p}\left(\sum_{k \ge 0}\frac{|a(p^{k})|}{p^{k\s}}\right)
+      \]
+      for \(\s > \s_{a}\). Under the stronger assumption of an Euler product of degree \(d\) this identity becomes
+      \[
+        \sum_{n \ge 1}\frac{|a(n)|}{n^{\s}} = \prod_{p}(1-|\a_{1}(p)|p^{-\s})^{-1} \cdots (1-|\a_{d}(p)|p^{-\s})^{-1}.
+      \]
+      Either of these equalities is stronger than mere absolute convergence of the infinite product since each factor is replaced with its absolute series not just the absolute value of the series. In particular, this implies that the Euler product converges locally absolutely uniformly in the same region that the Dirichlet series does.
+    \end{remark}
+    
+    If \(D(s)\) admits a Euler product, we write \(D^{(N)}(s)\) to denote the Dirichlet series with the factors \(p \mid N\) in the Euler product removed. This means
+    \[
+      D^{(N)}(s) = D(s)\prod_{p \mid N}\left(\sum_{k \ge 0}\frac{a(p^{k})}{p^{ks}}\right).
+    \]
+    Dually, we let \(D_{(N)}(s)\) denote the Dirichlet series consisting only of the factors \(p \mid N\) in the Euler product. This means
+    \[
+      D_{(N)}(s) = \prod_{p \mid N}\left(\sum_{k \ge 0}\frac{a(p^{k})}{p^{ks}}\right).
+    \]
+    With this notation, we have the relationship
+    \[
+      D(s) = D^{(N)}(s)D_{(N)}(s).
+    \]
+  \section{Dirichlet Convolution}
+    We now turn to discussing how Dirichlet series behave with respect to products. Let \(D_{f}(s)\) and \(D_{g}(s)\) be the Dirichlet series defined by
+    \[
+      D_{f}(s) = \sum_{n \ge 1}\frac{f(n)}{n^{s}} \quad \text{and} \quad D_{g}(s) = \sum_{n \ge 1}\frac{g(n)}{n^{s}},
+    \]
+    for some arithmetic functions \(f\) and \(g\). Let \(f \ast g\) be the Dirichlet convolution of \(f\) and \(g\). A short computation shows
+    \[
+      D_{f}(s)D_{g}(s) = D_{f \ast g}(s).
+    \]
+    In other words, \(D_{f}(s)D_{g}(s)\) is again a Dirichlet series whose coefficients are given by the Dirichlet convolution of \(f\) and \(g\). This relation also shows that \(D_{f \ast g}(s)\) converges absolutely wherever both \(D_{f}(s)\) and \(D_{g}(s)\) do. Since Dirichlet convolution preserves multiplicativity, \(D_{f \ast g}(s)\) will have multiplicative coefficients if both \(D_{f}(s)\) and \(D_{g}(s)\) do. Moreover, from the M\"obius inversion formula we immediately find that
+    \[
+      D_{g}(s) = D_{f \ast \mathbf{1}}(s),
+    \]
+    if and only if
+    \[
+      D_{f}(s) = D_{g \ast \mu}(s).
+    \]
+    These identities can be used to compute the Dirichlet series for many types of arithmetic functions.
+  \section{Perron Formulas}
+    With the Mellin inversion formula, it is possible to relate the sums of coefficients of a Dirichlet series to an integral of its associated Dirichlet series. Such formulas are desirable because they allow for the examination of these sums by methods in complex analysis. First, we setup some general notation. Let \(D(s)\) be a Dirichlet series with coefficients \(a(n)\). For \(X > 0\), we set
+    \[
+      A^{\ast}(X) = \asum_{n \le X}a(n),
+    \]
+    where the \(\ast\) indicates that the last term is multiplied by \(\frac{1}{2}\) if \(X\) is an integer. This slight modification of \(A(X)\) accounts for the fact that Mellin inversion returns the average at a jump discontinuity. We would like to relate \(A^{\ast}(X)\) to the inverse Mellin transform of \(D(s)\). We will prove several variants of this basic idea. The first being \textit{(classical) Perron's formula} which is a consequence of Abel's summation formula and the Mellin inversion formula applied to Dirichlet series.
+
+    \begin{theorem*}[Perron's formula, classical]
+      Let \(D(s)\) be a Dirichlet series with coefficient \(a(n)\) and finite and nonnegative abscissa of absolute convergence \(\s_{a}\). Then for any \(c > \s_{a}\), we have
+      \[
+        A^{\ast}(X) = \frac{1}{2\pi i}\int_{(c)}D(s)X^{s}\,\frac{ds}{s}.
+      \]
+    \end{theorem*}
+    \begin{proof}
+      Let \(\s > \s_{a}\). By \cref{prop:Dirichlet_series_coefficient_size_on_average}, \(A(X) \ll_{\e} X^{\s_{a}+\e}\). Taking \(\e\) sufficiently small, we find that \(A(X)X^{-s} \to 0\) as \(X \to \infty\). Abel's summation formula then gives
+      \begin{equation}\label{equ:integral_rep_for_Dirichlet_series}
+        D(s) = s\int_{1}^{\infty}A(u)u^{-(s+1)}\,du.
+      \end{equation}
+      As \(A(u) = 0\) in the interval \([0,1)\), we can write the previous identity in the form
+      \[
+        \frac{D(s)}{s} = \int_{0}^{\infty}A(u)u^{-(s+1)}\,du.
+      \]
+      The Mellin inversion formula immediately gives the result.
+    \end{proof}
+
+    In the proof of classical Perron's formula, we obtained a useful integral representation for a Dirichlet series. We collect this in the following corollary:
+
+    \begin{corollary}\label{cor:integral_rep_for_Dirichlet_series}
+      Let \(D(s)\) be a Dirichlet series with finite and nonnegative abscissa of absolute convergence \(\s_{a}\). Then for \(\s > \s_{a}\), we have
+      \[
+        D(s) = s\int_{1}^{\infty}A(u)u^{-(s+1)}\,du.
+      \]
+    \end{corollary}
+    \begin{proof}
+      The identity is \cref{equ:integral_rep_for_Dirichlet_series}.
+    \end{proof}
+
+    Classical Perron's formula is not always useful in applications because often it is necessary to estimate the integral of the Dirichlet series. As the integral need not be absolutely bounded, this would require nontrivial estimates for the Dirichlet series in vertical strips. Fortunately, there are two ways to correct for this defect each of which leads to a different variant of Perron's formula. The first is to truncate the integral while the latter is to introduce a smoothing function. In the former case, a careful estimation of the error term is often necessary while the latter case requires estimates for the smoothing function. Both variants can be equally useful and the choice of which to use is often dependent upon what methods are available in the current setting.
+    
+    Let us first focus on the truncated variant. To state it, we will need to setup some notation and prove a lemma. For \(c > 0\) and \(T > 0\), consider the integrals
+    \[
+      \d(y) = \frac{1}{2\pi i}\int_{(c)}y^{s}\,\frac{ds}{s} \quad \text{and} \quad I(y,T) = \frac{1}{2\pi i}\int_{c-iT}^{c+iT}y^{s}\,\frac{ds}{s},
+    \]
+    defined for \(y > 0\). Note that \(I(y,T)\) is just \(d(y)\) truncated outside height \(T\). The lemma we require gives an explicit evaluation of \(\d(y)\) and gives an approximation for the error between \(\d(y)\) and its truncation \(I(y,T)\). The proof is quite laborious but standard.
+
+    \begin{lemma}\label{lem:delta_truncation_estimate}
+      We have
+      \[
+        \d(y) = \begin{cases} 0 & \text{if \(y < 1\)}, \\ \frac{1}{2} & \text{if \(y = 1\)}, \\ 1 & \text{if \(y > 1\)}. \end{cases}
+      \]
+      Moreover,
+      \[
+        I(y,T)-\d(y) = \begin{cases} O\left(y^{c}\min\left(1,\frac{1}{T\log(y)}\right)\right) & \text{if \(y \neq 1\)}, \\ O\left(\frac{c}{T}\right) & \text{if \(y = 1\)}. \end{cases}
+      \]
+    \end{lemma}
+    \begin{proof}
+      Since \(I(y,T) \to \d(y)\) as \(T \to \infty\), it suffices to estimate \(I(y,T)\) and then take the limit as \(T \to \infty\). First consider the case \(y = 1\). A short computation shows
+      \[
+        I(1,T) = \frac{1}{\pi}\tan^{-1}\left(\frac{T}{c}\right).
+      \]
+      Truncate the Laurent series of the inverse tangent after the first term  to write \(\tan^{-1}(t) = \frac{\pi}{2}+O\left(\frac{1}{t}\right)\). Then
+      \[
+        I(1,T) = \frac{1}{2}+O\left(\frac{c}{T}\right),
+      \] 
+      and we see that \(\d(y) = \frac{1}{2}\). This proves everything when \(y = 1\). Now suppose \(y < 1\) and let \(d > c\). Let \(\eta = \sum_{1 \le i \le 4}\eta_{i}\) be the rectangular contour in \cref{fig:discontinuous_integral_contour_1} where the horizontal lines are along \(t = \pm T\) and the vertical lines are along \(\s = c\) and \(\s = d\). Consider
+      \[
+        \frac{1}{2\pi i}\int_{\eta}y^{s}\,\frac{ds}{s}.
+      \]
+
+      \begin{figure}[ht]
+        \centering
+        \begin{tikzpicture}[scale=1.5]
+          \def\xmin{-0.5} \def\xmax{3}
+          \def\ymin{-1} \def\ymax{1}
+          \draw[thick] (\xmin,0) -- (\xmax,0);
+          \draw[thick] (0,\ymin) -- (0,\ymax);
+
+          \draw[->-] (0.5,-0.75) -- (0.5,0.75);
+          \draw[->-] (0.5,0.75) -- (2.5,0.75);
+          \draw[->-] (2.5,0.75) -- (2.5,-0.75);
+          \draw[->-] (2.5,-0.75) -- (0.5,-0.75);
+
+          \node at (0.5,0) [above left] {\tiny{\(\eta_{1}\)}};
+          \node at (1.375,0.75) [above] {\tiny{\(\eta_{2}\)}};
+          \node at (2.5,0) [above right] {\tiny{\(\eta_{3}\)}};
+          \node at (1.375,-0.75) [below] {\tiny{\(\eta_{4}\)}};
+
+          \node at (0.5,-0.75) [circle,fill,inner sep=1pt]{};
+          \node at (0.5,0.75) [circle,fill,inner sep=1pt]{};
+          \node at (2.5,0.75) [circle,fill,inner sep=1pt]{};
+          \node at (2.5,-0.75) [circle,fill,inner sep=1pt]{};
+
+          %\node at (0.5,-0.75) [below] {\tiny{\(c-iT\)}};
+          %\node at (0.5,0.75) [above] {\tiny{\(c+iT\)}};
+          %\node at (2.5,0.75) [above] {\tiny{\(d+iT\)}};
+          %\node at (2.5,-0.75) [below] {\tiny{\(d-iT\)}};
+        \end{tikzpicture}
+        \caption{A rectangular contour.}
+        \label{fig:discontinuous_integral_contour_1}
+      \end{figure}
+
+      We will evaluate this integral in the limit as \(d \to \infty\). The contour does not enclose the only pole of the integrand which is at \(s = 0\). So on the one hand, the residue theorem gives 
+      \[
+        \frac{1}{2\pi i}\int_{\eta}y^{s}\,\frac{ds}{s} = 0.
+      \]
+      On the other hand, the integral is a sum along all four contours. Observe that
+      \[
+        \frac{1}{2\pi i}\int_{\eta_{1}}y^{s}\,\frac{ds}{s} = I(y,T).
+      \]
+      For the integrals over \(\eta_{2}\) and \(\eta_{4}\), the parameterizations \(s \mapsto \s\pm iT\) show
+      \[
+        \frac{1}{2\pi i}\int_{\eta_{2}}y^{s}\,\frac{ds}{s}+\frac{1}{2\pi i}\int_{\eta_{4}}y^{s}\,\frac{ds}{s} = O\left(\frac{y^{c}}{\log(y)T}\right),
+      \]
+      as \(y < 1\). For the integral over \(\eta_{3}\), the parameterization \(s \mapsto d+it\) shows
+      \[
+        \frac{1}{2\pi i}\int_{\eta_{3}}y^{s}\,\frac{ds}{s} = O\left(y^{d}\log(T)\right).
+      \]
+      Whence
+      \[
+        I(y,T) = O\left(\frac{y^{c}}{\log(y)T}\right),
+      \]
+      upon taking the limit as \(d \to \infty\) since \(y < 1\). It follows that \(\d(y) = 0\). We now obtain another estimate for \(I(y,T)\) this time using a modified contour. Let \(\eta = \eta_{1}+\eta_{2}\) be the semicircular contour in \cref{fig:discontinuous_integral_contour_2} where the vertical line is along \(\s = c\) with endpoints at \(s = c\pm iT\). 
+
+      \begin{figure}[h]
+        \centering
+        \begin{tikzpicture}[scale=1.5]
+          \def\xmin{-0.5} \def\xmax{2}
+          \def\ymin{-1} \def\ymax{1}
+          \draw[thick] (\xmin,0) -- (\xmax,0);
+          \draw[thick] (0,\ymin) -- (0,\ymax);
+
+          \draw[->-] (0.5,0.75) -- (0.5,-0.75);
+          \draw[->-] (0.5,-0.75) arc (-90:90:3/4);
+
+          \node at (0.5,0) [above left] {\tiny{\(\eta_{1}\)}};
+          \node at (1.25,0) [above right] {\tiny{\(\eta_{2}\)}};
+
+          \node at (0.5,-0.75) [circle,fill,inner sep=1pt]{};
+          \node at (0.5,0.75) [circle,fill,inner sep=1pt]{};
+
+          %\node at (0.5,-0.75) [below] {\tiny{\(c-iT\)}};
+          %\node at (0.5,0.75) [above] {\tiny{\(c+iT\)}};
+        \end{tikzpicture}
+        \caption{A semicircular contour.}
+        \label{fig:discontinuous_integral_contour_2}
+      \end{figure}
+
+      As before, the residue theorem gives
+      \[
+        \frac{1}{2\pi i}\int_{\eta}y^{s}\,\frac{ds}{s} = 0.
+      \]
+      However, now
+      \[
+        \frac{1}{2\pi i}\int_{\eta_{1}}y^{s}\,\frac{ds}{s} = -I(y,T).
+      \]
+      The parameterization \(s \mapsto \sqrt{(c^{2}+T^{2})}e^{i\t}\) shows that
+      \[
+        \frac{1}{2\pi i}\int_{\eta_{2}}y^{s}\,\frac{ds}{s} = O(y^{c}).
+      \]
+      Whence
+      \[
+        I(y,T) = O(y^{c}).
+      \]
+      Combining these two estimates for \(I(y,T)\) proves everything when \(y < 1\). Now suppose \(y > 1\) and let \(d < 0\). We argue as in the case \(y < 1\) except we use the the rectangular contour in \cref{fig:discontinuous_integral_contour_3}.
+
+      \begin{figure}[h]
+        \centering
+        \begin{tikzpicture}[scale=1.5]
+          \def\xmin{-2.5} \def\xmax{1}
+          \def\ymin{-1} \def\ymax{1}
+          \draw[thick] (\xmin,0) -- (\xmax,0);
+          \draw[thick] (0,\ymin) -- (0,\ymax);
+
+          \draw[->-] (0.5,-0.75) -- (0.5,0.75);
+          \draw[->-] (0.5,0.75) -- (-2,0.75);
+          \draw[->-] (-2,0.75) -- (-2,-0.75);
+          \draw[->-] (-2,-0.75) -- (0.5,-0.75);
+
+          \node at (0.5,0) [above right] {\tiny{\(\eta_{1}\)}};
+          \node at (-0.875,0.75) [above] {\tiny{\(\eta_{2}\)}};
+          \node at (-2,0) [above left] {\tiny{\(\eta_{3}\)}};
+          \node at (-0.875,-0.75) [below] {\tiny{\(\eta_{4}\)}};
+
+          \node at (0.5,-0.75) [circle,fill,inner sep=1pt]{};
+          \node at (0.5,0.75) [circle,fill,inner sep=1pt]{};
+          \node at (-2,0.75) [circle,fill,inner sep=1pt]{};
+          \node at (-2,-0.75) [circle,fill,inner sep=1pt]{};
+
+          %\node at (0.5,-0.75) [below] {\tiny{\(c-iT\)}};
+          %\node at (0.5,0.75) [above] {\tiny{\(c+iT\)}};
+          %\node at (-2,0.75) [above] {\tiny{\(-d+iT\)}};
+          %\node at (-2,-0.75) [below] {\tiny{\(-d-iT\)}};
+        \end{tikzpicture}
+        \caption{A rectangular contour.}
+        \label{fig:discontinuous_integral_contour_3}
+      \end{figure}
+
+      This time the the contour encloses the simple pole of the integrand at \(s = 0\) whose residue is \(1\). Arguing analogously, we find
+      \[
+        I(y,T) = 1+O\left(\frac{y^{c}}{\log(y)T}\right),
+      \]
+      and so \(\d(y) = 1\).
+      
+      \begin{figure}[h]
+        \centering
+        \begin{tikzpicture}[scale=1.5]
+          \def\xmin{-1.25} \def\xmax{1.25}
+          \def\ymin{-1} \def\ymax{1}
+          \draw[thick] (\xmin,0) -- (\xmax,0);
+          \draw[thick] (0,\ymin) -- (0,\ymax);
+
+          \draw[->-] (0.5,-0.75) -- (0.5,0.75);
+          \draw[->-] (0.5,0.75) arc (90:270:3/4);
+
+          \node at (0.5,0) [above right] {\tiny{\(\eta_{1}\)}};
+          \node at (-0.25,0) [above left] {\tiny{\(\eta_{2}\)}};
+
+          \node at (0.5,-0.75) [circle,fill,inner sep=1pt]{};
+          \node at (0.5,0.75) [circle,fill,inner sep=1pt]{};
+
+          %\node at (0.5,-0.75) [below] {\tiny{\(c-iT\)}};
+          %\node at (0.5,0.75) [above] {\tiny{\(c+iT\)}};
+        \end{tikzpicture}
+        \caption{A semicircular contour.}
+        \label{fig:discontinuous_integral_contour_4}
+      \end{figure}
+
+      We now modify the contour by using the semicircular one in \cref{fig:discontinuous_integral_contour_4}. Again, the contour encloses the simple pole of the integrand at \(s = 0\) whose residue is \(1\). Arguing analogously, we obtain
+      \[
+        I(y,T) = 1+O(y^{c}).
+      \]
+      Combining these two estimates for \(I(y,T)\) proves everything when \(y < 1\) and completes the proof.
+    \end{proof}
+
+    This result will provide the estimate we need to prove (truncated) \textit{Perron's formula}:
+
+    \begin{theorem*}[Perron's formula, truncated]
+      Let \(D(s)\) be a Dirichlet series with coefficient \(a(n)\) and finite and nonnegative abscissa of absolute convergence \(\s_{a}\). Then for any \(c > \s_{a}\) and \(T > 0\), we have
+      \begin{align*}
+        A^{\ast}(X) &= \frac{1}{2\pi i}\int_{c-iT}^{c+iT}D(s)X^{s}\,\frac{ds}{s} \\
+        &+ O\left(X^{c}\sum_{\substack{n \ge 1 \\ n \neq X}}\frac{|a(n)|}{n^{c}}\min\left(1,\frac{1}{T\left|\log\left(\frac{X}{n}\right)\right|}\right)+\d_{X}|a(X)|\frac{c}{T}\right),
+      \end{align*}
+      where \(\d_{X} = 1,0\) according to if \(X\) is an integer or not.
+    \end{theorem*}
+    \begin{proof}
+      By \cref{lem:delta_truncation_estimate}, we may write
+      \[
+        A^{\ast}(X) = \sum_{n \ge 1}a(n)\d\left(\frac{X}{n}\right),
+      \]
+      and
+      \[
+        \d(y) = I(y,T)-\begin{cases} O\left(y^{c}\min\left(1,\frac{1}{T\log(y)}\right)\right) & \text{if \(y \neq 1\)}, \\ O\left(\frac{c}{T}\right) & \text{if \(y = 1\)}. \end{cases}
+      \] 
+      Substituting the second identity into the first and combining the \(O\)-estimates gives
+      \begin{align*}
+        A^{\ast}(X) &= \sum_{n \ge 1}a(n)\frac{1}{2\pi i}\int_{c-iT}^{c+iT}\frac{X^{s}}{n^{s}}\,\frac{ds}{s} \\
+        &+ O\left(X^{c}\sum_{\substack{n \ge 1 \\ n \neq X}}\frac{|a(n)|}{n^{c}}\min\left(1,\frac{1}{T\left|\log\left(\frac{X}{n}\right)\right|}\right)+\d_{X}|a(X)|\frac{c}{T}\right).
+      \end{align*}
+      As \(D(s)\) converges absolutely, we may interchange the sum and the integral. The statement follows.
+    \end{proof}
+
+    Since the integral in truncated Perron's formula is over a finite vertical line, the integral is automatically absolutely bounded. There is also a mor crude variant of truncated Perron's formula that follows as a corollary:
+
+    \begin{corollary}
+      Let \(D(s)\) be a Dirichlet series with coefficient \(a(n)\) and finite and nonnegative abscissa of absolute convergence \(\s_{a}\). Then for any \(c > \s_{a}\) and \(0 < T < X^{c}\), we have
+      \[
+        A^{\ast}(X) = \frac{1}{2\pi i}\int_{c-iT}^{c+iT}D(s)X^{s}\,\frac{ds}{s}+O_{c}\left(\frac{X^{c}}{T}\right),
+      \]
+    \end{corollary}
+    \begin{proof}
+      For \(0 < T < X^{c}\), we have
+      \[
+        \min\left(1,\frac{1}{T\log\left(\frac{X}{n}\right)}\right) \ll \frac{X^{c}}{T}.
+      \]
+      Also, \cref{prop:Dirichlet_series_polynomial_bound_from_absolute_convergence} guarantees \(a(X) \ll X^{c}\). These estimates and that \(D(s)\) is absolutely convergent at \(s = c\) together imply that error term in truncated Perron's formula is \(O_{c}\left(\frac{X^{c}}{T}\right)\). The claim follows.
+    \end{proof}
+
+    Having discussed truncated Perron's formula, we turn to the variant where we instead introduce a smoothing function. We call \(\psi(y)\) a \textit{smooth weight} if it is a positive bump function whose support is bounded away from zero. For any \(X > 0\), we set
+    \[
+      A_{\psi}(X) = \sum_{n \ge 1}a(n)\psi\left(\frac{n}{X}\right),
+    \]
+    We distinguish between two cases. The first is when we choose \(\psi(y)\) to assign weight \(1\) or \(0\) to the coefficients and we obtain sums such as
+    \[
+      \sum_{\frac{X}{2} \le n < X}a(n) \quad \text{or} \quad \sum_{X \le n < X+Y}a(n).
+    \]
+    Sums of this type are called \textit{unweighted}. As an example of an unweighted sum, let \(\psi(y)\) be a smooth weight that is identically \(1\) on \(\left[\frac{1}{2},1\right]\) and supported in \(\left[\frac{1}{2},\frac{X+1}{X}\right]\). Then
+    \[
+      A_{\psi}(X) = \sum_{\frac{X}{2} \le n \le X}a(n).
+    \]
+    In the second case, we want \(\psi(y)\) to dampen the coefficients with a weight other than \(1\) or \(0\). Sums of this type are called \textit{weighted}. In either case, the Mellin transform \(\Psi(s)\) of \(\psi(y)\) is given by
+    \[
+      \Psi(s) = \int_{0}^{\infty}\psi(y)y^{s}\,\frac{dy}{y}.
+    \]
+    As \(\psi(y)\) has compact support, the integral defining \(\Psi(s)\) is a locally absolutely uniformly bounded on \(\C\). In particular, \(\Psi(s)\) is holomorphic and the Mellin inversion formula implies that \(\psi(y)\) is the Mellin inverse of \(\Psi(s)\). As for nice properties, \(\Psi(s)\) exhibit rapid decay.
+
+    \begin{proposition}\label{prop:smoothing_function_Mellin_inverse_vertical_strips}
+      Suppose \(\psi(y)\) is smooth weight and let \(\Psi(s)\) be its Mellin transform. Then for bounded \(\s\), we have
+      \[
+        \Psi(s) \ll (|s|+1)^{-N},
+      \]
+      for any positive integer \(N\).
+    \end{proposition}
+    \begin{proof}
+      Consider
+      \[
+        \Psi(s) = \int_{0}^{\infty}\psi(y)y^{s}\,\frac{dy}{y}.
+      \]
+      Since \(\psi(y)\) is compactly supported, integration by parts yields
+      \[
+        \Psi(s) = \frac{1}{s}\int_{0}^{\infty}\psi'(y)y^{s+1}\,\frac{dy}{y}.
+      \]
+      Repeated integration by parts gives
+      \[
+        \Psi(s) = \frac{1}{s(s+1) \cdots (s+N-1)}\int_{0}^{\infty}\psi^{(N)}(y)y^{s+N}\,\frac{dy}{y}.
+      \]
+      Therefore
+      \[
+        \Psi(s) \ll (|s|+1)^{-N}\int_{0}^{\infty}\psi^{(N)}(y)y^{\s+N}\,\frac{dy}{y}.
+      \]
+      Now \(\psi^{(N)}(y)\) is compactly supported in the same region as \(\psi(y)\). In particular, \(\psi^{(N)}(y)\) has compact support away from zero. Therefore
+      \[
+        \int_{0}^{\infty}\psi^{(N)}(y)y^{\s+N}\,\frac{dy}{y} \ll 1,
+      \]
+      and the estimate follows.
+    \end{proof}
+    
+    The following result is (smoothed) \textit{Perron's formula}:
+
+    \begin{theorem*}[Perron's formula, smoothed]
+      Let \(D(s)\) be a Dirichlet series with coefficient \(a(n)\) and finite and nonnegative abscissa of absolute convergence \(\s_{a}\). Let \(\psi(y)\) be a smooth weight and let \(\Psi(s)\) be its Mellin transform. Then for any \(c > \s_{a}\), we have
+      \[
+        A_{\psi}(X) = \frac{1}{2\pi i}\int_{(c)}D(s)\Psi(s)X^{s}\,ds.
+      \]
+      In particular,
+      \[
+        \sum_{n \ge 1}a(n)\psi(n) = \frac{1}{2\pi i}\int_{(c)}D(s)\Psi(s)\,ds.
+      \]
+    \end{theorem*}
+    \begin{proof}
+      By the Mellin inversion formula, we may write
+      \[
+        A_{\psi}(X) = \sum_{n \ge 1}\frac{a(n)}{2\pi i}\int_{(c)}\Psi(s)\left(\frac{n}{X}\right)^{-s}\,ds.
+      \]
+      We may interchange the sum and integral by the absolute convergence of \(D(s)\) and \cref{prop:smoothing_function_Mellin_inverse_vertical_strips}. This gives
+      \[
+        A_{\psi}(X) = \frac{1}{2\pi i}\int_{(c)}D(s)\Psi(s)X^{s}\,ds,
+      \]
+      which is the first statement. For the second, take \(X = 1\).
+    \end{proof}
+
+    The integral in smoothed Perron's formula is absolutely bounded (this permitted the interchange of the sum and integral). In practice, this means that the integral can be estimated directly and we do not need to truncate. The compensation for this is that we have introduced a weighting factor to the sum of coefficients.
