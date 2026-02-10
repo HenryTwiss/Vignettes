@@ -69,7 +69,7 @@
       \]
       This function is neither additive or multiplicative.
     \end{enumerate}
-  \section{Dirichlet Convolution and the M\"obius Inversion Formula}
+  \section{Dirichlet Convolution and M\"obius Inversion}
     If \(f\) and \(g\) are two arithmetic functions then we can define a new arithmetic function \(f \ast g\) called their \textit{Dirichlet convolution} defined by
     \[
       (f \ast g)(n) = \sum_{d \mid n}f(d)g\left(\frac{n}{d}\right).
@@ -82,9 +82,9 @@
     \begin{proof}
       Let \(n\) and \(m\) be relatively prime positive integers. Every divisor \(d\) of \(nm\) is of the form \(d = d'd''\) with \(d'\) a divisor of \(n\), \(d''\) a divisor of \(m\), and \(d'\) and \(d''\) relatively prime. A short computation shows
       \[
-        \sum_{d \mid nm}f(d)g\left(\frac{nm}{d}\right) = \left(\sum_{d' \mid n}f(d')g\left(\frac{n}{d'}\right)\right)\left(\sum_{d'' \mid m}f(d'')g\left(\frac{m}{d''}\right)\right).
+        \sum_{d \mid nm}f(d)g\left(\frac{nm}{d}\right) = \left(\sum_{d' \mid n}f(d')g\left(\frac{n}{d'}\right)\right)\left(\sum_{d'' \mid m}f(d'')g\left(\frac{m}{d''}\right)\right),
       \]
-      This is equivalent to the claim.
+      which is equivalent to the claim.
     \end{proof}
 
     This result makes the set of multiplicative functions into a commutative semigroup under Dirichlet convolution. It is actually a commutative monoid since the indicator function \(\e\) acts as an identity. This means
@@ -107,9 +107,9 @@
       The first statement is equivalent to the second, so it suffices to prove the first. The sum \(\sum_{d \mid n}\mu(d)\) is multiplicative by \cref{prop:Dirichlet_convolution_of_multiplicative_functions} so we may assume \(n = p^{r}\) is a nonnegative power of a prime. When \(r = 0\), \(d = 1\) and the sum is \(1\). When \(r \ge 1\), \(d\) runs over \(1,p,\ldots,p^{r}\). Every value is zero except \(\mu(1) = 1\) and \(\mu(p) = -1\). This proves that the sum is zero.
     \end{proof}
 
-    With this result we can prove the infamous \textit{M\"obius inversion formula}:
+    With this result we can prove \textit{M\"obius inversion}:
 
-    \begin{theorem*}[M\"obius inversion formula]
+    \begin{theorem*}[M\"obius inversion]
       If \(f\) and \(g\) are arithmetic functions, then
       \[
         g(n) = \sum_{d \mid n}f(d) \quad \text{if and only if} \quad f(n) = \sum_{d \mid n}g(d)\mu\left(\frac{n}{d}\right).
