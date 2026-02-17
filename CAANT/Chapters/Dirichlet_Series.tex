@@ -1,7 +1,7 @@
 \chapter{Dirichlet Series}
   Throughout, \(s = \s+it\) and \(s_{0} = \s_{0}+it_{0}\) will stand for complex variables with \(\s\), \(\s_{0}\), \(t\), and \(t_{0}\) real.
   \section{Convergence Properties}
-    A \textit{Dirichlet series} \(D(s)\) is a sum of the form
+    A \textbf{Dirichlet series}\index{Dirichlet series} \(D(s)\) is a sum of the form
     \[
       D(s) = \sum_{n \ge 1}\frac{a(n)}{n^{s}},
     \]
@@ -46,7 +46,7 @@
       Since the integral is \(O\left(\frac{1}{\s-\s_{0}}\right)\), the sum is \(o(1)\) for \(s\) in the desired sector. The first statement follows by uniform Cauchy's criterion. Taking the limit as \(H \to \infty\) proves the second statement. 
     \end{proof}
     
-    We will want to keep track of where Dirichlet series converge absolutely. Let \(\s_{c}\) be the infimum of all \(\s\) for which \(D(s)\) converges. We call \(\s_{c}\) the \textit{abscissa of convergence} of \(D(s)\). Similarly, let \(\s_{a}\) be the infimum of all \(\s\) for which \(D(s)\) converges absolutely. We call \(\s_{a}\) the \textit{abscissa of absolute convergence} of \(D(s)\). As the summands of \(D(s)\) are holomorphic, the convergence is locally absolutely uniform for \(\s > \s_{a}\) (actually uniform in sectors) and so \(D(s)\) is holomorphic in this half-plane.  
+    We will want to keep track of where Dirichlet series converge absolutely. Let \(\s_{c}\) be the infimum of all \(\s\) for which \(D(s)\) converges. We call \(\s_{c}\) the \textbf{abscissa of convergence}\index{abscissa of convergence} of \(D(s)\). Similarly, let \(\s_{a}\) be the infimum of all \(\s\) for which \(D(s)\) converges absolutely. We call \(\s_{a}\) the \textbf{abscissa of absolute convergence}\index{abscissa of absolute convergence} of \(D(s)\). As the summands of \(D(s)\) are holomorphic, the convergence is locally absolutely uniform for \(\s > \s_{a}\) (actually uniform in sectors) and so \(D(s)\) is holomorphic in this half-plane.  
     
     The abscissas \(\s_{c}\) and \(\s_{a}\) act as the boundaries of convergence and absolute convergence respectively. Anything can happen on the lines \(\s = \s_{c}\) and \(\s = \s_{a}\), but to the right of them we have convergence and absolute convergence of \(D(s)\) respectively. It turns out that \(\s_{a}\) is never far from \(\s_{c}\) provided \(\s_{c}\) is finite.
 
@@ -196,7 +196,7 @@
     \[
       A(X) \ll_{\a} X^{\a+1} \quad \text{and} \quad |A|(X) \ll_{\a} X^{\a+1}.
     \]
-    In particular, using the second bound in \cref{prop:Dirichlet_series_convergence_polynomial_bound_average} will give \(\s_{a} \le \a+1\). So if we want to obtain sharper upper bounds for the abscissa of absolute convergence then we must improve the polynomial bound for the coefficients directly. Unfortunately, this is often a daunting task in practice especially if the Dirichlet series is connected to a deep algebraic or arithmetic object. However, if we assume that the coefficients are nonnegative then \textit{Landau's theorem} provides a way of locating the abscissa of absolute convergence exactly:
+    In particular, using the second bound in \cref{prop:Dirichlet_series_convergence_polynomial_bound_average} will give \(\s_{a} \le \a+1\). So if we want to obtain sharper upper bounds for the abscissa of absolute convergence then we must improve the polynomial bound for the coefficients directly. Unfortunately, this is often a daunting task in practice especially if the Dirichlet series is connected to a deep algebraic or arithmetic object. However, if we assume that the coefficients are nonnegative then \textbf{Landau's theorem}\index{Landau's theorem} provides a way of locating the abscissa of absolute convergence exactly:
 
     \begin{theorem*}[Landau's theorem]
       Suppose \(D(s)\) is a Dirichlet series with nonnegative coefficients \(a(n)\) and finite abscissa of absolute convergence \(\s_{a}\). Then \(\s_{a}\) is a singularity of \(D(s)\).
@@ -267,11 +267,11 @@
     \[
       D(s) = \prod_{p}\left(\sum_{k \ge 0}\frac{a(p^{k})}{p^{ks}}\right),
     \]
-    the called the \textit{Euler product} of \(D(s)\). By \cref{prop:Dirichlet_series_Euler_product}, multiplicativity of the coefficients is enough to ensure that the Euler product exists and is equal to the Dirichlet series in the half-plane of absolute convergence. If the Euler product takes the form
+    the called the \textbf{Euler product}\index{Euler product} of \(D(s)\). By \cref{prop:Dirichlet_series_Euler_product}, multiplicativity of the coefficients is enough to ensure that the Euler product exists and is equal to the Dirichlet series in the half-plane of absolute convergence. If the Euler product takes the form
     \[
       D(s) = \prod_{p}(1-\a_{1}(p)p^{-s})^{-1} \cdots (1-\a_{d}(p)p^{-s})^{-1},
     \]
-    then it is said to be of \textit{degree} \(d\). The special case of complete multiplicative coefficients corresponds to degree \(1\) Euler products as
+    then it is said to be of \textbf{degree}\index{degree} \(d\). The special case of complete multiplicative coefficients corresponds to degree \(1\) Euler products as
     \[
       D(s) = \prod_{p}(1-a(p)p^{-s})^{-1}.
     \]
@@ -328,7 +328,7 @@
     \[
       A^{\ast}(X) = \asum_{n \le X}a(n),
     \]
-    where the \(\ast\) indicates that the last term is multiplied by \(\frac{1}{2}\) if \(X\) is an integer. This slight modification of \(A(X)\) accounts for the fact that Mellin inversion returns the average at a jump discontinuity. We would like to relate \(A^{\ast}(X)\) to the inverse Mellin transform of \(D(s)\). We will prove several variants of this basic idea. The first being \textit{(classical) Perron's formula} which is a consequence of Abel summation and Mellin inversion applied to Dirichlet series.
+    where the \(\ast\) indicates that the last term is multiplied by \(\frac{1}{2}\) if \(X\) is an integer. This slight modification of \(A(X)\) accounts for the fact that Mellin inversion returns the average at a jump discontinuity. We would like to relate \(A^{\ast}(X)\) to the inverse Mellin transform of \(D(s)\). We will prove several variants of this basic idea. The first being \textbf{(classical) Perron's formula}\index{(classical) Perron's formula} which is a consequence of Abel summation and Mellin inversion applied to Dirichlet series.
 
     \begin{theorem*}[Perron's formula, classical]
       Let \(D(s)\) be a Dirichlet series with coefficient \(a(n)\) and finite and nonnegative abscissa of absolute convergence \(\s_{a}\). Then for any \(c > \s_{a}\), we have
@@ -557,7 +557,7 @@
       Combining these two estimates for \(I(y,T)\) proves everything when \(y < 1\) and completes the proof.
     \end{proof}
 
-    This result will provide the estimate we need to prove (truncated) \textit{Perron's formula}:
+    This result will provide the estimate we need to prove (truncated) \textbf{Perron's formula}\index{Perron's formula}:
 
     \begin{theorem*}[Perron's formula, truncated]
       Let \(D(s)\) be a Dirichlet series with coefficient \(a(n)\) and finite and nonnegative abscissa of absolute convergence \(\s_{a}\). Then for any \(c > \s_{a}\) and \(T > 0\), we have
@@ -600,7 +600,7 @@
       Also, \cref{prop:Dirichlet_series_polynomial_bound_from_absolute_convergence} guarantees \(a(X) \ll X^{c}\). These estimates and that \(D(s)\) is absolutely convergent at \(s = c\) together imply that error term in truncated Perron's formula is \(O_{c}\left(\frac{X^{c}}{T}\right)\). The claim follows.
     \end{proof}
 
-    Having discussed truncated Perron's formula, we turn to the variant where we instead introduce a smoothing function. We call \(\psi(y)\) a \textit{smooth weight} if it is a positive bump function whose support is bounded away from zero. For any \(X > 0\), we set
+    Having discussed truncated Perron's formula, we turn to the variant where we instead introduce a smoothing function. We call \(\psi(y)\) a \textbf{smooth weight}\index{smooth weight} if it is a positive bump function whose support is bounded away from zero. For any \(X > 0\), we set
     \[
       A_{\psi}(X) = \sum_{n \ge 1}a(n)\psi\left(\frac{n}{X}\right),
     \]
@@ -608,11 +608,11 @@
     \[
       \sum_{\frac{X}{2} \le n < X}a(n) \quad \text{or} \quad \sum_{X \le n < X+Y}a(n).
     \]
-    Sums of this type are called \textit{unweighted}. As an example of an unweighted sum, let \(\psi(y)\) be a smooth weight that is identically \(1\) on \(\left[\frac{1}{2},1\right]\) and supported in \(\left[\frac{1}{2}-\frac{1}{X},1+\frac{1}{X}\right]\). Then
+    Sums of this type are called \textbf{unweighted}\index{unweighted}. As an example of an unweighted sum, suppose \(\psi(y)\) is a smooth weight that is identically \(1\) on \(\left[\frac{1}{2},1\right]\) and supported in \(\left[\frac{1}{2}-\frac{1}{X},1+\frac{1}{X}\right]\). Then
     \[
       A_{\psi}(X) = \sum_{\frac{X}{2} \le n \le X}a(n).
     \]
-    In the second case, we want \(\psi(y)\) to dampen the coefficients with a weight other than \(1\) or \(0\). Sums of this type are called \textit{weighted}. In either case, the Mellin transform \(\Psi(s)\) of \(\psi(y)\) is given by
+    In the second case, we want \(\psi(y)\) to dampen the coefficients with a weight other than \(1\) or \(0\). Sums of this type are called \textbf{weighted}\index{weighted}. In either case, the Mellin transform \(\Psi(s)\) of \(\psi(y)\) is given by
     \[
       \Psi(s) = \int_{0}^{\infty}\psi(y)y^{s}\,\frac{dy}{y}.
     \]
@@ -649,7 +649,7 @@
       and the estimate follows.
     \end{proof}
     
-    The following result is (smoothed) \textit{Perron's formula}:
+    The following result is (smoothed) \textbf{Perron's formula}\index{Perron's formula}:
 
     \begin{theorem*}[Perron's formula, smoothed]
       Let \(D(s)\) be a Dirichlet series with coefficient \(a(n)\) and finite and nonnegative abscissa of absolute convergence \(\s_{a}\). Let \(\psi(y)\) be a smooth weight and let \(\Psi(s)\) be its Mellin transform. Then for any \(c > \s_{a}\), we have

@@ -4,73 +4,73 @@
     \[
       f:\Z_{\ge 1} \to \C,
     \]
-    is said to be \textit{arithmetic}. That is, arithmetic functions are maps from the positive integers to the complex numbers. If an arithmetic function \(f\) satisfies
+    is said to be \textbf{arithmetic}\index{arithmetic}. That is, arithmetic functions are maps from the positive integers to the complex numbers. If an arithmetic function \(f\) satisfies
     \[
       f(nm) = f(n)f(m) \quad \text{or} \quad f(nm) = f(n)+f(m),
     \]
-    whenever \(n\) and \(m\) are relatively prime, we say \(f\) is \textit{multiplicative} or \textit{additive} respectively. If either condition holds for all \(n\) and \(m\) then we say \(f\) is \textit{completely multiplicative} or \textit{completely additive}. If \(f\) is additive or multiplicative then \(f\) is uniquely determined by its values on prime powers and if \(f\) is completely additive or completely multiplicative then it is uniquely determined by its values on primes. Moreover, we have
+    whenever \(n\) and \(m\) are relatively prime, we say \(f\) is \textbf{multiplicative}\index{multiplicative} or \textbf{additive}\index{additive} respectively. If either condition holds for all \(n\) and \(m\) then we say \(f\) is \textbf{completely multiplicative}\index{completely multiplicative} or \textbf{completely additive}\index{completely additive}. If \(f\) is additive or multiplicative then \(f\) is uniquely determined by its values on prime powers and if \(f\) is completely additive or completely multiplicative then it is uniquely determined by its values on primes. Moreover, we have
     \[
       f(1) = 1 \quad \text{or} \quad f(1) = 0,
     \]
     according to if \(f\) is multiplicative or additive. Most important arithmetic functions are either multiplicative or additive. Below is a list of the most important arithmetic functions (some of these functions are restrictions of common functions but we define them here as arithmetic functions for completeness):
     \begin{enumerate}[label*=(\roman*)]
-      \item The \textit{constant function}: The function \(\mathbf{1}(n)\). This function is neither additive nor multiplicative.
-      \item The \textit{indicator function}: The function \(\e(n)\) defined by
+      \item The \textbf{constant function}\index{constant function}: The function \(\mathbf{1}(n)\). This function is neither additive nor multiplicative.
+      \item The \textbf{indicator function}\index{indicator function}: The function \(\e(n)\) defined by
       \[
         \e(n) = \begin{cases} 1 & \text{if \(n = 1\)}, \\ 0 & \text{if \(n \ge 2\)}. \end{cases}
       \]
       This function is completely multiplicative.
-      \item The \textit{identity function}: The function \(\id(n)\). This function is completely multiplicative.
-      \item The \textit{logarithm}: The function \(\log(n)\). This function is completely additive.
-      \item The \textit{M\"obius function}: The function \(\mu(n)\) defined by
+      \item The \textbf{identity function}\index{identity function}: The function \(\id(n)\). This function is completely multiplicative.
+      \item The \textbf{logarithm}\index{logarithm}: The function \(\log(n)\). This function is completely additive.
+      \item The \textbf{M\"obius function}\index{M\"obius function}: The function \(\mu(n)\) defined by
       \[
         \mu(n) = \begin{cases} 1 & \text{if \(n\) is square-free with an even number of prime factors}, \\ -1 & \text{if \(n\) is square-free with an odd number of prime factors}, \\ 0 & \text{if \(n\) is not square-free}. \end{cases}
       \]
       This function is multiplicative.
-      \item The \textit{characteristic function of square-free integers}: The square of the M\"obius function \(\mu^{2}(n)\). This function is multiplicative.
-      \item \textit{Liouville's function}: The function \(\l(n)\) defined by
+      \item The \textbf{characteristic function of square-free integers}\index{characteristic function of square-free integers}: The square of the M\"obius function \(\mu^{2}(n)\). This function is multiplicative.
+      \item \textbf{Liouville's function}\index{Liouville's function}: The function \(\l(n)\) defined by
       \[
         \l(n) = \begin{cases} 1 & \text{if \(n = 1\)}, \\ (-1)^{k} & \text{if \(n\) is composed of \(k\) not necessarily distinct prime factors}. \end{cases}
       \]
       This function is completely multiplicative.
-      \item \textit{Euler's totient function}: The function \(\vphi(n)\) defined by
+      \item \textbf{Euler's totient function}\index{Euler's totient function}: The function \(\vphi(n)\) defined by
       \[
         \vphi(n) = \sum_{\substack{a \tmod{n} \\ (a,n) = 1}}1.
       \]
       This function is multiplicative.
-      \item The \textit{divisor function}: The function \(\s_{0}(n)\) defined by
+      \item The \textbf{divisor function}\index{divisor function}: The function \(\s_{0}(n)\) defined by
       \[
         \s_{0}(n) = \sum_{d \mid n}1.
       \]
       This function is multiplicative.
-      \item The \textit{sum of divisors function}: The function \(\s_{1}(n)\) defined by
+      \item The \textbf{sum of divisors function}\index{sum of divisors function}: The function \(\s_{1}(n)\) defined by
       \[
         \s_{1}(n) = \sum_{d \mid n}d.
       \]
       This function is multiplicative.
-      \item The \textit{generalized sum of divisors function}: The function \(\s_{s}(n)\) defined by
+      \item The \textbf{generalized sum of divisors function}\index{generalized sum of divisors function}: The function \(\s_{s}(n)\) defined by
       \[
         \s_{s}(n) = \sum_{d \mid n}d^{s},
       \]
       for any \(s \in \C\). This function is multiplicative.
-      \item The \textit{number of distinct prime factors function}: The function \(\w(n)\) defined by
+      \item The \textbf{number of distinct prime factors function}\index{number of distinct prime factors function}: The function \(\w(n)\) defined by
       \[
         \w(n) = \sum_{p \mid n}1.
       \]
       This function is additive.
-      \item The \textit{total number of prime divisors function}: The function \(\W(n)\) defined by
+      \item The \textbf{total number of prime divisors function}\index{total number of prime divisors function}: The function \(\W(n)\) defined by
       \[
         \W(n) = \sum_{p ^{m} \mid n}1.
       \]
       This function is completely additive.
-      \item The \textit{von Mangoldt function}: The function \(\L(n)\) defined by
+      \item The \textbf{von Mangoldt function}\index{von Mangoldt function}: The function \(\L(n)\) defined by
       \[
         \L(n) = \begin{cases} 0 & \text{if \(n\) is not a prime power}, \\ \log(p) & \text{if \(n = p^{m}\) for some prime \(p\) and positive integer \(m\)}. \end{cases}
       \]
       This function is neither additive or multiplicative.
     \end{enumerate}
   \section{Dirichlet Convolution and M\"obius Inversion}
-    If \(f\) and \(g\) are two arithmetic functions then we can define a new arithmetic function \(f \ast g\) called their \textit{Dirichlet convolution} defined by
+    If \(f\) and \(g\) are two arithmetic functions then we can define a new arithmetic function \(f \ast g\) called their \textbf{Dirichlet convolution}\index{Dirichlet convolution} defined by
     \[
       (f \ast g)(n) = \sum_{d \mid n}f(d)g\left(\frac{n}{d}\right).
     \]
@@ -107,7 +107,7 @@
       The first statement is equivalent to the second, so it suffices to prove the first. The sum \(\sum_{d \mid n}\mu(d)\) is multiplicative by \cref{prop:Dirichlet_convolution_of_multiplicative_functions} so we may assume \(n = p^{r}\) is a nonnegative power of a prime. When \(r = 0\), \(d = 1\) and the sum is \(1\). When \(r \ge 1\), \(d\) runs over \(1,p,\ldots,p^{r}\). Every value is zero except \(\mu(1) = 1\) and \(\mu(p) = -1\). This proves that the sum is zero.
     \end{proof}
 
-    With this result we can prove \textit{M\"obius inversion}:
+    With this result we can prove \textbf{M\"obius inversion}\index{M\"obius inversion}:
 
     \begin{theorem*}[M\"obius inversion]
       If \(f\) and \(g\) are arithmetic functions, then

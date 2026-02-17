@@ -1,4 +1,6 @@
 This is makeindex, version 2.16 [TeX Live 2022] (kpathsea + Thai support).
-Scanning input file CAANT.idx...done (0 entries accepted, 0 rejected).
-Nothing written in CAANT.ind.
+Scanning input file CAANT.idx....done (106 entries accepted, 0 rejected).
+Sorting entries....done (791 comparisons).
+Generating output file CAANT.ind....done (161 lines written, 0 warnings).
+Output written in CAANT.ind.
 Transcript written in CAANT.ilg.

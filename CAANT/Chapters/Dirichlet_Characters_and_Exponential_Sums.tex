@@ -4,13 +4,13 @@
     \[
       \chi:\Z \to \C,
     \]
-    is said to be a \textit{Dirichlet character} modulo \(m\) if it is \(m\)-periodic and such that \(\chi(a) = 0\) if and only if \((a,m) > 1\). We call \(m\) the \textit{modulus} of \(\chi\). A Dirichlet character is necessarily a completely multiplicative arithmetic function when restricted to the positive integers.
+    is said to be a \textbf{Dirichlet character}\index{Dirichlet character} modulo \(m\) if it is \(m\)-periodic and such that \(\chi(a) = 0\) if and only if \((a,m) > 1\). We call \(m\) the \textbf{modulus}\index{modulus} of \(\chi\). A Dirichlet character is necessarily a completely multiplicative arithmetic function when restricted to the positive integers.
     
-    We say a Dirichlet character \(\chi\) is \textit{principal} if it only takes values \(0\) or \(1\). There is always a unique principal Dirichlet character modulo \(m\), denoted \(\chi_{m,0}\), defined by
+    We say a Dirichlet character \(\chi\) is \textbf{principal}\index{principal} if it only takes values \(0\) or \(1\). There is always a unique principal Dirichlet character modulo \(m\), denoted \(\chi_{m,0}\), defined by
     \[
       \chi_{m,0}(a) = \begin{cases} 1 & (a,m) = 1, \\ 0 & (a,m) > 1. \end{cases}
     \]
-    When the modulus is \(1\), the principal Dirichlet character is identically \(1\) and we call this the \textit{trivial Dirichlet character}. This is the only Dirichlet character modulo \(1\).
+    When the modulus is \(1\), the principal Dirichlet character is identically \(1\) and we call this the \textbf{trivial Dirichlet character}\index{trivial Dirichlet character}. This is the only Dirichlet character modulo \(1\).
     
     By Euler's little theorem, \(a^{\vphi(m)} \equiv 1 \tmod{m}\) whenever \((a,m) = 1\). This forces \(\chi(a)^{\vphi(m)} = 1\) and so the nonzero values of any Dirichlet character modulo \(m\) are \(\vphi(m)\)-th roots of unity. This implies that there are only finitely many Dirichlet characters of any fixed modulus. Given two Dirichlet character \(\chi\) and \(\psi\) modulo \(m\), the functions
     \[
@@ -18,7 +18,7 @@
     \]
     are also Dirichlet characters modulo \(m\). This turns the set of such Dirichlet characters into an abelian group denote by \(X_{m}\) where the identity is the principal Dirichlet character modulo \(m\) and the inverse is given by the conjugate as the nonzero values of Dirichlet characters are roots of unity.
     
-    This is all strikingly similar to characters on \((\Z/m\Z)^{\ast}\) and there is indeed a connection. By the multiplicativity and \(m\)-periodicity of \(\chi\), it induces a character of \((\Z/m\Z)^{\ast}\). Conversely, if we are given a character on \((\Z/m\Z)^{\ast}\) we can extend it to a Dirichlet character \(\chi\) by defining it to be \(m\)-periodic with \(\chi(a) = 0\) if \((a,m) > 1\). We call this extension a \textit{zero extension}. This argument shows that Dirichlet characters modulo \(m\) are exactly the zero extensions of characters on \((\Z/m\Z)^{\ast}\). As abelian groups are isomorphic to their character groups, we deduce that the group of Dirichlet characters modulo \(m\) is isomorphic to \((\Z/m\Z)^{\ast}\). Therefore there are \(\vphi(m)\) Dirichlet characters modulo \(m\) and we identify them with the characters on \((\Z/m\Z)^{\ast}\). Just as for characters of abelian groups, we have orthogonality relations called the \textit{Dirichlet orthogonality relations}.
+    This is all strikingly similar to characters on \((\Z/m\Z)^{\ast}\) and there is indeed a connection. By the multiplicativity and \(m\)-periodicity of \(\chi\), it induces a character of \((\Z/m\Z)^{\ast}\). Conversely, if we are given a character on \((\Z/m\Z)^{\ast}\) we can extend it to a Dirichlet character \(\chi\) by defining it to be \(m\)-periodic with \(\chi(a) = 0\) if \((a,m) > 1\). We call this extension a \textbf{zero extension}\index{zero extension}. This argument shows that Dirichlet characters modulo \(m\) are exactly the zero extensions of characters on \((\Z/m\Z)^{\ast}\). As abelian groups are isomorphic to their character groups, we deduce that the group of Dirichlet characters modulo \(m\) is isomorphic to \((\Z/m\Z)^{\ast}\). Therefore there are \(\vphi(m)\) Dirichlet characters modulo \(m\) and we identify them with the characters on \((\Z/m\Z)^{\ast}\). Just as for characters of abelian groups, we have orthogonality relations called the \textbf{Dirichlet orthogonality relations}\index{Dirichlet orthogonality relations}.
 
     \begin{proposition*}[Dirichlet orthogonality relations]
     Let \(\chi\) and \(\psi\) be Dirichlet characters modulo \(m\) and let \(a,b \in (\Z/m\Z)^{\ast}\). Then
@@ -50,11 +50,11 @@
       in which case the sum vanishes. This proves the second identity and the first statement in its entirety. The second statement follows from the first upon taking \(\psi = \chi_{m,0}\) and \(b = 1\) respectively.
     \end{proof}
 
-    It it possible for Dirichlet characters of a fixed modulus to arise from Dirichlet characters of a smaller modulus. Suppose \(\chi\) and \(\chi^{\ast}\) are Dirichlet characters modulo \(m\) and \(d\) respectively with \(d \mid m\). We say \(\chi\) is induced \textit{induced} from \(\chi^{\ast}\) (or \(\chi^{\ast}\) \textit{induces} \(\chi\)) if
+    It it possible for Dirichlet characters of a fixed modulus to arise from Dirichlet characters of a smaller modulus. Suppose \(\chi\) and \(\chi^{\ast}\) are Dirichlet characters modulo \(m\) and \(d\) respectively with \(d \mid m\). We say \(\chi\) is induced \textbf{induced}\index{induced} from \(\chi^{\ast}\) (or \(\chi^{\ast}\) \textbf{induces}\index{induces} \(\chi\)) if
     \[
       \chi(a) = \begin{cases} \chi^{\ast}(a) & \text{if \((a,m) = 1\)}, \\ 0 & \text{if \((a,m) > 1\)}. \end{cases}
     \] 
-    This means \(\chi\) is a Dirichlet character whose values are given by those of \(\chi^{\ast}\). Necessarily \(\chi\) is \(d\)-periodic and its nonzero values are \(\vphi(d)\)-th roots of unity. We say a Dirichlet character is \textit{primitive} if it is not induced by any Dirichlet character other than itself and \textit{imprimitive} otherwise. The principal Dirichlet characters are precisely those induced from the trivial Dirichlet character and the only primitive one is the trivial Dirichlet character itself. Moreover, a Dirichlet character is primitive if and only if its conjugate is. Our primary aim will be to show that every Dirichlet character is induced from a unique primitive Dirichlet character. 
+    This means \(\chi\) is a Dirichlet character whose values are given by those of \(\chi^{\ast}\). Necessarily \(\chi\) is \(d\)-periodic and its nonzero values are \(\vphi(d)\)-th roots of unity. We say a Dirichlet character is \textbf{primitive}\index{primitive} if it is not induced by any Dirichlet character other than itself and \textbf{imprimitive}\index{imprimitive} otherwise. The principal Dirichlet characters are precisely those induced from the trivial Dirichlet character and the only primitive one is the trivial Dirichlet character itself. Moreover, a Dirichlet character is primitive if and only if its conjugate is. Our primary aim will be to show that every Dirichlet character is induced from a unique primitive Dirichlet character. 
     
     \begin{theorem}\label{thm:Dirichlet_character_conductor_existance}
       Suppose \(\chi\) is a Dirichlet character modulo \(m\). There exists a unique primitive Dirichlet character \(\wtilde{\chi}\) such that \(\chi\) is induced from \(\wtilde{\chi}\).
@@ -71,7 +71,7 @@
       The definition of \(q\) implies \(\wtilde{\chi}\) is well-defined and hence \(q\)-periodic. In fact, \(\wtilde{\chi}\) is a Dirichlet character modulo \(q\) and minimality forces \(\wtilde{\chi}\) to be primitive. By construction \(\chi\) is indued from \(\wtilde{\chi}\) and this proves existence. Now suppose \(\wtilde{\chi}_{1}\) and \(\wtilde{\chi}_{2}\) are two primitive Dirichlet characters modulo \(q_{1}\) and \(q_{2}\) respectively both of which induce \(\chi\). Then \(\wtilde{\chi}_{1}(a) = \wtilde{\chi}_{2}(a)\) whenever \((a,m) = 1\). Setting \(q = (q_{1},q_{2})\), we also have \(\wtilde{\chi}_{1}(a) = \wtilde{\chi}_{2}(a)\) whenever \((a,q) = 1\). Hence \(\wtilde{\chi}_{1}\) and \(\wtilde{\chi}_{2}\) are both induced from the same Dirichlet character modulo \(q\). Primitivity implies \(q_{1} = q_{2}\) and \(\wtilde{\chi}_{1} = \wtilde{\chi}_{2}\). This proves uniqueness.
     \end{proof}
 
-    In light of this result, we define the \textit{conductor} \(q\) of a Dirichlet character \(\chi\) modulo \(m\) to be the modulus of the unique primitive Dirichlet character \(\wtilde{\chi}\) inducing \(\chi\). By the proof, the conductor is given by
+    In light of this result, we define the \textbf{conductor}\index{conductor} \(q\) of a Dirichlet character \(\chi\) modulo \(m\) to be the modulus of the unique primitive Dirichlet character \(\wtilde{\chi}\) inducing \(\chi\). By the proof, the conductor is given by
     \[
       q = \min\{d \mid m:\chi(a) = \chi(b) \text{ for all } a \equiv b \tmod{d} \text{ with } (ab,m) = 1\}.
     \]
@@ -108,9 +108,9 @@
       For the forward implication, suppose \(\chi\) is primitive so that \(q = m_{1}m_{2}\) whence \(m_{1}m_{2} \mid q_{1}q_{2}\). This forces \(m_{1} = q_{1}\) and \(m_{2} = q_{2}\) proving \(\chi_{1}\) and \(\chi_{2}\) are both primitive. For the reverse implication, suppose \(\chi_{1}\) and \(\chi_{2}\) are both primitive so that \(q_{1} = m_{1}\) and \(q_{2} = m_{2}\). Then \((q_{1},q_{1}) = 1\) and the Chinese remainder theorem implies that \(\chi\) is \(q_{1}\)-periodic on those integers that are congruent to \(1\) modulo \(q_{2}\) and \(q_{2}\)-periodic on those integers that are congruent to \(1\) modulo \(q_{1}\). This forces \(q_{1} \mid q\) and \(q_{2} \mid q\) which together imply \(q = q_{1}q_{2}\) and thus \(\chi\) is primitive.
     \end{proof}
     
-    We would now like to distinguish Dirichlet characters based on their nonzero values. We say \(\chi\) is \textit{real} if it is real-valued. This means the nonzero values of \(\chi\) are \(1\) or \(-1\) since they are the only real roots of unity. We say \(\chi\) is \textit{complex} if it is not real. More commonly, we distinguish Dirichlet characters by the roots of unity that their nonzero values take. We say \(\chi\) is of \textit{order} \(n\) if the nonzero values of \(\chi\) are all \(n\)-th roots of unity. In the cases of small order we will often use the latin derived names \textit{quadratic}, \textit{cubic}, etc. To connect these two naming conventions observe that a nontrivial Dirichlet character is quadratic if and only if it is real and an other nontrivial Dirichlet character is necessarily complex. Also note that quadratic Dirichlet characters are their own conjugates.
+    We would now like to distinguish Dirichlet characters based on their nonzero values. We say \(\chi\) is \textbf{real}\index{real} if it is real-valued. This means the nonzero values of \(\chi\) are \(1\) or \(-1\) since they are the only real roots of unity. We say \(\chi\) is \textbf{complex}\index{complex} if it is not real. More commonly, we distinguish Dirichlet characters by the roots of unity that their nonzero values take. We say \(\chi\) is of \textbf{order}\index{order} \(n\) if the nonzero values of \(\chi\) are all \(n\)-th roots of unity. In the cases of small order we will often use the latin derived names \textbf{quadratic}\index{quadratic}, \textbf{cubic}\index{cubic}, etc. To connect these two naming conventions observe that a nontrivial Dirichlet character is quadratic if and only if it is real and an other nontrivial Dirichlet character is necessarily complex. Also note that quadratic Dirichlet characters are their own conjugates.
     
-    We will also distinguish Dirichlet characters by their parity. By multiplicativity, we must have \(\chi(-1) = \pm 1\). Accordingly, we say \(\chi\) is \textit{even} if \(\chi(-1) = 1\) and \textit{odd} if \(\chi(-1) = -1\). Then even Dirichlet characters are even functions while odd Dirichlet characters are odd functions. Note that conjugate and induced Dirichlet characters necessarily have the same parity. The parity is also expressed via the formula
+    We will also distinguish Dirichlet characters by their parity. By multiplicativity, we must have \(\chi(-1) = \pm 1\). Accordingly, we say \(\chi\) is \textbf{even}\index{even} if \(\chi(-1) = 1\) and \textbf{odd}\index{odd} if \(\chi(-1) = -1\). Then even Dirichlet characters are even functions while odd Dirichlet characters are odd functions. Note that conjugate and induced Dirichlet characters necessarily have the same parity. The parity is also expressed via the formula
     \[
       \frac{\chi(1)-\chi(-1)}{2} = \begin{cases} 0 & \text{if \(\chi\) is even}, \\ 1 & \text{if \(\chi\) is odd}. \end{cases}
     \]
@@ -119,7 +119,7 @@
     \[
       \chi_{m}(a) = \legendre{a}{m}.
     \]
-    By definition of the Jacobi symbol, \(\chi_{m}\) becomes a quadratic Dirichlet character modulo \(m\). Unfortunately, the quadratic Dirichlet characters constructed in this manner do not exhaust all possible examples. To accomplish this we need to use Kronecker symbols. An integer \(D\) is said to be a \textit{fundamental discriminant} if it is of the form
+    By definition of the Jacobi symbol, \(\chi_{m}\) becomes a quadratic Dirichlet character modulo \(m\). Unfortunately, the quadratic Dirichlet characters constructed in this manner do not exhaust all possible examples. To accomplish this we need to use Kronecker symbols. An integer \(D\) is said to be a \textbf{fundamental discriminant}\index{fundamental discriminant} if it is of the form
     \[
       D = \begin{cases} d & \text{if \(D \equiv 1 \tmod{4}\)}, \\ 4d & \text{if \(D \equiv 8,12 \tmod{16}\)}, \end{cases}
     \]
@@ -168,7 +168,7 @@
 
     It follows from \cref{thm:fundamental_discriminant_character_primitive} that all quadratic Dirichlet characters are induced from some \(\chi_{D}\) including \(D = 1\) since this corresponds to the trivial Dirichlet character. In particular, so too are the quadratic Dirichlet characters given by Jacobi symbols.
   \section{Ramanujan and Gauss Sums}
-    For integers \(b\) and \(m\) with \(m\) positive, the \textit{Ramanujan sum} \(r(b,m)\) is defined by
+    For integers \(b\) and \(m\) with \(m\) positive, the \textbf{Ramanujan sum}\index{Ramanujan sum} \(r(b,m)\) is defined by
     \[
       r(b,m) = \sum_{\substack{a \tmod{m} \\ (a,m) = 1}}e^{\frac{2\pi iab}{m}}.
     \]
@@ -196,7 +196,7 @@
       Now apply M\"obius inversion.
     \end{proof}
 
-    More general Ramanujan sums can be constructed by introducing a Dirichlet character. Let \(\chi\) be a Dirichlet character modulo \(m\). For any integer \(b\), the \textit{Ramanujan sum} \(\tau(n,\chi)\) associated to \(\chi\) is given by
+    More general Ramanujan sums can be constructed by introducing a Dirichlet character. Let \(\chi\) be a Dirichlet character modulo \(m\). For any integer \(b\), the \textbf{Ramanujan sum}\index{Ramanujan sum} \(\tau(n,\chi)\) associated to \(\chi\) is given by
     \[
       \tau(b,\chi) = \sum_{a \tmod{m}}\chi(a)e^{\frac{2\pi iab}{m}}.
     \]
@@ -208,7 +208,7 @@
     \[
       \tau(b,\chi) = \vphi(m)\d_{\chi,\chi_{m,0}}.
     \]
-    When \(b = 1\) we simply write \(\tau(\chi) = \tau(1,\chi)\) and call \(\tau(\chi)\) the \textit{Gauss sum} associated to \(\chi\). The following proposition develops the basic properties of these Ramanujan sums:
+    When \(b = 1\) we simply write \(\tau(\chi) = \tau(1,\chi)\) and call \(\tau(\chi)\) the \textbf{Gauss sum}\index{Gauss sum} associated to \(\chi\). The following proposition develops the basic properties of these Ramanujan sums:
 
     \begin{proposition}\label{prop:Gauss_sum_reduction}
       Let \(\chi\) and \(\psi\) be nontrivial Dirichlet characters modulo \(m\) and \(n\) respectively and let \(b\) be an integer. Then the following properties hold:
@@ -295,7 +295,7 @@
       For the first statement, the identity is obvious if \(\chi\) is the trivial character as the Ramanujan sum is \(1\). So assume \(\chi\) is nontrivial. If \((b,q) = 1\) then this is exactly \cref{prop:Gauss_sum_reduction} (ii). If \((b,q) > 1\) then the identity follows from \cref{prop:Gauss_sum_reduction} (iii) and that \(\cchi(b) = 0\). This proves the first statement in full. For the second statement, observe that \(\tau(\chi) \neq 0\) by \cref{thm:Gauss_sum_modulus}. The second identity follows upon replacing \(\chi\) with \(\cchi\), dividing by \(\tau(\chi)\), and expanding the Ramanujan sum.
     \end{proof}
 
-    For a Dirichlet character \(\chi\) modulo \(m\), we define the \textit{epsilon factor} \(\e_{\chi}\) by
+    For a Dirichlet character \(\chi\) modulo \(m\), we define the \textbf{epsilon factor}\index{epsilon factor} \(\e_{\chi}\) by
     \[
       \e_{\chi} = \frac{\tau(\chi)}{\sqrt{m}}.
     \]
@@ -319,7 +319,7 @@
       Combining these identities gives the result.
     \end{proof}
   \section{Quadratic Gauss Sums}
-    Our primary aim will be to evaluate the epsilon factor of the Gauss sum for quadratic Dirichlet characters defined by Jacobi symbols. To accomplish this we will study and auxiliary exponential sum. For integers \(b\) and \(m\) with \(m\) positive, the \textit{quadratic Gauss sum} \(g(b,m)\) is defined by
+    Our primary aim will be to evaluate the epsilon factor of the Gauss sum for quadratic Dirichlet characters defined by Jacobi symbols. To accomplish this we will study and auxiliary exponential sum. For integers \(b\) and \(m\) with \(m\) positive, the \textbf{quadratic Gauss sum}\index{quadratic Gauss sum} \(g(b,m)\) is defined by
     \[
       g(b,m) = \sum_{a \tmod{m}}e^{\frac{2\pi ia^{2}b}{m}}.
     \]
@@ -438,7 +438,7 @@
       The claim is obvious if \(m = 1\) because the quadratic Gauss sum is \(1\). So assume \(m > 1\). By \cref{prop:quadratic_Gauss_sum_reduction} (ii) and (iii), it suffices to prove the claim when \(m = p^{r}\) is an odd prime power. The case when \(r = 1\) follows from \cref{thm:Gauss_sum_equivalence,thm:Gauss_sum_modulus}. The case when \(r \ge 2\) is proved by induction and \cref{prop:quadratic_Gauss_sum_reduction} (i).
     \end{proof}
 
-    For any integer \(m\), we define the \textit{epsilon factor} \(\e_{m}\) by
+    For any integer \(m\), we define the \textbf{epsilon factor}\index{epsilon factor} \(\e_{m}\) by
     \[
       \e_{m} = \frac{g(m)}{\sqrt{m}}.
     \]

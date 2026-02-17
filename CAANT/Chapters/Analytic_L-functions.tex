@@ -5,23 +5,23 @@
   \]
   for the Pochhammer symbol.
   \section{Analytic Data}
-    An \textit{analytic \(L\)-function} \(L(s)\) is a Dirichlet series
+    An \textbf{analytic \(L\)-function}\index{analytic \(L\)-function} \(L(s)\) is a Dirichlet series
     \[
       L(s) = \sum_{n \ge 1}\frac{a_{L}(n)}{n^{s}},
     \]
     with coefficients \(a_{L}(n) \in \C\) such that \(a_{L}(1) = 1\) and satisfying the following properties:
     \begin{enumerate}[align=left]
       \item[\textbf{Analyticity:}] There exists a nonnegative integer \(m_{L}\) such that the Dirichlet series of \(L(s)\) is absolutely convergent for \(\s > 1\) and admits meromorphic continuation to \(\C\) with at most a pole at \(s = 1\) of order \(m_{L}\). Moreover, \((s-1)^{m_{L}}L(s)\) is order \(1\).
-      \item[\textbf{Functional Equation:}] There is a positive integer \(q_{L}\), called the \textit{conductor} of \(L(s)\), a positive integer \(d_{L}\) called the \textit{degree} of \(L(s)\), complex numbers \((\mu_{j})_{1 \le j \le d_{L}}\) called the \textit{gamma parameters} of \(L(s)\) that are either real or occur in conjugate pairs and satisfy \(\Re(\mu_{j}) \ge 0\), and a complex number \(\e_{L}\) called the \textit{root number} of \(L(s)\) with \(|\e_{L}| = 1\), all of which determine functions
+      \item[\textbf{Functional Equation:}] There is a positive integer \(q_{L}\), called the \textbf{conductor}\index{conductor} of \(L(s)\), a positive integer \(d_{L}\) called the \textbf{degree}\index{degree} of \(L(s)\), complex numbers \((\mu_{j})_{1 \le j \le d_{L}}\) called the \textbf{gamma parameters}\index{gamma parameters} of \(L(s)\) that are either real or occur in conjugate pairs and satisfy \(\Re(\mu_{j}) \ge 0\), and a complex number \(\e_{L}\) called the \textbf{root number}\index{root number} of \(L(s)\) with \(|\e_{L}| = 1\), all of which determine functions
       \[
         \L(s,L) = q_{L}^{\frac{s}{2}}\g_{L}(s)L(s) \quad \text{and} \quad \g_{L}(s) = \pi^{-\frac{d_{L}s}{2}}\prod_{j}\G\left(\frac{s+\mu_{j}}{2}\right),
       \]
-      called the \textit{completion} of \(L(s)\) and the \textit{gamma factor} of \(L(s)\) respectively, satisfying
+      called the \textbf{completion}\index{completion} of \(L(s)\) and the \textbf{gamma factor}\index{gamma factor} of \(L(s)\) respectively, satisfying
       \[
         \L(s,L) = \e_{L}\conj{\L(1-\conj{s},L)}.
       \]
-      This is called the \textit{functional equation} of \(L(s)\). The tuple \((\e_{L},q_{L},\mu_{1},\ldots,\mu_{d_{L}})\) is called the \textit{functional equation data} of \(L(s)\).
-      \item[\textbf{Euler product:}] For every prime \(p\), there exist complex numbers \((\a_{j}(p))_{1 \le j \le d_{L}}\) called the \textit{Euler parameters} of \(L(s)\) at \(p\) satisfying \(|\a_{j}(p)| \le p^{\theta}\) for some \(0 \le \theta < 1\) and are such that \(L(s)\) admits the Euler product
+      This is called the \textbf{functional equation}\index{functional equation} of \(L(s)\). The tuple \((\e_{L},q_{L},\mu_{1},\ldots,\mu_{d_{L}})\) is called the \textbf{functional equation data}\index{functional equation data} of \(L(s)\).
+      \item[\textbf{Euler product:}] For every prime \(p\), there exist complex numbers \((\a_{j}(p))_{1 \le j \le d_{L}}\) called the \textbf{Euler parameters}\index{Euler parameters} of \(L(s)\) at \(p\) satisfying \(|\a_{j}(p)| \le p^{\theta}\) for some \(0 \le \theta < 1\) and are such that \(L(s)\) admits the Euler product
       \[
         L(s) = \prod_{p}(1-\a_{1}(p)p^{-s})^{-1} \cdots (1-\a_{d_{L}}(p)p^{-s})^{-1},
       \]
@@ -29,10 +29,10 @@
       \[
         L_{p}(T) = (1-\a_{1}(p)T) \cdots (1-\a_{d_{L}}(p)T),
       \]
-      is called the \textit{Euler factor} of \(L(s)\) at \(p\). If \(p \nmid q_{L}\) then \(L_{p}\) is of degree \(d_{L}\) while if \(p \mid q_{L}\) then \(L_{p}\) is of degree less than \(d_{L}\).
+      is called the \textbf{Euler factor}\index{Euler factor} of \(L(s)\) at \(p\). If \(p \nmid q_{L}\) then \(L_{p}\) is of degree \(d_{L}\) while if \(p \mid q_{L}\) then \(L_{p}\) is of degree less than \(d_{L}\).
     \end{enumerate}
 
-    An analytic \(L\)-function is said to be \textit{Selberg class} if it satisfies the following additional property:
+    An analytic \(L\)-function is said to be \textbf{Selberg class}\index{Selberg class} if it satisfies the following additional property:
 
     \begin{enumerate}[align=left]
       \item[\textbf{Ramanujan bound:}] We may take \(\theta = 0\) so that \(|\a_{j}(p)| \le 1\).
@@ -59,7 +59,7 @@
       In other words, \(a_{L}(p^{k})\) is the complete symmetric polynomial of degree \(k\) in the Euler parameters at \(p\). If the Ramanujan bound holds, then it follows that \(a_{L}(n) \ll \s_{d_{L}}(n)\). This implies the slightly weaker, but more practical, estimate \(a_{L}(n) \ll_{\e} n^{\e}\).
     \end{enumerate}
 
-    It it clear from the definition that analytic \(L\)-functions are closed under multiplication and that the degree is additive. Moreover, this closure respects Selberg class \(L\)-functions. This makes the set of analytic \(L\)-functions into a graded commutative semigroup where the grading is induced by degree. It follows that there exist irreducible elements with respect to the grading and we say that an analytic \(L\)-function is \textit{primitive} if it such an irreducible. Clearly any analytic \(L\)-function of degree \(1\) is primitive. Moreover, every analytic \(L\)-function factors into a product of primitive \(L\)-functions. Such a factorization is only conjectured to be unique for Selberg class \(L\)-functions. A sufficient condition would be \textit{Selberg's orthogonality conjecture}.
+    It it clear from the definition that analytic \(L\)-functions are closed under multiplication and that the degree is additive. Moreover, this closure respects Selberg class \(L\)-functions. This makes the set of analytic \(L\)-functions into a graded commutative semigroup where the grading is induced by degree. It follows that there exist irreducible elements with respect to the grading and we say that an analytic \(L\)-function is \textbf{primitive}\index{primitive} if it such an irreducible. Clearly any analytic \(L\)-function of degree \(1\) is primitive. Moreover, every analytic \(L\)-function factors into a product of primitive \(L\)-functions. Such a factorization is only conjectured to be unique for Selberg class \(L\)-functions. A sufficient condition would be \textbf{Selberg's orthogonality conjecture}\index{Selberg's orthogonality conjecture}.
 
     \begin{conjecture*}[Selberg's orthogonality conjecture]
       For any two primitive Selberg class \(L\)-functions \(L_{1}(s)\) and \(L_{2}(s)\), we have
@@ -93,7 +93,7 @@
       for some positive integer \(c\) since the factorizations are distinct. This is impossible.
     \end{proof}
 
-    To an analytic \(L\)-function \(L(s)\), we associate its \textit{analytic conductor} \(\mf{q}(s,L)\) defined by
+    To an analytic \(L\)-function \(L(s)\), we associate its \textbf{analytic conductor}\index{analytic conductor} \(\mf{q}(s,L)\) defined by
     \[
       \mf{q}(s,L) = q_{L}\mf{q}_{\infty}(s,L),
     \]
@@ -131,7 +131,7 @@
     \end{equation}
     hold for bounded \(\s\) provided \(s\) is at least distance \(\e\) away from the poles of the gamma factor.
     
-    The \textit{critical strip} of an analytic \(L\)-function is the vertical strip left invariant by the transformation \(s \mapsto 1-s\). This region can also be described as
+    The \textbf{critical strip}\index{critical strip} of an analytic \(L\)-function is the vertical strip left invariant by the transformation \(s \mapsto 1-s\). This region can also be described as
     \[
       \left\{s \in \C:\left|\s-\frac{1}{2}\right| \le \frac{1}{2}\right\}.
     \]
@@ -162,7 +162,7 @@
       \label{fig:critical_strip}
     \end{figure}
 
-    The \textit{critical line} is the vertical line left invariant by the transformation \(s \mapsto 1-s\) which is also given by \(\s = \frac{1}{2}\). The critical line bisects the critical strip vertically. The \textit{central point} is the fixed point of the transformation \(s \mapsto 1-s\), in other words, the point \(s = \frac{1}{2}\). Clearly the central point is also the center of the critical line. The critical strip, critical line, and central point are all displayed in \cref{fig:critical_strip}.
+    The \textbf{critical line}\index{critical line} is the vertical line left invariant by the transformation \(s \mapsto 1-s\) which is also given by \(\s = \frac{1}{2}\). The critical line bisects the critical strip vertically. The \textbf{central point}\index{central point} is the fixed point of the transformation \(s \mapsto 1-s\), in other words, the point \(s = \frac{1}{2}\). Clearly the central point is also the center of the critical line. The critical strip, critical line, and central point are all displayed in \cref{fig:critical_strip}.
 
     In the half-plane \(\s > 1\) we may study the analytic properties of \(L(s)\) via its Dirichlet series. Using the functional equation, we may write
     \[
@@ -218,7 +218,7 @@
     \[
       \e_{L}(t) = \e_{L}\left(\frac{1}{2}+it\right).
     \]
-    This term appears as a factor in the dual sum accounting for the functional equation data. We now prove the \textit{approximate function equation}:
+    This term appears as a factor in the dual sum accounting for the functional equation data. We now prove the \textbf{approximate function equation}\index{approximate function equation}:
 
     \begin{theorem*}[Approximate functional equation]
       Suppose \(L(s)\) is an analytic \(L\)-function, \(\Phi(u)\) is an even holomorphic function bounded in the vertical strip \(|\tau| < a+1\) for some \(a > 1\) and such that \(\Phi(0) = 1\), and let \(X > 0\). Then for \(s\) in the critical strip, we have
@@ -353,9 +353,9 @@
     \[
       L(s) = \e_{L}q_{L}^{\frac{1}{2}-s}\frac{\g_{L}(1-s)}{\g_{L}(s)}\conj{L(1-\conj{s})}.
     \] 
-    So for \(\s < 0\), we see that \(\conj{L(1-\conj{s})}\) is nonzero. Moreover, \(\g_{L}(1-s)\) is as well. Together this means that for \(\s < 0\) the poles of \(\g_{L}(s)\) are zeros of \(L(s)\). Such a zero is called a \textit{trivial zero} of \(L(s)\). From the definition of the gamma factor, they are all simple and of the form \(s = -(\mu_{j}+2n)\) for some gamma parameter \(\mu_{j}\) and some nonnegative integer \(n\).
+    So for \(\s < 0\), we see that \(\conj{L(1-\conj{s})}\) is nonzero. Moreover, \(\g_{L}(1-s)\) is as well. Together this means that for \(\s < 0\) the poles of \(\g_{L}(s)\) are zeros of \(L(s)\). Such a zero is called a \textbf{trivial zero}\index{trivial zero} of \(L(s)\). From the definition of the gamma factor, they are all simple and of the form \(s = -(\mu_{j}+2n)\) for some gamma parameter \(\mu_{j}\) and some nonnegative integer \(n\).
     
-    Any other zero of \(L(s)\) is called a \textit{nontrivial zero} and it necessarily lies inside of the critical strip. Let \(\rho\) be a nontrivial zero of \(L(s)\). Then the functional equation implies that \(1-\conj{\rho}\) is also a nontrivial zero of \(L(s)\). This means that nontrivial zeros occur in pairs
+    Any other zero of \(L(s)\) is called a \textbf{nontrivial zero}\index{nontrivial zero} and it necessarily lies inside of the critical strip. Let \(\rho\) be a nontrivial zero of \(L(s)\). Then the functional equation implies that \(1-\conj{\rho}\) is also a nontrivial zero of \(L(s)\). This means that nontrivial zeros occur in pairs
     \[
       \rho \quad \text{and} \quad 1-\conj{\rho}.
     \]
@@ -400,13 +400,13 @@
       \label{fig:symmetric_nontrivial_zeros}
     \end{figure}
 
-    The \textit{Riemann hypothesis} for \(L(s)\) says that this symmetry should be as simple as possible.
+    The \textbf{Riemann hypothesis}\index{Riemann hypothesis} for \(L(s)\) says that this symmetry should be as simple as possible.
 
     \begin{conjecture*}[Riemann hypothesis, \(L(s)\)]
       The nontrivial zeros of the analytic \(L\)-function \(L(s)\) all lie on the vertical line \(\s = \frac{1}{2}\).
     \end{conjecture*}
 
-    While stated as a conjecture, we not expect the Riemann hypothesis to hold for just any analytic \(L\)-function. We do however expect it to hold for Selberg class \(L\)-functions. In particular, the \textit{Selberg class Riemann hypothesis} says that this symmetry should hold for any Selberg class \(L\)-function:
+    While stated as a conjecture, we not expect the Riemann hypothesis to hold for just any analytic \(L\)-function. We do however expect it to hold for Selberg class \(L\)-functions. In particular, the \textbf{Selberg class Riemann hypothesis}\index{Selberg class Riemann hypothesis} says that this symmetry should hold for any Selberg class \(L\)-function:
 
     \begin{conjecture*}[Selberg class Riemann hypothesis]
       The nontrivial zeros of any Selberg class \(L\)-function \(L(s)\) lie on the vertical line \(\s = \frac{1}{2}\).
@@ -443,7 +443,7 @@
     \[
       L\left(\frac{1}{2}+it\right) \ll_{\e} \mf{q}\left(t,L\right)^{\frac{1}{4}+\e}.
     \]
-    This is known as the \textit{convexity bound} for \(L(s)\). The \textit{Lindel\"of hypothesis} for \(L(s)\) says that the exponent can be reduced to \(\e\):
+    This is known as the \textbf{convexity bound}\index{convexity bound} for \(L(s)\). The \textbf{Lindel\"of hypothesis}\index{Lindel\"of hypothesis} for \(L(s)\) says that the exponent can be reduced to \(\e\):
 
     \begin{conjecture*}[Lindel\"of hypothesis, \(L(s)\)]
       The analytic \(L\)-function \(L(s)\) satisfies
@@ -452,7 +452,7 @@
       \]
     \end{conjecture*}
 
-    Unlike the Riemann hypothesis, the Lindel\"of hypothesis is expected to hold for any analytic \(L\)-function. In any case, the \textit{Selberg class Lindel\"of hypothesis} says that the exponent can be reduced to \(\e\) for any Selberg class \(L\)-function:
+    Unlike the Riemann hypothesis, the Lindel\"of hypothesis is expected to hold for any analytic \(L\)-function. In any case, the \textbf{Selberg class Lindel\"of hypothesis}\index{Selberg class Lindel\"of hypothesis} says that the exponent can be reduced to \(\e\) for any Selberg class \(L\)-function:
 
     \begin{conjecture*}[Selberg class Lindel\"of hypothesis]
       Any Selberg class \(L\)-function \(L(s)\) satisfies
@@ -461,14 +461,14 @@
       \]
     \end{conjecture*}
 
-    Like the Riemann hypothesis, we have been unable to prove the Lindel\"of hypothesis for any analytic \(L\)-function. However, in practice the Lindel\"of hypothesis is more tractable. Generally speaking, any improvement upon the exponent in the convexity bound in any aspect of the analytic conductor is called a \textit{subconvexity estimate} (or a \textit{convexity breaking bound}). In the uniform case, we would like to prove bounds of the form
+    Like the Riemann hypothesis, we have been unable to prove the Lindel\"of hypothesis for any analytic \(L\)-function. However, in practice the Lindel\"of hypothesis is more tractable. Generally speaking, any improvement upon the exponent in the convexity bound in any aspect of the analytic conductor is called a \textbf{subconvexity estimate}\index{subconvexity estimate} (or a \textbf{convexity breaking bound}\index{convexity breaking bound}). In the uniform case, we would like to prove bounds of the form
     \[
       L\left(\frac{1}{2}+it\right) \ll_{\e} \mf{q}\left(t,L\right)^{\d+\e},
     \]
     for some \(0 \le \d \le \frac{1}{4}\). The convexity bound says that we may take \(\d = \frac{1}{4}\) while the Lindel\"of hypothesis for \(L(s)\) implies that we may take \(\d = 0\). Any uniform subconvexity estimate would give a \(\d\) strictly less than \(\frac{1}{4}\). Subconvexity estimates are viewed with great interest. This is primarily because of their connection to the Lindel\"of hypothesis, but also because any improvement upon the convexity bound in any aspect of the analytic conductor often has drastic consequences in applications.
 
     \begin{remark}
-      Some subconvexity bounds are deserving of names. The cases \(\d = \frac{3}{16}\) and \(\d = \frac{1}{6}\) are referred to as the \textit{Burgess bound} and \textit{Weyl bound} respectively.
+      Some subconvexity bounds are deserving of names. The cases \(\d = \frac{3}{16}\) and \(\d = \frac{1}{6}\) are referred to as the \textbf{Burgess bound}\index{Burgess bound} and \textbf{Weyl bound}\index{Weyl bound} respectively.
     \end{remark}
     
     With a little more work, we can obtain a a similar bound for the derivatives of analytic \(L\)-functions. First observe that \cref{thm:convexity_bound_for_L_function_in_critial_strip} gives the estimate
@@ -483,9 +483,9 @@
     \[
       L^{(k)}\left(\frac{1}{2}+it\right) \ll_{\e} \mf{q}\left(t,L\right)^{\frac{1}{4}+\e}.
     \]
-    This is known as the \textit{convexity bound} for \(L^{(k)}(s)\).
+    This is known as the \textbf{convexity bound}\index{convexity bound} for \(L^{(k)}(s)\).
 
-    We now turn to the question of how to obtain estimates on the critical line. There are many methods one can apply often depending upon the particular analytic \(L\)-function of interest. Here we will provide a method that works in vast generality and reduces the estimation of \(L\left(\frac{1}{2}+it\right)\) to that of estimating smoothed finite sums of coefficients. To achieve this we need to establish the existence of certain bump functions. We say that a function \(\w(y)\) is a \textit{smooth dyadic weight} if it is a positive bump function supported in \([1-\d,2+\d]\) and such that
+    We now turn to the question of how to obtain estimates on the critical line. There are many methods one can apply often depending upon the particular analytic \(L\)-function of interest. Here we will provide a method that works in vast generality and reduces the estimation of \(L\left(\frac{1}{2}+it\right)\) to that of estimating smoothed finite sums of coefficients. To achieve this we need to establish the existence of certain bump functions. We say that a function \(\w(y)\) is a \textbf{smooth dyadic weight}\index{smooth dyadic weight} if it is a positive bump function supported in \([1-\d,2+\d]\) and such that
     \[
       \sum_{k \in \Z}\w\left(\frac{y}{2^{k}}\right) = 1,
     \]
@@ -576,7 +576,7 @@
     \]
     As the coefficients \(a_{L}(n)\) may very well be real, the expected cancellation must come from the terms \(n^{-it} = e^{-it\log(n)}\) which acts on the coefficients \(a_{L}(n)\) by rotation. In effect, we should think of the terms \(a_{L}(n)n^{-it}\) as modeling identically distributed random variables. 
 
-    The case when \(t = 0\) is deserving of unique importance. In this case, we are estimating the value of \(L(s)\) at the central point. The value of \(L(s)\) at the central point is called the \textit{central value} of \(L(s)\). Many important properties about \(L(s)\) can be connected to its central value. Any argument used to estimate the central value of an \(L\)-function is called a \textit{central value estimate}. Taking \(t = 0\) in \cref{thm:critical_line_estimate} gives a way to obtain central value estimates.
+    The case when \(t = 0\) is deserving of unique importance. In this case, we are estimating the value of \(L(s)\) at the central point. The value of \(L(s)\) at the central point is called the \textbf{central value}\index{central value} of \(L(s)\). Many important properties about \(L(s)\) can be connected to its central value. Any argument used to estimate the central value of an \(L\)-function is called a \textbf{central value estimate}\index{central value estimate}. Taking \(t = 0\) in \cref{thm:critical_line_estimate} gives a way to obtain central value estimates.
 
     \begin{theorem}\label{thm:central_value_estimate}
       Let \(L(s)\) be an analytic \(L\)-function and let \(\w(y)\) be a smooth dyadic weight. Then
@@ -604,7 +604,7 @@
     \[
       \L_{L}(n) = \begin{cases} \sum_{j}\a_{j}(p)^{k}\log(p) & \text{if \(n = p^{k}\)}, \\ 0 & \text{otherwise}. \end{cases}
     \]
-    We call \(\L_{L}(n)\) the \textit{Von Mangoldt coefficients} of \(L(s)\).
+    We call \(\L_{L}(n)\) the \textbf{Von Mangoldt coefficients}\index{Von Mangoldt coefficients} of \(L(s)\).
 
     There is an incredibly useful formula for the logarithmic derivative of \(L(s)\) which is often the starting point for deeper analytic investigations. To deduce it, we require a more complete understanding of the completion \(\L(s,L)\). First observe that the zeros \(\rho\) of \(\L(s,L)\) are contained within the critical strip. Indeed, by our earlier discussion of zeros, \(\L(s,L)\) is nonzero for \(\s > 1\) and the functional equation implies that \(\L(s,L)\) is nonzero for \(\s < 0\) too. This means that the zeros of \(\L(s,L)\) are exactly nontrivial zeros of \(L(s)\). Now let us setup some notation. We define \(\xi(s,L)\) by
     \[
@@ -895,7 +895,7 @@
       The asymptotic formula follows from this estimate and that the same exact estimate holds for \(N'(T,L)\) by using the \(L\)-function \(L(s,L)\). We obtain the asymptotic equality at once from the asymptotic formula.
     \end{proof}
 
-    It is worth noting that the main term in the proof of \cref{thm:zero_counting} comes from the change in argument of \(Q^{\frac{s}{2}}\g_{L}(s)\) along \(\eta_{3}\) (equivalently \(\eta_{4}\)). Moreover, the contribution from \(L(s)\) is only to the error term. This is a good example of how analytic information of an \(L\)-function is intrinsically connected to its gamma factor. Also, with \cref{thm:zero_counting} we can derive our zero density estimate. The asymptotic equivalence in \cref{thm:zero_counting} can be interpreted as saying that for large \(T\) the density of \(N(T,f)\) is approximately \(\frac{1}{\pi}\log\left(\frac{QT^{d_{L}}}{(2\pi e)^{d_{L}}}\right)\). Since this grows as \(T \to \infty\), we see that the nontrivial zeros tend to accumulate farther up the critical strip with logarithmic growth. We can dispense with this accumulation. If \(\rho = \b+i\g\) is a nontrivial zero of \(L(s)\) then we call \(\rho_{\text{unf}} = \b+i\w\) the \textit{unfolded nontrivial zero} corresponding to \(\rho\) where
+    It is worth noting that the main term in the proof of \cref{thm:zero_counting} comes from the change in argument of \(Q^{\frac{s}{2}}\g_{L}(s)\) along \(\eta_{3}\) (equivalently \(\eta_{4}\)). Moreover, the contribution from \(L(s)\) is only to the error term. This is a good example of how analytic information of an \(L\)-function is intrinsically connected to its gamma factor. Also, with \cref{thm:zero_counting} we can derive our zero density estimate. The asymptotic equivalence in \cref{thm:zero_counting} can be interpreted as saying that for large \(T\) the density of \(N(T,f)\) is approximately \(\frac{1}{\pi}\log\left(\frac{QT^{d_{L}}}{(2\pi e)^{d_{L}}}\right)\). Since this grows as \(T \to \infty\), we see that the nontrivial zeros tend to accumulate farther up the critical strip with logarithmic growth. We can dispense with this accumulation. If \(\rho = \b+i\g\) is a nontrivial zero of \(L(s)\) then we call \(\rho_{\text{unf}} = \b+i\w\) the \textbf{unfolded nontrivial zero}\index{unfolded nontrivial zero} corresponding to \(\rho\) where
     \[
       \w = \frac{\g}{\pi}\log\left(\frac{Q|\g|^{d_{L}}}{(2\pi e)^{d_{L}}}\right).
     \]
@@ -925,7 +925,7 @@
 
     We interpret \cref{prop:unfolded_zeros_are_evenly_spaced} as saying that the unfolded nontrivial zeros are evenly spaced opposed to \cref{thm:zero_counting} which say that they tend to accumulate up the critical strip.
   \fi\iffalse\section{A Zero-free Region}
-    Although the Riemann hypothesis remains out of reach, some progress has been made to understand regions inside of the critical strip for which \(L\)-functions are nonzero except for possibly one real exception. Such regions are known as \textit{zero-free regions} and there is great interest in improving the breadth of such regions. We will derive a standard zero-free region for any \(L\)-function under some mild assumptions. First a useful lemma:
+    Although the Riemann hypothesis remains out of reach, some progress has been made to understand regions inside of the critical strip for which \(L\)-functions are nonzero except for possibly one real exception. Such regions are known as \textbf{zero-free regions}\index{zero-free regions} and there is great interest in improving the breadth of such regions. We will derive a standard zero-free region for any \(L\)-function under some mild assumptions. First a useful lemma:
 
     \begin{lemma}\label{lem:non-vanshing_at_1_lemma}
       Let \(L(s)\) be an \(L\)-function such that \(\Re(\L_{L}(n)) \ge 0\) provided \((n,Q) = 1\). Also suppose that \(|\a_{j}(p)| \le \frac{p}{2}\) for ramified primes \(p\). Then \(L(1,f) \neq 0\) and hence \(r_{L} \ge 0\). Moreover, there exists a constant \(c > 0\) such that \(L(s)\) has at most \(r_{L}\) real zeros in the region
@@ -1047,9 +1047,9 @@
     \[
       1-\frac{c}{d_{L}^{2}\log(3\mf{q}(f))} \le \b_{f} < 1
     \]
-    is referred to as a \textit{Siegel zero} (or \textit{exceptional zero}). Such zeros are conjectured to not exist and it is a very interesting question to see how the presence of a Siegel zero can affect the behavior of the associated \(L\)-function. If \(L(s)\) is of Selberg class, the conclusion of \cref{thm:zero_free_region_generic} is expected to hold without the possibly of a Siegel zero since \(L(s)\) is expected to satisfy the Riemann hypothesis. Nevertheless, we can often satisfy the assumptions of \cref{thm:zero_free_region_generic}. Indeed, if \(\a_{i}(p) \ge 0\) then the assumptions are satisfied immediately. If not, since \(|\a_{i}(p)| \le 1\) the assumptions will hold for \(\z(s)L(s)\) provided \(L(s)\) does not have a pole at \(s = 1\). This is often possible to prove in practice since \(L(s)\) is expected to be entire unless \(\a_{i}(p) \ge 0\).
+    is referred to as a \textbf{Siegel zero}\index{Siegel zero} (or \textbf{exceptional zero}\index{exceptional zero}). Such zeros are conjectured to not exist and it is a very interesting question to see how the presence of a Siegel zero can affect the behavior of the associated \(L\)-function. If \(L(s)\) is of Selberg class, the conclusion of \cref{thm:zero_free_region_generic} is expected to hold without the possibly of a Siegel zero since \(L(s)\) is expected to satisfy the Riemann hypothesis. Nevertheless, we can often satisfy the assumptions of \cref{thm:zero_free_region_generic}. Indeed, if \(\a_{i}(p) \ge 0\) then the assumptions are satisfied immediately. If not, since \(|\a_{i}(p)| \le 1\) the assumptions will hold for \(\z(s)L(s)\) provided \(L(s)\) does not have a pole at \(s = 1\). This is often possible to prove in practice since \(L(s)\) is expected to be entire unless \(\a_{i}(p) \ge 0\).
   \fi\iffalse\section{The Explicit Formula}
-    A formula somewhat analogous to the approximate functional equation can be derived for the negative logarithmic derivative of any \(L\)-function. This formula is called the \textit{explicit formula}:
+    A formula somewhat analogous to the approximate functional equation can be derived for the negative logarithmic derivative of any \(L\)-function. This formula is called the \textbf{explicit formula}\index{explicit formula}:
 
     \begin{theorem*}[Explict Formula]
       Let \(\psi(y)\) be a positive bump function with compact support and let \(\Psi(s)\) denote its Mellin transform. Set \(\phi(y) = y^{-1}\psi(y^{-1})\) so that its Mellin transform satisfies \(\Phi(s) = \Psi(1-s)\). Then for any \(L\)-function \(L(s)\), we have
