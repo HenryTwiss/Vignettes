@@ -103,50 +103,74 @@
 \indexentry{class number|hyperpage}{48}
 \indexentry{unit group|hyperpage}{48}
 \indexentry{unit|hyperpage}{48}
-\indexentry{Dirichlet series|hyperpage}{52}
-\indexentry{abscissa of convergence|hyperpage}{53}
-\indexentry{abscissa of absolute convergence|hyperpage}{53}
-\indexentry{Landau's theorem|hyperpage}{57}
-\indexentry{Euler product|hyperpage}{59}
-\indexentry{degree|hyperpage}{59}
-\indexentry{(classical) Perron's formula|hyperpage}{61}
-\indexentry{Perron's formula|hyperpage}{65}
-\indexentry{smooth weight|hyperpage}{66}
-\indexentry{unweighted|hyperpage}{66}
-\indexentry{weighted|hyperpage}{66}
-\indexentry{Perron's formula|hyperpage}{67}
-\indexentry{analytic \(L\)-function|hyperpage}{68}
-\indexentry{conductor|hyperpage}{68}
+\indexentry{multiplicative|hyperpage}{48}
+\indexentry{localization|hyperpage}{48}
+\indexentry{localization|hyperpage}{48}
+\indexentry{localization|hyperpage}{49}
+\indexentry{localization|hyperpage}{49}
+\indexentry{localization|hyperpage}{49}
+\indexentry{localization|hyperpage}{50}
+\indexentry{localization|hyperpage}{50}
+\indexentry{localization|hyperpage}{50}
+\indexentry{localization|hyperpage}{51}
+\indexentry{localization|hyperpage}{51}
+\indexentry{local|hyperpage}{51}
+\indexentry{discrete valuation ring|hyperpage}{52}
+\indexentry{uniformizer|hyperpage}{53}
+\indexentry{valuation|hyperpage}{53}
+\indexentry{valuation|hyperpage}{53}
+\indexentry{valulation|hyperpage}{55}
+\indexentry{exponential valuation|hyperpage}{55}
+\indexentry{ring of \(S\)-integers|hyperpage}{57}
+\indexentry{algebraic \(S\)-integer|hyperpage}{57}
+\indexentry{\(S\)-class group|hyperpage}{57}
+\indexentry{\(S\)-class number|hyperpage}{57}
+\indexentry{\(S\)-unit group|hyperpage}{57}
+\indexentry{\(S\)-unit|hyperpage}{57}
+\indexentry{Dirichlet series|hyperpage}{61}
+\indexentry{abscissa of convergence|hyperpage}{62}
+\indexentry{abscissa of absolute convergence|hyperpage}{62}
+\indexentry{Landau's theorem|hyperpage}{66}
+\indexentry{Euler product|hyperpage}{68}
 \indexentry{degree|hyperpage}{68}
-\indexentry{gamma parameters|hyperpage}{68}
-\indexentry{root number|hyperpage}{68}
-\indexentry{completion|hyperpage}{68}
-\indexentry{gamma factor|hyperpage}{68}
-\indexentry{functional equation|hyperpage}{69}
-\indexentry{functional equation data|hyperpage}{69}
-\indexentry{Euler parameters|hyperpage}{69}
-\indexentry{Euler factor|hyperpage}{69}
-\indexentry{Selberg class|hyperpage}{69}
-\indexentry{primitive|hyperpage}{70}
-\indexentry{Selberg's orthogonality conjecture|hyperpage}{70}
-\indexentry{analytic conductor|hyperpage}{71}
-\indexentry{critical strip|hyperpage}{72}
-\indexentry{critical line|hyperpage}{72}
-\indexentry{central point|hyperpage}{72}
-\indexentry{approximate function equation|hyperpage}{74}
-\indexentry{trivial zero|hyperpage}{78}
-\indexentry{nontrivial zero|hyperpage}{78}
-\indexentry{Riemann hypothesis|hyperpage}{78}
-\indexentry{Selberg class Riemann hypothesis|hyperpage}{78}
-\indexentry{convexity bound|hyperpage}{79}
-\indexentry{Lindel\"of hypothesis|hyperpage}{79}
-\indexentry{Selberg class Lindel\"of hypothesis|hyperpage}{80}
-\indexentry{subconvexity estimate|hyperpage}{80}
-\indexentry{convexity breaking bound|hyperpage}{80}
-\indexentry{Burgess bound|hyperpage}{80}
-\indexentry{Weyl bound|hyperpage}{80}
-\indexentry{convexity bound|hyperpage}{81}
-\indexentry{smooth dyadic weight|hyperpage}{81}
-\indexentry{central value|hyperpage}{83}
-\indexentry{central value estimate|hyperpage}{83}
-\indexentry{Von Mangoldt coefficients|hyperpage}{84}
+\indexentry{(classical) Perron's formula|hyperpage}{70}
+\indexentry{Perron's formula|hyperpage}{74}
+\indexentry{smooth weight|hyperpage}{75}
+\indexentry{unweighted|hyperpage}{75}
+\indexentry{weighted|hyperpage}{75}
+\indexentry{Perron's formula|hyperpage}{76}
+\indexentry{analytic \(L\)-function|hyperpage}{77}
+\indexentry{conductor|hyperpage}{77}
+\indexentry{degree|hyperpage}{77}
+\indexentry{gamma parameters|hyperpage}{77}
+\indexentry{root number|hyperpage}{77}
+\indexentry{completion|hyperpage}{77}
+\indexentry{gamma factor|hyperpage}{77}
+\indexentry{functional equation|hyperpage}{78}
+\indexentry{functional equation data|hyperpage}{78}
+\indexentry{Euler parameters|hyperpage}{78}
+\indexentry{Euler factor|hyperpage}{78}
+\indexentry{Selberg class|hyperpage}{78}
+\indexentry{primitive|hyperpage}{79}
+\indexentry{Selberg's orthogonality conjecture|hyperpage}{79}
+\indexentry{analytic conductor|hyperpage}{80}
+\indexentry{critical strip|hyperpage}{81}
+\indexentry{critical line|hyperpage}{81}
+\indexentry{central point|hyperpage}{81}
+\indexentry{approximate function equation|hyperpage}{83}
+\indexentry{trivial zero|hyperpage}{87}
+\indexentry{nontrivial zero|hyperpage}{87}
+\indexentry{Riemann hypothesis|hyperpage}{87}
+\indexentry{Selberg class Riemann hypothesis|hyperpage}{87}
+\indexentry{convexity bound|hyperpage}{88}
+\indexentry{Lindel\"of hypothesis|hyperpage}{88}
+\indexentry{Selberg class Lindel\"of hypothesis|hyperpage}{89}
+\indexentry{subconvexity estimate|hyperpage}{89}
+\indexentry{convexity breaking bound|hyperpage}{89}
+\indexentry{Burgess bound|hyperpage}{89}
+\indexentry{Weyl bound|hyperpage}{89}
+\indexentry{convexity bound|hyperpage}{90}
+\indexentry{smooth dyadic weight|hyperpage}{90}
+\indexentry{central value|hyperpage}{92}
+\indexentry{central value estimate|hyperpage}{92}
+\indexentry{Von Mangoldt coefficients|hyperpage}{93}

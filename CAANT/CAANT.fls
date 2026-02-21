@@ -985,6 +985,8 @@ INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/ueuf.fd
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/euler/eufm10.tfm
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/euler/eufm10.tfm
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/euler/eufm7.tfm
+INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmss17.tfm
+INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/euler/eufm5.tfm
 INPUT ./Chapters/Dirichlet_Series.tex
 INPUT ./Chapters/Dirichlet_Series.tex
 INPUT ./Chapters/Dirichlet_Series.tex
@@ -995,7 +997,6 @@ INPUT ./Chapters/Dirichlet_Series.tex
 INPUT Chapters/Dirichlet_Series.tex
 INPUT ./Chapters/Dirichlet_Series.tex
 INPUT Chapters/Dirichlet_Series.tex
-INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/euler/eufm5.tfm
 INPUT ./Chapters/Analytic_L-functions.tex
 INPUT ./Chapters/Analytic_L-functions.tex
 INPUT ./Chapters/Analytic_L-functions.tex
@@ -1066,4 +1067,5 @@ INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pf
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb
+INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/euler/eufm7.pfb
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb

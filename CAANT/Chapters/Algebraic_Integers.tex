@@ -638,7 +638,7 @@
       Let \(\smc{O}\) be a Dedekind domain. Then \(\smc{O}\) is a principal ideal domain if and only if it is a unique factorization domain.
     \end{proposition}
     \begin{proof}
-      The forward implication is immediate as every principal ideal domain is a unique factorization domain. For the reverse implication, suppose \(\smc{O}\) is a unique factorization domain. As every integral ideal factors into a product of primes by \cref{thm:unique_product_prime_ideals} and the product of principal integral ideals is principal, it suffices to show that primes are principal. Let \(\mf{p}\) be a prime. Then there exists nonzero \(\a \in \mf{p}\) and \(\a\) is not a unit since \(\mf{p}\) a proper ideal. Since \(\smc{O}\) is a unique factorization domain, let \(\a = \mu\rho_{1}^{e_{1}} \cdots \rho_{r}^{e_{r}}\) be the prime factorization of \(\a\). Since \(\mf{p}\) is prime, it follows that there is some \(i\) such that \(\rho_{i} \in \mf{p}\). Without loss of generality, we may assume \(\rho_{1} \in \mf{p}\). Then the integral ideal \(\rho_{1}\smc{O}\) satisfies \(\rho_{1}\smc{O} \subseteq \mf{p}\). As \(\rho_{1}\) is prime, \(\rho_{1}\smc{O}\) is a prime and hence maximal since prime ideals are maximal in \(\smc{O}\). Whence \(\rho_{1}\smc{O} = \mf{p}\) proving \(\mf{p}\) is principal.
+      The forward implication is immediate as every principal ideal domain is a unique factorization domain. For the reverse implication, suppose \(\smc{O}\) is a unique factorization domain. As every integral ideal factors into a product of primes by \cref{thm:unique_product_prime_ideals} and the product of principal integral ideals is principal, it suffices to show that primes are principal. Let \(\mf{p}\) be a prime. Then there exists nonzero \(\a \in \mf{p}\) and \(\a\) is not a unit since \(\mf{p}\) a proper ideal. Since \(\smc{O}\) is a unique factorization domain, let \(\a = \e\rho_{1}^{e_{1}} \cdots \rho_{r}^{e_{r}}\) be the prime factorization of \(\a\). Since \(\mf{p}\) is prime, it follows that there is some \(i\) such that \(\rho_{i} \in \mf{p}\). Without loss of generality, we may assume \(\rho_{1} \in \mf{p}\). Then the integral ideal \(\rho_{1}\smc{O}\) satisfies \(\rho_{1}\smc{O} \subseteq \mf{p}\). As \(\rho_{1}\) is prime, \(\rho_{1}\smc{O}\) is a prime and hence maximal since prime ideals are maximal in \(\smc{O}\). Whence \(\rho_{1}\smc{O} = \mf{p}\) proving \(\mf{p}\) is principal.
     \end{proof}
 
     With the prime factorization in hand, we will discuss the group structure of the fractional ideals of \(\smc{O}\). Let \(I_{\smc{O}}\) denote the set of fractional ideals of \(\smc{O}\). We call \(I_{\smc{O}}\) the \textbf{ideal group}\index{ideal group} of \(\smc{O}\). This is indeed a group as the following theorem demonstrates:
@@ -719,7 +719,7 @@
       \]
       for some nonnegative integers \(e_{i}\) and \(f_{i}\). By the prime factorization of fractional ideals, there exists \(\a_{i} \in \mf{p}_{i}^{e_{i}}-\mf{p}_{i}^{e_{i}+1}\). As \(\mf{p}_{1}^{e_{1}+1},\ldots,\mf{p}_{r}^{e_{r}+1}\) are pairwise relatively prime, the Chinese remainder theorem implies the existence of an \(\a \in \smc{O}\) such that \(\a \equiv \a_{i} \tmod{\mf{p}_{i}^{e_{i}+1}}\). But then
       \[
-        \a \equiv 0 \tmod{\mf{p}_{i}^{e_{i}}} \quad \text{and} \quad \a \equiv \a_{i} \tmod{\mf{p}_{i}^{e_{i}+1}}.
+        \a \equiv 0 \mod{\mf{p}_{i}^{e_{i}}} \quad \text{and} \quad \a \equiv \a_{i} \mod{\mf{p}_{i}^{e_{i}+1}}.
       \]
       Whence \(\mf{p}_{i}^{e_{i}} \mid\mid \a\smc{O}\). It follows that \((\a\smc{O},\mf{a}\mf{b}) = \mf{a}\). Then there exists an integral ideal \(\mf{c}\) such that \(\a\smc{O} = \mf{a}\mf{c}\) and necessarily \((\mf{a}\mf{c},\mf{a}\mf{b}) = \mf{a}\). Thus \((\mf{c},\mf{b}) = \smc{O}\) which is to say that \(\mf{c}\) must be relatively prime to \(\mf{b}\).
     \end{proof}
@@ -850,169 +850,181 @@
       h_{K} = |\Cl(K)|.
     \]
     The \textbf{unit group}\index{unit group} of \(K\) is the unit group of \(\mc{O}_{K}\) and we call any element of \(\mc{O}_{K}^{\ast}\) a \textbf{unit}\index{unit} of \(K\) (with the understanding that every element of \(K\) is invertible in \(K\)). It follows from \cref{thm:unique_product_prime_ideals} that integral ideals \(\mf{a}\) of \(K\) admit prime factorizations. One of our core investigations will be to understand how the principal integral ideal \(p\mc{O}_{K}\) factors into a product of primes of \(K\) for any prime \(p\). We will also leverage geometric ideas to show that the class number is finite and completely describe the unit group.
-  \iffalse\section{\todo{Localization}}
-    Let \(\smc{O}\) be a noetherian integral domain with field of fractions \(K\). If \(D \subseteq \smc{O}-\{0\}\) is a multiplicative subset (recall that necessarily \(1 \in D\)) then the \textbf{localization}\index{localization} \(\smc{O}D^{-1}\) of \(\smc{O}\) at \(D\) is defined by
+  \section{\todo{Localization}}
+    Let \(\smc{O}\) be a noetherian integral domain with field of fractions \(K\). A subset \(D\) of \(\smc{O}\) is said to be \textbf{multiplicative}\index{multiplicative} if it is closed under multiplication, \(1 \in D\), and \(0 \notin D\). The set \(\smc{O}-\{0\}\) is always multiplicative but more interesting examples are when we consider strict subsets. In any case, we define the \textbf{localization}\index{localization} \(\smc{O}D^{-1}\) of \(\smc{O}\) at \(D\) by
     \[
-      \smc{O}D^{-1} = \left\{\frac{\a}{\d} \in K:\a \in \smc{O} \text{ and } \d \in D\right\}.
+      \smc{O}D^{-1} = \left\{\frac{\eta}{\d} \in K:\eta \in \smc{O} \text{ and } \d \in D\right\}.
     \]
-    Moreover, for any subset \(N\) of \(\smc{O}\), we set
-    \[
-      ND^{-1} = \left\{\frac{\eta}{\d} \in K:\eta \in N \text{ and } \d \in D\right\}.
-    \]
-    Now \(\smc{O}D^{-1}\) is clearly a subring of \(K\) which is an integral domain and is it formed from \(\smc{O}\) by making every element of \(D\) invertible. It is also noetherian for if \(\mf{A}\) is an ideal of \(\smc{O}D^{-1}\), set \(\mf{a} = \mf{A} \cap \smc{O}\). Then
+    Clearly \(\smc{O}D^{-1}\) is a subring of \(K\) which is an integral domain and is obtained from \(\smc{O}\) by making the elements of \(D\) invertible. It is also noetherian for if \(\mf{A}\) is an ideal of \(\smc{O}D^{-1}\), set \(\mf{a} = \mf{A} \cap \smc{O}\). Then
     \[
       \mf{A} = \mf{a}D^{-1}.
     \]
-    Indeed, the reverse containment is trivial. For the forward containment, if \(\frac{\a}{\d} \in \mf{A}\) then \(\a \in \mf{a}\) because \(\d \in D\) and \(\mf{A}\) is an ideal of \(\smc{O}D^{-1}\). Hence \(\frac{\a}{\d} \in \mf{a}D^{-1}\) as desired. Since \(\smc{O}\) is Dedekind, \(\mf{a}\) is a finitely generated \(\smc{O}\)-module and hence \(\mf{A}\) is a finitely generated \(\smc{O}D^{-1}\)-module by the identity we have just proved. Thus \(\smc{O}D^{-1}\) is noetherian. It follows that if \(\mf{f}\) is a fractional ideal of \(\smc{O}\) then \(\mf{f}D^{-1}\) is a fractional ideal of \(\smc{O}D^{-1}\). We call \(\mf{f}D^{-1}\) the \textbf{localization}\index{localization} of \(\mf{f}\) at \(D\). In the case of primes, we have an exact correspondence:
+    As \(\smc{O}\) is noetherian, \(\mf{a}\) is a finitely generated \(\smc{O}\)-module and hence \(\mf{A}\) is a finitely generated \(\smc{O}D^{-1}\)-module. More generally, for any fractional ideal \(\mf{f}\) of \(\smc{O}\), the \textbf{localization}\index{localization} \(\mf{f}D^{-1}\) of \(\mf{f}\) at \(D\) is defined by
+    \[
+      \mf{f}D^{-1} = \left\{\frac{\eta}{\d} \in K:\eta \in \mf{f} \text{ and } \d \in D\right\}.
+    \]
+    In particular, if \(\mf{f}\) is a fractional ideal of \(\smc{O}\) then \(\mf{f}D^{-1}\) is a fractional ideal of \(\smc{O}D^{-1}\). In the case of primes, we have an exact correspondence between those of \(\smc{O}\) disjoint from \(D\) and those of \(\smc{O}D^{-1}\).
 
     \begin{proposition}\label{prop:localization_prime_bijection}
-      Let \(\smc{O}\) be a noetherian integral domain and \(D \subseteq \smc{O}-\{0\}\) be a multiplicative subset. Then the maps
+      Let \(\smc{O}\) be a noetherian integral domain and \(D\) be a multiplicative subset of \(\smc{O}\). Then the maps
       \[
         \mf{q} \mapsto \mf{q}D^{-1} \quad \text{and} \quad \mf{Q} \mapsto \mf{Q} \cap \smc{O}.
       \]
       are inverse inclusion-preserving bijections between the primes \(\mf{q}\) of \(\smc{O}\) disjoint from \(D\) and the primes \(\mf{Q}\) of \(\smc{O}D^{-1}\).
     \end{proposition}
     \begin{proof}
-      First suppose \(\mf{q}\) is a prime of \(\smc{O}\) that is disjoint from \(D\). We claim that the integral ideal \(\mf{q}D^{-1}\) of \(\smc{O}D^{-1}\) is prime. Indeed, suppose \(\frac{\a}{\d},\frac{\b}{\g} \in \smc{O}D^{-1}\) are such that \(\frac{\a\b}{\d\g} \in \mf{q}D^{-1}\). Then \(\a\b \in \mf{q}\) and thus \(\a \in \mf{q}\) or \(\b \in \mf{q}\) because \(\mf{q}\) is prime. Hence \(\frac{\a}{\d} \in \mf{q}D^{-1}\) or \(\frac{\b}{\g} \in \mf{q}D^{-1}\) as desired. Also, the prime \(\mf{q}D^{-1}\) satisfies
+      First suppose \(\mf{q}\) is a prime of \(\smc{O}\) that is disjoint from \(D\). Then the integral ideal \(\mf{q}D^{-1}\) of \(\smc{O}D^{-1}\) is prime because \(\mf{q}\) is. Also, the prime \(\mf{q}D^{-1}\) satisfies
       \[
-        \mf{q} = \mf{q}D^{-1} \cap \smc{O}.
+        \mf{q} = \mf{q}D^{-1} \cap \smc{O},
       \]
-      The forward inclusion is obvious. For the reverse inclusion, if \(\frac{\a}{\d} \in \mf{q}D^{-1} \cap \smc{O}\) then \(\a \in \mf{q}\) and hence \(\frac{\a}{\d} \in \mf{q}\) because \(\mf{q}\) is prime and \(\d \notin \mf{q}\) (as \(\mf{q}\) is disjoint from \(D\)). Now suppose \(\mf{Q}\) is a prime of \(\smc{O}D^{-1}\). We claim that \(\mf{Q} \cap \smc{O}\) is a prime of \(\smc{O}\) that is disjoint from \(D\). It is clearly an integral ideal of \(\smc{O}\) and is prime because \(\mf{Q}\) is. If \(\mf{Q} \cap \smc{O}\) is not disjoint from \(D\) then \(\d \in \mf{Q} \cap \smc{O}\) with \(\d \in D\). Hence \(1 \in \mf{Q} \cap \smc{O}\) because \(\frac{1}{\d} \in \smc{O}D^{-1}\) and \(\mf{Q}\) is an integral ideal of \(\smc{O}D^{-1}\). This is impossible since \(\mf{Q} \cap \smc{O}\) is prime (hence proper) and therefore must be disjoint from \(D\). Moreover, the prime \(\mf{Q} \cap \smc{O}\) satisfies
+      because \(\mf{q}\) is disjoint from \(D\). Now suppose \(\mf{Q}\) is a prime of \(\smc{O}D^{-1}\). Then the integral ideal \(\mf{Q} \cap \smc{O}\) of \(\smc{O}\) is prime because \(\mf{Q}\) is. Also, \(\mf{Q} \cap \smc{O}\) is disjoint from \(D\) for otherwise it contains a unit which is a contradiction as prime ideals are proper. Moreover, the prime \(\mf{Q} \cap \smc{O}\) satisfies
       \[
         \mf{Q} = (\mf{Q} \cap \smc{O})D^{-1}.
       \]
-      The reverse inclusion is obvious since \(1 \in D\). For the forward inclusion, if \(\frac{\a}{\d} \in \mf{Q}\) then \(\a \in \mf{Q} \cap \smc{O}\) and thus \(\frac{\a}{\d} \in (\mf{Q} \cap \smc{O})D^{-1}\). All of this together shows that the mappings
+      All of this together shows that the mappings
       \[
         \mf{q} \mapsto \mf{q}D^{-1} \quad \text{and} \quad \mf{Q} \mapsto \mf{Q} \cap \smc{O}.
       \]
       are inverse bijections between the primes \(\mf{q}\) of \(\smc{O}\) disjoint from \(D\) and the primes \(\mf{Q}\) of \(\smc{O}D^{-1}\). They are clearly inclusion-preserving.
     \end{proof}
 
-    From \cref{prop:localization_prime_bijection}, the primes of \(\smc{O}D^{-1}\) are of the form \(\mf{p}D^{-1}\) for primes \(\mf{p}\) of \(\smc{O}\) disjoint from \(D\).
-
-    \begin{remark}
-      The bijections in \cref{prop:localization_prime_bijection} need not hold for all integral ideals.
-    \end{remark}
+    It follows from this result that the primes of \(\smc{O}D^{-1}\) are of the form \(\mf{p}D^{-1}\) for primes \(\mf{p}\) of \(\smc{O}\) disjoint from \(D\).
     
-    Localization is most useful when we localize at the compliment of a prime or collection of primes. If \(\mf{p}\) is a prime of \(\smc{O}\) then \(\smc{O}-\mf{p} \subset \smc{O}-\{0\}\) is a multiplicative subset. Indeed, the inclusion is obvious, \(1 \in \smc{O}-\mf{p}\) because \(\mf{p}\) is proper and thus does not contain units, and if \(\a,\b \in \smc{O}-\mf{p}\) we have \(\a\b \notin \mf{p}\) because \(\mf{p}\) is prime so that \(\a\b \in \smc{O}-\mf{p}\) and thus \(\smc{O}-\mf{p}\) is closed under multiplication. We define the \textbf{localization}\index{localization} \(\smc{O}_{\mf{p}}\) of \(\smc{O}\) at \(\mf{p}\) by
-    \[
-      \smc{O}_{\mf{p}} = \smc{O}(\smc{O}-\mf{p})^{-1}.
-    \]
-    In other words,
-    \[
-      \smc{O}_{\mf{p}} = \left\{\frac{\a}{\d} \in K:\a,\d \in \smc{O} \text{ with } \d \not\equiv 0 \tmod{\mf{p}}\right\}.
-    \]
-    Essentially, localizing at a prime \(\mf{p}\) removes all of the algebraic information about \(\smc{O}\) that has nothing to do with \(\mf{p}\). If \(\mf{f}\) is a fractional ideal of \(\smc{O}\) then the \textbf{localization}\index{localization} \(\mf{f}_{\mf{p}}\) of \(\mf{f}\) at \(\mf{p}\) is defined to be
-    \[
-      \mf{f}_{\mf{p}} = \mf{f}(\smc{O}-\mf{p})^{-1}.
-    \]
-    More generally, let \(X\) be a set of primes in \(\smc{O}\) and consider
+    It is most common to choose the multiplicative subset \(D\) so that it is the compliment of a prime \(\mf{p}\). Indeed, \(\smc{O}-\mf{p}\) is a multiplicative subset precisely because \(\mf{p}\) is prime. In fact, let \(X\) be a set of primes of \(\smc{O}\) and consider
     \[
       \smc{O}-\bigcup_{\mf{p} \in X}\mf{p}.
     \]
-    Then \(\smc{O}-\bigcup_{\mf{p} \in X}\mf{p} \subseteq \smc{O}-\{0\}\) is a multiplicative subset because
+    Then \(\smc{O}-\bigcup_{\mf{p} \in X}\mf{p}\) is a multiplicative subset because of the identity
     \[
-      \smc{O}-\bigcup_{\mf{p} \in X}\mf{p} = \bigcap_{\mf{p} \in X}(\smc{O}-\mf{p}),
+      \smc{O}-\bigcup_{\mf{p} \in X}\mf{p} = \bigcap_{\mf{p} \in X}(\smc{O}-\mf{p}).
     \]
-    and the \(\smc{O}-\mf{p}\) are. We define the \textbf{localization}\index{localization} \(\smc{O}(X)\) of \(\smc{O}\) at \(X\) by
+    In any case, we define the \textbf{localization}\index{localization} \(\smc{O}_{\mf{p}}\) of \(\smc{O}\) at \(\mf{p}\) by
+    \[
+      \smc{O}_{\mf{p}} = \smc{O}(\smc{O}-\mf{p})^{-1}.
+    \]
+    Localizing at a prime \(\mf{p}\) should be thought of as removing all of the algebraic information about \(\smc{O}\) that has nothing to do with \(\mf{p}\). More generally, if \(\mf{f}\) is a fractional ideal of \(\smc{O}\) then the \textbf{localization}\index{localization} \(\mf{f}_{\mf{p}}\) of \(\mf{f}\) at \(\mf{p}\) is defined to be
+    \[
+      \mf{f}_{\mf{p}} = \mf{f}(\smc{O}-\mf{p})^{-1}.
+    \]
+    In both of these constructions we have localized at a single prime. It is possible to localize at more than one prime. Let \(X\) be a set of primes in \(\smc{O}\). We define the \textbf{localization}\index{localization} \(\smc{O}(X)\) of \(\smc{O}\) at \(X\) by
     \[
       \smc{O}(X) = \smc{O}\left(\smc{O}-\bigcup_{\mf{p} \in X}\mf{p}\right)^{-1}.
-    \]
-    Equivalently,
-    \[
-      \smc{O}(X) = \left\{\frac{\a}{\d} \in K:\a,\d \in \smc{O} \text{ with } \d \not\equiv 0 \tmod{\mf{p}} \text{ for some } \mf{p} \in X\right\}.
     \]
     If \(\mf{f}\) is a fractional ideal of \(\smc{O}\) then the \textbf{localization}\index{localization} \(\mf{f}(X)\) of \(\mf{f}\) at \(X\) is defined to be
     \[
       \mf{f}(X) = \mf{f}\left(\smc{O}-\bigcup_{\mf{p} \in X}\mf{p}\right)^{-1}.
     \]
-    Note that if \(X = \{\mf{p}\}\) then \(\smc{O}(X) = \smc{O}_{\mf{p}}\) and \(\mf{f}(X) = \mf{f}_{\mf{p}}\). In any case, localizing is a useful tool in algebraic investigations and we quickly collect some useful properties. First, localization respects integral closure:
+    If \(X\) consists of a single prime \(\mf{p}\) then \(\smc{O}(X) = \smc{O}_{\mf{p}}\) and \(\mf{f}(X) = \mf{f}_{\mf{p}}\).
+    
+    In order for localization to be a useful tool in algebraic investigations, it must behave well with respect to what we have already developed. To this end, we will collect some useful properties. Our first property is that localization respects integral closure.
 
     \begin{proposition}\label{prop:localization_of_integral_closure_is_integral_closure}
-      Let \(\smc{O}\) be a noetherian integral domain with field of fractions \(K\), \(L/K\) be a finite separable extension, and \(\mc{O}\) be the integral closure of \(\smc{O}\) in \(L\). Then for any multiplicative set \(D \subseteq \smc{O}-\{0\}\), \(\mc{O}D^{-1}\) is the integral closure of \(\smc{O}D^{-1}\) in \(L\).
+      Let \(\smc{O}\) be a noetherian integral domain with field of fractions \(K\), \(L/K\) be a finite separable extension, and \(\mc{O}\) be the integral closure of \(\smc{O}\) in \(L\). Then for any multiplicative subset \(D\) of \(\smc{O}\), \(\mc{O}D^{-1}\) is the integral closure of \(\smc{O}D^{-1}\) in \(L\).
     \end{proposition}
     \begin{proof}
-      We need to show that \(\mc{O}D^{-1} = \conj{\smc{O}D^{-1}}\). For the forward inclusion, let \(\frac{\a}{\d} \in \mc{O}D^{-1}\). As \(\mc{O}\) is the integral closure of \(\smc{O}\) in \(L\), \(\a\) is integral over \(\smc{O}\) so that
+      We need to show \(\mc{O}D^{-1} = \conj{\smc{O}D^{-1}}\). For the forward inclusion, let \(\frac{\eta}{\d} \in \mc{O}D^{-1}\). As \(\mc{O}\) is the integral closure of \(\smc{O}\) in \(L\), \(\eta\) is integral over \(\smc{O}\) so that
       \[
-        \a^{n}+a_{n-1}\a^{n-1}+\cdots+a_{0} = 0,
+        \a^{n}+\a_{n-1}\a^{n-1}+\cdots+\a_{0} = 0,
       \]
-      for some positive integer \(n\) and \(a_{i} \in \smc{O}\) for \(0 \le i \le n-1\). Diving by \(\d^{n}\), we obtain
+      for some positive integer \(n\) and \(\a_{i} \in \smc{O}\). Upon dividing by \(\d^{n}\), we obtain
       \[
-        \left(\frac{\a}{\d}\right)^{n}+\frac{a_{n-1}}{\d}\left(\frac{\a}{\d}\right)^{n-1}+\cdots+\frac{a_{0}}{\d^{n}} = 0.
+        \left(\frac{\eta}{\d}\right)^{n}+\frac{\a_{n-1}}{\d}\left(\frac{\eta}{\d}\right)^{n-1}+\cdots+\frac{\a_{0}}{\d^{n}} = 0.
       \]
-      Thus \(\frac{\a}{\d}\) is the root of a monic polynomial with coefficients in \(\smc{O}D^{-1}\). Therefore the forward inclusion holds. For the reverse inclusion, suppose \(\l \in \conj{\smc{O}D^{-1}}\). Then
+      Thus \(\frac{\eta}{\d}\) is the root of a monic polynomial with coefficients in \(\smc{O}D^{-1}\). Therefore the forward inclusion holds. For the reverse inclusion, suppose \(\a \in \conj{\smc{O}D^{-1}}\). Then
       \[
-        \l^{n}+\frac{a_{n-1}}{\d_{n-1}}\l^{n-1}+\cdots+\frac{a_{0}}{\d_{0}} = 0,
+        \a^{n}+\frac{\eta_{n-1}}{\d_{n-1}}\a^{n-1}+\cdots+\frac{\eta_{0}}{\d_{0}} = 0,
       \]
-      for some positive integer \(n\) and \(\frac{a_{i}}{\d_{i}} \in \smc{O}D^{-1}\) for \(0 \le i \le n-1\). Letting \(\d = \d_{0}\cdots\d_{n-1}\) and multiplying by \(\d^{n}\), we obtain
+      for some positive integer \(n\) and \(\frac{\eta_{i}}{\d_{i}} \in \smc{O}D^{-1}\). Letting \(\d = \d_{0}\cdots\d_{n-1}\) and multiplying by \(\d^{n}\) shows that
       \[
-        (\l\d)^{n}+\frac{a_{n-1}\d}{\d_{n-1}}(\l\d)^{n-1}+\cdots+\frac{a_{0}\d^{n}}{\d_{0}} = 0.
+        (\a\d)^{n}+\frac{\eta_{n-1}\d}{\d_{n-1}}(\a\d)^{n-1}+\cdots+\frac{\eta_{0}\d^{n}}{\d_{0}} = 0.
       \]
-      It follows that \(\l\d\) is the root of a monic polynomial with coefficients in \(\smc{O}\). As \(\mc{O}\) is the integral closure of \(\smc{O}\) in \(L\), we have \(\l\d \in \smc{O}\) and thus \(\l \in \smc{O}D^{-1}\). This proves the reverse inclusion which means \(\mc{O}D^{-1}\) is the integral closure of \(\smc{O}D^{-1}\) in \(L\).
+      Whence \(\a\d\) is the root of a monic polynomial with coefficients in \(\smc{O}\). As \(\mc{O}\) is the integral closure of \(\smc{O}\) in \(L\), we have \(\a\d \in \mc{O}\) and thus \(\a \in \mc{O}D^{-1}\). This proves the reverse inclusion which means \(\mc{O}D^{-1}\).
     \end{proof}
 
-    In the case of \cref{prop:localization_of_integral_closure_is_integral_closure}, we setup some additional notation. Again suppose \(\smc{O}\) is a noetherian integral domain with field of fractions \(K\), \(L/K\) be a finite separable extension, and \(\mc{O}\) be the integral closure of \(\smc{O}\) in \(L\). If \(\mf{p}\) is a prime of \(\smc{O}\) and \(\mf{F}\) is a fractional ideal of \(\mc{O}\), the \textbf{localization}\index{localization} \(\mf{F}_{\mf{p}}\) of \(\mf{F}\) at \(\mf{p}\) is defined by
+    In this setting, it will be useful to setup some additional notation. If \(\mf{p}\) is a prime of \(\smc{O}\), then we define the \textbf{localization}\index{localization} \(\mc{O}_{\mf{p}}\) of \(\mc{O}\) at \(\mf{p}\) by
+    \[
+      \mc{O}_{\mf{p}} = \mc{O}(\smc{O}-\mf{p})^{-1}.
+    \]
+    More generally, if \(\mf{F}\) is a fractional ideal of \(\mc{O}\) then the \textbf{localization}\index{localization} \(\mf{F}_{\mf{p}}\) of \(\mf{F}\) at \(\mf{p}\) is defined to be
     \[
       \mf{F}_{\mf{p}} = \mf{F}(\smc{O}-\mf{p})^{-1}.
     \]
-    More generally, let \(X\) be a set of primes of \(\smc{O}\). Then the \textbf{localization}\index{localization} \(\mf{F}(X)\) of \(\mf{F}\) at \(X\) is defined by
+    It is also possible to localize at more than a single prime. Let \(X\) be a set of primes of \(\smc{O}\). Then we define the \textbf{localization}\index{localization} \(\mf{O}(X)\) of \(\mf{O}\) at \(X\) by
+    \[
+      \mc{O}(X) = \mc{O}\left(\smc{O}-\bigcup_{\mf{p} \in X}\mf{p}\right)^{-1}.
+    \]
+    More generally, if \(\mf{F}\) is a fractional ideal of \(\mc{O}\) then the \textbf{localization}\index{localization} \(\mf{F}(X)\) of \(\mf{F}\) at \(X\) is defined to be
     \[
       \mf{F}(X) = \mf{F}\left(\smc{O}-\bigcup_{\mf{p} \in X}\mf{p}\right)^{-1}.
     \]
-    In particular, \cref{prop:localization_of_integral_closure_is_integral_closure} shows that \(\mc{O}_{\mf{p}}\) and \(\mc{O}(X)\) are the integral closures of \(\smc{O}_{\mf{p}}\) and \(\smc{O}(X)\) respectively. Our second property says intersections of localizations behave with respect to fractional ideals and units:
+    The previous result shows that \(\mc{O}_{\mf{p}}\) and \(\mc{O}(X)\) are the integral closures of \(\smc{O}_{\mf{p}}\) and \(\smc{O}(X)\) respectively.
+    
+    Our second property says that intersections of localizations behave well with respect to fractional ideals and units.
 
     \begin{proposition}\label{prop:ring_is_intersection_of_all_localizations}
       Let \(\smc{O}\) be a noetherian integral domain. Then for every fractional ideal \(\mf{f}\) of \(\smc{O}\), we have
       \[
-        \mf{f} = \bigcap_{\mf{p}}\mf{f}_{\mf{p}}.
+        \smc{O} = \bigcap_{\mf{p}}\smc{O}_{\mf{p}} \quad \text{and} \quad \mf{f} = \bigcap_{\mf{p}}\mf{f}_{\mf{p}}.
       \]
       In particular,
       \[
-        \smc{O} = \bigcap_{\mf{p}}\smc{O}_{\mf{p}} \quad \text{and} \quad \smc{O}^{\ast} = \bigcap_{\mf{p}}\smc{O}_{\mf{p}}^{\ast}.
+        \smc{O}^{\ast} = \bigcap_{\mf{p}}\smc{O}_{\mf{p}}^{\ast}.
       \]
     \end{proposition}
     \begin{proof}
-      The first identity follows from the second by multiplying by a fractional ideal \(\mf{f}\) of \(\smc{O}\). As for the second identity, the forward containment is obvious. For the reverse containment, suppose \(\frac{\a}{\b} \in \bigcap_{\text{\(\mf{p}\) prime}}\smc{O}_{\mf{p}}\) and set
+      For the first identity, the forward containment is obvious. For the reverse containment, suppose \(\frac{\eta}{\d} \in \bigcap_{\mf{p}}\smc{O}_{\mf{p}}\) and set
       \[
-        \mf{a} = \{\g \in \smc{O}:\a\g \in \b\smc{O}\}.
+        \mf{a} = \{\a \in \smc{O}:\eta\a \in \d\smc{O}\}.
       \]
-      Then \(\mf{a}\) is clearly an integral ideal of \(\smc{O}\) as \(\b \in \mf{a}\). It also cannot be contained in any prime \(\mf{p}\). Indeed, since \(\frac{\a}{\b} \in \smc{O}_{\mf{p}}\) we have \(\b \notin \mf{p}\) and so \(\b \in \mf{a}-\mf{p}\). As \(\smc{O}\) is noetherian (which we recall is equivalent to every nonempty collection of ideals having a maximal element), there exists a maximal integral ideal \(\mf{m}\) which is necessarily prime. As \(\mf{a}\) is not contained in any prime, \(\mf{a}\) is not contained in \(\mf{m}\) and thus \(\mf{a} = \smc{O}\). But then \(1 \in \mf{a}\) and so \(\a \in \b\smc{O}\) implying \(\frac{\a}{\b} \in \smc{O}\) which proves the reverse containment and the second identity follows. For the third identity, the forward containment is clear. For the reverse containment, suppose \(\frac{\a}{\b} \in \bigcap_{\mf{p}}\smc{O}_{\mf{p}}^{\ast}\). We have already showed \(\frac{\a}{\b} \in \smc{O}\) so it suffices to show \(\frac{\a}{\b}\) is a unit. As \(\b \notin \mf{p}\) for any prime \(\mf{p}\), it is necessarily not in any maximal integral ideal. Therefore \(\b \in \smc{O}^{\ast}\) because the complement of the union of all maximal integral ideals is exactly the set of units. Interchanging the roles of \(\a\) and \(\b\) shows that \(\a \in \smc{O}^{\ast}\) as well. Hence \(\frac{\a}{\b} \in \smc{O}^{\ast}\) which proves the reverse containment and the third equality follows.
+      Then \(\mf{a}\) is an integral ideal of \(\smc{O}\) and contains \(\d\). As \(\d\) is not contained in any prime of \(\smc{O}\), it follows that \(\mf{a}\) cannot be contained in any prime of \(\smc{O}\). As \(\smc{O}\) is noetherian, there exists a maximal integral ideal \(\mf{m}\) which is necessarily prime. Whence \(\mf{a}\) is not contained in \(\mf{m}\) and thus \(\mf{a} = \smc{O}\). In particular, \(1 \in \mf{a}\). Therefore \(\eta \in \d\smc{O}\) which implies \(\frac{\a}{\b} \in \smc{O}\) proving the reverse containment. The second identity follows from the first upon multiplying by \(\mf{f}\). This proves the first statement in full.
+      
+       For the second statement, the forward containment is clear. For the reverse containment, suppose \(\frac{\eta}{\d} \in \bigcap_{\mf{p}}\smc{O}_{\mf{p}}^{\ast}\). We have already showed \(\frac{\eta}{\d} \in \smc{O}\) so it suffices to show \(\frac{\eta}{\d}\) is a unit. As \(\d\) is not contained in any prime of \(\smc{O}\), it cannot be contained in any maximal integral ideal. This means \(\d\) is a unit. Interchanging the roles of \(\eta\) and \(\d\) shows that \(\eta\) is a unit as well. Hence \(\frac{\eta}{\d}\) is a unit and the reverse containment follows.
     \end{proof}
 
-    A noetherian integral domain is said to be \textbf{local}\index{local} if it has a unique maximal integral ideal. As we might expect, localizing at a prime will produce a local noetherian integral domain and hence justifies the term localization. We claim that \(\smc{O}_{\mf{p}}\) is a local noetherian integral domain with maximal integral ideal \(\mf{p}_{\mf{p}}\). Indeed, \(\smc{O}_{\mf{p}}\) is already a noetherian integral domain and it is clear that \(\mf{p}_{\mf{p}}\) is an ideal of \(\smc{O}_{\mf{p}}\). By \cref{prop:localization_prime_bijection}, the map
+    A noetherian integral domain is said to be \textbf{local}\index{local} if it has a unique maximal integral ideal. As may be expected, localizing at a prime produces a local noetherian integral domain. In particular, we claim that \(\smc{O}_{\mf{p}}\) is a local noetherian integral domain with maximal integral ideal \(\mf{p}_{\mf{p}}\). Indeed, \(\smc{O}_{\mf{p}}\) is already a noetherian integral domain and it is clear that \(\mf{p}_{\mf{p}}\) is an integral ideal of \(\smc{O}_{\mf{p}}\). By \cref{prop:localization_prime_bijection}, the map
     \[
       \mf{q} \to \mf{q}_{\mf{p}},
     \]
-    is a bijection between the primes of \(\smc{O}\) contained in \(\mf{p}\) the primes of \(\smc{O}_{\mf{p}}\). As maximal integral ideals are necessarily prime, \(\mf{p}_{\mf{p}}\) is the unique maximal integral ideal of \(\smc{O}_{\mf{p}}\). This implies
+    is a bijection between the primes of \(\smc{O}\) contained in \(\mf{p}\) the primes of \(\smc{O}_{\mf{p}}\). As maximal integral ideals are necessarily prime, \(\mf{p}_{\mf{p}}\) is the unique maximal integral ideal of \(\smc{O}_{\mf{p}}\) as claimed. As for consequences, we have
     \[
-      \smc{O}_{\mf{p}}^{\ast} = \smc{O}_{\mf{p}}-\mf{p}_{\mf{p}},
+      \smc{O}_{\mf{p}}^{\ast} = \smc{O}_{\mf{p}}-\mf{p}_{\mf{p}} \quad \text{and} \quad \smc{O}_{\mf{p}}^{\ast}+\mf{p}_{\mf{p}} = \smc{O}_{\mf{p}}^{\ast}.
     \]
-    because the complement of the union of all maximal integral ideals is exactly the set of units and \(\mf{p}_{\mf{p}}\) is the only one. It follows that \(\smc{O}_{\mf{p}}^{\ast}+\mf{p}_{\mf{p}} = \smc{O}_{\mf{p}}^{\ast}\). Indeed, the reverse containment is trivial and the forward containment follows since otherwise \(\smc{O}_{\mf{p}}^{\ast}+\mf{p}_{\mf{p}} \subseteq \mf{p}_{\mf{p}}\) which would imply \(\smc{O}_{\mf{p}}^{\ast} \subseteq \mf{p}_{\mf{p}}\) and this is impossible because \(\mf{p}_{\mf{p}}\) is maximal (hence proper). In other words, the sum of a unit of \(\smc{O}_{\mf{p}}\) and an element of \(\mf{p}_{\mf{p}}\) is a unit of \(\smc{O}_{\mf{p}}\). Also, if \(\mf{p}\) itself is maximal we can say more:
+    In other words, the units of \(\smc{O}_{\mf{p}}\) are precisely the elements not in the unique maximal ideal \(\mf{p}_{\mf{p}}\) and the sum of a unit of \(\smc{O}_{\mf{p}}\) and an element of \(\mf{p}_{\mf{p}}\) is again a unit of \(\smc{O}_{\mf{p}}\). If \(\mf{p}\) itself is maximal we can say more.
 
     \begin{proposition}\label{prop:localization_at_prime_is_local}
-      Let \(\smc{O}\) be a noetherian integral domain and \(\mf{p}\) be a prime. Then there is an embedding
+      Let \(\smc{O}\) be a noetherian integral domain and \(\mf{p}\) be a prime of \(\smc{O}\). Then there is an embedding
       \[
         \smc{O}/\mf{p} \to \smc{O}_{\mf{p}}/\mf{p}_{\mf{p}},
       \]
-      identifying \(\smc{O}_{\mf{p}}/\mf{p}_{\mf{p}}\) with the field of fractions of \(\smc{O}/\mf{p}\). In particular, if \(\mf{p}\) is maximal we have
+      identifying \(\smc{O}_{\mf{p}}/\mf{p}_{\mf{p}}\) with the field of fractions of \(\smc{O}/\mf{p}\). In particular, if \(\mf{p}\) is maximal we have an isomorphism
       \[
         \smc{O}/\mf{p}^{n} \cong \smc{O}_{\mf{p}}/\mf{p}_{\mf{p}}^{n},
       \]
-      for all \(n \ge 1\).
+      for any positive integer \(n\).
     \end{proposition}
     \begin{proof}
-      Let \(n \ge 1\) and consider the homomorphism
+      Consider the homomorphism
       \[
-        \phi:\smc{O}/\mf{p}^{n} \to \smc{O}_{\mf{p}}/\mf{p}_{\mf{p}}^{n} \qquad \a+\mf{p}^{n} \mapsto \a+\mf{p}_{\mf{p}}^{n}.
+        \phi:\smc{O} \to \smc{O}_{\mf{p}}/\mf{p}_{\mf{p}}^{n} \qquad \a \mapsto \a+\mf{p}_{\mf{p}}^{n}.
       \]
-      By \cref{prop:localization_prime_bijection}, \(\mf{p} = \mf{p}_{\mf{p}} \cap \smc{O}\) and therefore this map is an embedding when \(n = 1\). As \(\mf{p}_{\mf{p}}\) is maximal, \(\smc{O}_{\mf{p}}/\mf{p}_{\mf{p}}\) is a field and thus must be the field of fractions of \(\smc{O}/\mf{p}\) under this embedding. It remains to prove the last statement so suppose \(\mf{p}\) is maximal. We will show \(\phi\) is both injective and surjective which will finish the proof. For injectivity, it suffices to prove \(\ker\phi = 0\). So let \(\a\) be a representative of a coset in \(\smc{O}/\mf{p}\) such that \(\a \in \mf{p}_{\mf{p}}^{n}\). Then \(\a = \frac{\b}{\d}\) with \(\b \in \mf{p}^{n}\) and \(\d \notin \mf{p}\). Thus \(\b\) is a representative of the zero coset in \(\smc{O}/\mf{p}^{n}\) and so \(\a\) must be too which implies \(\ker\phi = 0\) and injectivity follows. For surjectivity, we first claim that the image of every \(\d \in \smc{O}-\mf{p}\) is a unit in \(\smc{O}/\mf{p}^{n}\) which equivalent to the fact that \(\mf{p}^{n}+\d\smc{O} = \smc{O}\) since there is then a \(\g \in \smc{O}\) such that \(\d-\g \in \mf{p}^{n}\). For \(n = 1\), maximality of \(\mf{p}\) implies \(\mf{p}+\d\smc{O} = \smc{O}\). We now argue by induction, so suppose the claim holds for \(\smc{O}/\mf{p}^{n-1}\). Then \(\mf{p}^{n-1}+\d\smc{O} = \smc{O}\) whence \(\mf{p}^{n}+\d\mf{p} = \mf{p}\) and therefore \(\mf{p}^{n}+\d\mc{O} = \mc{O}\) by the primality of \(\mf{p}\). Now let \(\frac{\a}{\d}\) be a representative of a coset in \(\smc{O}_{\mf{p}}/\mf{p}_{\mf{p}}^{n}\). As \(\d \notin \mf{p}\), what we have just proved shows that the coset represented by \(\d\) in \(\smc{O}/\mf{p}^{n}\) is invertible. Hence \(\frac{\a}{\d}\) represents a coset in \(\smc{O}/\mf{p^{n}}\) which proves surjectivity.
+      We have \(\ker\phi = \mf{p}_{\mf{p}}^{n} \cap \smc{O}\). By \cref{prop:localization_prime_bijection}, \(\mf{p} = \mf{p}_{\mf{p}} \cap \smc{O}\) and the first isomorphism theorem induces the desired embedding when \(n = 1\). As \(\mf{p}_{\mf{p}}\) is maximal, \(\smc{O}_{\mf{p}}/\mf{p}_{\mf{p}}\) is a field and thus must be the field of fractions of \(\smc{O}/\mf{p}\) under this embedding. It remains to prove the last statement. So suppose \(\mf{p}\) is maximal. It suffices to prove \(\ker\phi = \mf{p}^{n}\) and that \(\phi\) is surjective for then the first isomorphism theorem completes the proof. Now \(\ker\phi = \mf{p}^{n}\) if and only if \(\mf{p}^{n} = \mf{p}_{\mf{p}}^{n} \cap \smc{O}\). This latter identity follows by induction and the aforementioned fact \(\mf{p} = \mf{p}_{\mf{p}} \cap \smc{O}\). For surjectivity, let \(\frac{\a}{\d}\) be a representative of a coset in \(\smc{O}_{\mf{p}}/\mf{p}_{\mf{p}}^{n}\). As \(\d \notin \mf{p}\) and \(\mf{p}\) is maximal, \(\d\) is a representative of an invertible element in the field \(\smc{O}/\mf{p}\). Whence there exists an \(\e \in \smc{O}\) such that
+      \[
+        \d\e \equiv 1 \mod{\mf{p}}.
+      \]
+      Whence there is a \(\rho \in \mf{p}\) such that \(\frac{1}{\d} = \frac{\e}{1+\rho}\). Moreover, as \(\mf{p}\) is maximal \(1+\rho\) is a unit in \(\smc{O}\). Then \(\frac{\a}{\d} = \frac{\a\e}{1+\rho}\) is an element of \(\smc{O}\) proving surjectivity.
     \end{proof}
     
-    A \textbf{discrete valuation ring}\index{discrete valuation ring} is a principal ideal domain with a unique maximal integral ideal (recall that principal ideal domains are necessarily noetherian integral domains). In other words, a discrete valuation ring is a local principal ideal domain and is a particularly simple example of a local noetherian integral domain. As principal ideal domains are integrally closed by \cref{lemma:unique_factorization_domains_are_integrally_closed}, discrete valuation rings are necessarily Dedekind domains. In fact, they are Dedekind domains with exactly one prime by \cref{prop:Dedekind_with_finite_primes_is_PID}. If \(\smc{O}\) is a discrete valuation ring and \(\mf{p}\) is its maximal integral ideal (necessarily prime) then \(\mf{p}\) is of the form \(\mf{p} = \pi\smc{O}\) for some prime \(\pi \in \smc{O}\). We call \(\pi\) a \textbf{uniformizer}\index{uniformizer} of \(\smc{O}\) and it is uniquely defined up to multiplication by units of \(\smc{O}\). As every element not in \(\mf{p}\) is a unit (since \(\smc{O}\) is local) and \(\smc{O}\) is a unique factorization domain (because it is a principal ideal domain), it follows that every \(\a \in \smc{O}\) is of the form \(\a = \e\pi^{n}\) for some \(\e \in \smc{O}^{\ast}\) and \(n \ge 0\). In particular, \(\pi\) is the only prime of \(\smc{O}\) up to multiplication by units and every integral ideal of \(\smc{O}\) is of the form \(\mf{p}^{n}\) for some \(n \ge 0\). As \(\smc{O}\) is a principal ideal domain, it follows that \(\mf{p}\) is also the only prime of \(\smc{O}\). Thus \(\mf{p}\) is both the unique maximal integral ideal and prime \(\smc{O}\). Moreover, if \(K\) is the field of fractions of \(\smc{O}\) then every nonzero \(\k \in K\) can be uniquely expressed as
+    We wil now restrict to the case of principal ideal domains instead of the more general noetherian integral domains. We say that \(\smc{O}\) is a \textbf{discrete valuation ring}\index{discrete valuation ring} if it is a principal ideal domain with a unique maximal integral ideal. Equivalently, \(\smc{O}\) is a local principal ideal domain and is a particularly simple example of a local noetherian integral domain. As principal ideal domains are integrally closed by \cref{lemma:unique_factorization_domains_are_integrally_closed}, discrete valuation rings are necessarily Dedekind domains. In fact, they are Dedekind domains with exactly one prime by \cref{prop:Dedekind_with_finite_primes_is_PID}. Let \(\mf{p}\) be the unique maximal integral ideal of \(\smc{O}\). In particular, \(\mf{p}\) is prime and of the form \(\mf{p} = \pi\smc{O}\) for some prime \(\pi \in \smc{O}\). We call \(\pi\) a \textbf{uniformizer}\index{uniformizer} of \(\smc{O}\) and it is uniquely defined up to multiplication by a unit. On the one hand \(\smc{O}\) is local and every element not in \(\mf{p}\) is a unit. On the other hand, \(\smc{O}\) is a principal ideal domain so that \(\pi\) is the only prime of \(\smc{O}\). Since \(\smc{O}\) is also a unique factorization domain, these facts together imply that every \(\a \in \smc{O}\) is of the form
+    \[
+      \a = \e\pi^{n},
+    \]
+    for some nonnegative integer \(n\) and unit \(\e\). Moreover, this element generates the integral ideal \(\mf{p}^{n}\) and every integral ideal is of this form. Lastly, if \(K\) is the field of fractions of \(\smc{O}\) then every nonzero \(\k \in K\) can be uniquely expressed as
     \[
       \k = \e\pi^{n},
     \]
-    for some \(\e \in \smc{O}^{\ast}\) and \(n \in \Z\). The \textbf{valuation}\index{valuation} \(v\) associated to \(\smc{O}\) on \(K\) is the function defined by
+    for some integer \(n\) and unit \(\e\).
+    
+    \todo{xxx} The \textbf{valuation}\index{valuation} \(v\) associated to \(\smc{O}\) on \(K\) is the function defined by
     \[
       v:K \to \Z \cup \{\infty\} \qquad \k \mapsto v(\k) = \begin{cases} n & \text{if \(\k = \e\pi^{n}\)}, \\ \infty & \text{if \(\k = 0\)}. \end{cases}
     \]
@@ -1031,7 +1043,7 @@
     In view of the first identity in \cref{equ:valuation_properties}, \(v\) restricted to \(K^{\ast}\) is a surjective homomorphism. Discrete valuation rings, and hence valuation themselves, arise as as localizations of Dedekind domains at primes. Before we deduce this, we will establish a few facts. The first is that localization respects inversion of fractional ideals:
     
     \begin{proposition}\label{prop:localization_of_inverse_is_inverse_of_localization}
-      Let \(\smc{O}\) be a Dedekind domain with field of fractions \(K\) and \(D \subseteq \smc{O}-\{0\}\) be a multiplicative subset. Then for any fractional ideal \(\mf{f}\), we have
+      Let \(\smc{O}\) be a Dedekind domain with field of fractions \(K\) and \(D\) be a multiplicative subset of \(\smc{O}\). Then for any fractional ideal \(\mf{f}\), we have
       \[
         \mf{f}^{-1}D^{-1} = (\mf{f}D^{-1})^{-1}.
       \]
@@ -1043,7 +1055,7 @@
     Our second fact is that that the localization of a Dedekind domain is again a Dedekind domain:
 
     \begin{proposition}\label{prop:localization_of_Dedekind_is_Dedekind}
-      Let \(\smc{O}\) be a Dedekind domain and \(D \subseteq \smc{O}-\{0\}\) be a multiplicative subset. Then \(\smc{O}D^{-1}\) is a Dedekind domain.
+      Let \(\smc{O}\) be a Dedekind domain and \(D\) be a multiplicative subset of \(\smc{O}\). Then \(\smc{O}D^{-1}\) is a Dedekind domain.
     \end{proposition}
     \begin{proof}
       We have seen that \(\smc{O}D^{-1}\) is a noetherian integral domain since \(\smc{O}\) is. \(\smc{O}D^{-1}\) is also integrally closed by \cref{prop:localization_of_integral_closure_is_integral_closure}. It remains to show that every prime of \(\smc{O}D^{-1}\) is maximal. Letting \(\mf{p}D^{-1}\) be such prime, we see that it must be maximal because \(\mf{p}\) is and the bijections in \cref{prop:localization_prime_bijection} are inclusion-preserving.
@@ -1118,7 +1130,7 @@
       \mc{O}_{K}^{S} = \mc{O}_{K}(X).
     \]
     We call any \(\a \in \mc{O}_{K}^{S}\) an \textbf{algebraic \(S\)-integer}\index{algebraic \(S\)-integer}. The \textbf{\(S\)-class group}\index{\(S\)-class group} \(\Cl^{S}(K)\) of \(K\) is the ideal class group of \(\mc{O}_{K}^{S}\). The \textbf{\(S\)-class number}\index{\(S\)-class number} \(h_{K}^{S}\) of \(K\) is the class number of \(\Cl^{S}(K)\). The \textbf{\(S\)-unit group}\index{\(S\)-unit group} of \(K\) is the unit group \((\mc{O}_{K}^{S})^{\ast}\) of \(\mc{O}_{K}^{S}\) and we call any element of \((\mc{O}_{K}^{S})^{\ast}\) an \textbf{\(S\)-unit}\index{\(S\)-unit} of \(K\).
-  \fi\iffalse\section{\todo{Dedekind Extensions}}
+  \iffalse\section{\todo{Dedekind Extensions}}
     Having discussed the prime factorization of fractional ideals in Dedekind domains, we now turn to discussing how primes factor when considered in a larger Dedekind domain. Let \(\smc{O}\) be a Dedekind domain with field of fractions \(K\), \(L/K\) be a finite separable extension, and \(\mc{O}\) be the integral closure of \(\smc{O}\) in \(L\). We first show that \(\mc{O}\) is also a Dedekind domain:
 
     \begin{proposition}\label{prop:integral_closure_of_Dedekind_is_Dedekind}
@@ -1189,7 +1201,7 @@
     All of this is preserved under localization as the following proposition shows:
 
     \begin{proposition}\label{prop:ramification_setup_respects_localization}
-      Let \(\mc{O}/\smc{O}\) be a Dedekind extension of a finite separable extension \(L/K\) and let \(D \subseteq \smc{O}-\{0\}\) be a multiplicative subset. Then for the Dedekind extension \(\mc{O}D^{-1}/\smc{O}D^{-1}\), \(\mf{P}D^{-1}\) is above \(\mf{p}D^{-1}\) if and only if \(\mf{P}\) is above \(\mf{p}\). Moreover, there are isomorphisms
+      Let \(\mc{O}/\smc{O}\) be a Dedekind extension of a finite separable extension \(L/K\) and let \(D\) be a multiplicative subset of \(\smc{O}\). Then for the Dedekind extension \(\mc{O}D^{-1}/\smc{O}D^{-1}\), \(\mf{P}D^{-1}\) is above \(\mf{p}D^{-1}\) if and only if \(\mf{P}\) is above \(\mf{p}\). Moreover, there are isomorphisms
       \[
         \F_{\mf{P}D^{-1}} \cong \F_{\mf{P}} \quad \text{and} \quad \F_{\mf{p}D^{-1}} \cong \F_{\mf{p}}.
       \]
@@ -1669,7 +1681,7 @@
     As the dual \(\mf{F}^{\vee}\) is a fractional ideal by \cref{prop:dual_lattice_is_fractional}, it is also a complete \(\smc{O}\)-lattice. As we might hope, localization respects duals:
 
     \begin{proposition}\label{prop:localization_of_dual_is_dual_of_localization}
-      Let \(\mc{O}/\smc{O}\) be a Dedekind extension of a degree \(n\) separable extension \(L/K\) and let \(D \subseteq \smc{O}-\{0\}\) be a multiplicative subset. Then for any fractional ideal \(\mf{F}\) of \(\mc{O}\), we have
+      Let \(\mc{O}/\smc{O}\) be a Dedekind extension of a degree \(n\) separable extension \(L/K\) and let \(D\) be a multiplicative subset of \(\smc{O}\). Then for any fractional ideal \(\mf{F}\) of \(\mc{O}\), we have
       \[
         (\mf{F}D^{-1})^{\vee} = (\mf{F}^{\vee})D^{-1}.
       \]
@@ -1709,7 +1721,7 @@
     so that the discriminant \(\mf{d}_{\mc{O}/\smc{O}}\) is generated by the discriminant \(d_{\smc{O}}(\mc{O})\). In particular, \(\mf{d}_{\mc{O}/\smc{O}}\) is a principal integral ideal if \(\mc{O}/\smc{O}\) admits an integral basis. By \cref{thm:integral_basis_AKBL} this will hold if \(\smc{O}\) is a principal ideal domain but not necessarily in general. The different and discriminant also respect localization:
 
     \begin{proposition}\label{prop:different_and_discriminant_respect_localization}
-      Let \(\mc{O}/\smc{O}\) be a Dedekind extension of a degree \(n\) separable extension \(L/K\) and let \(D \subseteq \smc{O}-\{0\}\) be a multiplicative subset. Then
+      Let \(\mc{O}/\smc{O}\) be a Dedekind extension of a degree \(n\) separable extension \(L/K\) and let \(D\) be a multiplicative subset of \(\smc{O}\). Then
       \[
         \mf{D}_{\mc{O}D^{-1}/\smc{O}D^{-1}} = \mf{D}_{\mc{O}/\smc{O}}D^{-1} \quad \text{and} \quad \mf{d}_{\mc{O}D^{-1}/\smc{O}D^{-1}} = \mf{d}_{\mc{O}/\smc{O}}D^{-1}
       \]
